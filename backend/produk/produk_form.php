@@ -31,12 +31,18 @@ if(empty($_SESSION['username'])){
 <form  class="form-horizontal" method="POST" id="form1"  enctype="multipart/form-data"
 action="produk/produk_action.php">
 	
-		<?php		$id = $_GET['id'];?>
-		<input type='hidden' name='id' value="<?=$id?>">
+		<?php 
+		if(empty($_GET['id'])){
+		$id = null;
+		}else{
+		$id = $_GET['id'];
+		}
+		?>
+		<input type='hidden' name='id' value="<?php echo $id?>">
 	<div class="control-group">
 			<label class="control-label" for="nama_produk">Nama Produk</label>
 			<div class="controls">
-				<input type="text" name='nama_produk' value='<?=$data->nama_produk?>'class='required'
+				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'
 				>
 			</div>
 		</div>

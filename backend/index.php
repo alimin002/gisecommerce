@@ -17,7 +17,7 @@ include('../inc/header-back.php');
 					<a href="#" class="brand">
 						<small>
 							<i class="icon-desktop"></i>
-						Candralab  eCommerce Dashboard
+						Geek Inovation studio Ecommerce
 						</small>
 					</a><!--/.brand-->
 
@@ -28,7 +28,7 @@ include('../inc/header-back.php');
 									<i class="icon-off"></i>
 									Logout
 								</a></li>
-<?php } ?>
+			<?php } ?>
 							
 					</ul><!--/.w8-nav-->
 				</div><!--/.container-fluid-->

@@ -17,7 +17,12 @@ $chart=null;
 }else{
 $chart = $_SESSION['chart'];
 }
+if(empty($_GET['action'])){
+$action=null;
+}else{
 $action = $_GET['action'];
+}
+
 switch ($action) {
 	case 'add' :
 		if ($chart) {

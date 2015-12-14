@@ -30,16 +30,23 @@
 <form  class="form-horizontal" method="POST" id="form1"  enctype="multipart/form-data"
 action="stok/stok_action.php">
 	
-		<?php		$id = $_GET['id'];?>
-		<input type='hidden' name='id' value="<?=$id?>">
+		<?php
+		if(empty($_GET['id'])){		
+		$id = null;
+		}else{
+		$id = $_GET['id'];
+		}
+		?>
+		<input type='hidden' name='id' value="<?php $id?>">
 
 	<div class="control-group">
 			<label class="control-label" for="idproduk">Nama Produk</label>
 			<div class="controls">
 				<select id='idproduk' name='idproduk' class="required " >
 						<?php
-   
+ 
     combo_produk($data->idproduk);
+
    	?>
 				</select>
 			</div>
@@ -49,21 +56,21 @@ action="stok/stok_action.php">
 		<div class="control-group">
 			<label class="control-label" for="lon">Harga beli</label>
 			<div class="controls">
-				<input type="text" name='harga_beli' id='harga_beli' value='<?=$data->harga_beli?>' class='required'
+				<input type="text" name='harga_beli' id='harga_beli' value='<?php  if($id!=null){echo $data->harga_beli;}?>' class='required'
 				>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="lon">Harga Jual</label>
 			<div class="controls">
-				<input type="text" name='harga_jual' id='harga_jual' value='<?=$data->harga_jual?>' class='required'
+				<input type="text" name='harga_jual' id='harga_jual' value='<?php if($id!=null){$data->harga_jual;}?>' class='required'
 				>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="lon">jumlah</label>
 			<div class="controls">
-				<input type="text" name='jumlah' id='jumlah' value='<?=$data->jumlah?>' class='required'
+				<input type="text" name='jumlah' id='jumlah' value='<?php if($id!= null){echo $data->jumlah;}?>' class='required'
 				>
 			</div>
 		</div>
@@ -71,7 +78,7 @@ action="stok/stok_action.php">
 
 		<div class="control-group">
 			<div class="controls">
-				<button type="submit" class="btn btn-success" name='aksi'value='<?=$aksi?>'>
+				<button type="submit" class="btn btn-success" name='aksi'value='<?php echo $aksi;?>'>
 				<?=$aksi?>
 				</button>
 			</div>
