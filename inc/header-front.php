@@ -41,6 +41,7 @@
 				color: red;
 			}
 		</style>
+		<link rel="shortcut icon" href="assets/themes-front/images/logotab.ico" />
 	</head>
     <body>		
 		<div id="top-bar" class="container">
