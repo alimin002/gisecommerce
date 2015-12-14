@@ -11,8 +11,8 @@
 
 	<div class="row">
 		<div class="span9">
-<h2> Info Tentang Candralab Commerce</h2>
-CandraLab Commerce merupakan salah satu perusahaan
+<h2> Info Tentang geek information studio ecommerce</h2>
+geek information studio ecommerce merupakan salah satu perusahaan
  kecil yang bergerak dalam bidang penjualan produk berupa pakaian, 
  alat elekronik dan buku
  

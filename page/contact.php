@@ -12,8 +12,8 @@
 					<div class="span4">
 						<div>
 							<h5>ADDRESS INFORMATION</h5>
-							<p><strong>Alamat:</strong>:Jalan Janti  jogja No 10</p>
-							<p><strong>Phone:</strong>&nbsp;(123) 456-7890<br>
+							<p><strong>Alamat:</strong>:Jalan Karawitan No 3</p>
+							<p><strong>Phone:</strong>&nbsp;(123) 085786620236<br>
 							<strong>Fax:</strong>&nbsp;+04 (123) 456-7890<br>
 							<strong>Email:</strong>&nbsp;<a href="#">candralab@yahoo.com</a>								
 							</p>

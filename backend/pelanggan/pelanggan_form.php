@@ -30,12 +30,19 @@ if (isset($_GET['id'])) {
 <form  class="form-horizontal" method="POST" id="form1"  enctype="multipart/form-data"
 action="pelanggan/pelanggan_action.php">
 
-	<?php $id = $_GET['id']; ?>
-	<input type='hidden' name='id' value="<?=$id?>">
+	<?php 
+	if(empty($_GET['id'])){
+	//$id = $_GET['id']; 
+	$id=null;
+	}else{
+	$id = $_GET['id']; 
+	}
+	?>
+	<input type='hidden' name='id' value="<?php echo $id;?>">
 	<div class="control-group">
 		<label class="control-label" for="nama">Nama pelanggan</label>
 		<div class="controls">
-			<input type="text" name='nama' value='<?=$data->nama?>'class='required'
+			<input type="text" name='nama' value='<?php if($id != null){ echo $data->nama;}?>'class='required'
 			>
 		</div>
 	</div>
@@ -54,7 +61,7 @@ action="pelanggan/pelanggan_action.php">
 		<label class="control-label" for="alamat">Alamat</label>
 		<div class="controls">
 			<textarea name='alamat' class="input-xxlarge">
-					<? echo trim($data->alamat)?>
+					<?php if($id != null){ echo trim($data->alamat);}?>
 				</textarea>
 		</div>
 	</div>
@@ -62,43 +69,43 @@ action="pelanggan/pelanggan_action.php">
 	<div class="control-group">
 		<label class="control-label" >Kota</label>
 		<div class="controls">
-			<input type="text" name='kota' id='kota' value='<?=$data->kota?>' class='required'
+			<input type="text" name='kota' id='kota' value='<?php if($id != null){ echo $data->kota;}?>' class='required'
 			>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" >Kode Post</label>
 		<div class="controls">
-			<input type="text" name='kodepos' id='kodepos' value='<?=$data->kodepos?>' class='required'
+			<input type="text" name='kodepos' id='kodepos' value='<?php if($id != null){ echo $data->kodepos;}?>' class='required'
 			>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" >telp</label>
 		<div class="controls">
-			<input type="text" name='telp' id='telp' value='<?=$data->telp?>' class='required'
+			<input type="text" name='telp' id='telp' value='<?php if($id != null){ echo $data->telp;} ?>' class='required'
 			>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" >email</label>
 		<div class="controls">
-			<input type="text" name='email' id='email' value='<?=$data->email?>' class='required'
+			<input type="text" name='email' id='email' value='<?php if($id != null){ echo $data->email;}?>' class='required'
 			>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" >Password</label>
 		<div class="controls">
-			<input type="text" name='password' id='password' value='<?=$data->password?>' class='required'
+			<input type="text" name='password' id='password' value='<?php if($id != null){echo $data->password;} ?>' class='required'
 			>
 		</div>
 	</div>
 
 	<div class="control-group">
 		<div class="controls">
-			<button type="submit" class="btn btn-success" name='aksi'value='<?=$aksi?>'>
-				<?=$aksi ?>
+			<button type="submit" class="btn btn-success" name='aksi'value='<?php echo $aksi; ?>'>
+				<?php echo $aksi ?>
 			</button>
 		</div>
 	</div>

@@ -77,7 +77,7 @@
 		</div>
 		<div id="wrapper" class="container">
 			<section class="navbar main-menu">
-				<div class="navbar-inner main-menu">				
+				<div class="navbar-inner main-menu" style="background-color:black;">				
 					<a href="index.php" class="logo pull-left"><img src="assets/themes-front/images/logo.png" class="site_logo" alt=""></a>
 					<!-- menu kategori -->
 					<nav id="menu" class="pull-right">

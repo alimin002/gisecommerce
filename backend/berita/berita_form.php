@@ -22,12 +22,12 @@ cek_status_login($_SESSION['username']);
 
 <form  class="form-horizontal" method="POST" id="form1" action="berita/berita_action.php" enctype="multipart/form-data">
  <legend>  berita</legend>
-	<input type='hidden' name='id' value="<?=$id?>">
+	<input type='hidden' name='id' value="<?php  if($aksi != 'tambah'){echo $id;}?>">
   <div class="control-group">
     <label class="control-label" for="judul">judul</label>
     <div class="controls">
       <input type="text" name='judul' id="judul" class='input-xxlarge'
-      value='<?=$baris->judul;?>' >
+      value='<?php if($aksi != 'tambah'){ echo $baris->judul;}?>' >
     </div>
    </div>
     
@@ -41,7 +41,7 @@ cek_status_login($_SESSION['username']);
    <div class="control-group">
     <label class="control-label" for="isi">isi</label>
     <div class="controls">
-      <textarea name='isi'  rows="20" class='input-xxlarge'><?=$baris->isi;?> </textarea>
+      <textarea name='isi'  rows="20" class='input-xxlarge'><?php if($aksi != 'tambah'){$baris->isi;}?> </textarea>
      
     </div>
   </div>

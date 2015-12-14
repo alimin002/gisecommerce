@@ -70,7 +70,7 @@ action="produk/produk_action.php">
 			<label class="control-label" for="deskripsi">deskripsi</label>
 			<div class="controls">
 				<textarea name='deskripsi' class="input-xxlarge">
-					<? echo trim($data->deskripsi)?>
+					<?php if($id != null){echo trim($data->deskripsi);}?>
 				</textarea>
 			</div>
 		</div>

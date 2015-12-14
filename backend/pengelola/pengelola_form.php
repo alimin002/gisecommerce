@@ -8,7 +8,7 @@
 			echo "<p style='color:red'>akses denied</p>";
 		exit();		
 	}
-
+	$id=null;
 	$aksi = null;
 	if(isset($_GET['id'])) {
 		$aksi = "edit";
@@ -23,20 +23,20 @@
 	}?>
 
 <form  class="form-horizontal" method="POST" id="form1" action="pengelola/pengelola_action.php">
- <legend>  <?=$aksi?> pengelola</legend>
+ <legend>  <?php echo $aksi;?> pengelola</legend>
 	<input type='hidden' name='id' value="<?=$id?>">
    <div class="control-group">
    <label class="control-label" for="nama">nama</label>
     <div class="controls">
          <input type="text" name='nama' class="required" 
-      value=<?=$baris->nama;?> > 
+      value=<?php if($id !=null){echo $baris->nama;}?> > 
     </div>
   </div>
   <div class="control-group">
    <label class="control-label" for="username">username</label>
     <div class="controls">
          <input type="text" name='username' class="required" 
-      value=<?=$baris->username;?> > 
+      value=<?php if($id !=null){echo $baris->username;}?> > 
     </div>
   </div>
   <div class="control-group">
