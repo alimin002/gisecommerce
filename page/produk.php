@@ -36,18 +36,18 @@
 						}
 					?>	</a>
 						<br/>
-						<a href="#" class="title"><?=$rows->nama_produk?></a>
+						<a href="#" class="title"><?php echo $rows->nama_produk?></a>
 						<br/>
-						<a href="#" class="category"><?=$rows->deskripsi?></a>
+						<a href="#" class="category"><?php echo $rows->deskripsi?></a>
 						<p class="price">
-							<?=format_rupiah($rows->harga_jual)?>
+							<?php echo format_rupiah($rows->harga_jual)?>
 						</p>
 						<p>
 							<span class="label label-warning">Stok <?php echo   get_status_stok($rows->jumlah)?></span>
 						</p>
 						<?php
 						if(!empty($_SESSION['idpelanggan']) && ($rows->jumlah>0)){ ?>
-						<a href='index.php?mod=chart&pg=chart&action=add&id=<?=$rows->idproduk?>' class='btn btn-warning'><i class='icon-shopping-cart icon-white'></i>Beli</a>
+						<a href='index.php?mod=chart&pg=chart&action=add&id=<?php echo $rows->idproduk?>' class='btn btn-warning'><i class='icon-shopping-cart icon-white'></i>Beli</a>
 						<?php } ?>
 					</div>
 				</li>

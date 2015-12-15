@@ -5,17 +5,41 @@
  * last edit: 15 okt 2013
  */?>
 <?php  // Start the session
-if(!isset($_SESSION)){
-  session_start();
+$chart=null;
+$newchart=null;
+//session_destroy();
+if(empty($_SESSION['count'])){
+ $_SESSION['count']=0;
 }
+if(!isset($_SESSION['idpelanggan'])){
+  session_start();
+ 
+  //$_SESSION['cart']=array();
+  if(empty($_GET['id'])){	
+	$_GET['id']=null;
+  }else{
+ $_SESSION['cart'][$_SESSION['count']]=$_GET['id'];
+ echo "<pre>";
+ print_r($_SESSION['cart']);
+ echo "/<pre>";
+ $_SESSION['count'] ++;
+  }
+}
+ 
 if(isset($_SESSION['idpelanggan'])){
 cek_status_login($_SESSION['idpelanggan']);
 include ('chart.inc.php');
 // Process actions
 if(empty($_SESSION['chart'])){
-$chart=null;
+//$chart=null;
+//}else{
+if(empty($_GET['id'])){
+
 }else{
+$chart=$_GET['id'];
 $chart = $_SESSION['chart'];
+}
+echo '<h1>'.$chart.'</h1>';
 }
 if(empty($_GET['action'])){
 $action=null;

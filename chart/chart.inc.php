@@ -89,10 +89,10 @@ function showchart() {
 			
 			$output[] = '\' width=\'128px\' height=\'128px\'><br> '.$row ->nama_produk. 
 			
-			'</td><td>' . format_rupiah($row -> harga_jual) . '</td>';
+			'</td><td>' . 'format_rupiah($row -> harga_jual)' . '</td>';
 			$output[] = '<td><input type="text" class="input-mini" name="qty' . $id . '" value="' . $qty . '"  /></td>';
 
-			$output[] = '<td>Rp.' . format_rupiah($row -> harga_jual * $qty) . '</td>';
+			$output[] = '<td>Rp.' . 'format_rupiah($row -> harga_jual * $qty)' . '</td>';
 			$total += $row -> harga_jual * $qty;
 
 			$output[] = '<td><a href="index.php?mod=chart&pg=chart&action=delete&id=' . $id . '" class="btn btn-danger">Hapus</a></td></tr>';
