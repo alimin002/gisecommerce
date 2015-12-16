@@ -66,7 +66,7 @@ function getQty() {
 }
 
 function showchart() {
-	$total=0;
+	$total=null;
 	$chart = $_SESSION['chart'];
 //	print_r($chart);
 	if ($chart) {
@@ -80,7 +80,7 @@ function showchart() {
 		$output[] = '<form action="index.php?mod=chart&pg=chart&action=update" method="post" id="chart">';
 		$no = 1;
 		foreach ($contents as $id => $qty) {
-			$sql = "SELECT produk.*,stok.harga_jual from produk,stok WHERE produk.idproduk = '$id'";
+			$sql = "select a.*,b.harga_jual from produk a left join stok b on a.idproduk=b.idproduk WHERE a.idproduk = '$id'";
 			$result = mysql_query($sql);
 			$row = mysql_fetch_object($result);
 			$output[] = '<tr><td>' . $no . '</td>';
@@ -89,10 +89,10 @@ function showchart() {
 			
 			$output[] = '\' width=\'128px\' height=\'128px\'><br> '.$row ->nama_produk. 
 			
-			'</td><td>' . 'format_rupiah($row -> harga_jual)' . '</td>';
+			'</td><td>' . format_rupiah($row -> harga_jual) . '</td>';
 			$output[] = '<td><input type="text" class="input-mini" name="qty' . $id . '" value="' . $qty . '"  /></td>';
 
-			$output[] = '<td>Rp.' . 'format_rupiah($row -> harga_jual * $qty)' . '</td>';
+			$output[] = '<td>Rp.' . format_rupiah($row -> harga_jual * $qty) . '</td>';
 			$total += $row -> harga_jual * $qty;
 
 			$output[] = '<td><a href="index.php?mod=chart&pg=chart&action=delete&id=' . $id . '" class="btn btn-danger">Hapus</a></td></tr>';
