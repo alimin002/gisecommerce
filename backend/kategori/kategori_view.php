@@ -61,7 +61,7 @@ while($rows=mysql_fetch_object($result)){
 			<a href="index.php?mod=kategori&pg=kategori_form&id=<?php echo $rows -> idkategori; ?>"class='btn btn-xs btn-info'>
 			<i class="ace-icon fa fa-pencil bigger-120"></i>
 			</a>
-			<a style="height:10%;" href="index.php?mod=kategori&pg=kategori_view&act=del&id=<?php echo $rows -> idkategori; ?>"onclick="return confirm('Yakin data akan dihapus?');" class='btn btn-xs btn-danger'> 
+			<a class='btn btn-xs btn-danger' href="index.php?mod=kategori&pg=kategori_view&act=del&id=<?php echo $rows -> idkategori; ?>" onclick="return confirm('Yakin data akan dihapus?')" > 
 			<i class="ace-icon fa fa-trash-o bigger-120"></i>
 			</a>
 			</td>

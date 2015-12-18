@@ -53,6 +53,8 @@
 		</script>
 		<script src="../assets/bootstrap/js/jquery.validate.js"></script>
 		<script src="../assets/bootstrap/js/messages_id.js"></script>
+		<!---ace script--->
+		
 		<script>
 			$(document).ready(function() {
 				$("#form1").validate();
