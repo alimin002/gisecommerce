@@ -23,11 +23,11 @@ $totalBayar = $_GET['total_bayar'];?>
 	Silahkan transfer uang ke
 </p>
 <blockquote>
-	Candra Adi Putra
+	Alimin
 	<br>
-	BNI Syariah Yogyakarta
+	Mandiri
 	<br>
-	No Rek 978934234343
+	No Rek 130-00-138927-9
 	<br>
 </blockquote>
 <hr>
@@ -35,7 +35,7 @@ $totalBayar = $_GET['total_bayar'];?>
 	Langkah selanjutnya :
 	<ol>
 	<li>Silahkan transfer sesuai dengan uang jumlah total transaksi</li> 
-	<li>Konfirmasi lewat SMS /Telp ke no 0274 123 123 </li>
+	<li>Konfirmasi lewat SMS /Telp ke no 085786620236 </li>
 	<li>Cek status pembayaran dan pengiriman barang di halaman invoice </li>
 	</ol>
 </p>
