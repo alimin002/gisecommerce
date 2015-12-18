@@ -91,7 +91,7 @@ include('../inc/js.php');
 									
 
 	<script type="text/javascript">
-			window.jQuery || document.write("<script src='../ace-1.3/assets/js/jquery.min.js'/>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='../x/assets/js/jquery.min.js'/>"+"<"+"/script>");
 	</script>
 
 		<!-- <![endif]-->
@@ -102,32 +102,32 @@ include('../inc/js.php');
 </script>
 <![endif]-->
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='../ace-1.3/assets/js/jquery.min.js'/>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='../x/assets/js/jquery.min.js'/>"+"<"+"/script>");
 		</script>
 
 		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='../ace-1.3/assets/js/jquery.mobile.custom.min.js'/>"+"<"+"/script>");
+			if('ontouchstart' in document.documentElement) document.write("<script src='../x/assets/js/jquery.mobile.custom.min.js'/>"+"<"+"/script>");
 		</script>
-		<script src="../ace-1.3/assets/js/bootstrap.min.js"></script>
+		<script src="../x/assets/js/bootstrap.min.js"></script>
 		
 
 		<!--[if lte IE 8]>
 		  <script src="../assets/js/excanvas.min.js"></script>
 		<![endif]-->
-		<script src="../ace-1.3/assets/js/jquery-ui.custom.min.js"></script>
-		<script src="../ace-1.3/assets/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="../ace-1.3/assets/js/jquery.easypiechart.min.js"></script>
-		<script src="../ace-1.3/assets/js/jquery.sparkline.min.js"></script>
-		<script src="../ace-1.3/assets/js/flot/jquery.flot.min.js"></script>
-		<script src="../ace-1.3/assets/js/flot/jquery.flot.pie.min.js"></script>
-		<script src="../ace-1.3/assets/js/flot/jquery.flot.resize.min.js"></script>
+		<script src="../x/assets/js/jquery-ui.custom.min.js"></script>
+		<script src="../x/assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="../x/assets/js/jquery.easypiechart.min.js"></script>
+		<script src="../x/assets/js/jquery.sparkline.min.js"></script>
+		<script src="../x/assets/js/flot/jquery.flot.min.js"></script>
+		<script src="../x/assets/js/flot/jquery.flot.pie.min.js"></script>
+		<script src="../x/assets/js/flot/jquery.flot.resize.min.js"></script>
 
 		<!-- ace scripts -->
-		<script src="../ace-1.3/assets/js/ace-elements.min.js"></script>
-		<script src="../ace-1.3/assets/js/ace.min.js"></script>
+		<script src="../x/assets/js/ace-elements.min.js"></script>
+		<script src="../x/assets/js/ace.min.js"></script>
 		<!-- page specific plugin scripts -->
-		<script src="../ace-1.3/assets/js/fuelux/data/fuelux.tree-sample-demo-data.js"></script>
-		<script src="../ace-1.3/assets/js/fuelux/fuelux.tree.min.js"></script>
+		<script src="../x/assets/js/fuelux/data/fuelux.tree-sample-demo-data.js"></script>
+		<script src="../x/assets/js/fuelux/fuelux.tree.min.js"></script>
 
 
 		<!-- inline scripts related to this page -->
@@ -174,16 +174,16 @@ include('../inc/js.php');
 		</script>
 
 
-		<link rel="stylesheet" href="../ace-1.3/assets/css/ace.onpage-help.css" />
-		<link rel="stylesheet" href="../ace-1.3/docs/assets/js/themes/sunburst.css" />
+		<link rel="stylesheet" href="../x/assets/css/ace.onpage-help.css" />
+		<link rel="stylesheet" href="../x/docs/assets/js/themes/sunburst.css" />
 
 		<script type="text/javascript"> ace.vars['base'] = '..'; </script>
-		<script src="../ace-1.3/assets/js/ace/ace.onpage-help.js"></script>
-		<script src="../ace-1.3/docs/assets/js/rainbow.js"></script>
-		<script src="../ace-1.3/docs/assets/js/language/generic.js"></script>
-		<script src="../ace-1.3/docs/assets/js/language/html.js"></script>
-		<script src="../ace-1.3/docs/assets/js/language/css.js"></script>
-		<script src="../ace-1.3/docs/assets/js/language/javascript.js"></script>
+		<script src="../x/assets/js/ace/ace.onpage-help.js"></script>
+		<script src="../x/docs/assets/js/rainbow.js"></script>
+		<script src="../x/docs/assets/js/language/generic.js"></script>
+		<script src="../x/docs/assets/js/language/html.js"></script>
+		<script src="../x/docs/assets/js/language/css.js"></script>
+		<script src="../x/docs/assets/js/language/javascript.js"></script>
 		
 
 	</body>
