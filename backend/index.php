@@ -50,14 +50,7 @@ include('../inc/sidebar-back.php');
 <!--content -->
 <div id="main-content" class="clearfix">
 <div style='margin:10px;padding: 10px'>
-<div class="nav-search" id="nav-search">
-	<form class="form-search">
-			<span class="input-icon">
-					<input placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" type="text">
-								<i class="ace-icon fa fa-search nav-search-icon"></i>
-			</span>
-	</form>
-</div>
+
 </div>
 <div style='margin:10px;padding: 10px'>
 	<?php
@@ -68,10 +61,26 @@ $pg = '';
 
 if(!isset($_GET['pg'])) {
 	if(isset($_SESSION['username'])){
+	?>
+	<?php 
+	
+	?>
+	
+	<?php
 		include ('produk/produk_view.php');
 	}
 	include ('login/login_form.php');
 } else {
+?>
+<div class="nav-search" id="nav-search">
+	<form class="form-search">
+			<span class="input-icon">
+					<input placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" type="text">
+								<i class="ace-icon fa fa-search nav-search-icon"></i>
+			</span>
+	</form>
+	</div>
+<?php
 	$pg = $_GET['pg'];
 	$mod = $_GET['mod'];
 	include $mod . '/' . $pg . ".php";
