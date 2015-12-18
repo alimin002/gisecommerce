@@ -79,7 +79,7 @@ if(!isset($_GET['pg'])) {
 								<i class="ace-icon fa fa-search nav-search-icon"></i>
 			</span>
 	</form>
-	</div>
+</div>
 <?php
 	$pg = $_GET['pg'];
 	$mod = $_GET['mod'];

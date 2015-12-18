@@ -57,6 +57,16 @@
 						<ul class="user-menu">				
 							<?php //echo $_SESSION['idpelanggan'];
 							if(empty($_SESSION['idpelanggan'])==true){ ?>
+							<li>
+							<div class="nav-search" id="nav-search">
+							<form class="form-search">
+							<span class="input-icon">
+								<input placeholder="Cari Produk ..." class="nav-search-input" id="nav-search-input" autocomplete="off" type="text">
+								<i class="ace-icon fa fa-search nav-search-icon"></i>
+							</span>
+							</form>
+							</div>
+							</li>
 							<li><a href="index.php">Homepage</a></li>  
 							<li><a href="index.php?mod=user&pg=register">Register/Login</a></li>
 							<li><a href="index.php?mod=page&pg=about">About Us</a></li>
@@ -119,5 +129,5 @@
 					echo $_SESSION['nama'].", ";
 					}
 					?>
-					</strong>Selamat datang Geek Inovation studio Ecommerce
+				</strong>Selamat datang Geek Inovation studio Ecommerce
 			</section>

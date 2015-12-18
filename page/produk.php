@@ -2,8 +2,7 @@
 //cek_akses_langsung();
 ?>
 <section class="main-content">
-
-	<div class="row">
+		<div class="row">
 		<div class="span9">
 			<ul class="thumbnails listing-products">
 				
