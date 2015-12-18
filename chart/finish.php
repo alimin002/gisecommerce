@@ -27,15 +27,14 @@ $totalBayar = $_GET['total_bayar'];?>
 	<br>
 	Mandiri
 	<br>
-	No Rek 130-00-138927-9
-	<br>
+	No Rek demo <br>
 </blockquote>
 <hr>
 <p>
 	Langkah selanjutnya :
 	<ol>
 	<li>Silahkan transfer sesuai dengan uang jumlah total transaksi</li> 
-	<li>Konfirmasi lewat SMS /Telp ke no 085786620236 </li>
+	<li>Konfirmasi lewat SMS /Telp ke no 7577588786 </li>
 	<li>Cek status pembayaran dan pengiriman barang di halaman invoice </li>
 	</ol>
 </p>
