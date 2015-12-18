@@ -11,9 +11,24 @@ if (isset($_GET['act'])) {
 
 }
 					?>
-
 <div>
 	<h2 id="headings"> Data produk</h2>
+</div>	
+<div>
+	Kategori
+</div>				
+<div>
+
+	<select class="form-control" id="form-field-select-1">														
+		<option value="WA">Semua</option>
+			<option value="WV">West Virginia</option>
+			<option value="WI">Wisconsin</option>
+			<option value="WY">Wyoming</option>
+	</select>
+</div>
+
+<div>
+	
 	<!--<a href='index.php?mod=produk&pg=peta'><i class="icon-map-marker"></i>Map View</a>-->
 	<table  class="table table-striped table-condensed">
 		<thead>

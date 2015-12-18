@@ -1,5 +1,4 @@
 
-
 <?php /* Candralab Ecommerce v2.0
  * http://www.candra.web.id/
  * Candra adi putra <candraadiputra@gmail.com>
@@ -20,9 +19,15 @@ if (isset($_GET['act'])) {
 //==========================================
 ?>
 
-	<h2 id="headings"> Data kategori</h2>
-
-	<table  class="table table-striped table-bordered table-condensed">
+	<h1>
+							Data
+							<small>
+								<i class="ace-icon fa fa-angle-double-right"></i>
+								&amp; kategori
+							</small>
+	</h1>
+	<input type="hidden" id="tablename"/>
+	<table  class="table table-striped table-bordered table-hover">
 		<thead>
 		<th><td><h4>Nama kategori </h4></td><td><h4>Aksi</h4></td></th>
 		</thead>
@@ -49,23 +54,29 @@ while($rows=mysql_fetch_object($result)){
 		?>
 		<tr>
 			<td><?php echo $posisi+$no
-			?></td>
+			?>
+			</td>
 			<td><?php echo $rows -> nama_kategori; ?></td>
-			
-			
-			
-			<td><a href="index.php?mod=kategori&pg=kategori_form&id=<?php echo $rows -> idkategori; ?>"
-				 class='btn btn-warning'><i class="icon-pencil"></i></a><a href="index.php?mod=kategori&pg=kategori_view&act=del&id=<?php echo $rows -> idkategori; ?>"
-			onclick="return confirm('Yakin data akan dihapus?') ";
-			class='btn btn-danger'> <i class="icon-trash"></i></a></td>
+			<td style="padding:0.5%;">
+			<a href="index.php?mod=kategori&pg=kategori_form&id=<?php echo $rows -> idkategori; ?>"class='btn btn-xs btn-info'>
+			<i class="ace-icon fa fa-pencil bigger-120"></i>
+			</a>
+			<a style="height:10%;" href="index.php?mod=kategori&pg=kategori_view&act=del&id=<?php echo $rows -> idkategori; ?>"onclick="return confirm('Yakin data akan dihapus?');" class='btn btn-xs btn-danger'> 
+			<i class="ace-icon fa fa-trash-o bigger-120"></i>
+			</a>
+			</td>
 		</tr>
 		<?php $no++;
 		}
 	?>
 
 		<tr>
-			<td colspan='2' ></td><td><a href="index.php?mod=kategori&pg=kategori_form"
-			class='btn btn-primary'	><i class="icon-plus"></i></a></td>
+			<td colspan='2'>
+			</td>
+			<td>
+				<a href="index.php?mod=kategori&pg=kategori_form"
+				class='btn btn-xs btn-success'	><i class="icon-plus"></i></a>
+			</td>
 		</tr>
 		</tbody>
 	</table>

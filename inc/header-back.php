@@ -17,7 +17,11 @@
 		<link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="../assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../assets/themes-back/font-awesome/css/font-awesome.min.css" />
-
+		<!---ace-1.3--->
+		<link rel="stylesheet" href="../ace-1.3/assets/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="../ace-1.3/assets/css/ace-fonts.css"/>
+		<link rel="stylesheet" href="../ace-1.3/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="../ace-1.3/assets/css/ace-rtl.min.css" />
 		<!--[if IE 7]>
 		  <link rel="stylesheet" href="../assets/themes-back/font-awesome/css/font-awesome-ie7.min.css" />
 		<![endif]-->
@@ -35,6 +39,10 @@
 		<link rel="stylesheet" href="../assets/themes-back/css/w8.min.css" />
 		<link rel="stylesheet" href="../assets/themes-back/css/w8-responsive.min.css" />
 		<link rel="stylesheet" href="../assets/themes-back/css/w8-skins.min.css" />
+		
+		<!--ace combo box-->
+		<link rel="stylesheet" href="../assets/css/jquery-ui.custom.min.css" />
+		<link rel="stylesheet" href="../assets/css/chosen.css" />
 
 		<!--[if lte IE 8]>
 		  <link rel="stylesheet" href="../assets/themes-back/css/ace-ie.min.css" />

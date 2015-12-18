@@ -27,9 +27,21 @@
 					?>
 
 <div>
-	
-	
-	<h3>Update Semua harga Jual</h3>
+	<div>
+	<h2 id="headings"> Data Stock</h2>
+</div>	
+<div>
+	Kategori
+</div>
+<div>
+
+	<select class="form-control" id="form-field-select-1">														
+		<option value="WA">Semua</option>
+			<option value="WV">West Virginia</option>
+			<option value="WI">Wisconsin</option>
+			<option value="WY">Wyoming</option>
+	</select>
+</div>
 	  <form  class="form-horizontal" method="POST" id="form1" 
 	  action="index.php?mod=stok&pg=stok_view">
 	<input type='text' name='persen' >% (persen)
@@ -39,7 +51,6 @@
 
 	</form>
 	<!--<a href='index.php?mod=stok&pg=peta'><i class="icon-map-marker"></i>Map View</a>-->
-	<h2 id="headings"> Data stok</h2>
 	<table  class="table table-striped table-condensed">
 		<thead>
 			<th><td><b>Nama produk </b></td><td><b>Harga Beli</b></td><td><b>Harga Jual</b></td><td><b>jumlah</b></td><td><b>Aksi</b></td></th>
