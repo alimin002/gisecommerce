@@ -135,7 +135,7 @@
         </div>
         <div class="tree-folder" style="display: block;">
             <div class="tree-folder-header"> <i class="red ace-icon fa fa-folder-open"></i>
-                <div class="tree-folder-name">Pictures</div>
+                <div class="tree-folder-name">Master</div>
             </div>
             <div class="tree-folder-content">
                 <div class="tree-folder" style="display: block;">
@@ -182,7 +182,7 @@
         </div>
         <div class="tree-folder" style="display: block;">
             <div class="tree-folder-header"> <i class="orange ace-icon fa fa-folder"></i>
-                <div class="tree-folder-name">Music</div>
+                <div class="tree-folder-name">Setup</div>
             </div>
             <div class="tree-folder-content" style="display: none;">
                 <div class="tree-item" style="display: block;">

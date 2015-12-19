@@ -134,12 +134,12 @@ include('../inc/js.php');
 		<!-- ace scripts -->
 		<script src="../x/assets/js/ace-elements.min.js"></script>
 		<script src="../x/assets/js/ace.min.js"></script>
-		<!-- page specific plugin scripts -->
+		<!-- engine menu accounting1 -->
 		<script src="../x/assets/js/fuelux/data/fuelux.tree-sample-demo-data.js"></script>
 		<script src="../x/assets/js/fuelux/fuelux.tree.min.js"></script>
 
 
-		<!-- inline scripts related to this page -->
+		<!-- engine menu accounting2 -->
 		<script type="text/javascript">
 			jQuery(function($){
 
