@@ -103,6 +103,23 @@
                         <i class="icon-double-angle-right"></i> Transaksi
                     </a>
                 </li>
+				 <li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-pencil"></i>
+                <span> Pembelian</span>
+
+                <b class="arrow icon-angle-down"></b>
+            </a>
+
+          
+        
+
+            <ul class="submenu">
+                <li>
+                    <a href="index.php?mod=invoice&pg=invoice_view">
+                        <i class="icon-double-angle-right"></i> Supplier
+                    </a>
+                </li>
 
             </ul>
         </li>
