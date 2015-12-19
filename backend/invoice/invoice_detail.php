@@ -13,7 +13,7 @@ if(empty($_SESSION['username'])){
 <div>
 	<a href='index.php?mod=invoice&pg=invoice_view' class='btn btn-primary'>
 		<i class='icon-arrow-left'>Back</i></a>
-	<h2 id="headings"> Detail Invoice dengan nomor <?=$_GET['id']?></h2>
+	<h2 id="headings"> Detail Invoice dengan nomor <?php echo $_GET['id'];?></h2>
 	<!--<a href='index.php?mod=produk&pg=peta'><i class="icon-map-marker"></i>Map View</a>-->
 	<table  class="table table-striped ">
 		<thead>
@@ -41,12 +41,12 @@ $total+=$total+$subtotal;
 				?></td>
 			
 				<td>
-					<img src='../upload/produk/<?=$rows ->foto ?>'  width='128px' height='128px'>
+					<img src='../upload/produk/<?php echo $rows ->foto; ?>'  width='128px' height='128px'>
 					<br>
-					<? echo $rows -> nama_produk; ?></td>
-			<td><? echo format_rupiah($rows -> harga_jual); ?></td>
-			<td><? echo $rows -> jumlah; ?></td>
-			<td class='pull-right'><? echo format_rupiah($subtotal); ?></td>
+					<?php echo $rows -> nama_produk; ?></td>
+			<td><?php echo format_rupiah($rows -> harga_jual); ?></td>
+			<td><?php echo $rows -> jumlah; ?></td>
+			<td class='pull-right'><?php echo format_rupiah($subtotal); ?></td>
 			
 				
 				
