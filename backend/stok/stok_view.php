@@ -31,12 +31,12 @@
 	<h2 id="headings"> Data Stock</h2>
 </div>	
 <div>
-	Kategori
+	Tampilkan Berdasarkan Kategori
 </div>
 <div>
 
 	<select class="form-control" id="form-field-select-1">														
-		<option value="WA">Semua</option>
+		<option value="WA">Semua Kategori</option>
 			<option value="WV">West Virginia</option>
 			<option value="WI">Wisconsin</option>
 			<option value="WY">Wyoming</option>

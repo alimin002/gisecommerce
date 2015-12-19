@@ -91,15 +91,6 @@ tree_data['pets']['additionalParameters'] = {
 }
 
 var treeDataSource = new DataSourceTree({data: tree_data});
-
-
-
-
-
-
-
-
-
 var ace_icon = ace.vars['icon'];
 //class="'+ace_icon+' fa fa-file-text grey"
 //becomes
@@ -109,32 +100,27 @@ var tree_data_2 = {
 	'setup' : {name: 'setup', type: 'folder', 'icon-class':'orange'}	,
 	'transaksi' : {name: 'transaksi', type: 'folder', 'icon-class':'blue'}	,
 	'laporan' : {name: 'laporan', type: 'folder', 'icon-class':'green'}	,
-	'neraca_lajur' : {name: 'neraca_lajur', type: 'folder'}	,
-	'laba_rugi' : {name: '<i class="'+ace_icon+' fa fa-file-text grey"></i> laba_rugi.txt', type: 'item'},
-	'periode_equitas' : {name: '<i class="'+ace_icon+' fa fa-book blue"></i> periode_equitas.html', type: 'item'}
+	'proses' : {name: 'proses', type: 'folder'}	,
+	'laporan2' : {name: '<i class="'+ace_icon+' fa fa-file-text grey"></i> laporan2', type: 'item'},
+	'tools' : {name: '<i class="'+ace_icon+' fa fa-book blue"></i> tools', type: 'item'}
 }
 tree_data_2['setup']['additionalParameters'] = {
 	'children' : [
-		{name: '<i class="'+ace_icon+' fa fa-music blue"></i> song1.ogg', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-music blue"></i> song2.ogg', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-music blue"></i> song3.ogg', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-music blue"></i> song4.ogg', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-music blue"></i> song5.ogg', type: 'item'}
+		{name: '<i class="'+ace_icon+' fa fa-music blue"></i> saldo awal', type: 'item'}	
 	]
 }
 tree_data_2['transaksi']['additionalParameters'] = {
 	'children' : [
-		{name: '<i class="'+ace_icon+' fa fa-film blue"></i> movie1.avi', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-film blue"></i> movie2.avi', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-film blue"></i> movie3.avi', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-film blue"></i> movie4.avi', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-film blue"></i> movie5.avi', type: 'item'}
+		{name: '<i class="'+ace_icon+' fa fa-film blue"></i> jurnal umum', type: 'item'},
+		{name: '<i class="'+ace_icon+' fa fa-film blue"></i> jurnal penyesuaian', type: 'item'}
 	]
 }
 tree_data_2['master']['additionalParameters'] = {
 	'children' : {
 		'nama_usaha' : {name: 'nama usaha', type: 'folder', 'icon-class':'pink'},
-		'informasi_pajak_perusahaan' : {name: 'informasi pajak', type: 'folder', 'icon-class':'pink'}
+		'informasi_pajak_perusahaan' : {name: 'informasi pajak', type: 'folder', 'icon-class':'pink'},
+		'perkiraan' : {name: 'perkiraan', type: 'folder', 'icon-class':'pink'},
+		'periode' : {name: 'periode', type: 'folder', 'icon-class':'pink'}
 	}
 }
 tree_data_2['master']['additionalParameters']['children']['nama_usaha']['additionalParameters'] = {
@@ -156,23 +142,50 @@ tree_data_2['master']['additionalParameters']['children']['informasi_pajak_perus
 	]
 }
 
-
-tree_data_2['laporan']['additionalParameters'] = {
+tree_data_2['master']['additionalParameters']['children']['perkiraan']['additionalParameters'] = {
 	'children' : [
-		{name: '<i class="'+ace_icon+' fa fa-file-text red"></i> document1.pdf', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-file-text grey"></i> document2.doc', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-file-text grey"></i> document3.doc', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-file-text red"></i> document4.pdf', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-file-text grey"></i> document5.doc', type: 'item'}
+		{name: '<i class="'+ace_icon+' fa fa-picture-o green"></i> photo1.jpg', type: 'item'},
+		{name: '<i class="'+ace_icon+' fa fa-picture-o green"></i> photo2.jpg', type: 'item'},
+		{name: '<i class="'+ace_icon+' fa fa-picture-o green"></i> photo3.jpg', type: 'item'},
+		{name: '<i class="'+ace_icon+' fa fa-picture-o green"></i> photo4.jpg', type: 'item'},
+		{name: '<i class="'+ace_icon+' fa fa-picture-o green"></i> photo5.jpg', type: 'item'},
+		{name: '<i class="'+ace_icon+' fa fa-picture-o green"></i> photo6.jpg', type: 'item'}
 	]
 }
 
-tree_data_2['neraca_lajur']['additionalParameters'] = {
+
+tree_data_2['laporan']['additionalParameters'] = {
+	'children' : {
+		'jurnal' : {name: 'jurnal', type: 'folder', 'icon-class':'pink'},
+		'buku_besar' : {name: 'buku_besar', type: 'folder', 'icon-class':'pink'},
+		'neraca_saldo' : {name: 'neraca_saldo', type: 'folder', 'icon-class':'pink'},
+		'neraca_lajur' : {name: 'neraca_lajur', type: 'folder', 'icon-class':'pink'},
+		'laba_rugi' : {name: 'laba_rugi', type: 'folder', 'icon-class':'pink'},
+		'periode_equitas' : {name: 'periode_equitas', type: 'folder', 'icon-class':'pink'},
+		'neraca' : {name: 'neraca', type: 'folder', 'icon-class':'pink'},
+		'catatan_lap_keuanagan' : {name: 'cat lap keu', type: 'folder', 'icon-class':'pink'}
+	}
+}
+
+tree_data_2['laporan']['additionalParameters']['children']['jurnal']['additionalParameters'] = {
 	'children' : [
-		{name: '<i class="'+ace_icon+' fa fa-archive brown"></i> backup1.zip', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-archive brown"></i> backup2.zip', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-archive brown"></i> backup3.zip', type: 'item'},
-		{name: '<i class="'+ace_icon+' fa fa-archive brown"></i> backup4.zip', type: 'item'}
+		{name: '<i class="'+ace_icon+' fa fa-picture-o green"></i> jurnal umum', type: 'item'},
+		{name: '<i class="'+ace_icon+' fa fa-picture-o green"></i> jurnal peenyesuaian', type: 'item'},
+		
+	]
+}
+
+tree_data_2['laporan']['additionalParameters']['children']['buku_besar']['additionalParameters'] = {
+	'children' : [
+		{name: '<i class="'+ace_icon+' fa fa-picture-o green"></i> jurnal umum', type: 'item'},
+		{name: '<i class="'+ace_icon+' fa fa-picture-o green"></i> jurnal peenyesuaian', type: 'item'},
+		
+	]
+}
+
+tree_data_2['proses']['additionalParameters'] = {
+	'children' : [
+		{name: '<i class="'+ace_icon+' fa fa-archive brown"></i> posting periode', type: 'item'}
 	]
 }
 var treeDataSource2 = new DataSourceTree({data: tree_data_2});
