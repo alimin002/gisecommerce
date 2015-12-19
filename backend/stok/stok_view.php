@@ -78,28 +78,25 @@ while($rows=mysql_fetch_object($result)){
 
 			?>
 			<tr>
-				<td><?php echo $posisi+$no
-				?></td>
-			
-				<td><?php		echo $rows -> nama_produk;?></td>
+			<td><?php echo $posisi+$no
+				?>
+			</td>
+			<td><?php		echo $rows -> nama_produk;?></td>
 			<td align='right'><?php		echo format_rupiah($rows ->harga_beli);?></td>
 			<td align='right'><?php		echo format_rupiah($rows ->harga_jual);?></td>
 			<td align='right'><?php		echo $rows ->jumlah;?></td>
-			
-				<td>	
-					
-					<a href="index.php?mod=stok&pg=stok_form&id=<?php echo	$rows -> idstok;?>"
-
-				class='btn btn-warning'> <i class="icon-pencil"></i></a><a href="index.php?mod=stok&pg=stok_view&act=del&id=<?php echo	$rows -> idstok;?>"
-				onclick="return confirm('Yakin data akan dihapus?') ";
-				class='btn btn-danger'> <i class="icon-trash"></i></a></td>
+			<td>		
+				<a href="index.php?mod=stok&pg=stok_form&id=<?php echo	$rows -> idstok;?>"class='btn btn-xs btn-info'>
+				<i class="icon-pencil"></i>
+				</a>
+				<a href="index.php?mod=stok&pg=stok_view&act=del&id=<?php echo	$rows -> idstok;?>"onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i></a></td>
 			</tr>
 			<?php	$no++;
 	}?>
 
 			<tr>
 				<td colspan='5' ></td><td><a href="index.php?mod=stok&pg=stok_form"
-				class='btn btn-primary'	><i class="icon-plus"></i></a></td>
+				class='btn btn-xs btn-success'	><i class="icon-plus"></i></a></td>
 			</tr>
 		</tbody>
 	</table>

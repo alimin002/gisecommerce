@@ -16,7 +16,11 @@
 		<!-- global styles -->
 		<link href="assets/themes-front/css/flexslider.css" rel="stylesheet"/>
 		<link href="assets/themes-front/css/main.css" rel="stylesheet"/>
-
+		<!---ace-1.3--->
+		<link rel="stylesheet" href="x1/assets/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="x1/assets/css/ace-fonts.css"/>
+		<link rel="stylesheet" href="x1/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="x1/assets/css/ace-rtl.min.css" />
 		<!-- scripts -->
 		<script src="assets/themes-front/js/jquery-1.7.2.min.js"></script>
 		<script src="assets/bootstrap/js/bootstrap.min.js"></script>				

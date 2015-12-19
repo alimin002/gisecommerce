@@ -51,11 +51,14 @@ while($rows=mysql_fetch_object($result)){
 		<tr>
 			<td><?php echo $posisi+$no
 			?></td>
-			<td><?php		echo $rows -> judul;?></td>
-			<td><a href="index.php?mod=berita&pg=berita_form&id=<?=	$rows -> idberita;?>" 
-				class='btn btn-warning'><i class="icon-pencil"></i></a><a href="index.php?mod=berita&pg=berita_view&act=del&id=<?=	$rows -> idberita;?>"
-			onclick="return confirm('Yakin data akan dihapus?') ";
-			class='btn btn-danger'> <i class="icon-trash"></i></a></td>
+			<td><?php echo $rows -> judul;?></td>
+			<td>
+			<a href="index.php?mod=berita&pg=berita_form&id=<?php	echo $rows -> idberita;?>" class='btn btn-xs btn-info'>
+			<i class="icon-pencil"></i>
+			</a>
+			<a href="index.php?mod=berita&pg=berita_view&act=del&id=<?php echo $rows -> idberita;?>" onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i>
+			</a>
+			</td>
 		</tr>
 		<?php
 	$no++;

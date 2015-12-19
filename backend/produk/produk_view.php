@@ -62,21 +62,18 @@ while($rows=mysql_fetch_object($result)){
 			?>
 			<tr>
 				<td><?php echo $posisi+$no
-				?></td>
-			
+				?>
+				</td>
 				<td><?php echo $rows -> nama_produk; ?></td>
-				<td><?php echo $rows ->deskripsi; ?></td>
-			
-		
-			<td><?php echo $rows -> nama_kategori; ?></td>
-			
-				<td>	
-					
-					<a href="index.php?mod=produk&pg=produk_form&id=<?= $rows -> idproduk; ?>"
-
-				class='btn btn-warning'> <i class="icon-pencil"></i></a><a href="index.php?mod=produk&pg=produk_view&act=del&id=<?= $rows -> idproduk; ?>"
-				onclick="return confirm('Yakin data akan dihapus?') ";
-				class='btn btn-danger'> <i class="icon-trash"></i></a></td>
+				<td style="width:40%;"><?php echo $rows ->deskripsi; ?></td>
+				<td><?php echo $rows -> nama_kategori; ?></td>
+				<td>		
+					<a href="index.php?mod=produk&pg=produk_form&id=<?php echo $rows -> idproduk; ?>"class='btn btn-xs btn-info'> 
+						<i class="icon-pencil"></i>
+					</a>
+					<a href="index.php?mod=produk&pg=produk_view&act=del&id=<?php echo $rows -> idproduk; ?>"onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i>
+					</a>
+				</td>
 			</tr>
 			<?php $no++;
 				}
@@ -84,7 +81,7 @@ while($rows=mysql_fetch_object($result)){
 
 			<tr>
 				<td colspan='4' ></td><td><a href="index.php?mod=produk&pg=produk_form"
-				class='btn btn-primary'	><i class="icon-plus"></i></a></td>
+				class='btn btn-xs btn-success'	><i class="icon-plus"></i></a></td>
 			</tr>
 		</tbody>
 	</table>
