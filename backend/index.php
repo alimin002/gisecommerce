@@ -75,7 +75,7 @@ if(!isset($_GET['pg'])) {
 <div class="nav-search" id="nav-search">
 	<form class="form-search">
 			<span class="input-icon">
-					<input placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" type="text">
+					<input placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" type="text"/>
 								<i class="ace-icon fa fa-search nav-search-icon"></i>
 			</span>
 	</form>

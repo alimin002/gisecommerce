@@ -13,6 +13,33 @@
                 <span>Dashboard</span>
             </a>
         </li>
+		<li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-fa fa-credit-card"></i>
+                <span>Pembelian</span>
+
+                <b class="arrow icon-angle-down"></b>
+            </a>
+			
+            <ul class="submenu">
+				<li>
+                    <a href="index.php?mod=invoice&pg=invoice_view">
+                        <i class="icon-double-angle-right"></i> Supplier
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?mod=invoice&pg=invoice_view">
+                        <i class="icon-double-angle-right"></i> Pembelian Produk
+                    </a>
+                </li>
+				<li>
+                    <a href="index.php?mod=invoice&pg=invoice_view">
+                        <i class="icon-double-angle-right"></i>Retur Pembelian
+                    </a>
+                </li>
+
+            </ul>
+        </li>
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-list"></i>
@@ -106,6 +133,7 @@
 
             </ul>
         </li>
+		
 
         <li>
             <a href="#" class="dropdown-toggle">
