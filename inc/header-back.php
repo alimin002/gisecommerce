@@ -22,6 +22,9 @@
 		<link rel="stylesheet" href="../x/assets/css/ace-fonts.css"/>
 		<link rel="stylesheet" href="../x/assets/css/ace.min.css" />
 		<link rel="stylesheet" href="../x/assets/css/ace-rtl.min.css" />
+		<!--jquery UI style-->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="/resources/demos/style.css">
 		<!--[if IE 7]>
 		  <link rel="stylesheet" href="../assets/themes-back/font-awesome/css/font-awesome-ie7.min.css" />
 		<![endif]-->
@@ -52,9 +55,9 @@
 		<script src='../assets/themes-back/js/jquery.min.js'></script>
 		</script>
 		<script src="../assets/bootstrap/js/jquery.validate.js"></script>
-		<script src="../assets/bootstrap/js/messages_id.js"></script>
-		<!---ace script--->
 		
+		<!---ace script--->
+		<script src="../assets/bootstrap/js/messages_id.js"></script>
 		<script>
 			$(document).ready(function() {
 				$("#form1").validate();
@@ -68,4 +71,16 @@
 				color: red;
 			}
 		</style>
+		
+		<script>
+		$(function() {
+			$( document ).tooltip();
+		});
+		</script>
+		<style>
+		label {
+			display: inline-block;
+			width: 5em;
+		}
+  </style>
 	</head>

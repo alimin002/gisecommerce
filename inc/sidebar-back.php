@@ -9,9 +9,10 @@
     <ul class="nav nav-list">
         <li class="active">
             <a href="index.php">
-                <i class="icon-dashboard"></i>
+                <i class="icon-dashboard" id="age" title="We ask for your age only for statistical purposes."></i>
                 <span>Dashboard</span>
             </a>
+			
         </li>
 		<li>
             <a href="#" class="dropdown-toggle">
@@ -28,7 +29,7 @@
                     </a>
                 </li>
 				<li>
-                    <a href="index.php?mod=retur_pembelian&pg=retur_pembelian_view">
+                    <a href="index.php?mod=retur_pembelian&pg=returpembelian_view">
                         <i class="icon-double-angle-right"></i>Retur Produk
                     </a>
                 </li>
@@ -151,7 +152,11 @@
                     </div>
                     <div class="tree-folder" style="display: block;">
                         <div class="tree-folder-header"> <i class="red ace-icon fa fa-folder-open"></i>
-                            <div class="tree-folder-name">Master</div>
+                            <div class="tree-folder-name" title='master'>Master</div>
+							<a class="blue" id="hide-option" href="#" title="explode on hide">
+							<i class="ace-icon fa fa-hand-o-right">	</i>
+								explode on hide
+							</a>
                         </div>
                         <div class="tree-folder-content">
                             <div class="tree-folder" style="display: block;">

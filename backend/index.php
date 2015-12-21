@@ -134,12 +134,12 @@ include('../inc/js.php');
 		<!-- ace scripts -->
 		<script src="../x/assets/js/ace-elements.min.js"></script>
 		<script src="../x/assets/js/ace.min.js"></script>
-		<!-- engine menu accounting1 -->
+		<!-- engine menu accounting1 tree-->
 		<script src="../x/assets/js/fuelux/data/fuelux.tree-sample-demo-data.js"></script>
 		<script src="../x/assets/js/fuelux/fuelux.tree.min.js"></script>
 
 
-		<!-- engine menu accounting2 -->
+		<!-- engine menu accounting2 tree -->
 		<script type="text/javascript">
 			jQuery(function($){
 
@@ -182,7 +182,39 @@ include('../inc/js.php');
 });
 		</script>
 
-
+		<!--tooltips--->
+			<!-- page specific plugin scripts -->
+		<script src="../x/assets/js/jquery-ui.min.js"></script>
+		<script src="../x/assets/js/jquery.ui.touch-punch.min.js"></script>
+		<!--tooltips script--->
+		//tooltips
+		<script>
+				$( "#show-option" ).tooltip({
+					show: {
+						effect: "slideDown",
+						delay: 250
+					}
+				});
+			
+				$( "#hide-option" ).tooltip({
+					hide: {
+						effect: "explode",
+						delay: 250
+					}
+				});
+			
+				$( "#open-event" ).tooltip({
+					show: null,
+					position: {
+						my: "left top",
+						at: "left bottom"
+					},
+					open: function( event, ui ) {
+						ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+					}
+				});
+		</script>
+		
 		<link rel="stylesheet" href="../x/assets/css/ace.onpage-help.css" />
 		<link rel="stylesheet" href="../x/docs/assets/js/themes/sunburst.css" />
 

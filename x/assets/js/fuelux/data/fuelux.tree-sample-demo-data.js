@@ -96,7 +96,7 @@ var ace_icon = ace.vars['icon'];
 //becomes
 //class="ace-icon fa fa-file-text grey"
 var tree_data_2 = {
-	'master' : {name: 'master', type: 'folder', 'icon-class':'red'}	,
+	'master' : {name: 'master', type: 'folder','icon-class':'red'}	,
 	'setup' : {name: 'setup', type: 'folder', 'icon-class':'orange'}	,
 	'transaksi' : {name: 'transaksi', type: 'folder', 'icon-class':'blue'}	,
 	'laporan' : {name: 'laporan', type: 'folder', 'icon-class':'green'}	,
