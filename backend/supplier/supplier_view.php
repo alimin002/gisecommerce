@@ -17,24 +17,21 @@ if (isset($_GET['act']))
 	include('suplier/caridata.php');
 	
 ?>
-  
-												<div class="widget-main" style="float:right;">
-												<form class="form-search" method="POST" action="supplier/caridata.php">
-													<div class="row">
-													<div class="col-xs-12 col-sm-8">
-														<div class="input-group">
-														
-																<input name="textsearch" type="text" class="form-control search-query" placeholder="Type your query">
-																<button type="submit" class="btn btn-primary btn-sm">
-																		Search
-																		<i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
-																</button>
-															</div>
-														</div>
-													</div>
-												</form>	
-		
-											</div>
+  <div class="widget-main" style="float:right;">
+	<form class="form-search" method="POST" action="http://localhost/gisecommerce/backend/index.php?mod=supplier&pg=supplier_view">
+		<div class="row">
+			<div class="col-xs-12 col-sm-8">
+				<div class="input-group">
+					<input name="textsearch" type="text" class="form-control search-query" placeholder="Type your query">
+					<button type="submit" class="btn btn-primary btn-sm">
+						Search
+					<i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>	
+  </div>
 											
 		<h1>
 		Data
@@ -78,9 +75,17 @@ if (empty($halaman))
 	{
 	$posisi = ($halaman - 1) * $batas;
 	}
-
+$query="";
+if(isset($_POST['textsearch'])){	
+$query = "SELECT * from supplier where nm_suplier like '%".$_POST['textsearch']."%';";
+$result = mysql_query($query) or die(mysql_error());
+}else{
+	
 $query = "SELECT * from supplier limit $posisi,$batas ";
 $result = mysql_query($query) or die(mysql_error());
+}
+
+
 $no = 1;
 
 // proses menampilkan data
