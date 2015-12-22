@@ -25,7 +25,7 @@ if (isset($_GET['act']))
 														<div class="input-group">
 														
 																<input name="textsearch" type="text" class="form-control search-query" placeholder="Type your query">
-																<button type="submit" class="btn btn-primary btn-sm">
+																<button type="button" class="btn btn-primary btn-sm">
 																		Search
 																		<i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
 																</button>

@@ -64,11 +64,4 @@ if($result) {
 	header('location:../index.php?mod=produk&pg=produk_view&status=1');
 }
 }
-function carikategori($nama){
-$nama=$_POST['textsearch'];
-$query = "SELECT * from kategori where nama_kategory 's%';";
-$result = mysql_query($query) or die(mysql_error());
-return $result;
-}
-
 ?>

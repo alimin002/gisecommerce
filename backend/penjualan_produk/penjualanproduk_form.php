@@ -20,10 +20,7 @@ if(empty($_SESSION['username'])){
 
 	} else {
 		$aksi = "tambah";
-	}
-	
-	
-	?>
+	}?>
 
 
 

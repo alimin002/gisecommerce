@@ -11,13 +11,12 @@ if (isset($_GET['act'])) {
 
 }
 					?>
-<div>
 
 		
-														<?php
-															$query="select idkategori,nama_kategori from kategori";
-																	$result=mysql_query($query) or die(mysql_error());
-														?>
+												<?php
+													$query="select idkategori,nama_kategori from kategori";
+													$result=mysql_query($query) or die(mysql_error());
+												?>
 												<div class="widget-main" style="float:right;">
 												<form class="form-search">
 													<div class="row">
@@ -43,11 +42,13 @@ if (isset($_GET['act'])) {
 												</form>	
 		
 											</div>
-<div>
-	<h2 id="headings"> Data produk</h2>
-</div>	
-
-
+		<h1>
+		Data
+		<small>
+		<i class="ace-icon fa fa-angle-double-right"></i>
+		Produk
+		</small>
+		</h1>
 <div>
 	
 	<!--<a href='index.php?mod=produk&pg=peta'><i class="icon-map-marker"></i>Map View</a>-->

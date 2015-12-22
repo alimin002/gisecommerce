@@ -230,7 +230,6 @@ include('../inc/js.php');
 		<script src="../x/assets/js/jquery-ui.min.js"></script>
 		<script src="../x/assets/js/jquery.ui.touch-punch.min.js"></script>
 		<!--tooltips script--->
-		//tooltips
 		<script>
 				$( "#show-option" ).tooltip({
 					show: {

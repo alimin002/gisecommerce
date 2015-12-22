@@ -45,7 +45,7 @@
 										<b class="arrow"></b>
 									</li>
 									<li class="">
-										<a href="mobile-menu-1.html">
+										<a href="index.php?mod=kategori&pg=kategori_view">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Kategori Produk
 										</a>
@@ -66,42 +66,20 @@
 
 								<ul class="submenu">
 									<li class="">
-										<a href="#">
+										<a href="index.php?mod=produk&pg=produk_view">
 											<i class="menu-icon fa fa-leaf"></i>
 											Pembelian Produk
 										</a>
 
 										<b class="arrow"></b>
 									</li>
-
-									<li class="hsub">
-										<a href="#" class="dropdown-toggle">
-											<i class="menu-icon fa fa-pencil"></i>
+										<li class="">
+										<a href="index.php?mod=retur_pembelian&pg=returpembelian_view">
+											<i class="menu-icon fa fa-leaf"></i>
 											Retur Pembelian
-											<b class="arrow fa fa-angle-down"></b>
 										</a>
 
 										<b class="arrow"></b>
-
-										<ul class="submenu">
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-plus"></i>
-													Add Product
-												</a>
-
-												<b class="arrow"></b>
-											</li>
-
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-eye"></i>
-													View Products
-												</a>
-
-												<b class="arrow"></b>
-											</li>
-										</ul>
 									</li>
 								</ul>
 							</li>
@@ -151,42 +129,20 @@
 
 								<ul class="submenu">
 									<li class="">
-										<a href="#">
+										<a href="index.php?mod=penjualan_produk&pg=penjualanproduk_view">
 											<i class="menu-icon fa fa-leaf"></i>
-											Pembelian Produk
+											Penjualan Produk
 										</a>
 
 										<b class="arrow"></b>
 									</li>
-
-									<li class="hsub">
-										<a href="#" class="dropdown-toggle">
-											<i class="menu-icon fa fa-pencil"></i>
-											Retur Pembelian
-											<b class="arrow fa fa-angle-down"></b>
+										<li class="">
+										<a href="index.php?mod=returpenjualan&pg=returpenjualan_view">
+											<i class="menu-icon fa fa-leaf"></i>
+											Retur Penjualan
 										</a>
 
 										<b class="arrow"></b>
-
-										<ul class="submenu">
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-plus"></i>
-													Add Product
-												</a>
-
-												<b class="arrow"></b>
-											</li>
-
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-eye"></i>
-													View Products
-												</a>
-
-												<b class="arrow"></b>
-											</li>
-										</ul>
 									</li>
 								</ul>
 							</li>

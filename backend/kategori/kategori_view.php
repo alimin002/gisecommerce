@@ -18,7 +18,23 @@ if (isset($_GET['act'])) {
 }
 //==========================================
 ?>
-
+										<div class="widget-main" style="float:right;">
+												<form class="form-search">
+													<div class="row">
+													<div class="col-xs-12 col-sm-8">
+														<div class="input-group">
+															
+																<input type="text" class="form-control search-query" placeholder="Type your query"/>
+																<button type="button" class="btn btn-primary btn-sm">
+																		Search
+																		<i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
+																	</button>
+															</div>
+														</div>
+													</div>
+												</form>	
+		
+											</div>
 	<h1>
 							Data
 							<small>
@@ -50,7 +66,6 @@ $result=mysql_query($query) or die(mysql_error());
 $no=1;
 //proses menampilkan data
 while($rows=mysql_fetch_object($result)){
-
 		?>
 		<tr>
 			<td><?php echo $posisi+$no
