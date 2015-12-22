@@ -14,6 +14,9 @@ include('../inc/header-back.php');
 		<div class="navbar navbar-inverse">
 			<div class="navbar-inner">
 				<div class="container-fluid">
+				<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+				</script>
 					<a href="#" class="brand">
 						<small>
 							<i class="icon-desktop"></i>
@@ -39,13 +42,25 @@ include('../inc/header-back.php');
 			<a id="menu-toggler" href="#">
 				<span></span>
 			</a>
+<script type="text/javascript">
+	try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+</script>
+<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
 <!--sidebar-->			
-<div id="sidebar">
+<div id="sidebar" class="sidebar                  responsive">
+<script type="text/javascript">
+	try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+</script>
 <?php
 if(isset($_SESSION['username'])){
 include('../inc/sidebar-back.php');
 }
 ?>
+ <div id="sidebar-collapse">
+    <i class="icon-double-angle-left"></i>
+ </div>
 </div>
 <!--content -->
 <div id="main-content" class="clearfix">
