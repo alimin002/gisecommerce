@@ -58,9 +58,10 @@ if(isset($_SESSION['username'])){
 include('../inc/sidebar-back.php');
 }
 ?>
+<!--
  <div id="sidebar-collapse">
     <i class="icon-double-angle-left"></i>
- </div>
+ </div>-->
 </div>
 <!--content -->
 <div id="main-content" class="clearfix">
