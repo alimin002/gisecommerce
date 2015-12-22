@@ -22,6 +22,8 @@
 		<link rel="stylesheet" href="../x/assets/css/ace-fonts.css"/>
 		<link rel="stylesheet" href="../x/assets/css/ace.min.css" />
 		<link rel="stylesheet" href="../x/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="../x/assets/css/jquery-ui.custom.min.css" />
+
 		
 		<!--[if IE 7]>
 		  <link rel="stylesheet" href="../assets/themes-back/font-awesome/css/font-awesome-ie7.min.css" />
@@ -29,9 +31,15 @@
 
 		<!--page specific plugin styles-->
 
-		<link rel="stylesheet" href="../assets/themes-back/css/prettify.css" />
+		<link rel="stylesheet" href="..x/assets/themes-back/css/prettify.css" />
 
 		<!--fonts-->
+		<!-- tree view -->
+			<!-- inline styles related to  tree view -->
+
+		<!-- ace settings handler -->
+		<script src="../x/assets/js/ace-extra.min.js"></script>
+
 
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
 
