@@ -37,7 +37,7 @@
 
 								<ul class="submenu">
 									<li class="">
-										<a href="top-menu.html">
+										<a href="index.php?mod=supplier&pg=supplier_view">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Supplier
 										</a>
@@ -536,11 +536,17 @@
             </a>
 
             <ul class="submenu">
+				<?php 
+				if($_SESSION["username"]=='admin'){
+				
+				
+				?>
                 <li>
                     <a href="index.php?mod=pengelola&pg=pengelola_view">
                         <i class="icon-double-angle-right"></i> Pengelola
                     </a>
                 </li>
+				<?php } ?>
                 <li>
                     <a href="index.php?mod=login&pg=cp_form">
                         <i class="icon-double-angle-right"></i> Change Password

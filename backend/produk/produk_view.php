@@ -13,11 +13,25 @@ if (isset($_GET['act'])) {
 					?>
 <div>
 
-<div class="widget-main" style="float:right;">
+		
+														<?php
+															$query="select idkategori,nama_kategori from kategori";
+																	$result=mysql_query($query) or die(mysql_error());
+														?>
+												<div class="widget-main" style="float:right;">
 												<form class="form-search">
 													<div class="row">
-														<div class="col-xs-12 col-sm-8">
-															<div class="input-group">
+													<div class="col-xs-12 col-sm-8">
+														<div class="input-group">
+															<select class="form-control" id="form-field-select-1">	
+																<option value="WA">Pilih Kategori</option>
+														<?php 
+														while($rows=mysql_fetch_object($result)){
+														echo $rows -> nama_kategori;
+														?>	
+														<option value="WA"><?php echo $rows -> nama_kategori; ?></option>
+														<?php } ?>
+														</select>
 																<input type="text" class="form-control search-query" placeholder="Type your query">
 																<button type="button" class="btn btn-primary btn-sm">
 																		Search
@@ -26,24 +40,13 @@ if (isset($_GET['act'])) {
 															</div>
 														</div>
 													</div>
-	</form>	
-</center>		
-</div>
+												</form>	
+		
+											</div>
 <div>
 	<h2 id="headings"> Data produk</h2>
 </div>	
-<div>
-	Kategori
-</div>				
-<div>
 
-	<select class="form-control" id="form-field-select-1">														
-		<option value="WA">Semua</option>
-			<option value="WV">West Virginia</option>
-			<option value="WI">Wisconsin</option>
-			<option value="WY">Wyoming</option>
-	</select>
-</div>
 
 <div>
 	

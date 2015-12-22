@@ -25,12 +25,20 @@ include('../inc/header-back.php');
 					</a><!--/.brand-->
 
 					<ul class="nav ace-nav pull-right">
+					<?php 
+						if (isset($_SESSION['username'])){ ?>
+					<li style="color:white;">
+					<img img src="../upload/pengguna/alimin.jpg" width=35px height=20px />
+					<?php echo $_SESSION['username']; ?>
+					</li>
+					<?php } ?>
 						<?php 
 						if (isset($_SESSION['username'])){ ?>
 						<li>	<a href="login/logout.php">
 									<i class="icon-off"></i>
 									Logout
-								</a></li>
+						</a>
+						</li>
 			<?php } ?>
 							
 					</ul><!--/.w8-nav-->
