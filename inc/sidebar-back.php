@@ -191,11 +191,21 @@
                         <i class="icon-double-angle-right"></i> Berita / Promo
                     </a>
                 </li>
-
-
+				 <li>
+                    <a href="index.php?mod=banner&pg=banner_view">
+                        <i class="icon-double-angle-right"></i> Banner
+                    </a>
+                </li>
+				<li>
+                    <a href="index.php?mod=banner&pg=banner_view">
+                        <i class="icon-double-angle-right"></i> Trafic pengunjung
+                    </a>
+                </li>
+					
 
 
             </ul>
+			<!---
 			<ul class="submenu">
                 <li>
                     <a href="index.php?mod=banner&pg=banner_view">
@@ -207,6 +217,7 @@
 
 
             </ul>
+			--->
         </li>
 
 
