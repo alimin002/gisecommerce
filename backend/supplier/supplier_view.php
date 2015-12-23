@@ -9,7 +9,7 @@ if (empty($_SESSION['username']))
 if (isset($_GET['act']))
 	{
 	$id = $_GET['id'];
-	$sql = "delete from produk where idproduk='$id' ";
+	$sql = "delete from supplier where supplier_id='$id' ";
 	mysql_query($sql) or die(mysql_error());
 	}
 
@@ -17,24 +17,21 @@ if (isset($_GET['act']))
 	include('suplier/caridata.php');
 	
 ?>
-  
-												<div class="widget-main" style="float:right;">
-												<form class="form-search" method="POST" action="supplier/caridata.php">
-													<div class="row">
-													<div class="col-xs-12 col-sm-8">
-														<div class="input-group">
-														
-																<input name="textsearch" type="text" class="form-control search-query" placeholder="Type your query">
-																<button type="submit" class="btn btn-primary btn-sm">
-																		Search
-																		<i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
-																</button>
-															</div>
-														</div>
-													</div>
-												</form>	
-		
-											</div>
+  <div class="widget-main" style="float:right;">
+	<form class="form-search" method="POST" action="index.php?mod=supplier&pg=supplier_view">
+		<div class="row">
+			<div class="col-xs-12 col-sm-8">
+				<div class="input-group">
+					<input name="textsearch" type="text" class="form-control search-query" placeholder="ketik nama suplier">
+					<button type="submit" class="btn btn-primary btn-sm">
+						Search
+					<i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>	
+  </div>
 											
 		<h1>
 		Data
@@ -78,9 +75,17 @@ if (empty($halaman))
 	{
 	$posisi = ($halaman - 1) * $batas;
 	}
-
+$query="";
+if(isset($_POST['textsearch'])){	
+$query = "SELECT * from supplier where nm_suplier like '%".$_POST['textsearch']."%';";
+$result = mysql_query($query) or die(mysql_error());
+}else{
+	
 $query = "SELECT * from supplier limit $posisi,$batas ";
 $result = mysql_query($query) or die(mysql_error());
+}
+
+
 $no = 1;
 
 // proses menampilkan data
@@ -107,11 +112,11 @@ while ($rows = mysql_fetch_object($result))
 	echo $rows->telp; ?>
                         </td>
                         <td>
-                            <a href="index.php?mod=produk&pg=produk_form&id=<?php
+                            <a href="index.php?mod=supplier&pg=supplier_form&id=<?php
 	echo $rows->supplier_id; ?>" class='btn btn-xs btn-info'>
                                 <i class="icon-pencil"></i>
                             </a>
-                            <a href="index.php?mod=produk&pg=produk_view&act=del&id=<?php
+                            <a href="index.php?mod=supplier&pg=supplier_view&act=del&id=<?php
 	echo $rows->supplier_id; ?>" onclick="return confirm('Yakin data akan dihapus?');" class='btn btn-danger'> <i class="icon-trash"></i>
                             </a>
                         </td>
@@ -129,7 +134,7 @@ while ($rows = mysql_fetch_object($result))
             </tbody>
         </table>
         <?php //=============CUT HERE for paging====================================
-$tampil2 = mysql_query("SELECT idproduk from produk");
+$tampil2 = mysql_query("SELECT supplier_id from supplier");
 $jmldata = mysql_num_rows($tampil2);
 $jumlah_halaman = ceil($jmldata / $batas);
 ?>
