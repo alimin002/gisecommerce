@@ -505,28 +505,31 @@
 							
 						</ul>
 					</li>
-					<li>
+		<li>
             <a href="#" class="dropdown-toggle">
-                <i class="icon-cog"></i>
+                <i class="icon-list"></i>
                 <span> Grafik</span>
 
                 <b class="arrow icon-angle-down"></b>
             </a>
-			
-			<ul class="submenu">
-				<?php 
-				if($_SESSION["username"]=='admin'){
-				
-				
-				?>
-                <li>
-                    <a href="index.php?mod=pengelola&pg=pengelola_view">
-                        <i class="icon-double-angle-right"></i> Grafik Penjualan
-                    </a>
-					</ul>
-                </li>
 
-				</li>
+            <ul class="submenu">
+                <li>
+                    <a href="index.php?mod=kategori&pg=kategori_view">
+                        <i class="icon-double-angle-right"></i> Penjualan
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?mod=produk&pg=produk_view">
+                        <i class="icon-double-angle-right"></i> Pembelian
+                    </a>
+                </li>
+               
+
+
+            </ul>
+        </li>
+					
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-cog"></i>
