@@ -66,7 +66,7 @@
 
 								<ul class="submenu">
 									<li class="">
-										<a href="index.php?mod=Pembelian_Produk&pg=Pembelian_Prodak_view.php">
+										<a href="index.php?mod=Pembelian_Produk&pg=Pembelian_Prodak_view">
 											<i class="menu-icon fa fa-leaf"></i>
 											Pembelian Produk
 										</a>
