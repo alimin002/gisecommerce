@@ -505,13 +505,14 @@
 							
 						</ul>
 					</li>
-					<li>
+		<li>
             <a href="#" class="dropdown-toggle">
-                <i class="icon-cog"></i>
+                <i class="icon-list"></i>
                 <span> Grafik</span>
 
                 <b class="arrow icon-angle-down"></b>
             </a>
+<<<<<<< HEAD
 			
 			<ul class="submenu">
 				<?php 
@@ -527,6 +528,26 @@
                 
 
 				</li>
+=======
+
+            <ul class="submenu">
+                <li>
+                    <a href="index.php?mod=kategori&pg=kategori_view">
+                        <i class="icon-double-angle-right"></i> Penjualan
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?mod=produk&pg=produk_view">
+                        <i class="icon-double-angle-right"></i> Pembelian
+                    </a>
+                </li>
+               
+
+
+            </ul>
+        </li>
+					
+>>>>>>> 8d3ad59bf4f7e77918bd1a51bc6f752652f2dce6
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-cog"></i>
