@@ -196,6 +196,17 @@
 
 
             </ul>
+			<ul class="submenu">
+                <li>
+                    <a href="index.php?mod=banner&pg=banner_view">
+                        <i class="icon-double-angle-right"></i> Banner
+                    </a>
+                </li>
+
+
+
+
+            </ul>
         </li>
 
 
