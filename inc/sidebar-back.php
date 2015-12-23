@@ -196,14 +196,11 @@
                         <i class="icon-double-angle-right"></i> Banner
                     </a>
                 </li>
-<<<<<<< HEAD
 				<li>
                     <a href="index.php?mod=banner&pg=banner_view">
                         <i class="icon-double-angle-right"></i> Trafic pengunjung
                     </a>
                 </li>
-=======
->>>>>>> 438b8a8a1961e10c1e1910a8ed6451232f6b35c9
 					
 
 
@@ -508,6 +505,28 @@
 							
 						</ul>
 					</li>
+					<li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-cog"></i>
+                <span> Grafik</span>
+
+                <b class="arrow icon-angle-down"></b>
+            </a>
+			
+			<ul class="submenu">
+				<?php 
+				if($_SESSION["username"]=='admin'){
+				
+				
+				?>
+                <li>
+                    <a href="index.php?mod=pengelola&pg=pengelola_view">
+                        <i class="icon-double-angle-right"></i> Grafik Penjualan
+                    </a>
+					</ul>
+                </li>
+
+				</li>
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-cog"></i>
