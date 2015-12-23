@@ -14,24 +14,22 @@ if(empty($_SESSION['username'])){
 		$aksi = "edit";
 		$id = $_GET['id'];
 		//baris dibawah ini disesuaikan dengan nama tabel dan idtabelnya
-			$sql = "select * from supplier where supplier_id='$id' ";
+			$sql = "select * from produk where idproduk='$id' ";
 		$result = mysql_query($sql) or die(mysql_error());
 		$data = mysql_fetch_object($result);
 
 	} else {
 		$aksi = "tambah";
-	}
-	
-	
-	?>
+	}?>
 
 
 
 	<!--kolom kiri-->
 
-		<h2> Form Supplier</h2>
+		<h2> Form Pembelian Produk</h2>
 		
-		<form  class="form-horizontal" method="POST" id="form1"  action="supplier/supplier_action.php">
+<form  class="form-horizontal" method="POST" id="form1"  enctype="multipart/form-data"
+action="produk/produk_action.php">
 	
 		<?php 
 		if(empty($_GET['id'])){
@@ -42,29 +40,31 @@ if(empty($_SESSION['username'])){
 		?>
 		<input type='hidden' name='id' value="<?php echo $id?>">
 	<div class="control-group">
-			<label class="control-label" for="nama_suplier">Nama Supplier</label>
+			<label class="control-label" for="nama_produk">Nama Suplier</label>
 			<div class="controls">
-				<input type="text" name='nm_suplier' value='<?php if($id!=null ){echo $data->nm_suplier;} ?>'class='required'>
+				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
 			</div>
-	</div>
+		</div>
 	<div class="control-group">
-			<label class="control-label" for="alamat">Alamat</label>
+			<label class="control-label" for="idkategori">Total</label>
 			<div class="controls">
-				<textarea name='alamat' class="input-xxlarge"><?php if($id!=null ){echo $data->nm_suplier;} ?></textarea>
+				<textarea name='deskripsi' class="input-xxlarge">
+					
+				</textarea>
 			</div>
-	</div>
+		</div>
 		<div class="control-group">
-			<label class="control-label" for="telp">Telp</label>
+			<label class="control-label" for="foto">Potongan</label>
 			<div class="controls">
-				<input type="text" name='telp' value='<?php if($id!=null ){echo $data->telp;} ?>'class='required'>
+				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
 			</div>
 		</div>
 		
 	
 		<div class="control-group">
-			<label class="control-label" for="email">Email</label>
+			<label class="control-label" for="deskripsi">Grand Total</label>
 			<div class="controls">
-				<input type="text" name='email' value='<?php if($id!=null ){echo $data->email;} ?>'class='required'>
+				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
 
 			</div>
 		</div>
@@ -78,5 +78,4 @@ if(empty($_SESSION['username'])){
 		</div>
 
 </form>
-<a href="index.php?mod=supplier&pg=supplier_view"> << Kembali Ke Data Supplier </a>
 </div>

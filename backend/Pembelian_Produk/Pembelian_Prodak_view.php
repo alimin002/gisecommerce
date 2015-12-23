@@ -1,5 +1,5 @@
-
 <?php //===========CODE DELETE RECORD ================
+
 if (empty($_SESSION['username']))
 	{
 	echo "<p style='color:red'>akses denied</p>";
@@ -9,44 +9,30 @@ if (empty($_SESSION['username']))
 if (isset($_GET['act']))
 	{
 	$id = $_GET['id'];
-	$sql = "delete from supplier where supplier_id='$id' ";
+	$sql = "delete from produk where idproduk='$id' ";
 	mysql_query($sql) or die(mysql_error());
 	}
 
-	
-	include('suplier/caridata.php');
-	
 ?>
-  <div class="widget-main" style="float:right;">
-	<form class="form-search" method="POST" action="index.php?mod=supplier&pg=supplier_view">
-		<div class="row">
-			<div class="col-xs-12 col-sm-8">
-				<div class="input-group">
-					<input name="textsearch" type="text" class="form-control search-query" placeholder="ketik nama suplier">
-					<button type="submit" class="btn btn-primary btn-sm">
-						Search
-					<i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
-					</button>
-				</div>
-			</div>
-		</div>
-	</form>	
-  </div>
-											
-		<h1>
+    <div>
+        <h1>
 		Data
 		<small>
 		<i class="ace-icon fa fa-angle-double-right"></i>
-		Supplier
+		Data Pembelian
 		</small>
-		</h1>									
+	</h1>
+    </div>
+    <div>
+
         <!--<a href='index.php?mod=produk&pg=peta'><i class="icon-map-marker"></i>Map View</a>-->
         <table class="table table-striped table-condensed">
             <thead>
                 <th>
-                    <td><b>Nama </b></td>
-                    <td><b>Alamat</b></td>
-                    <td><b>Telp</b></td>
+                    <td><b>Nama Suplier </b></td>
+					<td><b>Total</b></td>
+                    <td><b>Potongan Pembelian</b></td>
+                    <td><b>Grand Total</b></td>
                     <td style='min-width: 100px'><b>Aksi</b></td>
                 </th>
             </thead>
@@ -75,17 +61,9 @@ if (empty($halaman))
 	{
 	$posisi = ($halaman - 1) * $batas;
 	}
-$query="";
-if(isset($_POST['textsearch'])){	
-$query = "SELECT * from supplier where nm_suplier like '%".$_POST['textsearch']."%';";
-$result = mysql_query($query) or die(mysql_error());
-}else{
-	
+
 $query = "SELECT * from supplier limit $posisi,$batas ";
 $result = mysql_query($query) or die(mysql_error());
-}
-
-
 $no = 1;
 
 // proses menampilkan data
@@ -112,11 +90,11 @@ while ($rows = mysql_fetch_object($result))
 	echo $rows->telp; ?>
                         </td>
                         <td>
-                            <a href="index.php?mod=supplier&pg=supplier_form&id=<?php
+                            <a href="index.php?mod=produk&pg=produk_form&id=<?php
 	echo $rows->supplier_id; ?>" class='btn btn-xs btn-info'>
                                 <i class="icon-pencil"></i>
                             </a>
-                            <a href="index.php?mod=supplier&pg=supplier_view&act=del&id=<?php
+                            <a href="index.php?mod=produk&pg=produk_view&act=del&id=<?php
 	echo $rows->supplier_id; ?>" onclick="return confirm('Yakin data akan dihapus?');" class='btn btn-danger'> <i class="icon-trash"></i>
                             </a>
                         </td>
@@ -134,7 +112,7 @@ while ($rows = mysql_fetch_object($result))
             </tbody>
         </table>
         <?php //=============CUT HERE for paging====================================
-$tampil2 = mysql_query("SELECT supplier_id from supplier");
+$tampil2 = mysql_query("SELECT idproduk from produk");
 $jmldata = mysql_num_rows($tampil2);
 $jumlah_halaman = ceil($jmldata / $batas);
 ?>

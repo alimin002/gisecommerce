@@ -54,7 +54,9 @@ if($aksi == 'tambah') {
 	
 	}
 }
+
 $result = mysql_query($sql) or die(mysql_error());
+
 //check if query successful
 if($result) {
 	header('location:../index.php?mod=produk&pg=produk_view&status=0');
