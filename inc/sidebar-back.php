@@ -505,6 +505,14 @@
 							
 						</ul>
 					</li>
+					<li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-cog"></i>
+                <span> Grafik</span>
+
+                <b class="arrow icon-angle-down"></b>
+            </a>
+				</li>
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-cog"></i>
