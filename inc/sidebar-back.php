@@ -512,6 +512,20 @@
 
                 <b class="arrow icon-angle-down"></b>
             </a>
+			
+			<ul class="submenu">
+				<?php 
+				if($_SESSION["username"]=='admin'){
+				
+				
+				?>
+               
+                    <a href="index.php?mod=pengelola&pg=pengelola_view">
+                        <i class="icon-double-angle-right"></i> Grafik Penjualan
+                    </a>
+			</ul>
+                
+
 				</li>
         <li>
             <a href="#" class="dropdown-toggle">
