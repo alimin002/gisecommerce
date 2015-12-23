@@ -196,11 +196,14 @@
                         <i class="icon-double-angle-right"></i> Banner
                     </a>
                 </li>
+<<<<<<< HEAD
 				<li>
                     <a href="index.php?mod=banner&pg=banner_view">
                         <i class="icon-double-angle-right"></i> Trafic pengunjung
                     </a>
                 </li>
+=======
+>>>>>>> 438b8a8a1961e10c1e1910a8ed6451232f6b35c9
 					
 
 
