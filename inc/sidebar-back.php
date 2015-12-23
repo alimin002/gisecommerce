@@ -260,20 +260,7 @@
                         <i class="icon-double-angle-right"></i> Transaksi
                     </a>
                 </li>
-				<li>
-					<ul class="submenu">
-						<li>
-							<a href="index.php?mod=invoice&pg=invoice_view">
-								<i class="icon-double-angle-right"></i> Transaksi
-							</a>
-						</li>
-						<li>
-							<a href="index.php?mod=invoice&pg=invoice_view">
-								<i class="icon-double-angle-right"></i> Transaksi
-							</a>
-						</li>
-					</ul>
-                </li>
+				
 
             </ul>
         </li>
@@ -505,49 +492,30 @@
 							
 						</ul>
 					</li>
-		<li>
+					<li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-list"></i>
-                <span> Grafik</span>
+                <span>Grafik</span>
 
                 <b class="arrow icon-angle-down"></b>
             </a>
-<<<<<<< HEAD
-			
-			<ul class="submenu">
-				<?php 
-				if($_SESSION["username"]=='admin'){
-				
-				
-				?>
-               
-                    <a href="index.php?mod=pengelola&pg=pengelola_view">
-                        <i class="icon-double-angle-right"></i> Grafik Penjualan
-                    </a>
-			</ul>
-                
-
-				</li>
-=======
 
             <ul class="submenu">
                 <li>
                     <a href="index.php?mod=kategori&pg=kategori_view">
-                        <i class="icon-double-angle-right"></i> Penjualan
+                        <i class="icon-double-angle-right"></i> Grafik Penjualan
                     </a>
                 </li>
                 <li>
                     <a href="index.php?mod=produk&pg=produk_view">
-                        <i class="icon-double-angle-right"></i> Pembelian
+                        <i class="icon-double-angle-right"></i> Grafik Pembelian
                     </a>
                 </li>
                
-
-
             </ul>
         </li>
+		
 					
->>>>>>> 8d3ad59bf4f7e77918bd1a51bc6f752652f2dce6
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-cog"></i>
