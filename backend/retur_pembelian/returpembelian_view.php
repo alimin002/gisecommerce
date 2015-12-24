@@ -107,15 +107,15 @@ while ($rows = mysql_fetch_object($result))
                             </a>
                         </td>
                     </tr>
-                
-
-                        <tr>
+                <?php
+	}
+          ?>        <tr>
                             <td colspan='4'></td>
                             <td><a href="index.php?mod=supplier&pg=supplier_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
                         </tr>
-						<?php
-	}
-						?>
+						
+	
+						
             </tbody>
         </table>
         <?php //=============CUT HERE for paging====================================
