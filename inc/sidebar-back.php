@@ -495,11 +495,8 @@
 					<li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-list"></i>
-<<<<<<< HEAD
+
                 <span>Grafik 1</span>
-=======
-                <span>Grafik</span>
->>>>>>> 5fa3b3445f916703cf71a67c8a306108697ee1bf
 
                 <b class="arrow icon-angle-down"></b>
             </a>
@@ -518,7 +515,7 @@
                
             </ul>
         </li>
-<<<<<<< HEAD
+
 		<li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-list"></i>
@@ -550,9 +547,7 @@
                
             </ul>
 		</li>
-=======
->>>>>>> 5fa3b3445f916703cf71a67c8a306108697ee1bf
-		
+
 					
         <li>
             <a href="#" class="dropdown-toggle">
