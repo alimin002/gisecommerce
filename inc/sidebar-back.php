@@ -137,7 +137,7 @@
 										<b class="arrow"></b>
 									</li>
 										<li class="">
-										<a href="index.php?mod=returpenjualan&pg=returpenjualan_view">
+										<a href="index.php?mod=retur_penjualan&pg=returpenjualan_view">
 											<i class="menu-icon fa fa-leaf"></i>
 											Retur Penjualan
 										</a>

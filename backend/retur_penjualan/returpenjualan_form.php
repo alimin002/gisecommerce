@@ -26,7 +26,7 @@ if(empty($_SESSION['username'])){
 
 	<!--kolom kiri-->
 
-		<h2> Form Supplier</h2>
+		<h2> Retur Penjualan</h2>
 		
 <form  class="form-horizontal" method="POST" id="form1"  enctype="multipart/form-data"
 action="produk/produk_action.php">
@@ -40,13 +40,13 @@ action="produk/produk_action.php">
 		?>
 		<input type='hidden' name='id' value="<?php echo $id?>">
 	<div class="control-group">
-			<label class="control-label" for="nama_produk">Nama Supplier</label>
+			<label class="control-label" for="nama_produk">Retur Penjualan</label>
 			<div class="controls">
 				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
 			</div>
 		</div>
 	<div class="control-group">
-			<label class="control-label" for="idkategori">Alamat</label>
+			<label class="control-label" for="idkategori">ID</label>
 			<div class="controls">
 				<textarea name='deskripsi' class="input-xxlarge">
 					
@@ -54,18 +54,65 @@ action="produk/produk_action.php">
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="foto">Telp</label>
+			<label class="control-label" for="idkategori">No Retur</label>
 			<div class="controls">
-				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
+				<textarea name='deskripsi' class="input-xxlarge">
+					
+				</textarea>
 			</div>
 		</div>
-		
-	
 		<div class="control-group">
-			<label class="control-label" for="deskripsi">Email</label>
+			<label class="control-label" for="idkategori">Tanggal Retur</label>
+			<div class="controls">
+				<textarea name='deskripsi' class="input-xxlarge">
+					
+				</textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="idkategori">ID Pelanggan</label>
+			<div class="controls">
+				<textarea name='deskripsi' class="input-xxlarge">
+					
+				</textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="idkategori">ID Prodak</label>
+			<div class="controls">
+				<textarea name='deskripsi' class="input-xxlarge">
+					
+				</textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="idkategori">Jumlah</label>
+			<div class="controls">
+				<textarea name='deskripsi' class="input-xxlarge">
+					
+				</textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="idkategori">Kondisi</label>
+			<div class="controls">
+				<textarea name='deskripsi' class="input-xxlarge">
+					
+				</textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="idkategori">Keterangan</label>
+			<div class="controls">
+				<textarea name='deskripsi' class="input-xxlarge">
+					
+				</textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="foto">User ID</label>
 			<div class="controls">
 				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
-
 			</div>
 		</div>
 

@@ -30,8 +30,8 @@ if (isset($_GET['act']))
             <thead>
                 <th>
                     <td><b>ID</b></td>
-					<td><b>No Return </b></td>
-					<td><b>Tanggal Return </b></td>
+					<td><b>No Retur </b></td>
+					<td><b>Tanggal Retur</b></td>
 					<td><b>ID pelanggan </b></td>
 					<td><b>ID Prodak</b></td>
 					<td><b>Jumlah </b></td>
@@ -104,6 +104,8 @@ while ($rows = mysql_fetch_object($result))
                         <td>
                         </td>
 						<td>
+                        </td>
+						<td>
                             <a href="index.php?mod=produk&pg=produk_form&id=" class='btn btn-xs btn-info'>
                                 <i class="icon-pencil"></i>
                             </a>
@@ -120,7 +122,7 @@ while ($rows = mysql_fetch_object($result))
 
                         <tr>
                             <td colspan='10'></td>
-                            <td><a href="index.php?mod=returpenjualan_form&pg=returpenjualan_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
+                            <td><a href="index.php?mod=retur_penjualan&pg=returpenjualan_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
                         </tr>
             </tbody>
         </table>
