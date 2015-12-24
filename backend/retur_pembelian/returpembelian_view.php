@@ -77,35 +77,40 @@ while ($rows = mysql_fetch_object($result))
 ?>
                     <tr>
 					<td>
-                          
-                        </td>
+                         
+                    </td>
+						
 					<td>
-                          
-                        </td>
-                        <td>
+                        
+                    </td>	
+                     <td>
+				         
                            
-                        </td>
-                        <td>
+                     </td>
+					 <td>
                           
-                        </td>
-                        <td>
-                           
-                        </td>
-                        <td style="width:40%;">
-                           
-                        </td>
-                        <td>
+                    </td>
+                    <td>
                           
-                        </td>
-                        <td>
-                            <a href="index.php?mod=produk&pg=produk_form&id=
+                    </td>
+                    <td>
+                         
+                    </td>
+                     <td>
+                         
+                    </td>
+					<td>
+                        <a href="index.php?mod=produk&pg=produk_form&id=
 							" class='btn btn-xs btn-info'>
                                 <i class="icon-pencil"></i>
+						  
+                     </td>
+					 <td>
                             </a>
                             <a href="index.php?mod=produk&pg=produk_view&act=del&id=
 							" onclick="return confirm('Yakin data akan dihapus?');" class='btn btn-danger'> <i class="icon-trash"></i>
                             </a>
-                        </td>
+                     </td>
                     </tr>
                 <?php
 	}
