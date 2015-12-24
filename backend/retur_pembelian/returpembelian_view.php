@@ -29,14 +29,14 @@ if (isset($_GET['act']))
         <table class="table table-striped table-condensed">
             <thead>
                 <th>
-                    <td><b>id </b></td>
-                    <td><b>no_return</b></td>
-                    <td><b>tanggal_return</b></td>
-					<td><b>prodak_id</b></td>
-					<td><b>supplier_id</b></td>
-					<td><b>jumlah_prodak</b></td>
-					<td><b>distributor</b></td>
-					<td><b>pengguna_id</b></td>
+                    <td><b>Id </b></td>
+                    <td><b>No Return</b></td>
+                    <td><b>Tanggal Return</b></td>
+					<td><b>Prodak Id</b></td>
+					<td><b>Supplier_id</b></td>
+					<td><b>Jumlah Prodak</b></td>
+					<td><b>Distributor</b></td>
+					<td><b>Pengguna Id</b></td>
                     <td style='min-width: 100px'><b>Aksi</b></td>
                 </th>
             </thead>
@@ -76,38 +76,38 @@ while ($rows = mysql_fetch_object($result))
 	{
 ?>
                     <tr>
-                        <td>
-                            <?php
-	echo $posisi + $no
-?>
+					<td>
+                          
+                        </td>
+					<td>
+                          
                         </td>
                         <td>
-                            <?php
-	echo $rows->nm_suplier; ?>
+                           
+                        </td>
+                        <td>
+                          
+                        </td>
+                        <td>
+                           
                         </td>
                         <td style="width:40%;">
-                            <?php
-	echo $rows->alamat; ?>
+                           
                         </td>
                         <td>
-                            <?php
-	echo $rows->telp; ?>
+                          
                         </td>
                         <td>
-                            <a href="index.php?mod=produk&pg=produk_form&id=<?php
-	echo $rows->supplier_id; ?>" class='btn btn-xs btn-info'>
+                            <a href="index.php?mod=produk&pg=produk_form&id=
+							" class='btn btn-xs btn-info'>
                                 <i class="icon-pencil"></i>
                             </a>
-                            <a href="index.php?mod=produk&pg=produk_view&act=del&id=<?php
-	echo $rows->supplier_id; ?>" onclick="return confirm('Yakin data akan dihapus?');" class='btn btn-danger'> <i class="icon-trash"></i>
+                            <a href="index.php?mod=produk&pg=produk_view&act=del&id=
+							" onclick="return confirm('Yakin data akan dihapus?');" class='btn btn-danger'> <i class="icon-trash"></i>
                             </a>
                         </td>
                     </tr>
-                    <?php
-	$no++;
-	}
-
-?>
+                
 
                         <tr>
                             <td colspan='4'></td>
