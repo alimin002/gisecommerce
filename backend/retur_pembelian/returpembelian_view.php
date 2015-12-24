@@ -29,9 +29,14 @@ if (isset($_GET['act']))
         <table class="table table-striped table-condensed">
             <thead>
                 <th>
-                    <td><b>Nama </b></td>
-                    <td><b>Alamat</b></td>
-                    <td><b>Telp</b></td>
+                    <td><b>id </b></td>
+                    <td><b>no_return</b></td>
+                    <td><b>tanggal_return</b></td>
+					<td><b>prodak_id</b></td>
+					<td><b>supplier_id</b></td>
+					<td><b>jumlah_prodak</b></td>
+					<td><b>distributor</b></td>
+					<td><b>pengguna_id</b></td>
                     <td style='min-width: 100px'><b>Aksi</b></td>
                 </th>
             </thead>
