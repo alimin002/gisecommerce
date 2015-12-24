@@ -99,13 +99,15 @@ while ($rows = mysql_fetch_object($result))
                      <td>
                          
                     </td>
+					<td>	  
+					</td>
 					<td>
-                        <a href="index.php?mod=produk&pg=produk_form&id=
+					</td>
+					<td>
+					<a href="index.php?mod=produk&pg=produk_form&id=
 							" class='btn btn-xs btn-info'>
                                 <i class="icon-pencil"></i>
-						  
-                     </td>
-					 <td>
+					
                             </a>
                             <a href="index.php?mod=produk&pg=produk_view&act=del&id=
 							" onclick="return confirm('Yakin data akan dihapus?');" class='btn btn-danger'> <i class="icon-trash"></i>
@@ -115,7 +117,7 @@ while ($rows = mysql_fetch_object($result))
                 <?php
 	}
           ?>        <tr>
-                            <td colspan='4'></td>
+                            <td colspan='9'></td>
                             <td><a href="index.php?mod=supplier&pg=supplier_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
                         </tr>
 						
