@@ -118,7 +118,7 @@ while ($rows = mysql_fetch_object($result))
 	}
           ?>        <tr>
                             <td colspan='9'></td>
-                            <td><a href="index.php?mod=supplier&pg=supplier_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
+                            <td><a href="index.php?mod=retur_pembelian&pg=returpembelian_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
                         </tr>
 						
 	
