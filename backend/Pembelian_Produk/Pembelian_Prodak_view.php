@@ -89,13 +89,19 @@ while ($rows = mysql_fetch_object($result))
                             <?php
 	echo $rows->telp; ?>
                         </td>
+						<td>
+						</td>
                         <td>
+						    <a href="index.php?mod=produk&pg=produk_form&id=<?php
+									echo $rows->supplier_id; ?>" class='btn btn-xs btn-warning' title="detail pembelian">
+                                <i class="fa fa-cog "></i>
+                            </a>
                             <a href="index.php?mod=produk&pg=produk_form&id=<?php
-	echo $rows->supplier_id; ?>" class='btn btn-xs btn-info'>
+									echo $rows->supplier_id; ?>" class='btn btn-xs btn-info' title="edit pembelian">
                                 <i class="icon-pencil"></i>
                             </a>
                             <a href="index.php?mod=produk&pg=produk_view&act=del&id=<?php
-	echo $rows->supplier_id; ?>" onclick="return confirm('Yakin data akan dihapus?');" class='btn btn-danger'> <i class="icon-trash"></i>
+									echo $rows->supplier_id; ?>" onclick="return confirm('Yakin data akan dihapus?');" title="delete pembelian" class='btn btn-danger'> <i class="icon-trash"></i>
                             </a>
                         </td>
                     </tr>
@@ -107,7 +113,7 @@ while ($rows = mysql_fetch_object($result))
 
                         <tr>
                             <td colspan='4'></td>
-                            <td><a href="index.php?mod=supplier&pg=supplier_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
+                            <td><a href="index.php?mod=Pembelian_Produk&pg=Pembelian_Prodak_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
                         </tr>
             </tbody>
         </table>
