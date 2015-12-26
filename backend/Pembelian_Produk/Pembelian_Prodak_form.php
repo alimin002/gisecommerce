@@ -117,22 +117,14 @@ if(empty($_SESSION['username'])){
       
     </div>
   </div>
+  <button id="x" style="visible:0">x</button>
 
 									<script>
-								(function($){
-								// here $ points to the old jQuery
-								$('#modal-additem').hide();
-									$('#bootbox-regular').click(function(){
-										$('#modal-additem').show();
-										//alert(1);
+									jQuery1113("#x").hide();
+									//menghindari konflik antar jquery
+									jQuery1113("#x").click(function(){
+									alert(1);
 									});
-									
-								$('#btn-cancel').click(function(){
-								$('#modal-additem').hide();
-								});	
-									
-								})(jQuery1113);
-	
 									</script>
 
 <div>

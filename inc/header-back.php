@@ -65,8 +65,8 @@
 		<link rel="stylesheet" href="../assets/themes-back/css/w8-skins.min.css" />
 		
 		<!--ace combo box-->
-		<!--<script src='../x/assets/js/jquery-1.11.3.js'></script>
-		<script>var jQuery1113 = $.noConflict(true);</script>-->
+		<script src='../x/assets/js/jquery-1.11.3.js'></script>
+		<script>var jQuery1113 = $.noConflict(true);</script>
 		<link rel="stylesheet" href="../x/assets/css/jquery-ui.custom.min.css" />
 		<link rel="stylesheet" href="../x/assets/css/chosen.css" />
 

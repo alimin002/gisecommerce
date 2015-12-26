@@ -48,9 +48,11 @@ if (isset($_GET['act']))
         <table class="table table-striped table-condensed">
             <thead>
                 <th>
-                    <td><b>Nama </b></td>
+                    <td><b>Supplier ID </b></td>
+                    <td><b>Nama Supplier</b></td>
                     <td><b>Alamat</b></td>
-                    <td><b>Telp</b></td>
+					<td><b>Telp</b></td>
+					<td><b>Email</b></td>
                     <td style='min-width: 100px'><b>Aksi</b></td>
                 </th>
             </thead>
@@ -99,29 +101,29 @@ while ($rows = mysql_fetch_object($result))
 ?>
                     <tr>
                         <td>
-                            <?php
-	echo $posisi + $no
-?>
+
                         </td>
                         <td>
-                            <?php
-	echo $rows->nm_suplier; ?>
+                            
                         </td>
-                        <td style="width:40%;">
-                            <?php
-	echo $rows->alamat; ?>
+                        <td >
+                           
                         </td>
                         <td>
-                            <?php
-	echo $rows->telp; ?>
+                            
+                        </td>
+						<td>
+                            
+                        </td>
+						<td>
+                            
                         </td>
                         <td>
-                            <a href="index.php?mod=supplier&pg=supplier_form&id=<?php
-	echo $rows->supplier_id; ?>" class='btn btn-xs btn-info'>
+                            <a href="index.php?mod=supplier&pg=supplier_form&id=" class='btn btn-xs btn-info'>
                                 <i class="icon-pencil"></i>
                             </a>
-                            <a href="index.php?mod=supplier&pg=supplier_view&act=del&id=<?php
-	echo $rows->supplier_id; ?>" onclick="return confirm('Yakin data akan dihapus?');" class='btn btn-danger'> <i class="icon-trash"></i>
+                            <a href="index.php?mod=supplier&pg=supplier_view&act=del&id=" onclick="return confirm('Yakin data akan dihapus?');"
+							class='btn btn-danger'> <i class="icon-trash"></i>
                             </a>
                         </td>
                     </tr>
@@ -132,7 +134,7 @@ while ($rows = mysql_fetch_object($result))
 ?>
 
                         <tr>
-                            <td colspan='4'></td>
+                            <td colspan='6'></td>
                             <td><a href="index.php?mod=supplier&pg=supplier_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
                         </tr>
             </tbody>
