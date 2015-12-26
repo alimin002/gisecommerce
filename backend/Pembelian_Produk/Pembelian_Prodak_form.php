@@ -38,67 +38,56 @@ if(empty($_SESSION['username'])){
 		}
 		?>
 		<input type='hidden' name='id' value="<?php echo $id?>">
-		<div class="control-group">
-			<label class="control-label" for="nama_produk">Kode Pembelian</label>
-			<div class="controls">
-				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
+		
+		<div class="col-md-12">
+		<div class="row">
+				<div class="col-md-3">
+				<label>Kode Pembelian</label>
+					<div class="input-group">
+						<input type="text" class="form-control" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
+					</div>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col-md-3">
+				<label>Nama Supplier</label>
+					<div class="input-group">
+						<input type="text" class="form-control" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
+					</div>
+				</div>
+		</div>
+			<div class="row">
+				<div class="col-md-3">
+				<label>Tanggal</label>
+					<div class="input-group">
+						<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+						<span class="input-group-addon">
+						<i class="fa fa-calendar bigger-110"></i>
+					</span>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top:0.5%;">
+				<div class="col-md-3">
+					<div class="input-group">
+						<button data-toggle="modal" data-target="#myModal" id="bootbox-regular" type="button" class="btn btn-success">
+				<i class="fa fa-plus" ></i>
+				</button>
+					</span>
+					</div>
+				</div>
 			</div>
 	    </div>
-		
-	<div class="control-group">
-			<label class="control-label" for="nama_produk">Nama Suplier</label>
-			<div class="controls">
-				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
-			</div>
-	</div>
-	
-	<div class="control-group">
-			<label class="control-label" for="nama_produk">Tanggal</label>
-			<div class="controls">
-				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
-			</div>
-	</div>
 	
 	
 		<div class="control-group">
 			<div class="controls">
-				<button data-toggle="modal" data-target="#myModal" id="bootbox-regular" type="button" class="btn btn-success" name='aksi'value='<?php echo $aksi?>'>
-				<i class="fa fa-plus" ></i>&nbsp;<?php echo $aksi?>&nbspItem Pembelian
-				</button>
+				
 			</div>
 		</div>
 		
 </form>
-<!---
-<div id="modal-additem" class="bootbox modal fade bootbox-prompt in" tabindex="-1" role="dialog" aria-hidden="false" style="display: block;">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Tambah Item</h4></div>
-            <div class="modal-body">
-                <div class="bootbox-body">
-                    <form class="bootbox-form">
-					    <label>Kode Produk</label>
-                        <input class="bootbox-input bootbox-input-text form-control" autocomplete="off" type="text" style="width:100%;">
-						<label>Nama Produk</label>
-                        <input class="bootbox-input bootbox-input-text form-control" autocomplete="off" type="text" style="width:100%;">
-						<label>Harga Beli</label>
-                        <input class="bootbox-input bootbox-input-text form-control" autocomplete="off" type="text" style="width:100%;">
-						<label>QTY</label>
-                        <input class="bootbox-input bootbox-input-text form-control" autocomplete="off" type="text" style="width:100%;">
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button data-bb-handler="cancel" type="button" class="btn btn-default">Cancel</button>
-                <button data-bb-handler="confirm" type="button" class="btn btn-primary">OK</button>
-            </div>
-        </div>
-    </div>
-</div>
 
---->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -195,5 +184,6 @@ if(empty($_SESSION['username'])){
 <div>
 Grand Total:
 </div>
+
 <!--biarkan div ini tanpa pasangan---->
 </div>

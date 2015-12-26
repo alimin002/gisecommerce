@@ -20,11 +20,17 @@
 		
 		<!--basic styles-->
 		<link rel="shortcut icon" href="../assets/themes-front/images/logotab.ico" />
-		<link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="../assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="../assets/themes-back/font-awesome/css/font-awesome.min.css" />
-		<!---ace-1.3--->
+	<!--	<link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />-->
+	<!---	<link href="../assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />--->
+		<!---<link rel="stylesheet" href="../assets/themes-back/font-awesome/css/font-awesome.min.css" />--->
+		
+		<!---ace-1.3 bootsrap & fontawsome--->
+		<link rel="stylesheet" href="../x/assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../x/assets/css/font-awesome.min.css"/>
+		<!---datepicker---->
+		<link rel="stylesheet" href="../x/assets/css/datepicker.css" />
+
+		<!---ace-1.3 bootsrap & fontawsome--->
 		<link rel="stylesheet" href="../x/assets/css/ace-fonts.css"/>
 		<link rel="stylesheet" href="../x/assets/css/ace.min.css" />
 		<link rel="stylesheet" href="../x/assets/css/ace-rtl.min.css" />
@@ -38,7 +44,7 @@
 
 		<!--page specific plugin styles-->
 
-		<link rel="stylesheet" href="../x/assets/themes-back/css/prettify.css" />
+		<!--<link rel="stylesheet" href="../x/assets/themes-back/css/prettify.css" />-->
 
 		<!--fonts-->
 		<!-- tree view -->
@@ -59,8 +65,8 @@
 		<link rel="stylesheet" href="../assets/themes-back/css/w8-skins.min.css" />
 		
 		<!--ace combo box-->
-		<script src='../x/assets/js/jquery-1.11.3.js'></script>
-		<script>var jQuery1113 = $.noConflict(true);</script>
+		<!--<script src='../x/assets/js/jquery-1.11.3.js'></script>
+		<script>var jQuery1113 = $.noConflict(true);</script>-->
 		<link rel="stylesheet" href="../x/assets/css/jquery-ui.custom.min.css" />
 		<link rel="stylesheet" href="../x/assets/css/chosen.css" />
 
@@ -69,20 +75,21 @@
 		<![endif]-->
 
 		<!--inline styles if any-->
-		
+		<!---
 		<script src='../x/assets/themes-back/js/jquery.min.js'></script>
 		
 
-		<script src="../x/assets/bootstrap/js/jquery.validate.js"></script>
+		<script src="../x/assets/bootstrap/js/jquery.validate.js"></script>--->
 		
 		<!---ace script--->
-		<script src="../x/assets/bootstrap/js/messages_id.js"></script>
+		<!--<script src="../x/assets/bootstrap/js/messages_id.js"></script>-->
+		<!--
 		<script>
 			$(document).ready(function() {
 				$("#form1").validate();
 				$("#form2").validate();
 			});
-		</script>
+		</script>--->
 		<style type="text/css">
 		
 			label.error {
@@ -90,12 +97,12 @@
 				color: red;
 			}
 		</style>
-		
+		<!--
 		<script>
 		$(function() {
 			$( document ).tooltip();
 		});
-		</script>
+		</script>-->
 		<!-- untuk kepentingan modal box -->
 		<style>
 			/* some elements used in demo only */

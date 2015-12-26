@@ -17,7 +17,21 @@ if (isset($_GET['act']))
 	include('suplier/caridata.php');
 	
 ?>
-  <div class="widget-main" style="float:right;">
+<div class="row">
+<div class="col-md-12">
+	 <div class="col-md-6">
+		<input type="text" class="form-control">
+	 </div>
+	 <div class="col-md-1" style="margin-left:-5%;">
+	  <button class="form-control">
+	 <i class="ace-icon fa fa-search"></i>
+	 </button>
+		
+	 </div>
+  </div>
+  <!---
+</div>
+   <div class="widget-main" style="float:right;">
 	<form class="form-search" method="POST" action="index.php?mod=supplier&pg=supplier_view">
 		<div class="row">
 			<div class="col-xs-12 col-sm-8">
@@ -31,7 +45,7 @@ if (isset($_GET['act']))
 			</div>
 		</div>
 	</form>	
-  </div>
+  </div>--->
 											
 		<h1>
 		Data
