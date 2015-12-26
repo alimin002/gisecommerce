@@ -22,7 +22,7 @@
 		<link rel="shortcut icon" href="../assets/themes-front/images/logotab.ico" />
 	<!--	<link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />-->
 	<!---	<link href="../assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />--->
-		<!---<link rel="stylesheet" href="../assets/themes-back/font-awesome/css/font-awesome.min.css" />--->
+		<link rel="stylesheet" href="../assets/themes-back/font-awesome/css/font-awesome.min.css" />
 		
 		<!---ace-1.3 bootsrap & fontawsome--->
 		<link rel="stylesheet" href="../x/assets/css/bootstrap.min.css" />

@@ -20,27 +20,30 @@ if (isset($_GET['act']))
 <div class="row">
 <div class="col-md-12">
 <div class="row">
+<form action="index.php?mod=supplier&pg=supplier_view" method="POST">
 	 <div class="col-md-6">
-		<input type="text" class="form-control">
+		<input type="text" class="form-control" name="textsearch">
 	 </div>
 	 <div class="col-md-1" style="margin-left:-5%;">
-	  <button class="form-control">
+	  <button class="form-control" type="submit">
 	 <i class="ace-icon fa fa-search"></i>
 	 </button>
 		
 	 </div>
+</form>	 
 </div> 
 <div class="row">
-<div class="col-md-6">									
-		<h1>
-		Data
-		<small>
-		<i class="ace-icon fa fa-angle-double-right"></i>
-		Supplier
-		</small>
-		</h1>
-</div>
+	<div class="col-md-6">									
+			<h1>
+			Data
+			<small>
+			<i class="ace-icon fa fa-angle-double-right"></i>
+			Supplier
+			</small>
+			</h1>
+	</div>
 </div>		
+<div class="row">
         <!--<a href='index.php?mod=produk&pg=peta'><i class="icon-map-marker"></i>Map View</a>-->
         <table class="table table-striped table-condensed">
             <thead>
@@ -115,10 +118,10 @@ while ($rows = mysql_fetch_object($result))
                         <td>
                             <a href="index.php?mod=supplier&pg=supplier_form&id=<?php
 	echo $rows->supplier_id; ?>" class='btn btn-xs btn-info'>
-                                <i class="icon- fa fa-pencil"></i>
+                                <i class="icon-pencil"></i>
                             </a>
                             <a href="index.php?mod=supplier&pg=supplier_view&act=del&id=<?php
-	echo $rows->supplier_id; ?>" onclick="return confirm('Yakin data akan dihapus?');" class='btn btn-danger'> <i class="fa fa-trash"></i>
+	echo $rows->supplier_id; ?>" onclick="return confirm('Yakin data akan dihapus?');" class='btn btn-danger'> <i class="icon-trash"></i>
                             </a>
                         </td>
                     </tr>
@@ -134,13 +137,17 @@ while ($rows = mysql_fetch_object($result))
                         </tr>
             </tbody>
         </table>
+		
+		</div>
+		
+		<div class="row">
         <?php //=============CUT HERE for paging====================================
 $tampil2 = mysql_query("SELECT supplier_id from supplier");
 $jmldata = mysql_num_rows($tampil2);
 $jumlah_halaman = ceil($jmldata / $batas);
 ?>
-            <div class='pagination'>
-                <ul>
+            <div class='dataTables_paginate paging_bootstrap'>
+                <ul class="pagination">
                     <?php
 pagination($halaman, $jumlah_halaman, "produk"); ?>
                 </ul>
@@ -165,8 +172,8 @@ if (isset($_GET['status']))
 // close database
 
 ?>
-	 
-	 
+</div>	 
+
   </div>
  
 		
