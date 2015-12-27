@@ -41,7 +41,7 @@ cek_status_login($_SESSION['username']);
    <div class="control-group">
     <label class="control-label" for="isi">isi</label>
     <div class="controls">
-      <textarea name='isi'  rows="20" class='input-xxlarge'><?php if($aksi != 'tambah'){$baris->isi;}?> </textarea>
+      <textarea name='isi' id='isi' rows="20" class='input-xxlarge'><?php if($aksi != 'tambah'){$baris->isi;}?> </textarea>
      
     </div>
   </div>

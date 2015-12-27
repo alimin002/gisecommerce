@@ -33,7 +33,7 @@ enctype="multipart/form-data" action="kategori/kategori_action.php">
 	<div class="control-group">
 		<label class="control-label" for="nama">Nama kategori</label>
 		<div class="controls">
-			<input type="text" name='nama_kategori'
+			<input type="text" name='nama_kategori' id='nama_kategori'
 			value=<?php if ($aksi != 'tambah'){echo $baris -> nama_kategori;}?>
 			>
 		</div>

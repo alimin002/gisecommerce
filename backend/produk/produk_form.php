@@ -42,7 +42,7 @@ action="produk/produk_action.php">
 	<div class="control-group">
 			<label class="control-label" for="nama_produk">Nama Produk</label>
 			<div class="controls">
-				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'
+				<input type="text" name='nama_produk' id='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'
 				>
 			</div>
 		</div>
@@ -60,8 +60,7 @@ action="produk/produk_action.php">
 		<div class="control-group">
 			<label class="control-label" for="foto">Gambar</label>
 			<div class="controls">
-				<input type="file" name='foto' 
-				>
+				<input type="file" name='foto' id='foto'>
 			</div>
 		</div>
 		
@@ -69,7 +68,7 @@ action="produk/produk_action.php">
 		<div class="control-group">
 			<label class="control-label" for="deskripsi">deskripsi</label>
 			<div class="controls">
-				<textarea name='deskripsi' class="input-xxlarge">
+				<textarea name='deskripsi' id='deskripsi' class="input-xxlarge">
 					<?php if($id != null){echo trim($data->deskripsi);}?>
 				</textarea>
 			</div>
@@ -77,7 +76,7 @@ action="produk/produk_action.php">
 
 		<div class="control-group">
 			<div class="controls">
-				<button type="submit" class="btn btn-success" name='aksi'value='<?=$aksi?>'>
+				<button type="submit" class="btn btn-success" name='aksi' id='aksi' value='<?=$aksi?>'>
 				<?=$aksi?>
 				</button>
 			</div>
