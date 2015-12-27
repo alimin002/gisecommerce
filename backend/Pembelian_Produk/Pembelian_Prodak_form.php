@@ -68,7 +68,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 		//{
 		?>
 		<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-4">
 				<label>Nama Supplier</label>
 					<div class="input-group">
 						<select class="form-control" id="supplier_id" name="supplier_id">
