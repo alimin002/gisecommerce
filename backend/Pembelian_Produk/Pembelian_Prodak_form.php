@@ -21,9 +21,6 @@ if(empty($_SESSION['username'])){
 	} else {
 		$aksi = "tambah";
 	}?>
-
-
-
 	<!--kolom kiri-->
 
 		<h2> Form Pembelian Produk</h2>	
@@ -40,21 +37,55 @@ if(empty($_SESSION['username'])){
 		<input type='hidden' name='id' value="<?php echo $id?>">
 		
 		<div class="col-md-12">
+		<!--------membuat otomatisasi kode pembelian--------->
+<?php	
+$query = "select idpembelian,kode_pembelian from pembelian order by idpembelian asc";
+$result = mysql_query($query) or die(mysql_error());
+$arrkode_pembelian=array();
+$idx=0;
+while ($rows = mysql_fetch_object($result))
+{
+$arrkode_pembelian[$idx]=$rows->kode_pembelian;
+//echo $rows->kode_pembelian."<br/>";
+}
+$intkodepembelian=substr($arrkode_pembelian[0],1,6);
+//echo((int)$intkodepembelian+1);
+
+$strkodepembelian=(string)(int)$intkodepembelian+1;
+?>
 		<div class="row">
 				<div class="col-md-3">
 				<label>Kode Pembelian</label>
 					<div class="input-group">
-						<input type="text" class="form-control" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
+						<input type="text" class="form-control" id="kode_pembelian" name='kode_pembelian' value='<?php echo "PB".$strkodepembelian; ?>'class='required' disabled>
 					</div>
 				</div>
 		</div>
+		<?php 
+		$query = "select supplier_id,nm_suplier from supplier";
+		$result = mysql_query($query) or die(mysql_error());
+		
+		//{
+		?>
 		<div class="row">
 				<div class="col-md-3">
 				<label>Nama Supplier</label>
 					<div class="input-group">
-						<input type="text" class="form-control" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
+						<select class="form-control" id="supplier_id" name="supplier_id">
+							<?php 
+							while ($rows = mysql_fetch_object($result))
+							{ 
+							?>
+							<option value="<?php echo $rows->supplier_id; ?>">				
+							<?php echo $rows->nm_suplier; ?>				
+							</option>
+							<?php 
+							} 
+							?>
+						</select>
 					</div>
 				</div>
+				<?php //} ?>
 		</div>
 			<div class="row">
 				<div class="col-md-3">
