@@ -67,7 +67,7 @@ if(empty($_SESSION['username'])){
 					</div>
 				</div>
 			</div>
-			<div class="row" style="margin-top:0.5%;">
+			<div class="row" style="margin-top:0.5%; margin-bottom:0.5%;">
 				<div class="col-md-3">
 					<div class="input-group">
 						<button data-toggle="modal" data-target="#myModal" id="bootbox-regular" type="button" class="btn btn-success">
@@ -95,23 +95,86 @@ if(empty($_SESSION['username'])){
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Tambah Item Pembelian</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
+		<div class="row">
+		<div class="col-md-12">
 		  <form class="bootbox-form">
-					    <label>Kode Produk</label>
-                        <input class="bootbox-input bootbox-input-text form-control" autocomplete="off" type="text" style="width:100%;">
+		  <div class="row">
+		  <div class="col-md-12">
+			<label>Kode Koduk</label>
+		  </div>
+		  </div>
+		  <div class="row">
+		       <div class="col-md-9">
+                        <input type="text" name="kode_produk" id="kode_produk" class="form-control">
+			   </div>
+		
+		  <div class="col-md-3" style="margin-left:-5%">
+				<button class="form-control" id="btn-search-product"><i class="fa fa-search"></i></button>
+		  </div>
+		  </div>
+		  <div class="row">
+		  <div class="col-md-12">
 						<label>Nama Produk</label>
-                        <input class="bootbox-input bootbox-input-text form-control" autocomplete="off" type="text" style="width:100%;">
+		  </div>
+		   </div>
+		   <div class="row">
+		   <div class="col-md-12">
+                        <input class="form-control" name="nama_produk" id="nama_produk"/>
+		   </div>
+		   </div>
+						<div class="row">
+						<div class="col-md-12">
 						<label>Harga Beli</label>
-                        <input class="bootbox-input bootbox-input-text form-control" autocomplete="off" type="text" style="width:100%;">
-						<label>QTY</label>
-                        <input class="bootbox-input bootbox-input-text form-control" autocomplete="off" type="text" style="width:100%;">
-                    </form>
+						</div>
+						</div>
+						<div class="row">
+						<div class="col-md-12">
+                        <input type="text" name="harga_beli" id="harga_beli" class="form-control">
+						</div>
+						</div>
+						<div class="row">
+						<div class="col-md-12">
+						<label>QTY/Jumlah Beli</label>
+						</div>
+						</div>
+						
+						<div class="row">
+						<div class="col-md-12">
+                        <input type="text" name="qty" id="qty" class="form-control">
+						</div>
+						</div>
+						<script>
+
+						jQuery1113( "#qty" ).change(function() {
+							var harga_beli=0;							var harga_beli;
+							harga_beli = jQuery1113( "#harga_beli" ).val();
+							var qty=0;
+							qty=jQuery1113(this).val();
+							//alert(qty);
+							var subtotal=0;
+							subtotal=parseFloat(harga_beli)*parseFloat(qty);
+							jQuery1113("#subtotal" ).val(subtotal);
+						});
+						</script>
+						<div class="row">
+						<div class="col-md-12">
+						<label>Subtotal</label>
+						</div>
+						</div>
+						<div class="row">
+						<div class="col-md-12">
+                        <input type="text" name="subtotal" id="subtotal" class="form-control">
+						</div>
+						</div>
+          </form>
+		  </div>
+		 </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button><button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" id="btn-ok" class="btn btn-default" data-dismiss="modal">OK</button><button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         </div>
       </div>
       
@@ -140,36 +203,8 @@ if(empty($_SESSION['username'])){
                     <td style='min-width: 100px'><b>Aksi</b></td>
                 </th>
             </thead>
-            <tbody>
-                    <tr>
-                        <td>
-                           
-                        </td>
-                        <td>
-                           
-                        </td>
-                        <td style="width:40%;">
-                           
-                        </td>
-                        <td>
-                          
-                        </td>
-						<td>
-						</td>
-                        <td>
-						   
-                        </td>
-                    </tr>
-                 
-                        <tr>
-                            <td colspan='4'></td>
-                            <td><a href="index.php?mod=Pembelian_Produk&pg=Pembelian_Prodak_form" class='btn btn-xs btn-success'>
-							<i class="fa fa-floppy-o">
-							Simpan Transaksi
-							</i>
-							</a>
-							</a></td>
-                        </tr>
+            <tbody id="tbody-item">
+                
             </tbody>
         </table>
 </div>
@@ -179,3 +214,12 @@ Grand Total:
 
 <!--biarkan div ini tanpa pasangan---->
 </div>
+<script>
+									
+									//menghindari konflik antar jquery
+									jQuery1113("#btn-ok").click(function(){
+									jQuery1113("#tbody-item").append("<tr><td></td><td>"+jQuery1113("#kode_produk").val()+"</td><td>"+jQuery1113("#nama_produk").val()+"</td><td>"+jQuery1113("#harga_beli").val()+"</td><td>"+jQuery1113("#qty").val()+"</td><td>"+jQuery1113("#subtotal").val()+"</td><td>"+"edit | hapus"+"</td></tr>");
+									//alert(1);
+									
+									});
+									</script>

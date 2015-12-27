@@ -14,6 +14,35 @@
             </a>
 			
         </li>
+		 <li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-list"></i>
+                <span> Produk</span>
+
+                <b class="arrow icon-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li>
+                    <a href="index.php?mod=kategori&pg=kategori_view">
+                        <i class="icon-double-angle-right"></i> Kategori
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?mod=produk&pg=produk_view">
+                        <i class="icon-double-angle-right"></i> List Produk
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?mod=stok&pg=stok_view">
+                        <i class="icon-double-angle-right"></i> Stok barang
+                    </a>
+                </li>
+
+
+
+            </ul>
+        </li>
 		<li class="hsub">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-credit-card"></i>
@@ -148,35 +177,7 @@
 							</li>
 						</ul>
 					</li>
-        <li>
-            <a href="#" class="dropdown-toggle">
-                <i class="icon-list"></i>
-                <span> Produk</span>
-
-                <b class="arrow icon-angle-down"></b>
-            </a>
-
-            <ul class="submenu">
-                <li>
-                    <a href="index.php?mod=kategori&pg=kategori_view">
-                        <i class="icon-double-angle-right"></i> Kategori
-                    </a>
-                </li>
-                <li>
-                    <a href="index.php?mod=produk&pg=produk_view">
-                        <i class="icon-double-angle-right"></i> List Produk
-                    </a>
-                </li>
-                <li>
-                    <a href="index.php?mod=stok&pg=stok_view">
-                        <i class="icon-double-angle-right"></i> Stok barang
-                    </a>
-                </li>
-
-
-
-            </ul>
-        </li>
+       
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-desktop"></i>
