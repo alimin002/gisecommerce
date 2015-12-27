@@ -78,7 +78,7 @@ action="stok/stok_action.php">
 
 		<div class="control-group">
 			<div class="controls">
-				<button type="submit" class="btn btn-success" name='aksi'value='<?php echo $aksi;?>'>
+				<button type="submit" class="btn btn-success" name='aksi' id='aksi' value='<?php echo $aksi;?>'>
 				<?=$aksi?>
 				</button>
 			</div>

@@ -42,7 +42,7 @@ action="pelanggan/pelanggan_action.php">
 	<div class="control-group">
 		<label class="control-label" for="nama">Nama pelanggan</label>
 		<div class="controls">
-			<input type="text" name='nama' value='<?php if($id != null){ echo $data->nama;}?>'class='required'
+			<input type="text" name='nama_pelanggan'  id='nama_pelanggan' value='<?php if($id != null){ echo $data->nama;}?>'class='required'
 			>
 		</div>
 	</div>
@@ -60,7 +60,7 @@ action="pelanggan/pelanggan_action.php">
 	<div class="control-group">
 		<label class="control-label" for="alamat">Alamat</label>
 		<div class="controls">
-			<textarea name='alamat' class="input-xxlarge">
+			<textarea name='alamat' id='alamat' class="input-xxlarge">
 					<?php if($id != null){ echo trim($data->alamat);}?>
 				</textarea>
 		</div>

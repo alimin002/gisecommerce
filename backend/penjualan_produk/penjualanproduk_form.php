@@ -42,13 +42,13 @@ action="produk/produk_action.php">
 	<div class="control-group">
 			<label class="control-label" for="nama_produk">Nama Supplier</label>
 			<div class="controls">
-				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
+				<input type="text" name='nama_supplier' id='nama_supplier'value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
 			</div>
 		</div>
 	<div class="control-group">
 			<label class="control-label" for="idkategori">Alamat</label>
 			<div class="controls">
-				<textarea name='deskripsi' class="input-xxlarge">
+				<textarea name='alamat'  id='alamat' class="input-xxlarge">
 					
 				</textarea>
 			</div>
@@ -56,7 +56,7 @@ action="produk/produk_action.php">
 		<div class="control-group">
 			<label class="control-label" for="foto">Telp</label>
 			<div class="controls">
-				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
+				<input type="text" name='telp'  id='telp' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
 			</div>
 		</div>
 		
@@ -64,14 +64,14 @@ action="produk/produk_action.php">
 		<div class="control-group">
 			<label class="control-label" for="deskripsi">Email</label>
 			<div class="controls">
-				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
+				<input type="text" name='email' id='email' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
 
 			</div>
 		</div>
 
 		<div class="control-group">
 			<div class="controls">
-				<button type="submit" class="btn btn-success" name='aksi'value='<?php echo $aksi?>'>
+				<button type="submit" class="btn btn-success" name='aksi' id='aksi' value='<?php echo $aksi?>'>
 				<?php echo $aksi?>
 				</button>
 			</div>

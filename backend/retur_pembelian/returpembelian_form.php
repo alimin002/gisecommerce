@@ -42,29 +42,29 @@ action="produk/produk_action.php">
 	<div class="control-group">
 			<label class="control-label" for="nama_produk">Return Pembelian</label>
 			<div class="controls">
-				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
+				<input type="text" name='return_pembelian' id='return_pembelian'  value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
 			</div>
 		</div>
 	<div class="control-group">
 			<label class="control-label" for="idkategori">ID</label>
 			<div class="controls">
-				<textarea name='deskripsi' class="input-xxlarge">
+				<textarea name='id' id='id' class="input-xxlarge">
 					
 				</textarea>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="idkategori">No Return</label>
+			<label class="control-label" for="idkategori">No Retur</label>
 			<div class="controls">
-				<textarea name='deskripsi' class="input-xxlarge">
+				<textarea name='no_retur' id='no_retur' class="input-xxlarge">
 					
 				</textarea>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="idkategori">Tanggal Return</label>
+			<label class="control-label" for="idkategori">Tanggal Retur</label>
 			<div class="controls">
-				<textarea name='deskripsi' class="input-xxlarge">
+				<textarea name='tanggal_retur' id='tanggal_retur' class="input-xxlarge">
 					
 				</textarea>
 			</div>
@@ -72,7 +72,7 @@ action="produk/produk_action.php">
 		<div class="control-group">
 			<label class="control-label" for="idkategori">Prodak ID</label>
 			<div class="controls">
-				<textarea name='deskripsi' class="input-xxlarge">
+				<textarea name='prodak_id' id='prodak_id' class="input-xxlarge">
 					
 				</textarea>
 			</div>
@@ -80,7 +80,7 @@ action="produk/produk_action.php">
 		<div class="control-group">
 			<label class="control-label" for="idkategori">Supplier</label>
 			<div class="controls">
-				<textarea name='deskripsi' class="input-xxlarge">
+				<textarea name='supplier' id='supplier' class="input-xxlarge">
 					
 				</textarea>
 			</div>
@@ -88,7 +88,7 @@ action="produk/produk_action.php">
 		<div class="control-group">
 			<label class="control-label" for="idkategori">Jumlah Prodak</label>
 			<div class="controls">
-				<textarea name='deskripsi' class="input-xxlarge">
+				<textarea name='jumlah_prodak' id='jumlah_prodak' class="input-xxlarge">
 					
 				</textarea>
 			</div>
@@ -96,7 +96,7 @@ action="produk/produk_action.php">
 		<div class="control-group">
 			<label class="control-label" for="foto">Distributor</label>
 			<div class="controls">
-				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
+				<input type="text" name='distributor' id='distributor' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
 			</div>
 		</div>
 		
@@ -104,14 +104,14 @@ action="produk/produk_action.php">
 		<div class="control-group">
 			<label class="control-label" for="deskripsi">Pengguna ID</label>
 			<div class="controls">
-				<input type="text" name='nama_produk' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
+				<input type="text" name='pengguna_id' id='id' value='<?php if($id!=null ){echo $data->nama_produk;} ?>'class='required'>
 
 			</div>
 		</div>
 
 		<div class="control-group">
 			<div class="controls">
-				<button type="submit" class="btn btn-success" name='aksi'value='<?php echo $aksi?>'>
+				<button type="submit" class="btn btn-success" name='aksi' id='aksi' value='<?php echo $aksi?>'>
 				<?php echo $aksi?>
 				</button>
 			</div>
