@@ -123,14 +123,14 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content" ">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Tambah Item Pembelian</h4>
+          <h4 class="modal-title">Tambah Item Pembelian <div id="ajax-tester"></div></h4>
         </div>
         <div class="modal-body">
 		<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12"; style="background-color:#dadada;>
 		  <form class="bootbox-form">
 		  <div class="row">
 		  <div class="col-md-12">
@@ -146,28 +146,27 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 				<button class="form-control" id="btn-search-product"><i class="fa fa-search"></i></button>
 		  </div>
 		  <script>
-		  function showUser(str) {
-			if (str == "") {
-			//document.getElementById("txtHint").innerHTML = "";
-			jQuery1113( "#nama_produk" ).val("");
-			return;
-			} else { 
-			if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-			} else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}
-			xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-            }
-			};
-			xmlhttp.open("GET","Pembelian_Produk_action.php?q="+str,true);
-			xmlhttp.send();
-			}
-		}
+		 
+		
+			jQuery1113( "#btn-search-product" ).click(function(){
+		var kode_produk=jQuery1113("#kode_produk").val();
+		  jQuery1113.ajax({
+			url: "http://localhost/gisecommerce/backend/Pembelian_Produk/ajax_nama_barang.php",
+							type: "POST",
+							data:{
+							 kode_produk:kode_produk
+							 },
+			success: function(data) {
+			jQuery1113("#nama_produk").val(data);
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+							 
+								console.log("ERRORS : " + errorThrown);
+							}
+				});
+						});
+		
+		
 		  </script>
 		  </div>
 		  <div class="row">
@@ -227,6 +226,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
           </form>
 		  </div>
 		 </div>
+		 <br/>
         </div>
         <div class="modal-footer">
           <button type="button" id="btn-ok" class="btn btn-default" data-dismiss="modal">OK</button><button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
