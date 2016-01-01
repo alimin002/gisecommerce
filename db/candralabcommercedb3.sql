@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 28 Des 2015 pada 15.56
--- Versi Server: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Dec 22, 2015 at 11:22 AM
+-- Server version: 5.5.39
+-- PHP Version: 5.4.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `berita`
+-- Table structure for table `berita`
 --
 
 CREATE TABLE IF NOT EXISTS `berita` (
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `berita` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data untuk tabel `berita`
+-- Dumping data for table `berita`
 --
 
 INSERT INTO `berita` (`idberita`, `tanggal`, `judul`, `isi`, `aktif`, `gambar`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `berita` (`idberita`, `tanggal`, `judul`, `isi`, `aktif`, `gambar`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_penjualan`
+-- Table structure for table `detail_penjualan`
 --
 
 CREATE TABLE IF NOT EXISTS `detail_penjualan` (
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `detail_penjualan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `invoice`
+-- Table structure for table `invoice`
 --
 
 CREATE TABLE IF NOT EXISTS `invoice` (
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `invoice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `invoice`
+-- Dumping data for table `invoice`
 --
 
 INSERT INTO `invoice` (`noinvoice`, `tanggal`, `idpelanggan`, `totalbayar`, `transfer`, `tglkirim`) VALUES
@@ -86,16 +86,16 @@ INSERT INTO `invoice` (`noinvoice`, `tanggal`, `idpelanggan`, `totalbayar`, `tra
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE IF NOT EXISTS `kategori` (
 `idkategori` int(11) NOT NULL,
   `nama_kategori` varchar(40) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`idkategori`, `nama_kategori`) VALUES
@@ -108,7 +108,7 @@ INSERT INTO `kategori` (`idkategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pelanggan`
+-- Table structure for table `pelanggan`
 --
 
 CREATE TABLE IF NOT EXISTS `pelanggan` (
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `pelanggan` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data untuk tabel `pelanggan`
+-- Dumping data for table `pelanggan`
 --
 
 INSERT INTO `pelanggan` (`idpelanggan`, `nama`, `kelamin`, `email`, `alamat`, `kodepos`, `kota`, `telp`, `tanggal_daftar`, `password`, `status`) VALUES
@@ -137,46 +137,21 @@ INSERT INTO `pelanggan` (`idpelanggan`, `nama`, `kelamin`, `email`, `alamat`, `k
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pembelian`
---
-
-CREATE TABLE IF NOT EXISTS `pembelian` (
-`idpembelian` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
-  `supplier_id` int(11) NOT NULL,
-  `total` bigint(20) NOT NULL,
-  `potongan` bigint(20) NOT NULL,
-  `grand_total` bigint(20) NOT NULL,
-  `kode_pembelian` varchar(12) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data untuk tabel `pembelian`
---
-
-INSERT INTO `pembelian` (`idpembelian`, `tanggal`, `supplier_id`, `total`, `potongan`, `grand_total`, `kode_pembelian`) VALUES
-(1, '2015-12-16', 1, 400000, 20000, 380000, 'p100001'),
-(2, '2015-12-09', 2, 2000000, 100000, 1900000, 'p100002');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `pembelian_detail`
+-- Table structure for table `pembelian_detail`
 --
 
 CREATE TABLE IF NOT EXISTS `pembelian_detail` (
-`id_detail` int(11) NOT NULL,
-  `idpembelian` int(7) NOT NULL,
+  `Kd_Pembelian` varchar(7) NOT NULL,
   `Kd_Barang` varchar(7) NOT NULL,
   `Qty` int(11) NOT NULL,
   `Harga_Beli` decimal(18,0) NOT NULL,
   `Sub_Total` decimal(18,0) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengelola`
+-- Table structure for table `pengelola`
 --
 
 CREATE TABLE IF NOT EXISTS `pengelola` (
@@ -187,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `pengelola` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data untuk tabel `pengelola`
+-- Dumping data for table `pengelola`
 --
 
 INSERT INTO `pengelola` (`idpengelola`, `nama`, `username`, `password`) VALUES
@@ -198,7 +173,7 @@ INSERT INTO `pengelola` (`idpengelola`, `nama`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penjualan`
+-- Table structure for table `penjualan`
 --
 
 CREATE TABLE IF NOT EXISTS `penjualan` (
@@ -217,39 +192,36 @@ CREATE TABLE IF NOT EXISTS `penjualan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE IF NOT EXISTS `produk` (
 `idproduk` int(10) NOT NULL,
-  `kode_produk` varchar(12) NOT NULL,
   `nama_produk` varchar(200) NOT NULL,
-  `harga_beli` bigint(12) NOT NULL,
-  `harga_jual` bigint(12) NOT NULL,
   `idkategori` int(255) NOT NULL,
   `deskripsi` text,
   `foto` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
-INSERT INTO `produk` (`idproduk`, `kode_produk`, `nama_produk`, `harga_beli`, `harga_jual`, `idkategori`, `deskripsi`, `foto`) VALUES
-(1, 'pdk1001', 'Model 1', 200000, 220000, 1, '					Pakain modis yang bis dipakai saat santai atau acara pesta	1				', '1.jpg'),
-(2, 'pdk1007', 'model 2', 140000, 160000, 1, '					Pakain corak putih hitam dikombinasikan dengan rok hijau sangat cocok dipakai dsaat santai				', '2.jpg'),
-(3, 'pdk1008', 'model 3', 80000, 100000, 1, '					Pakain kantor dan resmi yang bisa dipakai saat bertemu client atau meeting atau untuk bersantai ria saat belanja				', '3.jpg'),
-(12, 'pdk1002', 'PHP and MySQL From Novice to Professional', 120000, 140000, 2, 'Up-to-date coverage of PHP 5.3 and MySQL from one of the most trusted names in PHP development, W. Jason Gilmore									', 'buku1.png'),
-(13, 'pdk1009', 'Beginning Arduino', 75000, 90000, 2, 'In Beginning Arduino, Second Edition, you will learn all about the popular Arduino microcontroller by working your way through an amazing set of 50 cool projects.									', 'buku2.png'),
-(14, 'pdk1003', 'Makers at Work', 74000, 85000, 2, 'Makers at Work profiles 21 of the most creative, inquisitive, and influential "makers"--people creating new products, art, and methods using computer controls, recycled items, open-source code and plans, 3D printers, and anything else that can help them turn both whacky and incredibly insightful ideas into reality. Foreword by Brad Feld									', 'buku3.png'),
-(15, 'pdk1010', 'Nokia Lumia 1020', 50000, 80000, 4, 'Smartphone dari Microsoft dengan Resolusi kamera 41MP.cocok bagi fotographer Profesional									', 'lumia.jpg'),
-(16, 'pdk1004', 'Samsung Galaxy S4', 70000, 90000, 4, 'Flagship smartphone dari samsung, menggunakan Android jellybean terbaru, terbaik di kelasnya 									', 's4.jpg'),
-(17, 'pdk1005', 'iPhone 5s', 40000, 60000, 4, 'Produk terbaru dari Apple, dibekali dengan iOS7 menjadikan iphone produk terbaik dari apple									', 'iphone.jpg');
+INSERT INTO `produk` (`idproduk`, `nama_produk`, `idkategori`, `deskripsi`, `foto`) VALUES
+(1, 'Model 1', 1, '					Pakain modis yang bis dipakai saat santai atau acara pesta	1				', '1.jpg'),
+(2, 'model 2', 1, '					Pakain corak putih hitam dikombinasikan dengan rok hijau sangat cocok dipakai dsaat santai				', '2.jpg'),
+(3, 'model 3', 1, '					Pakain kantor dan resmi yang bisa dipakai saat bertemu client atau meeting atau untuk bersantai ria saat belanja				', '3.jpg'),
+(12, 'PHP and MySQL From Novice to Professional', 2, 'Up-to-date coverage of PHP 5.3 and MySQL from one of the most trusted names in PHP development, W. Jason Gilmore									', 'buku1.png'),
+(13, 'Beginning Arduino', 2, 'In Beginning Arduino, Second Edition, you will learn all about the popular Arduino microcontroller by working your way through an amazing set of 50 cool projects.									', 'buku2.png'),
+(14, 'Makers at Work', 2, 'Makers at Work profiles 21 of the most creative, inquisitive, and influential "makers"--people creating new products, art, and methods using computer controls, recycled items, open-source code and plans, 3D printers, and anything else that can help them turn both whacky and incredibly insightful ideas into reality. Foreword by Brad Feld									', 'buku3.png'),
+(15, 'Nokia Lumia 1020', 4, 'Smartphone dari Microsoft dengan Resolusi kamera 41MP.cocok bagi fotographer Profesional									', 'lumia.jpg'),
+(16, 'Samsung Galaxy S4', 4, 'Flagship smartphone dari samsung, menggunakan Android jellybean terbaru, terbaik di kelasnya 									', 's4.jpg'),
+(17, 'iPhone 5s', 4, 'Produk terbaru dari Apple, dibekali dengan iOS7 menjadikan iphone produk terbaik dari apple									', 'iphone.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `retur_pembelian`
+-- Table structure for table `retur_pembelian`
 --
 
 CREATE TABLE IF NOT EXISTS `retur_pembelian` (
@@ -266,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `retur_pembelian` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `retur_penjualan`
+-- Table structure for table `retur_penjualan`
 --
 
 CREATE TABLE IF NOT EXISTS `retur_penjualan` (
@@ -284,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `retur_penjualan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `stok`
+-- Table structure for table `stok`
 --
 
 CREATE TABLE IF NOT EXISTS `stok` (
@@ -296,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `stok` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
--- Dumping data untuk tabel `stok`
+-- Dumping data for table `stok`
 --
 
 INSERT INTO `stok` (`idstok`, `idproduk`, `harga_beli`, `harga_jual`, `jumlah`) VALUES
@@ -313,7 +285,7 @@ INSERT INTO `stok` (`idstok`, `idproduk`, `harga_beli`, `harga_jual`, `jumlah`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `supplier`
+-- Table structure for table `supplier`
 --
 
 CREATE TABLE IF NOT EXISTS `supplier` (
@@ -325,7 +297,7 @@ CREATE TABLE IF NOT EXISTS `supplier` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data untuk tabel `supplier`
+-- Dumping data for table `supplier`
 --
 
 INSERT INTO `supplier` (`supplier_id`, `nm_suplier`, `alamat`, `telp`, `email`) VALUES
@@ -337,7 +309,7 @@ INSERT INTO `supplier` (`supplier_id`, `nm_suplier`, `alamat`, `telp`, `email`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Table structure for table `transaksi`
 --
 
 CREATE TABLE IF NOT EXISTS `transaksi` (
@@ -348,7 +320,7 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `transaksi`
+-- Dumping data for table `transaksi`
 --
 
 INSERT INTO `transaksi` (`idtransaksi`, `noinvoice`, `idproduk`, `jumlah`) VALUES
@@ -388,18 +360,6 @@ ALTER TABLE `kategori`
 --
 ALTER TABLE `pelanggan`
  ADD PRIMARY KEY (`idpelanggan`);
-
---
--- Indexes for table `pembelian`
---
-ALTER TABLE `pembelian`
- ADD PRIMARY KEY (`idpembelian`);
-
---
--- Indexes for table `pembelian_detail`
---
-ALTER TABLE `pembelian_detail`
- ADD PRIMARY KEY (`id_detail`);
 
 --
 -- Indexes for table `pengelola`
@@ -462,22 +422,12 @@ MODIFY `idberita` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-MODIFY `idkategori` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `idkategori` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
 MODIFY `idpelanggan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `pembelian`
---
-ALTER TABLE `pembelian`
-MODIFY `idpembelian` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `pembelian_detail`
---
-ALTER TABLE `pembelian_detail`
-MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `pengelola`
 --

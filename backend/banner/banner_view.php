@@ -18,10 +18,13 @@ if(empty($_SESSION['username'])){
 				}
 				//==========================================?>
 <div class='bs-docs-example'>
-	<h2 id="headings"> Data berita</h2>
+	<h2 id="headings"> Banner</h2>
 	<table  class="table table-striped table-condensed">
 		<thead>
-		<th><td><h4>Judul berita </h4></td><td><h4>Aksi</h4></td></th>
+		<th><b>Banner ID</b></th>
+		<th><b>Keterangan </b></th>
+		<th><b>Foto </b></th>
+		<th><b>Aksi </b></th>
 		</thead>
 		<tbody>
 		<?php
@@ -41,7 +44,7 @@ $halaman=1;
 $posisi=($halaman-1)* $batas;
 }
 		
-$query="SELECT * from berita order by tanggal desc limit $posisi,$batas ";
+$query="SELECT * from banner order by banner_id asc limit $posisi,$batas ";
 $result=mysql_query($query) or die(mysql_error());
 $no=1;
 //proses menampilkan data
@@ -49,14 +52,26 @@ while($rows=mysql_fetch_object($result)){
 
 		?>
 		<tr>
-			<td><?php echo $posisi+$no
-			?></td>
-			<td><?php echo $rows -> judul;?></td>
 			<td>
-			<a href="index.php?mod=banner&pg=banner_form&id=<?php	echo $rows -> idberita;?>" class='btn btn-xs btn-info'>
+			<?php
+			echo $rows -> banner_id;
+			?>
+			</td>
+			<td>
+			<?php
+			echo $rows -> keterangan;
+			?>
+			</td>
+			<td>
+			<?php
+			echo $rows -> foto;
+			?>
+			</td>
+			<td>
+			<a href="index.php?mod=banner&pg=banner_form&id=" class='btn btn-xs btn-info'>
 			<i class="icon-pencil"></i>
 			</a>
-			<a href="index.php?mod=banner&pg=banner_view&act=del&id=<?php echo $rows -> idberita;?>" onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i>
+			<a href="index.php?mod=banner&pg=banner_view&act=del&id=" onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i>
 			</a>
 			</td>
 		</tr>
@@ -65,7 +80,7 @@ while($rows=mysql_fetch_object($result)){
 	}?>
 
 		<tr>
-			<td colspan='2' ></td><td><a href="index.php?mod=banner&pg=banner_form"
+			<td colspan='3' ></td><td><a href="index.php?mod=banner&pg=banner_form"
 			class='btn btn-success'	><i class="icon-plus"></i></a></td>
 		</tr>
 		</tbody>

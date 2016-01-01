@@ -9,7 +9,7 @@ include ('../../inc/config.php');
 include('../../inc/function.php');
 //data dari produk
 if(isset($_POST)){
-$nm_suplier=$_POST['nm_suplier']; echo $nm_suplier;
+$nm_suplier=$_POST['nama_supplier']; echo $nm_suplier;
 $alamat=$_POST['alamat']; echo $alamat;
 $telp=$_POST['telp']; echo $telp;
 $email=$_POST['email']; echo $email; 
@@ -24,13 +24,13 @@ if($aksi == 'tambah') {
 	$sql = "INSERT INTO supplier(nm_suplier,alamat,telp,email)VALUES('$nm_suplier','$alamat','$telp','$email')";
 }else if($aksi== 'edit') {
 	if($ukuran_file > 0){
-	$sql = "update supplier set nm_suplier='$nm_suplier',alamat='$alamat',
+	$sql = "update supplier set nm_suplier='$nm_suplier',alamat='$alamat',telp='$telp'
 	email='$email'
 	where supplier_id='$id'";
 
 	}else{
 		$sql = "update supplier set nm_suplier='$nm_suplier',
-	alamat='$alamat',email='$email'
+	alamat='$alamat',email='$email',telp='$telp'
 	where supplier_id='$id'";
 	
 	}
