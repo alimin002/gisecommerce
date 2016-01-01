@@ -66,7 +66,7 @@ if (empty($halaman))
 	$posisi = ($halaman - 1) * $batas;
 	}
 
-$query = "SELECT * from supplier limit $posisi,$batas ";
+$query = "SELECT * from retur_pembelian limit $posisi,$batas ";
 $result = mysql_query($query) or die(mysql_error());
 $no = 1;
 
@@ -77,32 +77,48 @@ while ($rows = mysql_fetch_object($result))
 ?>
                     <tr>
 					<td>
-                         
-                    </td>
-						
+					</td>
 					<td>
-                        
+                     <?php
+						echo $rows -> id;
+						?>     
+                    </td>
+					<td>
+					<?php
+						echo $rows -> no_retur;
+						?> 	
+					</td>
+					<td>
+                     <?php
+						echo $rows -> tanggal_retur;
+						?>    
                     </td>	
                      <td>
-				         
+				      <?php
+						echo $rows -> produk_id;
+						?>    
                            
                      </td>
 					 <td>
-                          
+                      <?php
+						echo $rows -> supplier_id;
+						?>     
                     </td>
                     <td>
-                          
+                       <?php
+						echo $rows -> jumlah_produk;
+						?>    
                     </td>
                     <td>
-                         
+                      <?php
+						echo $rows -> distributor;
+						?>    
                     </td>
                      <td>
-                         
-                    </td>
-					<td>	  
-					</td>
-					<td>
-					</td>
+                       <?php
+						echo $rows -> pengguna_id;
+						?>   
+                    </td>  
 					<td>
 					<a href="index.php?mod=produk&pg=produk_form&id=
 							" class='btn btn-xs btn-info'>

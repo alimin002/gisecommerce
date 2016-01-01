@@ -112,7 +112,7 @@ while ($rows = mysql_fetch_object($result))
 ?>
 
                         <tr>
-                            <td colspan='4'></td>
+                            <td colspan='5'></td>
                             <td><a href="index.php?mod=Pembelian_Produk&pg=Pembelian_Prodak_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
                         </tr>
             </tbody>

@@ -64,4 +64,7 @@ if($result) {
 	header('location:../index.php?mod=produk&pg=produk_view&status=1');
 }
 }
+
+
+
 ?>

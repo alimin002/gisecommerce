@@ -41,12 +41,7 @@ if(empty($_SESSION['username'])){
 		}
 		?>
 		<input type='hidden' name='id' value="<?php echo $id?>">
-	<div class="control-group">
-			<label class="control-label" for="nama_suplier">Supplier ID</label>
-			<div class="controls">
-				<input type="text" name='nm_suplier' value='<?php if($id!=null ){echo $data->nm_suplier;} ?>'class='required'>
-			</div>
-	</div>
+	
 	<div class="control-group">
 			<label class="control-label" for="alamat">Nama Supplier</label>
 			<div class="controls">
@@ -56,7 +51,7 @@ if(empty($_SESSION['username'])){
 		<div class="control-group">
 			<label class="control-label" for="telp">Alamat</label>
 			<div class="controls">
-				<input type="text" name='alamat' id='alamat' value='<?php if($id!=null ){echo $data->telp;} ?>'class='required'>
+				<input type="text" name='alamat' id='alamat' value='<?php if($id!=null ){echo $data->alamat;} ?>'class='required'>
 			</div>
 		</div>
 		
@@ -64,7 +59,7 @@ if(empty($_SESSION['username'])){
 		<div class="control-group">
 			<label class="control-label" for="email">Telp</label>
 			<div class="controls">
-				<input type="text" name='telp' id='telp' value='<?php if($id!=null ){echo $data->email;} ?>'class='required'>
+				<input type="text" name='telp' id='telp' value='<?php if($id!=null ){echo $data->telp;} ?>'class='required'>
 
 			</div>
 		</div>
