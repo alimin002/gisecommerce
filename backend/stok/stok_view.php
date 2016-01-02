@@ -25,6 +25,19 @@
 
 					}
 					?>
+					<div class="row">
+						<form action="index.php?mod=supplier&pg=supplier_view" method="POST">
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="textsearch">
+									</div>
+											<div class="col-md-1" style="margin-left:-5%;">
+															<button class="form-control" type="submit">
+														<i class="ace-icon fa fa-search"></i>
+													</button>
+		
+																</div>
+														</form>	 
+												</div> 
 
 <div>
 	<div>
@@ -57,7 +70,7 @@
 		</thead>
 		<tbody>
 <?php
-$batas='10';
+$batas='5';
 $tabel="stok";
 //$halaman=$_GET['halaman'];
 $posisi=null;
@@ -103,18 +116,18 @@ while($rows=mysql_fetch_object($result)){
 	<?php
 //=============CUT HERE for paging====================================
 $tampil2 = mysql_query("SELECT idstok from stok");
-
 $jmldata = mysql_num_rows($tampil2);
 $jumlah_halaman = ceil($jmldata / $batas);
 ?>
-<div class='pagination'> 
-	<ul>
-<?php
-pagination($halaman, $jumlah_halaman,"stok");
-?>
-	</ul>
+<div class='dataTables_paginate paging_bootstrap'>
+                <ul class="pagination">
+                    <?php
+pagination($halaman, $jumlah_halaman, "stok");
+ ?>
+                </ul>
 </div>
-<div class='well'>Jumlah data :<strong><?php echo $jmldata;?> </strong></div>
+ <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
+	
 <?php
 // KODE UNTUK MENAMPILKAN PESAN STATUS
 if(isset($_GET['status'])) {

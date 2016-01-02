@@ -43,7 +43,7 @@ if (isset($_GET['act']))
             </thead>
             <tbody>
                 <?php
-$batas = '10';
+$batas = '5';
 $tabel = "produk";
 
 if (empty($_GET['halaman']) == false)
@@ -131,10 +131,10 @@ $tampil2 = mysql_query("SELECT idproduk from produk");
 $jmldata = mysql_num_rows($tampil2);
 $jumlah_halaman = ceil($jmldata / $batas);
 ?>
-            <div class='pagination'>
-                <ul>
+            <div class='dataTables_paginate paging_bootstrap'>
+                <ul class="pagination">
                     <?php
-pagination($halaman, $jumlah_halaman, "produk"); ?>
+						pagination($halaman, $jumlah_halaman, "retur_penjualan"); ?>
                 </ul>
             </div>
             <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>

@@ -17,10 +17,25 @@ if (isset($_GET['act'])) {
 													$query="select idkategori,nama_kategori from kategori";
 													$result=mysql_query($query) or die(mysql_error());
 												?>
-												<div class="widget-main" style="float:right;">
+												<!-- pencarian satu dari form supplier-->
+												<div class="row">
+												<form action="index.php?mod=supplier&pg=supplier_view" method="POST">
+													<div class="col-md-6">
+														<input type="text" class="form-control" name="textsearch">
+																</div>
+																	<div class="col-md-1" style="margin-left:-5%;">
+																			<button class="form-control" type="submit">
+																		<i class="ace-icon fa fa-search"></i>
+																		</button>
+		
+																		</div>
+																		</form>	 
+																	</div> 
+												
+												<!--<div class="widget-main" style="float:right;">
 												<form class="form-search">
 													<div class="row">
-													<div class="col-xs-12 col-sm-8">
+													<div class="col-xs-9 col-sm-8">
 														<div class="input-group">
 															<select class="form-control" id="form-field-select-1">	
 																<option value="WA">Pilih Kategori</option>
@@ -41,7 +56,7 @@ if (isset($_GET['act'])) {
 													</div>
 												</form>	
 		
-											</div>
+											</div> ---->
 		<h1>
 		Data
 		<small>
@@ -58,7 +73,7 @@ if (isset($_GET['act'])) {
 		</thead>
 		<tbody>
 <?php
-$batas='10';
+$batas='4';
 $tabel="produk";
 if(empty($_GET['halaman'])==false){
 $halaman=$_GET['halaman'];
@@ -113,12 +128,19 @@ while($rows=mysql_fetch_object($result)){
 	$jmldata = mysql_num_rows($tampil2);
 	$jumlah_halaman = ceil($jmldata / $batas);
 ?>
-<div class='pagination'> 
+<!--------<div class='pagination'>
 	<ul>
-<?php pagination($halaman, $jumlah_halaman, "produk"); ?>
+<?php // pagination($halaman, $jumlah_halaman, "produk"); ?>
 	</ul>
-</div>
-<div class='well'>Jumlah data :<strong><?= $jmldata; ?> </strong></div>
+</div>-------->
+
+<div class='dataTables_paginate paging_bootstrap'>
+                <ul class="pagination">
+                    <?php
+pagination($halaman, $jumlah_halaman, "produk"); ?>
+                </ul>
+            </div>
+            <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
 <?php
 // KODE UNTUK MENAMPILKAN PESAN STATUS
 if (isset($_GET['status'])) {

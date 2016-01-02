@@ -14,6 +14,19 @@ if (isset($_GET['act']))
 	}
 
 ?>
+	<div class="row">
+		<form action="index.php?mod=supplier&pg=supplier_view" method="POST">
+			<div class="col-md-6">
+				<input type="text" class="form-control" name="textsearch">
+					</div>
+					<div class="col-md-1" style="margin-left:-5%;">
+						<button class="form-control" type="submit">
+							<i class="ace-icon fa fa-search"></i>
+								</button>
+		
+											</div>
+														</form>	 
+															</div>
     <div>
         <h1>
 		Data
@@ -37,7 +50,7 @@ if (isset($_GET['act']))
             </thead>
             <tbody>
                 <?php
-$batas = '10';
+$batas = '5';
 $tabel = "produk";
 
 if (empty($_GET['halaman']) == false)
@@ -115,13 +128,13 @@ $tampil2 = mysql_query("SELECT idproduk from produk");
 $jmldata = mysql_num_rows($tampil2);
 $jumlah_halaman = ceil($jmldata / $batas);
 ?>
-            <div class='pagination'>
-                <ul>
+            <div class='dataTables_paginate paging_bootstrap'>
+                <ul class="pagination">
                     <?php
-pagination($halaman, $jumlah_halaman, "produk"); ?>
-                </ul>
-            </div>
-            <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
+						pagination($halaman, $jumlah_halaman, "penjualan"); ?>
+							</ul>
+								</div>
+									<div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
             <?php
 
 // KODE UNTUK MENAMPILKAN PESAN STATUS

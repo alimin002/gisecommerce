@@ -29,7 +29,7 @@ if(empty($_SESSION['username'])){
 		<tbody>
 		<?php
 				//bata paging 
-$batas='10';
+$batas='5';
 $tabel="berita";
 if(empty($_GET['halaman'])==false){
 $halaman=$_GET['halaman'];
@@ -87,21 +87,17 @@ while($rows=mysql_fetch_object($result)){
 	</table>
 <?php	
 //=============CUT HERE for paging====================================
-$tampil2=mysql_query("select idberita from berita");
+$tampil2=mysql_query("select idberita from banner");
 $jmldata=mysql_num_rows($tampil2);
 $jumlah_halaman=ceil($jmldata/$batas);
-
-
-echo "<div class='pagination'> <ul>";
-for($i=1;$i<=$jumlah_halaman;$i++) 
-
-echo "<li><a href='index.php?mod=berita&pg=berita_view&halaman=$i'>$i</a></li>";
-
-mysql_close();
 ?>
-</ul>
-</div>
-<br>Jumlah data : <?php echo $jmldata; ?>
+            <div class='dataTables_paginate paging_bootstrap'>
+                <ul class="pagination">
+                    <?php
+						pagination($halaman, $jumlah_halaman, "banner"); ?>
+                </ul>
+            </div>
+            <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
 	<?php
 // KODE UNTUK MENAMPILKAN PESAN STATUS
 if(isset($_GET['status'])) {
