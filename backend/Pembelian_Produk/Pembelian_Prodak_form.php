@@ -102,8 +102,18 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 				<div class="col-md-3">
 					<div class="input-group">
 						<button data-toggle="modal" data-target="#myModal" id="bootbox-regular" type="button" class="btn btn-success">
-				<i class="fa fa-plus" ></i>
-				</button>
+						<i class="fa fa-plus" ></i>
+						</button>
+						<script>
+						jQuery1113("#bootbox-regular").click(function(){
+							jQuery1113("#kode_produk").val("");
+							jQuery1113("#nama_produk").val("");
+							jQuery1113("#harga_beli").val("");
+							jQuery1113("#qty").val("");
+							jQuery1113("#subtotal").val("");
+						});
+							
+						</script>
 					</span>
 					</div>
 				</div>
@@ -154,9 +164,10 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 				var str="<?php echo $str;?>";
 				//alert(str);
 				///var str='';
-alert(str+'\n' +'url: "http://localhost/gisecommerce/backend/Pembelian_Produk/ajax_nama_barang.php"');
+//alert(str+'\n' +'url: "http://localhost/gisecommerce/backend/Pembelian_Produk/ajax_nama_barang.php"');
 				
 		  var kode_produk=jQuery1113("#kode_produk").val();
+		 
 		  jQuery1113.ajax({
 			url: str,
 							type: "POST",
@@ -279,12 +290,17 @@ Grand Total:
 
 <!--biarkan div ini tanpa pasangan---->
 </div>
-<script>
-									
+									<script>					
 									//menghindari konflik antar jquery
 									jQuery1113("#btn-ok").click(function(){
-									jQuery1113("#tbody-item").append("<tr><td></td><td>"+jQuery1113("#kode_produk").val()+"</td><td>"+jQuery1113("#nama_produk").val()+"</td><td>"+jQuery1113("#harga_beli").val()+"</td><td>"+jQuery1113("#qty").val()+"</td><td>"+jQuery1113("#subtotal").val()+"</td><td>"+"edit | hapus"+"</td></tr>");
+									jQuery1113("#tbody-item").append("<tr><td></td><td>"+jQuery1113("#kode_produk").val()+"</td><td>"+jQuery1113("#nama_produk").val()+"</td><td>"+jQuery1113("#harga_beli").val()+"</td><td>"+jQuery1113("#qty").val()+"</td><td>"+jQuery1113("#subtotal").val()+"</td><td>"+"<a style='margin-right:3%;' href='index.php?mod=supplier&amp;pg=supplier_form&amp;id=1' class='btn btn-xs btn-info'> <i class='icon-pencil'></i> </a><a href='index.php?mod=supplier&amp;pg=supplier_view&amp;act=del&amp;id=1' onclick='return confirm('Yakin data akan dihapus?');' class='btn btn-danger'> <i class='icon-trash'></i></a>"+"</td></tr>");
 									//alert(1);
-									
 									});
+									
+									jQuery1113(window).bind("beforeunload", function(){
+										return "Data item akan dikosongkan!, \n anda yakin akan mereload halaman ini?"; 
+									});
+
+
+									
 									</script>
