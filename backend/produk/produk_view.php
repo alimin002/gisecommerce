@@ -58,7 +58,7 @@ if (isset($_GET['act'])) {
 		</thead>
 		<tbody>
 <?php
-$batas='10';
+$batas='4';
 $tabel="produk";
 if(empty($_GET['halaman'])==false){
 $halaman=$_GET['halaman'];
@@ -102,7 +102,7 @@ while($rows=mysql_fetch_object($result)){
 			?>
 
 			<tr>
-				<td colspan='4' ></td><td><a href="index.php?mod=produk&pg=produk_form"
+				<td colspan='6' ></td><td><a href="index.php?mod=produk&pg=produk_form"
 				class='btn btn-xs btn-success'	><i class="icon-plus"></i></a></td>
 			</tr>
 		</tbody>
@@ -113,12 +113,19 @@ while($rows=mysql_fetch_object($result)){
 	$jmldata = mysql_num_rows($tampil2);
 	$jumlah_halaman = ceil($jmldata / $batas);
 ?>
-<div class='pagination'> 
+<!--------<div class='pagination'>
 	<ul>
-<?php pagination($halaman, $jumlah_halaman, "produk"); ?>
+<?php // pagination($halaman, $jumlah_halaman, "produk"); ?>
 	</ul>
-</div>
-<div class='well'>Jumlah data :<strong><?= $jmldata; ?> </strong></div>
+</div>-------->
+
+<div class='dataTables_paginate paging_bootstrap'>
+                <ul class="pagination">
+                    <?php
+pagination($halaman, $jumlah_halaman, "produk"); ?>
+                </ul>
+            </div>
+            <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
 <?php
 // KODE UNTUK MENAMPILKAN PESAN STATUS
 if (isset($_GET['status'])) {

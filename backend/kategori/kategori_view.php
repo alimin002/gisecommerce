@@ -53,7 +53,7 @@ if (empty($_GET['halaman'])) {
     $halaman=0;
 }else{
 $halaman=$_GET['halaman'];
-}	$batas=5;
+}	$batas=4;
 $posisi=null;
 if(empty($halaman)){
 	$posisi=0;
@@ -100,16 +100,22 @@ while($rows=mysql_fetch_object($result)){
 		$jmldata = mysql_num_rows($tampil2);
 		$jumlah_halaman = ceil($jmldata / $batas);
 
-		echo "<div class='pagination'> <ul>";
-		for ($i = 1; $i <= $jumlah_halaman; $i++)
+		//echo "<div class='pagination'> <ul>";
+		//for ($i = 1; $i <= $jumlah_halaman; $i++)
 
-			echo "<li><a href='index.php?mod=kategori&pg=kategori_view&halaman=$i'>$i</a></li>";
+			//echo "<li><a href='index.php?mod=kategori&pg=kategori_view&halaman=$i'>$i</a></li>";
 
-		mysql_close();
-	?>
-</ul>
+		//mysql_close();?>
+<!--</ul>
 </div>
-<br>Jumlah data :<?php echo $jmldata; ?>
+<br>Jumlah data :<?php echo $jmldata; ?> !-->
+<div class='dataTables_paginate paging_bootstrap'>
+                <ul class="pagination">
+                    <?php
+pagination($halaman, $jumlah_halaman, "kategori"); ?>
+                </ul>
+            </div>
+
 
 	<?php
 	// KODE UNTUK MENAMPILKAN PESAN STATUS

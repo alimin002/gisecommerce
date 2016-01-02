@@ -136,7 +136,7 @@ $jumlah_halaman = ceil($jmldata / $batas);
             <div class='pagination'>
                 <ul>
                     <?php
-pagination($halaman, $jumlah_halaman, "produk"); ?>
+pagination($halaman, $jumlah_halaman, "supplier"); ?>
                 </ul>
             </div>
             <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
