@@ -57,7 +57,7 @@
 		</thead>
 		<tbody>
 <?php
-$batas='10';
+$batas='5';
 $tabel="stok";
 //$halaman=$_GET['halaman'];
 $posisi=null;
@@ -103,18 +103,18 @@ while($rows=mysql_fetch_object($result)){
 	<?php
 //=============CUT HERE for paging====================================
 $tampil2 = mysql_query("SELECT idstok from stok");
-
 $jmldata = mysql_num_rows($tampil2);
 $jumlah_halaman = ceil($jmldata / $batas);
 ?>
-<div class='pagination'> 
-	<ul>
-<?php
-pagination($halaman, $jumlah_halaman,"stok");
-?>
-	</ul>
+<div class='dataTables_paginate paging_bootstrap'>
+                <ul class="pagination">
+                    <?php
+pagination($halaman, $jumlah_halaman, "stok");
+ ?>
+                </ul>
 </div>
-<div class='well'>Jumlah data :<strong><?php echo $jmldata;?> </strong></div>
+ <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
+	
 <?php
 // KODE UNTUK MENAMPILKAN PESAN STATUS
 if(isset($_GET['status'])) {
