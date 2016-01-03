@@ -12,8 +12,25 @@ if (isset($_GET['act']))
 	$sql = "delete from produk where idproduk='$id' ";
 	mysql_query($sql) or die(mysql_error());
 	}
+	
+	include('suplier/caridata.php');
 
 ?>
+<div class="row">
+<div class="col-md-12">
+<div class="row">
+<form action="index.php?mod=supplier&pg=supplier_view" method="POST">
+	 <div class="col-md-6">
+		<input type="text" class="form-control" name="textsearch">
+	 </div>
+	 <div class="col-md-1" style="margin-left:-5%;">
+	  <button class="form-control" type="submit">
+	 <i class="ace-icon fa fa-search"></i>
+	 </button>
+		
+	 </div>
+</form>	 
+</div>
     <div>
         <h1>
 		Data
@@ -38,7 +55,7 @@ if (isset($_GET['act']))
             </thead>
             <tbody>
                 <?php
-$batas = '10';
+$batas = '5';
 $tabel = "produk";
 
 if (empty($_GET['halaman']) == false)
@@ -117,6 +134,8 @@ while ($rows = mysql_fetch_object($result))
                         </tr>
             </tbody>
         </table>
+		</div>
+		<div class="row">
         <?php //=============CUT HERE for paging====================================
 $tampil2 = mysql_query("SELECT idproduk from produk");
 $jmldata = mysql_num_rows($tampil2);
@@ -149,4 +168,10 @@ if (isset($_GET['status']))
 
 ?>
 
-    </div>
+ </div>
+	</div>
+ 
+		
+		</div>
+
+			</div>

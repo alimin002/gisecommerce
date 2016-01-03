@@ -138,6 +138,7 @@ function arrayToObject($array) {
 
 
 function pagination($halaman, $jumlah_halaman, $tabel) {
+//echo $halaman.$jumlah_halaman.$tabel."<br/>";
 	$baselink = "index.php?mod=" . $tabel . "&pg=" . $tabel . "_view&halaman=";
 	if($halaman > 1) {
 		$previous = $halaman - 1;

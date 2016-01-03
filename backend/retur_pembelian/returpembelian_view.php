@@ -55,8 +55,8 @@ if (isset($_GET['act']))
             </thead>
             <tbody>
                 <?php
-$batas = '10';
-$tabel = "produk";
+$batas = '5';
+$tabel = "retur_pembelian";
 
 if (empty($_GET['halaman']) == false)
 	{
@@ -155,7 +155,7 @@ while ($rows = mysql_fetch_object($result))
             </tbody>
         </table>
         <?php //=============CUT HERE for paging====================================
-$tampil2 = mysql_query("SELECT idproduk from produk");
+$tampil2 = mysql_query("SELECT id from retur_pembelian");
 $jmldata = mysql_num_rows($tampil2);
 $jumlah_halaman = ceil($jmldata / $batas);
 ?>
