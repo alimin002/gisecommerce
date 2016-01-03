@@ -104,15 +104,57 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 						<button data-toggle="modal" data-target="#myModal" id="bootbox-regular" type="button" class="btn btn-success">
 						<i class="fa fa-plus" ></i>
 						</button>
+						<button id="btn-plus2" type="button" class="btn btn-success" data-togle="#myModal">
+						<i class="fa fa-plus" ></i>
+						</button>
 						<script>
-						jQuery1113("#bootbox-regular").click(function(){
-							jQuery1113("#kode_produk").val("");
-							jQuery1113("#nama_produk").val("");
-							jQuery1113("#harga_beli").val("");
-							jQuery1113("#qty").val("");
-							jQuery1113("#subtotal").val("");
-						});
+						//$("#btn-plus2").on(ace.click_event, function() {
 							
+						//});
+						
+						
+						  jQuery1113("#btn-plus2").click(function(){
+							bootbox.dialog({
+                title: "This is a form in a modal.",
+                message: '<div class="row">  ' +
+                    '<div class="col-md-12"> ' +
+                    '<form class="form-horizontal"> ' +
+                    '<div class="form-group"> ' +
+                    '<label class="col-md-4 control-label" for="name">Name</label> ' +
+                    '<div class="col-md-4"> ' +
+                    '<input id="name" name="name" type="text" placeholder="Your name" class="form-control input-md"> ' +
+                    '<span class="help-block">Here goes your name</span> </div> ' +
+                    '</div> ' +
+                    '<div class="form-group"> ' +
+                    '<label class="col-md-4 control-label" for="awesomeness">How awesome is this?</label> ' +
+                    '<div class="col-md-4"> <div class="radio"> <label for="awesomeness-0"> ' +
+                    '<input type="radio" name="awesomeness" id="awesomeness-0" value="Really awesome" checked="checked"> ' +
+                    'Really awesome </label> ' +
+                    '</div><div class="radio"> <label for="awesomeness-1"> ' +
+                    '<input type="radio" name="awesomeness" id="awesomeness-1" value="Super awesome"> Super awesome </label> ' +
+                    '</div> ' +
+                    '</div> </div>' +
+                    '</form> </div>  </div>',
+                buttons: {
+				dismiss: {
+                        label: "Cancel",
+                        className: "btn-default",
+                        callback: function () {
+						  
+                        }
+                    },
+                    success: {
+                        label: "Save",
+                        className: "btn-success",
+                        callback: function (){   
+                        }	
+                    } 
+                }
+				
+            }
+        );
+							});
+
 						</script>
 					</span>
 					</div>
@@ -275,6 +317,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
  <table class="table table-striped table-condensed">
             <thead>
                 <th>
+					
                     <td><b>Kode Produk</b></td>
 					<td><b>Nama Produk</b></td>
                     <td><b>Harga Beli</b></td>
@@ -283,28 +326,61 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
                     <td style='min-width: 100px'><b>Aksi</b></td>
                 </th>
             </thead>
-            <tbody id="tbody-item">
-                
+            <tbody id="tbody-item">   
             </tbody>
         </table>
 </div>
 <div>
 <label class="col-md-5">Grand Total:</label> <label id="grand_total" class="col-md-2"></label>
 </div>
-
 <!--biarkan div ini tanpa pasangan---->
 </div>
-									<script>					
+									<script>
+									var rowid=0;
+									//rowid =rowid +1;
 									//menghindari konflik antar jquery
 									jQuery1113("#btn-ok").click(function(){
-									jQuery1113("#tbody-item").append("<tr><td></td><td>"+jQuery1113("#kode_produk").val()+"</td><td>"+jQuery1113("#nama_produk").val()+"</td><td>"+jQuery1113("#harga_beli").val()+"</td><td>"+jQuery1113("#qty").val()+"</td><td>"+jQuery1113("#subtotal").val()+"</td><td>"+"<a style='margin-right:3%;' href='index.php?mod=supplier&amp;pg=supplier_form&amp;id=1' class='btn btn-xs btn-info'> <i class='icon-pencil'></i> </a><a href='index.php?mod=supplier&amp;pg=supplier_view&amp;act=del&amp;id=1' onclick='return confirm('Yakin data akan dihapus?');' class='btn btn-danger'> <i class='icon-trash'></i></a>"+"</td></tr>");
-									//alert(1);
+									rowid =rowid +1;
+									jQuery1113("#tbody-item").append("<tr id=row"+ rowid +"><td>"+ rowid +"</td><td>"+jQuery1113("#kode_produk").val()+"</td><td>"+jQuery1113("#nama_produk").val()+"</td><td>"+jQuery1113("#harga_beli").val()+"</td><td>"+jQuery1113("#qty").val()+"</td><td>"+jQuery1113("#subtotal").val()+"</td><td>"+"<button id="+ rowid +" style='margin-right:3%;' class='btn btn-xs btn-info' onclick='getitem(this.id)'> <i class='icon-pencil'></i></button><button id="+ rowid +" class='btn btn-danger' onclick='getitem(this.id)' > <i class='icon-trash'></i></button>"+"</td></tr>");
 									});
 									
 									jQuery1113(window).bind("beforeunload", function(){
 										return "Data item akan dikosongkan!, \n anda yakin akan mereload halaman ini?"; 
 									});
 
-
+									function getitem(id){
+									//alert(id);
+									//var x=jQuery1113("#tbody-item").children[0].children[0].textContent;
+									//alert(document.getElementById('row' + rowid).children[2].textContent);
+										bootbox.dialog({
+                title: "This is a form in a modal.",
+                message: '<div class="row">  ' +
+                    '<div class="col-md-12"> ' +
+                    '<form class="form-horizontal"> ' +
+                    '<div class="form-group"> ' +
+                    '<label class="col-md-4 control-label" for="name">Name</label> ' +
+                    '<div class="col-md-4"> ' +
+                    '<input id="name" name="name" type="text" placeholder="Your name" class="form-control input-md"> ' +
+                    '</div> ' +
+                    '</form> </div>  </div></div>',
+                buttons: {
+				dismiss: {
+                        label: "Cancel",
+                        className: "btn-default",
+                        callback: function () {
+						  
+                        }
+                    },
+                    success: {
+                        label: "Save",
+                        className: "btn-success",
+                        callback: function (){   
+                        }	
+                    } 
+                }
+				
+            }
+        );
+									}
 									
 									</script>
