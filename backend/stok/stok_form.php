@@ -44,10 +44,8 @@ action="stok/stok_action.php">
 			<div class="controls">
 				<select id='idproduk' name='idproduk' class="required " >
 						<?php
- 
     combo_produk($data->idproduk);
-
-   	?>
+   	                    ?>
 				</select>
 			</div>
 		</div>
@@ -56,22 +54,19 @@ action="stok/stok_action.php">
 		<div class="control-group">
 			<label class="control-label" for="lon">Harga beli</label>
 			<div class="controls">
-				<input type="text" name='harga_beli' id='harga_beli' value='<?php  if($id!=null){echo $data->harga_beli;}?>' class='required'
-				>
+				<input type="text" name='harga_beli' id='harga_beli' value='<?php  if($id!=null){echo $data->harga_beli;}?>' class='required'>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="lon">Harga Jual</label>
 			<div class="controls">
-				<input type="text" name='harga_jual' id='harga_jual' value='<?php if($id!=null){$data->harga_jual;}?>' class='required'
-				>
+				<input type="text" name='harga_jual' id='harga_jual' value='<?php if($id!=null){echo $data->harga_jual;}?>' class='required'>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="lon">jumlah</label>
 			<div class="controls">
-				<input type="text" name='jumlah' id='jumlah' value='<?php if($id!= null){echo $data->jumlah;}?>' class='required'
-				>
+				<input type="text" name='jumlah' id='jumlah' value='<?php if($id!= null){echo $data->jumlah;}?>' class='required'>
 			</div>
 		</div>
 		
@@ -79,7 +74,7 @@ action="stok/stok_action.php">
 		<div class="control-group">
 			<div class="controls">
 				<button type="submit" class="btn btn-success" name='aksi' id='aksi' value='<?php echo $aksi;?>'>
-				<?=$aksi?>
+				<?php echo $aksi;?>
 				</button>
 			</div>
 		</div>

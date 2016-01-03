@@ -69,7 +69,35 @@
 			<th><td><b>Nama produk </b></td><td><b>Harga Beli</b></td><td><b>Harga Jual</b></td><td><b>jumlah</b></td><td><b>Aksi</b></td></th>
 		</thead>
 		<tbody>
+<?php		
+$batas = '5';
+$tabel = "stok";
+
+if (empty($_GET['halaman']) == false)
+	{
+	$halaman = $_GET['halaman'];
+	}
+  else
+	{
+	$halaman = 0;
+	}
+
+$posisi = null;
+
+if (empty($halaman))
+	{
+	$posisi = 0;
+	$halaman = 1;
+	}
+  else
+	{
+	$posisi = ($halaman - 1) * $batas;
+	}		
+		
+?>		
+		
 <?php
+/*
 $batas='5';
 $tabel="stok";
 //$halaman=$_GET['halaman'];
@@ -80,6 +108,7 @@ $halaman=1;
 }else{
 $posisi=($halaman-1)* $batas;
 }
+*/
 $query="SELECT stok.*,produk.nama_produk
  from stok,produk
  where stok.idproduk=produk.idproduk
@@ -122,7 +151,7 @@ $jumlah_halaman = ceil($jmldata / $batas);
 <div class='dataTables_paginate paging_bootstrap'>
                 <ul class="pagination">
                     <?php
-pagination($halaman, $jumlah_halaman, "stok");
+pagination($halaman, $jumlah_halaman,"stok");
  ?>
                 </ul>
 </div>
