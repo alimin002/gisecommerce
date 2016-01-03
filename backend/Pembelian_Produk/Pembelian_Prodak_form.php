@@ -158,14 +158,10 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 		  <script>
 			jQuery1113( "#btn-search-product" ).click(function(){
 				<?php
-				$str="http://" . $_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+				$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
 				$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_nama_barang.php"; 
 				?>
 				var str="<?php echo $str;?>";
-				//alert(str);
-				///var str='';
-//alert(str+'\n' +'url: "http://localhost/gisecommerce/backend/Pembelian_Produk/ajax_nama_barang.php"');
-				
 		  var kode_produk=jQuery1113("#kode_produk").val();
 		 
 		  jQuery1113.ajax({
@@ -175,8 +171,13 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 							 kode_produk:kode_produk
 							 },
 			success: function(data) {
-				//alert('ajax ok');
-			jQuery1113("#nama_produk").val(data);
+			var data_produk=JSON.parse(data);
+			//alert(data_produk['nama_produk']);
+			//for(var i=0; i){
+			
+			//}
+			jQuery1113("#nama_produk").val(data_produk['nama_produk']);
+			jQuery1113("#harga_beli").val(data_produk['harga_beli']);
 				},
 				error: function (jqXHR, textStatus, errorThrown) {
 							    //alert('ajax fail');
@@ -218,7 +219,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 						</div>
 						</div>
 						<script>
-
+						var grand_total=0;
 						jQuery1113( "#qty" ).change(function() {
 							var harga_beli=0;							var harga_beli;
 							harga_beli = jQuery1113( "#harga_beli" ).val();
@@ -228,6 +229,9 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 							var subtotal=0;
 							subtotal=parseFloat(harga_beli)*parseFloat(qty);
 							jQuery1113("#subtotal" ).val(subtotal);
+							grand_total=grand_total+subtotal;
+							jQuery1113("#grand_total" ).empty();
+							jQuery1113("#grand_total" ).append(grand_total);
 						});
 						</script>
 						<div class="row">
@@ -285,7 +289,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
         </table>
 </div>
 <div>
-Grand Total:
+<label class="col-md-5">Grand Total:</label> <label id="grand_total" class="col-md-2"></label>
 </div>
 
 <!--biarkan div ini tanpa pasangan---->
