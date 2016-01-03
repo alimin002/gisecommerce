@@ -4,7 +4,6 @@
  * Candra adi putra <candraadiputra@gmail.com>
  * last edit: 15 okt 2013
  */
- 
 include ('../../inc/config.php');
 include ('../../inc/function.php');
 //data dari stok
@@ -12,9 +11,7 @@ if(isset($_POST)){
 $idproduk = $_POST['idproduk'];
 $harga_jual = $_POST['harga_jual'];
 $jumlah = $_POST['jumlah'];
-
 $harga_beli = $_POST['harga_beli'];
-
 $aksi = $_POST['aksi'];
 $id = $_POST['id'];
 
