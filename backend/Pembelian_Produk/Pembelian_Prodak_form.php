@@ -104,57 +104,9 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 						<button data-toggle="modal" data-target="#myModal" id="bootbox-regular" type="button" class="btn btn-success">
 						<i class="fa fa-plus" ></i>
 						</button>
-						<button id="btn-plus2" type="button" class="btn btn-success" data-togle="#myModal">
-						<i class="fa fa-plus" ></i>
-						</button>
+						
 						<script>
-						//$("#btn-plus2").on(ace.click_event, function() {
-							
-						//});
 						
-						
-						  jQuery1113("#btn-plus2").click(function(){
-							bootbox.dialog({
-                title: "This is a form in a modal.",
-                message: '<div class="row">  ' +
-                    '<div class="col-md-12"> ' +
-                    '<form class="form-horizontal"> ' +
-                    '<div class="form-group"> ' +
-                    '<label class="col-md-4 control-label" for="name">Name</label> ' +
-                    '<div class="col-md-4"> ' +
-                    '<input id="name" name="name" type="text" placeholder="Your name" class="form-control input-md"> ' +
-                    '<span class="help-block">Here goes your name</span> </div> ' +
-                    '</div> ' +
-                    '<div class="form-group"> ' +
-                    '<label class="col-md-4 control-label" for="awesomeness">How awesome is this?</label> ' +
-                    '<div class="col-md-4"> <div class="radio"> <label for="awesomeness-0"> ' +
-                    '<input type="radio" name="awesomeness" id="awesomeness-0" value="Really awesome" checked="checked"> ' +
-                    'Really awesome </label> ' +
-                    '</div><div class="radio"> <label for="awesomeness-1"> ' +
-                    '<input type="radio" name="awesomeness" id="awesomeness-1" value="Super awesome"> Super awesome </label> ' +
-                    '</div> ' +
-                    '</div> </div>' +
-                    '</form> </div>  </div>',
-                buttons: {
-				dismiss: {
-                        label: "Cancel",
-                        className: "btn-default",
-                        callback: function () {
-						  
-                        }
-                    },
-                    success: {
-                        label: "Save",
-                        className: "btn-success",
-                        callback: function (){   
-                        }	
-                    } 
-                }
-				
-            }
-        );
-							});
-
 						</script>
 					</span>
 					</div>
@@ -182,7 +134,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
         </div>
         <div class="modal-body">
 		<div class="row">
-		<div class="col-md-12"; style="background-color:#dadada;>
+		<div class="col-md-12"; style="background-color:#e5e5ff; padding:3%;">
 		  <form class="bootbox-form">
 		  <div class="row">
 		  <div class="col-md-12">
@@ -331,56 +283,113 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
         </table>
 </div>
 <div>
-<label class="col-md-5">Grand Total:</label> <label id="grand_total" class="col-md-2"></label>
+<label class="col-md-3">Grand Total:</label> <label id="grand_total" class="col-md-2"></label>
 </div>
 <!--biarkan div ini tanpa pasangan---->
 </div>
-									<script>
-									var rowid=0;
-									//rowid =rowid +1;
-									//menghindari konflik antar jquery
-									jQuery1113("#btn-ok").click(function(){
-									rowid =rowid +1;
-									jQuery1113("#tbody-item").append("<tr id=row"+ rowid +"><td>"+ rowid +"</td><td>"+jQuery1113("#kode_produk").val()+"</td><td>"+jQuery1113("#nama_produk").val()+"</td><td>"+jQuery1113("#harga_beli").val()+"</td><td>"+jQuery1113("#qty").val()+"</td><td>"+jQuery1113("#subtotal").val()+"</td><td>"+"<button id="+ rowid +" style='margin-right:3%;' class='btn btn-xs btn-info' onclick='getitem(this.id)'> <i class='icon-pencil'></i></button><button id="+ rowid +" class='btn btn-danger' onclick='getitem(this.id)' > <i class='icon-trash'></i></button>"+"</td></tr>");
-									});
-									
-									jQuery1113(window).bind("beforeunload", function(){
-										return "Data item akan dikosongkan!, \n anda yakin akan mereload halaman ini?"; 
-									});
+								<script>
+    var rowid = 0;
+    //rowid =rowid +1;
+    //menghindari konflik antar jquery
+    jQuery1113("#btn-ok").click(function() {
+        rowid = rowid + 1;
+        jQuery1113("#tbody-item").append("<tr id=row" + rowid + "><td>" + rowid + "</td><td>" + jQuery1113("#kode_produk").val() + "</td><td>" + jQuery1113("#nama_produk").val() + "</td><td>" + jQuery1113("#harga_beli").val() + "</td><td>" + jQuery1113("#qty").val() + "</td><td>" + jQuery1113("#subtotal").val() + "</td><td>" + "<button id=" + rowid + " style='margin-right:3%;' class='btn btn-xs btn-info' onclick='getitem(this.id)'> <i class='icon-pencil'></i></button><button id=" + rowid + " class='btn btn-danger' onclick='getitem(this.id)' > <i class='icon-trash'></i></button>" + "</td></tr>");
+    });
 
-									function getitem(id){
-									//alert(id);
-									//var x=jQuery1113("#tbody-item").children[0].children[0].textContent;
-									//alert(document.getElementById('row' + rowid).children[2].textContent);
-										bootbox.dialog({
-                title: "This is a form in a modal.",
-                message: '<div class="row">  ' +
-                    '<div class="col-md-12"> ' +
-                    '<form class="form-horizontal"> ' +
-                    '<div class="form-group"> ' +
-                    '<label class="col-md-4 control-label" for="name">Name</label> ' +
-                    '<div class="col-md-4"> ' +
-                    '<input id="name" name="name" type="text" placeholder="Your name" class="form-control input-md"> ' +
-                    '</div> ' +
-                    '</form> </div>  </div></div>',
-                buttons: {
-				dismiss: {
-                        label: "Cancel",
-                        className: "btn-default",
-                        callback: function () {
-						  
-                        }
-                    },
-                    success: {
-                        label: "Save",
-                        className: "btn-success",
-                        callback: function (){   
-                        }	
-                    } 
+    jQuery1113(window).bind("beforeunload", function() {
+        return "Data item akan dikosongkan!, \n anda yakin akan mereload halaman ini?";
+    });
+	
+	function showmodal(){
+
+}
+
+
+    function getitem(id) {
+	var kode_produkedit=document.getElementById('row' + id).children[1].textContent;
+	var nama_produkedit=document.getElementById('row' + id).children[2].textContent;
+	var harga_beliedit=document.getElementById('row' + id).children[3].textContent;
+	var qtyedit=document.getElementById('row' + id).children[4].textContent;
+	var subtotaledit=document.getElementById('row' + id).children[5].textContent;
+	var html_string='\n'+
+                '<div class="row">\n'+
+                '<div class="col-md-12" style="padding:3%; background-color:#e5e5ff">\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Kode Produk'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="text" id="kode_produkedit" value="'+kode_produkedit+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Nama Produk'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="text" id="nama_produkedit" value="'+nama_produkedit+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Harga Beli'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="text" id="harga_beliedit" value="'+harga_beliedit+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'QTY'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="text" id="qtyedit" value="'+qtyedit+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Subtotal'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="text" id="subtotaledit" value="'+subtotaledit+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+				'</div>\n'+  
+				'</div>\n'+
+				'';
+	
+	
+        //alert(id);
+        //var x=jQuery1113("#tbody-item").children[0].children[0].textContent;
+        //alert(document.getElementById('row' + rowid).children[2].textContent);
+        bootbox.dialog({
+            title: "Edit Item Pembelian",
+            message:html_string,
+            buttons: {
+                dismiss: {
+                    label: "Cancel",
+                    className: "btn-default",
+                    callback: function() {
+
+                    }
+                },
+                success: {
+                    label: "Save",
+                    className: "btn-success",
+                    callback: function() {}
                 }
-				
             }
-        );
-									}
-									
-									</script>
+
+        });
+    }
+</script>
