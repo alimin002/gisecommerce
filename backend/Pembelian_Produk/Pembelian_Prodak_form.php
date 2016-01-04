@@ -106,7 +106,14 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 						</button>
 						
 						<script>
+						jQuery1113('#bootbox-regular').click(function(){
+						jQuery1113('#kode_produk').val("");
+						jQuery1113('#nama_produk').val("");
+						jQuery1113('#harga_beli').val("");
+						jQuery1113('#qty').val("");
+						jQuery1113('#subtotal').val("");
 						
+						});
 						</script>
 					</span>
 					</div>
@@ -143,12 +150,12 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 		  </div>
 		  <div class="row">
 		       <div class="col-md-9">
-                        <input type="text" name="kode_produk" id="kode_produk" class="form-control">
+                        <input type="text" name="kode_produk" id="kode_produk" class="form-control" style="width:120%;">
 			   </div>
 		
-		  <div class="col-md-3" style="margin-left:-5%">
-				<button class="form-control" id="btn-search-product"><i class="fa fa-search"></i></button>
-		  </div>
+			   <div class="col-md-3" style="margin-left:0%">
+			   <button type="button" class="form-control" id="btn-search-product"><i class="fa fa-search"></i></button>
+			   </div>
 		  <script>
 			jQuery1113( "#btn-search-product" ).click(function(){
 				<?php
