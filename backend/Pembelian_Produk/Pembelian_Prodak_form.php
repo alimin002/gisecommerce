@@ -293,18 +293,25 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
             </thead>
             <tbody id="tbody-item">   
             </tbody>
-        </table>
+</table>
 </div>
 <div style="border:1px #dadada solid;">
 <label class="col-md-3">Grand Total:</label> <label id="grand_total" class="col-md-2" style="margin-left:-15%;"></label>
 </div>
 <!--biarkan div ini tanpa pasangan---->
 </div>
-								<script>
+	<script>
+	var jsonitem="";
     var rowid = 0;
     //rowid =rowid +1;
     //menghindari konflik antar jquery
+	var kode_produk=jQuery1113("#kode_produk").val();
+	var nama_produk=jQuery1113("#nama_produk").val();
+	var harga_beli=jQuery1113("#harga_beli").val();
+	var qty=jQuery1113("#qty").val();
+	var subtotal=jQuery1113("#subtotal").val();
     jQuery1113("#btn-ok").click(function() {
+	jsonitem=jsonitem + '{"kode_produk":"'+kode_produk+'", "nama_produk":"'+nama_produk+'", "harga_beli":"'+harga_beli+'", "qty":"'+qty+'", "subtotal":"'+subtotal+'"},';
 	rowid = rowid + 1;
 		var html_grid='\n'+
                 '<tr id="row'+rowid+'">\n'+
@@ -338,8 +345,30 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 					'</td>\n'+
 				'</tr>\n'+
 					'';
-        
         jQuery1113("#tbody-item").append(html_grid);
+		var lenstr=jsonitem.length;
+		var insert_str=jsonitem.substring(0,lenstr-1);
+		
+		<?php
+			$inserturl="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+			$inserturl=substr($inserturl,0,strlen($inserturl)-9)."/Pembelian_Produk/ajax_insert_item.php"; 
+		?>
+			var inserturl="<?php echo $inserturl;?>";
+		jQuery1113.ajax({
+			url: inserturl,
+			type: "POST",
+			data:{
+			insert_str:insert_str
+			     },
+			success: function(data){
+			alert(data);
+				},
+			error: function (jqXHR, textStatus, errorThrown) {
+							    //alert('ajax fail');
+			console.log("ERRORS : " + errorThrown);
+				}
+		});
+		
     });
 
     jQuery1113(window).bind("beforeunload", function() {
@@ -358,6 +387,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 	var harga_beliedit=document.getElementById('row' + id).children[3].textContent;
 	var qtyedit=document.getElementById('row' + id).children[4].textContent;
 	var subtotaledit=document.getElementById('row' + id).children[5].textContent;
+	
 	var html_string='\n'+
                 '<div class="row">\n'+
                 '<div class="col-md-12" style="padding:3%; background-color:#e5e5ff">\n'+
@@ -446,6 +476,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 	var harga_beliedit=document.getElementById('row' + id).children[3].textContent;
 	var qtyedit=document.getElementById('row' + id).children[4].textContent;
 	var subtotaledit=document.getElementById('row' + id).children[5].textContent;
+	
 	var html_string='\n'+
                 '<div class="row">\n'+
                 '<div class="col-md-12" style="padding:3%; background-color:#e5e5ff">\n'+
