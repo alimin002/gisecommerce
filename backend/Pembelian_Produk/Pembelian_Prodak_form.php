@@ -55,9 +55,11 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 ?>
 		<div class="row">
 				<div class="col-md-3">
-				<label>Kode Pembelian</label>
-					<div class="input-group">
-						<input type="text" class="form-control" id="kode_pembelian" name='kode_pembelian' value='<?php echo "PB".$strkodepembelian; ?>'class='required' disabled>
+				<div class="row">
+					<label class="col-md-12">Kode Pembelian</label>
+				</div>
+					<div class="row">
+						<input type="text" class="col-md-12" id="kode_pembelian" name='kode_pembelian' value='<?php echo "PB".$strkodepembelian; ?>'class='required' disabled>
 					</div>
 				</div>
 		</div>
@@ -68,10 +70,12 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 		//{
 		?>
 		<div class="row">
-				<div class="col-md-4">
-				<label>Nama Supplier</label>
-					<div class="input-group">
-						<select class="form-control" id="supplier_id" name="supplier_id">
+				<div class="col-md-3">
+				<div class="row">
+					<label class="col-md-12">Nama Supplier</label>
+				</div>
+					<div class="row">
+						<select class="col-md-12" id="supplier_id" name="supplier_id">
 							<?php 
 							while ($rows = mysql_fetch_object($result))
 							{ 
@@ -89,12 +93,14 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 		</div>
 			<div class="row">
 				<div class="col-md-3">
-				<label>Tanggal</label>
-					<div class="input-group">
-						<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
-						<span class="input-group-addon">
-						<i class="fa fa-calendar bigger-110"></i>
-					</span>
+					<div class="row">
+						<label class="col-md-12">Tanggal</label>
+					</div>
+					<div class="row">
+						<input class="col-md-10 date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+						<span class="col-md-2" style="border:1px solid #0000; margin-top:2.5%;">
+							<i class="fa fa-calendar bigger-110"></i>
+						</span>
 					</div>
 				</div>
 			</div>
@@ -145,7 +151,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 		  <form class="bootbox-form">
 		  <div class="row">
 		  <div class="col-md-12">
-			<label>Kode Koduk</label>
+			<label class="col-md-5">Kode Koduk</label>
 		  </div>
 		  </div>
 		  <div class="row">
@@ -190,7 +196,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 		  </div>
 		  <div class="row">
 		  <div class="col-md-12">
-						<label>Nama Produk</label>
+						<label class="col-md-5">Nama Produk</label>
 		  </div>
 		   </div>
 		   <div class="row">
@@ -200,7 +206,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 		   </div>
 						<div class="row">
 						<div class="col-md-12">
-						<label>Harga Beli</label>
+						<label class="col-md-5">Harga Beli</label>
 						</div>
 						</div>
 						<div class="row">
@@ -210,7 +216,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 						</div>
 						<div class="row">
 						<div class="col-md-12">
-						<label>QTY/Jumlah Beli</label>
+						<label class="col-md-5">QTY/Jumlah Beli</label>
 						</div>
 						</div>
 						
@@ -237,7 +243,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 						</script>
 						<div class="row">
 						<div class="col-md-12">
-						<label>Subtotal</label>
+						<label class="col-md-5">Subtotal</label>
 						</div>
 						</div>
 						<div class="row">
@@ -289,8 +295,8 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
             </tbody>
         </table>
 </div>
-<div>
-<label class="col-md-3">Grand Total:</label> <label id="grand_total" class="col-md-2"></label>
+<div style="border:1px #dadada solid;">
+<label class="col-md-3">Grand Total:</label> <label id="grand_total" class="col-md-2" style="margin-left:-15%;"></label>
 </div>
 <!--biarkan div ini tanpa pasangan---->
 </div>
@@ -299,8 +305,41 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
     //rowid =rowid +1;
     //menghindari konflik antar jquery
     jQuery1113("#btn-ok").click(function() {
-        rowid = rowid + 1;
-        jQuery1113("#tbody-item").append("<tr id=row" + rowid + "><td>" + rowid + "</td><td>" + jQuery1113("#kode_produk").val() + "</td><td>" + jQuery1113("#nama_produk").val() + "</td><td>" + jQuery1113("#harga_beli").val() + "</td><td>" + jQuery1113("#qty").val() + "</td><td>" + jQuery1113("#subtotal").val() + "</td><td>" + "<button id=" + rowid + " style='margin-right:3%;' class='btn btn-xs btn-info' onclick='getitem(this.id)'> <i class='icon-pencil'></i></button><button id=" + rowid + " class='btn btn-danger' onclick='getitem(this.id)' > <i class='icon-trash'></i></button>" + "</td></tr>");
+	rowid = rowid + 1;
+		var html_grid='\n'+
+                '<tr id="row'+rowid+'">\n'+
+					'<td> \n'+
+					        rowid+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					        jQuery1113("#kode_produk").val()+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					        jQuery1113("#nama_produk").val()+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					         jQuery1113("#harga_beli").val()+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					         jQuery1113("#qty").val()+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					         jQuery1113("#subtotal").val()+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					         '<button id="'+rowid+'" type="button" class="btn btn-primary btn-minier" onclick="getitem(this.id);">'+'\n'+
+							      '<i class="icon-pencil">'+'\n'+
+								  '</i>                   '+'\n'+
+							 '</button>'+'\n'+
+							 '<button id="'+rowid+'" class="btn btn-danger btn-minier" onclick="deleteitem(this.id);">'+'\n'+
+								  '<i class="icon-trash">'+'\n'+
+								  '</i>                   '+'\n'+
+							 '</button>'+'\n'+
+					'</td>\n'+
+				'</tr>\n'+
+					'';
+        
+        jQuery1113("#tbody-item").append(html_grid);
     });
 
     jQuery1113(window).bind("beforeunload", function() {
@@ -313,6 +352,7 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 
 
     function getitem(id) {
+	//alert(id);
 	var kode_produkedit=document.getElementById('row' + id).children[1].textContent;
 	var nama_produkedit=document.getElementById('row' + id).children[2].textContent;
 	var harga_beliedit=document.getElementById('row' + id).children[3].textContent;
@@ -394,6 +434,96 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
                     label: "Save",
                     className: "btn-success",
                     callback: function() {}
+                }
+            }
+
+        });
+    }
+	function deleteitem(id) {
+	//alert(id);
+	var kode_produkedit=document.getElementById('row' + id).children[1].textContent;
+	var nama_produkedit=document.getElementById('row' + id).children[2].textContent;
+	var harga_beliedit=document.getElementById('row' + id).children[3].textContent;
+	var qtyedit=document.getElementById('row' + id).children[4].textContent;
+	var subtotaledit=document.getElementById('row' + id).children[5].textContent;
+	var html_string='\n'+
+                '<div class="row">\n'+
+                '<div class="col-md-12" style="padding:3%; background-color:#e5e5ff">\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Kode Produk'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="kode_produkedit" value="'+kode_produkedit+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Nama Produk'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="nama_produkedit" value="'+nama_produkedit+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Harga Beli'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="harga_beliedit" value="'+harga_beliedit+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'QTY'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="qtyedit" value="'+qtyedit+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Subtotal'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="subtotaledit" value="'+subtotaledit+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+				'</div>\n'+  
+				'</div>\n'+
+				'';
+	
+	
+        //alert(id);
+        //var x=jQuery1113("#tbody-item").children[0].children[0].textContent;
+        //alert(document.getElementById('row' + rowid).children[2].textContent);
+        bootbox.dialog({
+            title: "Delete Item Pembelian",
+            message:html_string,
+            buttons: {
+                dismiss: {
+                    label: "Cancel",
+                    className: "btn-default",
+                    callback: function() {
+						
+                    }
+                },
+                success: {
+                    label: "OK",
+                    className: "btn-success",
+                    callback: function() {
+						jQuery1113("#row"+id).remove();
+					}
                 }
             }
 
