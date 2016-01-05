@@ -295,23 +295,37 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
             </tbody>
 </table>
 </div>
-<div style="border:1px #dadada solid;">
+<div class="row" style="border:1px #dadada solid;">
 <label class="col-md-3">Grand Total:</label> <label id="grand_total" class="col-md-2" style="margin-left:-15%;"></label>
+</div>
+<div class="row">
+<button id="btn-simpanpembelian">Simpan </button>
 </div>
 <!--biarkan div ini tanpa pasangan---->
 </div>
 	<script>
 	var jsonitem="";
     var rowid = 0;
+	var insert_str="";
     //rowid =rowid +1;
     //menghindari konflik antar jquery
+	var kode_produk="";
+	var nama_produk="";
+	var harga_beli="";
+	var qty="";
+	var subtotal="";
+	
+	
+	
+    jQuery1113("#btn-ok").click(function() {
+	var kode_pembelian=jQuery1113("#kode_pembelian").val();
 	var kode_produk=jQuery1113("#kode_produk").val();
 	var nama_produk=jQuery1113("#nama_produk").val();
 	var harga_beli=jQuery1113("#harga_beli").val();
 	var qty=jQuery1113("#qty").val();
 	var subtotal=jQuery1113("#subtotal").val();
-    jQuery1113("#btn-ok").click(function() {
-	jsonitem=jsonitem + '{"kode_produk":"'+kode_produk+'", "nama_produk":"'+nama_produk+'", "harga_beli":"'+harga_beli+'", "qty":"'+qty+'", "subtotal":"'+subtotal+'"},';
+	jsonitem=jsonitem + '{"kode_pembelian":"'+kode_pembelian+'","kode_produk":"'+kode_produk+'", "nama_produk":"'+nama_produk+'", "harga_beli":"'+harga_beli+'", "qty":"'+qty+'", "subtotal":"'+subtotal+'"},';
+	
 	rowid = rowid + 1;
 		var html_grid='\n'+
                 '<tr id="row'+rowid+'">\n'+
@@ -347,27 +361,9 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 					'';
         jQuery1113("#tbody-item").append(html_grid);
 		var lenstr=jsonitem.length;
-		var insert_str=jsonitem.substring(0,lenstr-1);
+		insert_str=jsonitem.substring(0,lenstr-1);
 		
-		<?php
-			$inserturl="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
-			$inserturl=substr($inserturl,0,strlen($inserturl)-9)."/Pembelian_Produk/ajax_insert_item.php"; 
-		?>
-			var inserturl="<?php echo $inserturl;?>";
-		jQuery1113.ajax({
-			url: inserturl,
-			type: "POST",
-			data:{
-			insert_str:insert_str
-			     },
-			success: function(data){
-			alert(data);
-				},
-			error: function (jqXHR, textStatus, errorThrown) {
-							    //alert('ajax fail');
-			console.log("ERRORS : " + errorThrown);
-				}
-		});
+		
 		
     });
 
@@ -560,4 +556,28 @@ $strkodepembelian=(string)(int)$intkodepembelian+1;
 
         });
     }
+	
+	jQuery1113("#btn-simpanpembelian").click(function(){
+	<?php
+			$inserturl="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+			$inserturl=substr($inserturl,0,strlen($inserturl)-9)."/Pembelian_Produk/ajax_insert_item.php"; 
+		?>
+			var inserturl="<?php echo $inserturl;?>";
+			
+		jQuery1113.ajax({
+			url: inserturl,
+			type: "POST",
+			data:{
+			insert_str: '{"data_pembelian_item":['+ insert_str + ']}'
+			     },
+			success: function(data){
+			alert(data);
+			//document.write(data);
+				},
+			error: function (jqXHR, textStatus, errorThrown) {
+							    //alert('ajax fail');
+			console.log("ERRORS : " + errorThrown);
+				}
+		});
+	});
 </script>
