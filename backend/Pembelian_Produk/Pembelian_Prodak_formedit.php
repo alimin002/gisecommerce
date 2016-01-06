@@ -48,25 +48,13 @@ if(empty($_SESSION['username'])){
 		<div class="col-md-12">
 		<!--------membuat otomatisasi kode pembelian--------->
 <?php	
-$kode_pembelian=$_POST['kode_pembelian'];
-$query = "select a.kode_pembelian,a.supplier_id,a.tanggal,a.grand_total,b.nm_suplier as nama_supplier from pembelian a left join supplier b on a.supplier_id=b.supplier_id where a.kode_pembelian='$kode_pembelian'";
+$kode_pembelian=$_GET['id']; 
+$query = "select a.kode_pembelian,a.supplier_id,DATE_FORMAT(a.tanggal,'%m/%d/%Y') AS tanggal,a.grand_total,b.nm_suplier as nama_supplier from pembelian a left join supplier b on a.supplier_id=b.supplier_id where a.kode_pembelian='$kode_pembelian'";
 $result = mysql_query($query) or die(mysql_error());
-$arrkode_pembelian=array();
-$idx=0;
-while ($rows = mysql_fetch_object($result))
-{
-$arrkode_pembelian[$idx]=$rows->kode_pembelian;
-//echo $rows->kode_pembelian."<br/>";
-}
-//echo substr($arrkode_pembelian[0],);
-$intkodepembelian=substr($arrkode_pembelian[0],2,5);
-//echo((int)$intkodepembelian+1);
 
-$strkodepembelian=(string)(int)$intkodepembelian + 1;
-//echo $strkodepembelian+1; 
-//die;
-//echo mysql_num_rows($result); die();
-
+$data_master=mysql_fetch_assoc($result);
+//echo "vvvvvvvv".$data_master['kode_pembelian']."<br/>"; die();
+//echo $data_master['kode_pembelian'];
 
 ?>
 		<div class="row">
@@ -75,14 +63,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 					<label class="col-md-12">Kode Pembelian</label>
 				</div>
 					<div class="row">
-						<input type="text" class="col-md-12" id="kode_pembelian" name='kode_pembelian' value='<?php 
-						if(mysql_num_rows($result) == 0){
-						echo $strkodepembelian="PB10001";
-						
-						}else{
-						echo "PB".$strkodepembelian; 
-						}
-						?>'class='required' disabled>
+						<input type="text" class="col-md-12" id="kode_pembelian" name='kode_pembelian' value='<?php echo $data_master['kode_pembelian']; ?>'class='required' disabled>
 					</div>
 				</div>
 		</div>
@@ -98,13 +79,13 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 					<label class="col-md-12">Nama Supplier</label>
 				</div>
 					<div class="row">
-						<select class="col-md-12" id="supplier_id" name="supplier_id">
-						<option>Pilih Supplier</option>
+						<select class="col-md-12" id="supplier_id" name="supplier_id" disabled>
+						<option disabled><?php echo $data_master['nama_supplier']; ?></option>
 							<?php 
 							while ($rows = mysql_fetch_object($result))
 							{ 
 							?>
-							<option value="<?php echo $rows->supplier_id; ?>">				
+							<option disabled value="<?php echo $rows->supplier_id; ?>">				
 							<?php echo $rows->nm_suplier; ?>				
 							</option>
 							<?php 
@@ -121,7 +102,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 						<label class="col-md-12">Tanggal</label>
 					</div>
 					<div class="row">
-						<input class="col-md-10 date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+						<input disabled class="col-md-10 date-picker" id="id-date-picker-1"  value="<?php echo $data_master['tanggal']; ?>" type="text" data-date-format="dd-mm-yyyy">
 						<span class="col-md-2" style="border:1px solid #0000; margin-top:2.5%;">
 							<i class="fa fa-calendar bigger-110"></i>
 						</span>
@@ -131,20 +112,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 			<div class="row" style="margin-top:0.5%; margin-bottom:0.5%;">
 				<div class="col-md-3">
 					<div class="input-group">
-						<button data-toggle="modal" data-target="#myModal" id="bootbox-regular" type="button" class="btn btn-success">
-						<i class="fa fa-plus" ></i>
-						</button>
 						
-						<script>
-						jQuery1113('#bootbox-regular').click(function(){
-						jQuery1113('#kode_produk').val("");
-						jQuery1113('#nama_produk').val("");
-						jQuery1113('#harga_beli').val("");
-						jQuery1113('#qty').val("");
-						jQuery1113('#subtotal').val("");
-						
-						});
-						</script>
 					</span>
 					</div>
 				</div>
@@ -315,7 +283,48 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
                     <td style='min-width: 100px'><b>Aksi</b></td>
                 </th>
             </thead>
-            <tbody id="tbody-item">   
+			
+			<?php 
+		$query = "select a.kode_produk,b.nama_produk,a.harga_beli,a.qty,a.subtotal,a.id_detail from pembelian_detail a left join produk b on a.kode_produk=b.kode_produk where a.kode_pembelian='$kode_pembelian'";
+		$result = mysql_query($query) or die(mysql_error());
+		?>
+            <tbody id="tbody-item">  
+							<?php 
+							while ($rows = mysql_fetch_object($result))
+							{ 
+							?>
+							<tr>
+							<td>				
+											
+							</td>
+							<td>				
+								<?php echo $rows->kode_produk; ?>				
+							</td>
+							<td>				
+								<?php echo $rows->nama_produk; ?>				
+							</td>
+							<td>				
+								<?php echo $rows->harga_beli; ?>				
+							</td>
+							<td>				
+								<?php echo $rows->qty; ?>				
+							</td>
+							<td>				
+								<?php echo $rows->subtotal; ?>				
+							</td>
+							<td>				
+								<button id="<?php echo $rows->id_detail; ?>" type="button" class="btn btn-primary btn-minier" onclick ="getitem(this.id)">
+								<i class="fa fa-pencil"></i>
+								</button>
+								<button type="button" class="btn btn-danger btn-minier" onclick ="deleteitem(this.id)">
+								<i class="fa fa-trash-o"></i>
+								</button>								
+							</td>
+							</tr>
+							<?php 
+							} 
+							?>
+			
             </tbody>
 </table>
 </div>
@@ -324,8 +333,24 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 </div>
 <div class="row" style="padding:1%;">
 <div class="col-md-1">
-<button id="btn-simpanpembelian" class="btn btn-inverse" title="simpan data"><i class="fa fa-floppy-o"></i> </button>
+<button data-toggle="modal" data-target="#myModal" id="bootbox-regular" type="button" class="btn btn-success">
+						<i class="fa fa-plus" ></i>
+						</button>						
 </div>
+<div class="col-md-1" style="margin-left:-3.5%;">
+<button id="btn-simpanpembelian" class="btn btn-inverse" title="edit master"><i class="fa fa-pencil"></i> </button>
+</div>
+
+						<script>
+						jQuery1113('#bootbox-regular').click(function(){
+						jQuery1113('#kode_produk').val("");
+						jQuery1113('#nama_produk').val("");
+						jQuery1113('#harga_beli').val("");
+						jQuery1113('#qty').val("");
+						jQuery1113('#subtotal').val("");
+						
+						});
+						</script>
 <div class="col-md-1" style="margin-left:-3.5%;">
 <button id="btn-cetak" class="btn btn-primary" title="Simpan dan cetak"><i class="fa fa-print"></i> </button>
 </div>
@@ -410,13 +435,6 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 
 
     function getitem(id) {
-	//alert(id);
-	var kode_produkedit=document.getElementById('row' + id).children[1].textContent;
-	var nama_produkedit=document.getElementById('row' + id).children[2].textContent;
-	var harga_beliedit=document.getElementById('row' + id).children[3].textContent;
-	var qtyedit=document.getElementById('row' + id).children[4].textContent;
-	var subtotaledit=document.getElementById('row' + id).children[5].textContent;
-	
 	var html_string='\n'+
                 '<div class="row">\n'+
                 '<div class="col-md-12" style="padding:3%; background-color:#e5e5ff">\n'+
@@ -427,7 +445,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="kode_produkedit" value="'+kode_produkedit+'" class="form-control">\n'+
+							'<input type="text" id="kode_produkedit" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -437,7 +455,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="nama_produkedit" value="'+nama_produkedit+'" class="form-control">\n'+
+							'<input type="text" id="nama_produkedit" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -447,7 +465,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="harga_beliedit" value="'+harga_beliedit+'" class="form-control">\n'+
+							'<input type="text" id="harga_beliedit" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -457,7 +475,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="qtyedit" value="'+qtyedit+'" class="form-control">\n'+
+							'<input type="text" id="qtyedit" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -467,17 +485,12 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="subtotaledit" value="'+subtotaledit+'" class="form-control">\n'+
+							'<input type="text" id="subtotaledit" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
 				'</div>\n'+
 				'';
-	
-	
-        //alert(id);
-        //var x=jQuery1113("#tbody-item").children[0].children[0].textContent;
-        //alert(document.getElementById('row' + rowid).children[2].textContent);
         bootbox.dialog({
             title: "Edit Item Pembelian",
             message:html_string,
@@ -499,13 +512,6 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
         });
     }
 	function deleteitem(id) {
-	//alert(id);
-	var kode_produkedit=document.getElementById('row' + id).children[1].textContent;
-	var nama_produkedit=document.getElementById('row' + id).children[2].textContent;
-	var harga_beliedit=document.getElementById('row' + id).children[3].textContent;
-	var qtyedit=document.getElementById('row' + id).children[4].textContent;
-	var subtotaledit=document.getElementById('row' + id).children[5].textContent;
-	
 	var html_string='\n'+
                 '<div class="row">\n'+
                 '<div class="col-md-12" style="padding:3%; background-color:#e5e5ff">\n'+
@@ -516,7 +522,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="kode_produkedit" value="'+kode_produkedit+'" class="form-control">\n'+
+							'<input disabled type="text" id="kode_produkedit" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -526,7 +532,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="nama_produkedit" value="'+nama_produkedit+'" class="form-control">\n'+
+							'<input disabled type="text" id="nama_produkedit" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -536,7 +542,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="harga_beliedit" value="'+harga_beliedit+'" class="form-control">\n'+
+							'<input disabled type="text" id="harga_beliedit" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -546,7 +552,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="qtyedit" value="'+qtyedit+'" class="form-control">\n'+
+							'<input disabled type="text" id="qtyedit" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -556,7 +562,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="subtotaledit" value="'+subtotaledit+'" class="form-control">\n'+
+							'<input disabled type="text" id="subtotaledit" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
