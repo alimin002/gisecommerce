@@ -48,7 +48,8 @@ if(empty($_SESSION['username'])){
 		<div class="col-md-12">
 		<!--------membuat otomatisasi kode pembelian--------->
 <?php	
-$query = "select idpembelian,kode_pembelian from pembelian order by idpembelian asc";
+$kode_pembelian=$_POST['kode_pembelian'];
+$query = "select a.kode_pembelian,a.supplier_id,a.tanggal,a.grand_total,b.nm_suplier as nama_supplier from pembelian a left join supplier b on a.supplier_id=b.supplier_id where a.kode_pembelian='$kode_pembelian'";
 $result = mysql_query($query) or die(mysql_error());
 $arrkode_pembelian=array();
 $idx=0;

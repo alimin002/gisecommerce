@@ -46,9 +46,9 @@ if (isset($_GET['act']))
         <table class="table table-striped table-condensed">
             <thead>
                 <th>
-                    <td><b>Nama Suplier </b></td>
-					<td><b>Total</b></td>
-                    <td><b>Potongan Pembelian</b></td>
+                    <td><b>Kode Pembelian </b></td>
+					<td><b>Nama Supplier</b></td>
+                    <td><b>Tanggal</b></td>
                     <td><b>Grand Total</b></td>
                     <td style='min-width: 100px'><b>Aksi</b></td>
                 </th>
@@ -79,7 +79,7 @@ if (empty($halaman))
 	$posisi = ($halaman - 1) * $batas;
 	}
 
-$query = "SELECT * from supplier limit $posisi,$batas ";
+$query = "select a.kode_pembelian,a.supplier_id,a.tanggal,a.grand_total,b.nm_suplier as nama_supplier from pembelian a left join supplier b on a.supplier_id=b.supplier_id limit $posisi,$batas ";
 $result = mysql_query($query) or die(mysql_error());
 $no = 1;
 
@@ -96,25 +96,23 @@ while ($rows = mysql_fetch_object($result))
                         </td>
                         <td>
                             <?php
-	echo $rows->nm_suplier; ?>
+	echo $rows->kode_pembelian; ?>
                         </td>
                         <td style="width:40%;">
                             <?php
-	echo $rows->alamat; ?>
+	echo $rows->nama_supplier; ?>
                         </td>
                         <td>
                             <?php
-	echo $rows->telp; ?>
+	echo $rows->tanggal; ?>
                         </td>
 						<td>
+						  <?php
+	echo $rows->grand_total; ?>
 						</td>
                         <td>
-						    <a href="index.php?mod=produk&pg=produk_form&id=<?php
-									echo $rows->supplier_id; ?>" class='btn btn-xs btn-warning' title="detail pembelian">
-                                <i class="fa fa-cog "></i>
-                            </a>
-                            <a href="index.php?mod=produk&pg=produk_form&id=<?php
-									echo $rows->supplier_id; ?>" class='btn btn-xs btn-info' title="edit pembelian">
+                            <a href="index.php?mod=Pembelian_Produk&pg=Pembelian_Prodak_formedit&id=<?php
+									echo $rows->kode_pembelian; ?>" class='btn btn-xs btn-info' title="edit pembelian">
                                 <i class="icon-pencil"></i>
                             </a>
                             <a href="index.php?mod=produk&pg=produk_view&act=del&id=<?php
@@ -167,11 +165,7 @@ if (isset($_GET['status']))
 // close database
 
 ?>
-
  </div>
 	</div>
- 
-		
 		</div>
-
 			</div>
