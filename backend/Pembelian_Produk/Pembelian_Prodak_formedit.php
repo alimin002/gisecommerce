@@ -101,12 +101,14 @@ $data_master=mysql_fetch_assoc($result);
 					<div class="row">
 						<label class="col-md-12">Tanggal</label>
 					</div>
-					<div class="row">
-						<input disabled class="col-md-10 date-picker" id="id-date-picker-1"  value="<?php echo $data_master['tanggal']; ?>" type="text" data-date-format="dd-mm-yyyy">
+					<div class="row" style="border:1px #dadada solid;">
+						<input class="col-md-10 date-picker" id="id-date-picker-1"  value="<?php echo $data_master['tanggal']; ?>" type="text" data-date-format="dd-mm-yyyy">
 						<span class="col-md-2" style="border:1px solid #0000; margin-top:2.5%;">
 							<i class="fa fa-calendar bigger-110"></i>
 						</span>
+						
 					</div>
+					
 				</div>
 			</div>
 			<div class="row" style="margin-top:0.5%; margin-bottom:0.5%;">
@@ -334,23 +336,83 @@ $data_master=mysql_fetch_assoc($result);
 <div class="row" style="padding:1%;">
 <div class="col-md-1">
 <button data-toggle="modal" data-target="#myModal" id="bootbox-regular" type="button" class="btn btn-success">
-						<i class="fa fa-plus" ></i>
-						</button>						
+	<i class="fa fa-plus" ></i>
+</button>
+<script>
+jQuery1113('#bootbox-regular').click(function(){
+jQuery1113('#kode_produk').val("");
+jQuery1113('#nama_produk').val("");
+jQuery1113('#harga_beli').val("");
+jQuery1113('#qty').val("");
+jQuery1113('#subtotal').val("");
+});
+</script>						
 </div>
 <div class="col-md-1" style="margin-left:-3.5%;">
-<button id="btn-simpanpembelian" class="btn btn-inverse" title="edit master"><i class="fa fa-pencil"></i> </button>
+<button id="btn-editmaster" class="btn btn-inverse" title="edit master" onclick="showmodaleditmaster(jQuery1113('#kode_pembelian').val());"><i class="fa fa-pencil"></i> </button>
+<script>
+function showmodaleditmaster(){
+var html_string='\n'+
+                '<div class="row">\n'+
+                '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Kode Pembelian'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="text" id="kode_produkedit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Nama Supplier'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="text" id="nama_produkedit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Tanggal'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input class="form-control date-picker" value="" type="text" data-date-format="dd-mm-yyyy">\n'+
+						'</div>\n'+
+					'</div>\n'+
+				'</div>\n'+  
+				'</div>\n'+
+				'';
+        bootbox.dialog({
+            title: "Edit Item Pembelian",
+            message:html_string,
+            buttons: {
+                dismiss: {
+                    label: "Cancel",
+                    className: "btn-default",
+                    callback: function() {
+
+                    }
+                },
+                success: {
+                    label: "Save",
+                    className: "btn-success",
+                    callback: function() {}
+                }
+            }
+
+        });
+		 $(".date-picker").datepicker();
+}
+</script>
 </div>
 
-						<script>
-						jQuery1113('#bootbox-regular').click(function(){
-						jQuery1113('#kode_produk').val("");
-						jQuery1113('#nama_produk').val("");
-						jQuery1113('#harga_beli').val("");
-						jQuery1113('#qty').val("");
-						jQuery1113('#subtotal').val("");
 						
-						});
-						</script>
 <div class="col-md-1" style="margin-left:-3.5%;">
 <button id="btn-cetak" class="btn btn-primary" title="Simpan dan cetak"><i class="fa fa-print"></i> </button>
 </div>
@@ -431,12 +493,12 @@ $data_master=mysql_fetch_assoc($result);
 	
 	function showmodal(){
 
-}
+	}
 
 
-    function getitem(id) {
+    function getitem(id){
 	var html_string='\n'+
-                '<div class="row">\n'+
+                '<div class="row" style="border-radius: 25px;">\n'+
                 '<div class="col-md-12" style="padding:3%; background-color:#e5e5ff">\n'+
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
