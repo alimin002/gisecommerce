@@ -79,19 +79,7 @@ $data_master=mysql_fetch_assoc($result);
 					<label class="col-md-12">Nama Supplier</label>
 				</div>
 					<div class="row">
-						<select class="col-md-12" id="supplier_id" name="supplier_id" disabled>
-						<option disabled><?php echo $data_master['nama_supplier']; ?></option>
-							<?php 
-							while ($rows = mysql_fetch_object($result))
-							{ 
-							?>
-							<option disabled value="<?php echo $rows->supplier_id; ?>">				
-							<?php echo $rows->nm_suplier; ?>				
-							</option>
-							<?php 
-							} 
-							?>
-						</select>
+						<input disabled type="text" class="col-md-12" name="nama_supplier_master" id="nama_supplier_master" value="<?php echo $data_master['nama_supplier']; ?>"/>
 					</div>
 				</div>
 				<?php //} ?>
@@ -102,7 +90,7 @@ $data_master=mysql_fetch_assoc($result);
 						<label class="col-md-12">Tanggal</label>
 					</div>
 					<div class="row" style="border:1px #dadada solid;">
-						<input class="col-md-10 date-picker" id="id-date-picker-1"  value="<?php echo $data_master['tanggal']; ?>" type="text" data-date-format="dd-mm-yyyy">
+						<input disabled class="col-md-10 date-picker" id="tanggal_master"  value="<?php echo $data_master['tanggal']; ?>" type="text" data-date-format="dd-mm-yyyy">
 						<span class="col-md-2" style="border:1px solid #0000; margin-top:2.5%;">
 							<i class="fa fa-calendar bigger-110"></i>
 						</span>
@@ -351,7 +339,14 @@ jQuery1113('#subtotal').val("");
 <div class="col-md-1" style="margin-left:-3.5%;">
 <button id="btn-editmaster" class="btn btn-inverse" title="edit master" onclick="showmodaleditmaster(jQuery1113('#kode_pembelian').val());"><i class="fa fa-pencil"></i> </button>
 <script>
+	
 function showmodaleditmaster(){
+
+ 
+
+var kode_pembelian=jQuery1113('#kode_pembelian').val();
+var nama_supplier=jQuery1113('#nama_supplier_master').val();
+var tanggal=jQuery1113('#tanggal_master').val();
 var html_string='\n'+
                 '<div class="row">\n'+
                 '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
@@ -362,7 +357,7 @@ var html_string='\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="kode_produkedit" value="'+''+'" class="form-control">\n'+
+							'<input type="text" id="kode_pembelian_modal" value="'+kode_pembelian+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -372,7 +367,11 @@ var html_string='\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="nama_produkedit" value="'+''+'" class="form-control">\n'+
+							'<select class="form-control">\n'+
+								'<option>\n'+
+								''+nama_supplier+'\n'+
+								'</option>\n'+
+							'</select>\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -382,7 +381,7 @@ var html_string='\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input class="form-control date-picker" value="" type="text" data-date-format="dd-mm-yyyy">\n'+
+							'<input class="form-control date-picker" value="'+tanggal+'" type="text" data-date-format="dd-mm-yyyy">\n'+
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
@@ -408,6 +407,9 @@ var html_string='\n'+
 
         });
 		 $(".date-picker").datepicker();
+		 //load data supplier	
+		      
+		 
 }
 </script>
 </div>
@@ -416,6 +418,34 @@ var html_string='\n'+
 <div class="col-md-1" style="margin-left:-3.5%;">
 <button id="btn-cetak" class="btn btn-primary" title="Simpan dan cetak"><i class="fa fa-print"></i> </button>
 </div>
+<script>
+jQuery1113( "#btn-cetak" ).click(function(){
+
+ <?php
+				$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+				$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_nama_supplier.php"; 
+				?>
+				var str="<?php echo $str;?>";
+//alert(str);		
+		  jQuery1113.ajax({
+			url: str,
+			type: "POST",
+			data:{
+			x:'x'
+				},
+			success: function(data) {
+			var data_supplier=JSON.parse(data);
+			alert(data_supplier);
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+							    alert(errorThrown);
+								//console.log("ERRORS : " + errorThrown);
+							}
+				});
+
+});
+
+</script>
 </div>
 <div class="row">
 <i class="fa fa-angle-double-left"></i>
