@@ -574,12 +574,12 @@ error: function (jqXHR, textStatus, errorThrown) {
 alert(errorThrown);
 }
 }).responseText;
-//var data_detail=JSON.perse(jqxhr);
-//alert(jqxhr);
-//alert(data_detail.length);
 var data_detailpembelian=JSON.parse(jqxhr);
-//alert(data_detailpembelian['kode_produk']);
-kode_produk=
+var kode_produk=data_detailpembelian['kode_produk'];
+var nama_produk=data_detailpembelian['nama_produk'];
+var harga_beli=data_detailpembelian['harga_beli'];
+var qty=data_detailpembelian['qty'];
+var subtotal=data_detailpembelian['subtotal'];
 	var html_string='\n'+
                 '<div class="row" style="border-radius: 25px;">\n'+
                 '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
@@ -590,7 +590,7 @@ kode_produk=
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="kode_produkedit" value="'+id+'" class="col-md-10">\n'+
+							'<input type="text" id="kode_produkedit" value="'+kode_produk+'" class="col-md-10">\n'+
 							'<button id="'+id+'" onclick="loaditem(this.id)" class="col-md-2 btn-primary" style=" position:absolute; height:103%;">\n'+	
 							'<i class="fa fa-search">\n'+
 							'</i>\n'+
@@ -604,7 +604,7 @@ kode_produk=
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="nama_produkedit" value="'+''+'" class="form-control">\n'+
+							'<input type="text" id="nama_produkedit" value="'+nama_produk+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -614,7 +614,7 @@ kode_produk=
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="harga_beliedit" value="'+''+'" class="form-control">\n'+
+							'<input type="text" id="harga_beliedit" value="'+harga_beli+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -624,7 +624,7 @@ kode_produk=
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="qtyedit" value="'+''+'" class="form-control">\n'+
+							'<input type="text" id="qtyedit" value="'+qty+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -634,7 +634,7 @@ kode_produk=
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="subtotaledit" value="'+''+'" class="form-control">\n'+
+							'<input type="text" id="subtotaledit" value="'+subtotal+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
