@@ -339,10 +339,49 @@ jQuery1113('#subtotal').val("");
 <div class="col-md-1" style="margin-left:-3.5%;">
 <button id="btn-editmaster" class="btn btn-inverse" title="edit master" onclick="showmodaleditmaster(jQuery1113('#kode_pembelian').val());"><i class="fa fa-pencil"></i> </button>
 <script>
-	
+//var jsondata='xx';	
 function showmodaleditmaster(){
+var optnamasupplier='';
+var optidsupplier='';
+ <?php
+				$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+				$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_nama_supplier.php"; 
+				?>
+				
+				var str="<?php echo $str;?>";
+				//trik menyimpan data ajax dalam variabel global
+	jqxhr = jQuery1113.ajax({
+			url: str,
+			global: false,
+            async:false,
+			type: "POST",
+			data:{
+			x:'x'
+				},
+			success: function(data) {
+			/*
+			var data_supplier=JSON.parse(data);
+			
+			for(var i=0; i< data_supplier['supplier_id'].length; i++){
+				optnamasupplier=optnamasupplier+"<option>"+data_supplier['nm_suplier'][i]+"</option>\n"
+			}
+			return optidsupplier;
+			*/
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+							    alert(errorThrown);
+								//console.log("ERRORS : " + errorThrown);
+							}
+				}).responseText;
 
- 
+var data_supplier=JSON.parse(jqxhr);
+			
+			for(var i=0; i< data_supplier['supplier_id'].length; i++){
+				optnamasupplier=optnamasupplier+"<option>"+data_supplier['nm_suplier'][i]+"</option>\n"
+				
+			}
+
+ //alert(optnamasupplier);
 
 var kode_pembelian=jQuery1113('#kode_pembelian').val();
 var nama_supplier=jQuery1113('#nama_supplier_master').val();
@@ -368,9 +407,8 @@ var html_string='\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
 							'<select class="form-control">\n'+
-								'<option>\n'+
-								''+nama_supplier+'\n'+
-								'</option>\n'+
+							'<option>'+nama_supplier+'</option>'+'\n'+
+							optnamasupplier+'\n'+
 							'</select>\n'+
 						'</div>\n'+
 					'</div>\n'+
@@ -420,12 +458,13 @@ var html_string='\n'+
 </div>
 <script>
 jQuery1113( "#btn-cetak" ).click(function(){
-
  <?php
 				$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
 				$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_nama_supplier.php"; 
 				?>
+				
 				var str="<?php echo $str;?>";
+			//	document.write(str);
 //alert(str);		
 		  jQuery1113.ajax({
 			url: str,
@@ -434,8 +473,15 @@ jQuery1113( "#btn-cetak" ).click(function(){
 			x:'x'
 				},
 			success: function(data) {
+			//alert(data);
+			//document.write(data);
 			var data_supplier=JSON.parse(data);
-			alert(data_supplier);
+			//alert(data_supplier['supplier_id'].length);
+			//document.write(data_supplier['supplier_id'][0]);
+			for(var i=0; i< data_supplier['supplier_id'].length; i++){
+			    document.write(data_supplier['supplier_id'][i]); 
+				document.write('<br>');
+			}
 				},
 				error: function (jqXHR, textStatus, errorThrown) {
 							    alert(errorThrown);
