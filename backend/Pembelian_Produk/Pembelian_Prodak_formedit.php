@@ -292,7 +292,7 @@ $data_master=mysql_fetch_assoc($result);
 								<button id="<?php echo $rows->id_detail; ?>" type="button" class="btn btn-primary btn-minier" onclick ="getitem(this.id)">
 								<i class="fa fa-pencil"></i>
 								</button>
-								<button type="button" class="btn btn-danger btn-minier" onclick ="deleteitem(this.id)">
+								<button id="<?php echo $rows->id_detail; ?>" type="button" class="btn btn-danger btn-minier" onclick ="deleteitem(this.id)">
 								<i class="fa fa-trash-o"></i>
 								</button>								
 							</td>
@@ -452,29 +452,7 @@ function editmaster(kode_pembelian,supplier_id,tanggal){
 </div>
 <script>
 jQuery1113( "#btn-cetak" ).click(function(){
-		<?php
-		$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
-		$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_nama_supplier.php"; 
-		?>		
-		var str="<?php echo $str;?>";
-		jQuery1113.ajax({
-		url: str,
-		type: "POST",
-		data:{
-		x:'x'
-		},
-		success: function(data) {
-		var data_supplier=JSON.parse(data);
-		for(var i=0; i< data_supplier['supplier_id'].length; i++){
-		document.write(data_supplier['supplier_id'][i]); 
-		document.write('<br>');
-		}
-		},
-		error: function (jqXHR, textStatus, errorThrown) {
-		alert(errorThrown);
-		}
-		});
-
+		
 });
 
 </script>
@@ -552,7 +530,29 @@ jQuery1113( "#btn-cetak" ).click(function(){
 
 	}
 function loaditem(id){
-
+//alert(id);
+<?php
+$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_nama_barang.php"; 
+?>				
+var str="<?php echo $str;?>";
+jqxhr = jQuery1113.ajax({
+url: str,
+global: false,
+async:false,
+type: "POST",
+data:{
+kode_produk:id
+},
+success: function(data) {
+},
+error: function (jqXHR, textStatus, errorThrown) {
+alert(errorThrown);
+								//console.log("ERRORS : " + errorThrown);
+}
+}).responseText;
+//var data_supplier=JSON.parse(jqxhr);
+alert(jqxhr);
 }
 function getitem(id){
 <?php
@@ -591,7 +591,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
 							'<input type="text" id="kode_produkedit" value="'+kode_produk+'" class="col-md-10">\n'+
-							'<button id="'+id+'" onclick="loaditem(this.id)" class="col-md-2 btn-primary" style=" position:absolute; height:103%;">\n'+	
+							'<button onclick="loaditem(jQuery1113('+"'"+'#kode_produkedit'+"'"+').val());" class="col-md-2 btn-primary" style=" position:absolute; height:103%;">\n'+	
 							'<i class="fa fa-search">\n'+
 							'</i>\n'+
 							'</button>\n'+
@@ -661,6 +661,31 @@ var subtotal=data_detailpembelian['subtotal'];
         });
 }
 	function deleteitem(id){
+<?php
+$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_data_detailpembelian.php"; 
+?>			
+var str="<?php echo $str;?>";
+jqxhr = jQuery1113.ajax({
+url: str,
+global: false,
+async:false,
+type: "POST",
+data:{
+id:id
+},
+success: function(data) {
+},
+error: function (jqXHR, textStatus, errorThrown) {
+alert(errorThrown);
+}
+}).responseText;
+var data_detailpembelian=JSON.parse(jqxhr);
+var kode_produk=data_detailpembelian['kode_produk'];
+var nama_produk=data_detailpembelian['nama_produk'];
+var harga_beli=data_detailpembelian['harga_beli'];
+var qty=data_detailpembelian['qty'];
+var subtotal=data_detailpembelian['subtotal'];
 	var html_string='\n'+
                 '<div class="row">\n'+
                 '<div class="col-md-12" style="padding:3%; background-color:#e5e5ff">\n'+
@@ -671,7 +696,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="kode_produkedit" value="'+''+'" class="form-control">\n'+
+							'<input disabled type="text" id="kode_produdelete" value="'+kode_produk+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -681,7 +706,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="nama_produkedit" value="'+''+'" class="form-control">\n'+
+							'<input disabled type="text" id="nama_produkdelete" value="'+nama_produk+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -691,7 +716,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="harga_beliedit" value="'+''+'" class="form-control">\n'+
+							'<input disabled type="text" id="harga_belidelete" value="'+harga_beli+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -701,7 +726,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="qtyedit" value="'+''+'" class="form-control">\n'+
+							'<input disabled type="text" id="qtydelete" value="'+qty+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -711,7 +736,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="subtotaledit" value="'+''+'" class="form-control">\n'+
+							'<input disabled type="text" id="subtotaldelete" value="'+subtotal+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
