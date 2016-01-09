@@ -305,7 +305,7 @@ $data_master=mysql_fetch_assoc($result);
 </table>
 </div>
 <div class="row" style="border:1px #dadada solid;">
-<label class="col-md-3">Grand Total:</label> <label id="grand_total" class="col-md-2" style="margin-left:-15%;"></label>
+<label class="col-md-3">Grand Total:</label> <label id="grand_total" class="col-md-2" style="margin-left:-15%;"><?php echo $data_master['grand_total']; ?></label>
 </div>
 <div class="row" style="padding:1%;">
 <div class="col-md-1">
@@ -551,10 +551,24 @@ alert(errorThrown);
 								//console.log("ERRORS : " + errorThrown);
 }
 }).responseText;
-//var data_supplier=JSON.parse(jqxhr);
-alert(jqxhr);
+var data_item=JSON.parse(jqxhr);
+//alert(data_item['nama_produk']);
+var nama_produk=data_item['nama_produk'];
+var harga_beli=data_item['harga_beli'];
+jQuery1113('#nama_produkedit').val(nama_produk);
+jQuery1113('#harga_beliedit').val(harga_beli);
+jQuery1113('#qtyedit').val('');
+jQuery1113('#subtotaledit').val('');
+jQuery1113("#qtyedit").focusout(function(){
+//alert('1');
+var qty=jQuery1113("#qtyedit").val();
+var subtotal=parseInt(qty)*parseInt(harga_beli);
+jQuery1113('#subtotaledit').val(subtotal);
+});
+
 }
 function getitem(id){
+
 <?php
 $str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
 $str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_data_detailpembelian.php"; 
@@ -575,6 +589,7 @@ alert(errorThrown);
 }
 }).responseText;
 var data_detailpembelian=JSON.parse(jqxhr);
+var id_detail=data_detailpembelian['id_detail'];
 var kode_produk=data_detailpembelian['kode_produk'];
 var nama_produk=data_detailpembelian['nama_produk'];
 var harga_beli=data_detailpembelian['harga_beli'];
@@ -590,6 +605,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+id_detail+'" class="col-md-10">\n'+
 							'<input type="text" id="kode_produkedit" value="'+kode_produk+'" class="col-md-10">\n'+
 							'<button onclick="loaditem(jQuery1113('+"'"+'#kode_produkedit'+"'"+').val());" class="col-md-2 btn-primary" style=" position:absolute; height:103%;">\n'+	
 							'<i class="fa fa-search">\n'+
@@ -604,7 +620,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="nama_produkedit" value="'+nama_produk+'" class="form-control">\n'+
+							'<input disabled type="text" id="nama_produkedit" value="'+nama_produk+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -614,7 +630,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="harga_beliedit" value="'+harga_beli+'" class="form-control">\n'+
+							'<input disabled type="text" id="harga_beliedit" value="'+harga_beli+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -634,7 +650,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="subtotaledit" value="'+subtotal+'" class="form-control">\n'+
+							'<input disabled type="text" id="subtotaledit" value="'+subtotal+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
@@ -654,11 +670,62 @@ var subtotal=data_detailpembelian['subtotal'];
                 success: {
                     label: "Save",
                     className: "btn-success",
-                    callback: function() {}
+                    callback: function() {
+					var kode_pembelian=jQuery1113('#kode_pembelian').val();
+					var id_detail=jQuery1113('#id_detailedit').val();
+					var kode_produk=jQuery1113('#kode_produkedit').val();
+					var harga_beli=jQuery1113('#harga_beliedit').val();
+					var qty=jQuery1113('#qtyedit').val();
+					var subtotal=jQuery1113('#subtotaledit').val();
+					var intsubtotal=parseInt(subtotal);
+					//alert(intsubtotal);
+					doedititem(kode_pembelian,id_detail,kode_produk,harga_beli,qty,intsubtotal);
+					}
                 }
             }
 
         });
+				
+jQuery1113( "#kode_produkedit" ).change(function() {
+jQuery1113('#nama_produkedit').val('');
+jQuery1113('#harga_beliedit').val('');
+jQuery1113('#qtyedit').val('');
+});		
+}
+
+function doedititem(kode_pembelian,id_detail,kode_produk,harga_beli,qty,intsubtotal){
+//alert(kode_pembelian);
+	<?php
+	$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+	$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_edit_item.php"; 
+	?>
+	var str="<?php echo $str;?>";
+	jQuery1113.ajax({
+	url: str,
+	type: "POST",
+	data:{
+	kode_pembelian  :kode_pembelian,
+	id_detail		:id_detail,
+	kode_produk		:kode_produk,
+	harga_beli		:harga_beli,
+	qty				:qty,
+	subtotal		:intsubtotal
+	
+	},
+	success:function(data){
+	//alert(data);
+	var datapembelian=JSON.parse(data);
+	//
+	alert(datapembelian['pembitem']['kode_produk'][0]);
+	alert(datapembelian['grand_total']);
+	//alert(datapembelian['kode_pembelian']);
+	},
+	error: function (jqXHR, textStatus, errorThrown) {
+	alert(errorThrown);
+	}
+	});	
+	
+	
 }
 	function deleteitem(id){
 <?php
