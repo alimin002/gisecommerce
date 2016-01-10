@@ -648,7 +648,7 @@ jQuery1113( "#btn-cetak" ).click(function(){
 		
 		
     });
-
+	
     jQuery1113(window).bind("beforeunload", function() {
         return "Data item akan dikosongkan!, \n anda yakin akan mereload halaman ini?";
     });
@@ -686,12 +686,7 @@ jQuery1113('#nama_produkedit').val(nama_produk);
 jQuery1113('#harga_beliedit').val(harga_beli);
 jQuery1113('#qtyedit').val('');
 jQuery1113('#subtotaledit').val('');
-jQuery1113("#qtyedit").focusout(function(){
-//alert('1');
-var qty=jQuery1113("#qtyedit").val();
-var subtotal=parseInt(qty)*parseInt(harga_beli);
-jQuery1113('#subtotaledit').val(subtotal);
-});
+
 
 }
 function getitem(id){
@@ -817,7 +812,15 @@ jQuery1113( "#kode_produkedit" ).change(function() {
 jQuery1113('#nama_produkedit').val('');
 jQuery1113('#harga_beliedit').val('');
 jQuery1113('#qtyedit').val('');
-});		
+});	
+
+jQuery1113("#qtyedit").focusout(function(){
+//alert('1');
+var qty=jQuery1113("#qtyedit").val();
+var subtotal=parseInt(qty)*parseInt(harga_beli);
+jQuery1113('#subtotaledit').val(subtotal);
+});
+	
 }
 
 function doedititem(kode_pembelian,id_detail,kode_produk,harga_beli,qty,intsubtotal){
