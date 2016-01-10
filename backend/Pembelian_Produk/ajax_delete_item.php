@@ -25,7 +25,7 @@ if (!$result) {
 	//mencari grand total
 	$sql2="select sum(subtotal)as grand_total from pembelian_detail where kode_pembelian='$kode_pembelian'";
 	$result2 = mysql_query($sql2);
-	if(!$result)
+	if(!$result2)
 	{
 	 die ('Invalid query2: ' . mysql_error());
 	}else{

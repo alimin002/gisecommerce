@@ -416,6 +416,14 @@ function additem(){
                 }
             }
 });
+jQuery1113("#qtyedit").focusout(function(){
+//alert('1');
+var harga_beli=jQuery1113("#harga_beliedit").val();
+var qty=jQuery1113("#qtyedit").val();
+//alert(qty);
+var subtotal=parseInt(qty)*parseInt(harga_beli);
+jQuery1113('#subtotaledit').val(subtotal);
+});
 }
 
 function doinsertitem(kode_pembelian,id_detail,kode_produk,harga_beli,qty,intsubtotal){
@@ -540,8 +548,8 @@ var html_string='\n'+
 					var kode_pembelian=jQuery1113('#kode_pembelian_modal').val();
 					var supplier_id=jQuery1113("#supplier_id_modal").val();
 					var tanggal=jQuery1113("#tanggal_modal").val();
-					editmaster(kode_pembelian,supplier_id,tanggal);
-					location.reload();
+					doeditmaster(kode_pembelian,supplier_id,tanggal);
+					//location.reload();
 					}
                 }
             }
@@ -550,10 +558,11 @@ var html_string='\n'+
 		 $(".date-picker").datepicker();	 
 }
 
-function editmaster(kode_pembelian,supplier_id,tanggal){
+function doeditmaster(kode_pembelian,supplier_id,tanggal){
+//alert(kode_pembelian+'-----------------'+supplier_id+'----------------'+tanggal);
 	<?php
 	$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
-	$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_edit_master.php"; 
+	$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_edit_master2.php"; 
 	?>
 	var str="<?php echo $str;?>";
 	jQuery1113.ajax({
