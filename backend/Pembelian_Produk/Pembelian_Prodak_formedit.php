@@ -1,9 +1,8 @@
 <?php
 	
-	/* Candralab Ecommerce v2.0
- * http://www.candra.web.id/
- * Candra adi putra <candraadiputra@gmail.com>
- * last edit: 15 okt 2013
+/* gisecommerce
+ * http://geekiovationstudio.blogspot.co.id/
+ * Alimin <alimin1313@gmail.com>
  */
 if(empty($_SESSION['username'])){
 			echo "<p style='color:red'>akses denied</p>";
@@ -260,9 +259,10 @@ $data_master=mysql_fetch_assoc($result);
                 </th>
             </thead>
 			
-			<?php 
+		<?php 
 		$query = "select a.kode_produk,b.nama_produk,a.harga_beli,a.qty,a.subtotal,a.id_detail from pembelian_detail a left join produk b on a.kode_produk=b.kode_produk where a.kode_pembelian='$kode_pembelian'";
 		$result = mysql_query($query) or die(mysql_error());
+		$grand_total=0;
 		?>
             <tbody id="tbody-item">  
 							<?php 
@@ -286,7 +286,7 @@ $data_master=mysql_fetch_assoc($result);
 								<?php echo $rows->qty; ?>				
 							</td>
 							<td>				
-								<?php echo $rows->subtotal; ?>				
+								<?php echo $rows->subtotal; $grand_total=$grand_total + $rows->subtotal; ?>				
 							</td>
 							<td>				
 								<button id="<?php echo $rows->id_detail; ?>" type="button" class="btn btn-primary btn-minier" onclick ="getitem(this.id)">
@@ -305,11 +305,16 @@ $data_master=mysql_fetch_assoc($result);
 </table>
 </div>
 <div class="row" style="border:1px #dadada solid;">
-<label class="col-md-3">Grand Total:</label> <label id="grand_total" class="col-md-2" style="margin-left:-15%;"><?php echo $data_master['grand_total']; ?></label>
+<label class="col-md-3">Grand Total:</label> <label id="grand_total" class="col-md-2" style="margin-left:-15%;"><?php echo $grand_total; ?></label>
 </div>
 <div class="row" style="padding:1%;">
 <div class="col-md-1">
+<!---
 <button data-toggle="modal" data-target="#myModal" id="bootbox-regular" type="button" class="btn btn-success">
+	<i class="fa fa-plus" ></i>
+</button>
+--->
+<button onclick="additem()" id="bootbox-regular" type="button" class="btn btn-success">
 	<i class="fa fa-plus" ></i>
 </button>
 <script>
@@ -320,6 +325,128 @@ jQuery1113('#harga_beli').val("");
 jQuery1113('#qty').val("");
 jQuery1113('#subtotal').val("");
 });
+
+function additem(){
+	var html_string='\n'+
+                '<div class="row" style="border-radius: 25px;">\n'+
+                '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Kode Produk'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="kode_produkedit" value="'+''+'" class="col-md-10">\n'+
+							'<button onclick="loaditem(jQuery1113('+"'"+'#kode_produkedit'+"'"+').val());" class="col-md-2 btn-primary" style=" position:absolute; height:103%;">\n'+	
+							'<i class="fa fa-search">\n'+
+							'</i>\n'+
+							'</button>\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Nama Produk'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="nama_produkedit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Harga Beli'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="harga_beliedit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'QTY'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="text" id="qtyedit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Subtotal'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="subtotaledit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+				'</div>\n'+  
+				'</div>\n'+
+				'';
+        bootbox.dialog({
+            title: "Tambah Item Pembelian",
+            message:html_string,
+            buttons: {
+                dismiss: {
+                    label: "Cancel",
+                    className: "btn-default",
+                    callback: function() {
+
+                    }
+                },
+                success: {
+                    label: "Save",
+                    className: "btn-success",
+                    callback: function() {
+					var kode_pembelian=jQuery1113('#kode_pembelian').val();
+					var id_detail=jQuery1113('#id_detailedit').val();
+					var kode_produk=jQuery1113('#kode_produkedit').val();
+					var harga_beli=jQuery1113('#harga_beliedit').val();
+					var qty=jQuery1113('#qtyedit').val();
+					var subtotal=jQuery1113('#subtotaledit').val();
+					var intsubtotal=parseInt(subtotal);
+					//alert(intsubtotal);
+					doinsertitem(kode_pembelian,id_detail,kode_produk,harga_beli,qty,intsubtotal);
+					}
+                }
+            }
+});
+}
+
+function doinsertitem(kode_pembelian,id_detail,kode_produk,harga_beli,qty,intsubtotal){
+<?php
+	$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+	$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_insert_item2.php"; 
+	?>
+	var str="<?php echo $str;?>";
+	jQuery1113.ajax({
+	url: str,
+	type: "POST",
+	data:{
+	kode_pembelian  :kode_pembelian,
+	id_detail		:id_detail,
+	kode_produk		:kode_produk,
+	harga_beli		:harga_beli,
+	qty				:qty,
+	subtotal		:intsubtotal
+	
+	},
+	success:function(data){
+	alert(data);
+	var datapembelian=JSON.parse(data);
+	showgrid(datapembelian);
+	},
+	error: function (jqXHR, textStatus, errorThrown) {
+	alert(errorThrown);
+	}
+	});	
+
+}
 </script>						
 </div>
 <div class="col-md-1" style="margin-left:-3.5%;">
@@ -694,7 +821,6 @@ jQuery1113('#qtyedit').val('');
 }
 
 function doedititem(kode_pembelian,id_detail,kode_produk,harga_beli,qty,intsubtotal){
-//alert(kode_pembelian);
 	<?php
 	$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
 	$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_edit_item.php"; 
@@ -713,21 +839,58 @@ function doedititem(kode_pembelian,id_detail,kode_produk,harga_beli,qty,intsubto
 	
 	},
 	success:function(data){
-	//alert(data);
+	alert(data);
 	var datapembelian=JSON.parse(data);
-	//
-	alert(datapembelian['pembitem']['kode_produk'][0]);
-	alert(datapembelian['grand_total']);
-	//alert(datapembelian['kode_pembelian']);
+	showgrid(datapembelian);
 	},
 	error: function (jqXHR, textStatus, errorThrown) {
 	alert(errorThrown);
 	}
-	});	
-	
-	
+	});		
 }
-	function deleteitem(id){
+//dipanggil ketika operasi crud sukses parameter datagrid berisi data yang akan ditampilkan
+function showgrid(datagrid){
+var newgridhtml="";
+	for(var i=0; i < datagrid['pembitem']['kode_produk'].length; i++){
+		newgridhtml=newgridhtml + '\n'+
+					'<tr>\n'+
+						'<td>\n'+
+						'</td>\n'+
+						'<td>\n'+
+							datagrid['pembitem']['kode_produk'][i]+'\n'+
+						'</td>\n'+
+						'<td>\n'+
+							datagrid['pembitem']['nama_produk'][i]+'\n'+
+						'</td>\n'+
+						'<td>\n'+
+							datagrid['pembitem']['harga_beli'][i]+'\n'+
+						'</td>\n'+
+						'<td>\n'+
+							datagrid['pembitem']['qty'][i]+'\n'+
+						'</td>\n'+
+						'<td>\n'+
+							datagrid['pembitem']['subtotal'][i]+'\n'+
+						'</td>\n'+
+						'<td>\n'+
+							'<button id="'+datagrid['pembitem']['id_detail'][i]+'" class="btn-primary btn-minier" onclick="getitem(this.id)">\n'+
+							'<i class="fa fa-pencil" >\n'+
+							'</i>\n'+
+							'</button>\n'+
+							'<button id="'+datagrid['pembitem']['id_detail'][i]+'" class="btn-danger btn-minier" onclick="deleteitem(this.id)">\n'+
+							'<i class="fa fa-trash-o" >\n'+
+							'</i>\n'+
+							'</button>\n'+
+						'</td>\n'+
+					'</tr>\n'+
+					'';
+	}
+	//alert(newgridhtml);
+	jQuery1113("#tbody-item").empty();
+	jQuery1113("#tbody-item").append(newgridhtml);
+	jQuery1113("#grand_total").text(datagrid['grand_total']);
+}
+
+function deleteitem(id){
 <?php
 $str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
 $str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_data_detailpembelian.php"; 
@@ -748,6 +911,7 @@ alert(errorThrown);
 }
 }).responseText;
 var data_detailpembelian=JSON.parse(jqxhr);
+var id_detail=data_detailpembelian['id_detail'];
 var kode_produk=data_detailpembelian['kode_produk'];
 var nama_produk=data_detailpembelian['nama_produk'];
 var harga_beli=data_detailpembelian['harga_beli'];
@@ -763,6 +927,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
+						'<input disabled type="hidden" id="id_detaildelete" value="'+id_detail+'" class="form-control">\n'+
 							'<input disabled type="text" id="kode_produdelete" value="'+kode_produk+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
@@ -824,13 +989,40 @@ var subtotal=data_detailpembelian['subtotal'];
                     label: "OK",
                     className: "btn-success",
                     callback: function() {
-						jQuery1113("#row"+id).remove();
+						//jQuery1113("#row"+id).remove();
+						var kode_pembelian=jQuery1113("#kode_pembelian").val();
+						dodeleteitem(id_detail,kode_pembelian);
 					}
                 }
             }
 
         });
     }
+	
+	function dodeleteitem(id_detail,kode_pembelian){
+	alert(id_detail+kode_pembelian);
+	<?php
+	$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+	$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_delete_item.php"; 
+	?>
+	var str="<?php echo $str;?>";
+	jQuery1113.ajax({
+	url: str,
+	type: "POST",
+	data:{
+	kode_pembelian  :kode_pembelian,
+	id_detail		:id_detail
+	},
+	success:function(data){
+	alert(data);
+	var datapembelian=JSON.parse(data);
+	showgrid(datapembelian);
+	},
+	error: function (jqXHR, textStatus, errorThrown) {
+	alert(errorThrown);
+	}
+	});		
+	}
 	
 	jQuery1113("#btn-simpanpembelian").click(function(){
 	

@@ -7,7 +7,7 @@ $kode_produk	 = $_POST['kode_produk'];
 $qty			 = $_POST['qty'];
 $harga_beli      = $_POST['harga_beli']; 
 $subtotal		 = $_POST['subtotal']; 
-$sql = "update pembelian_detail set kode_produk='$kode_produk',qty='$qty',harga_beli='$harga_beli',subtotal='$subtotal'  where id_detail='$id_detail'";
+$sql = "insert into pembelian_detail (kode_pembelian,kode_produk,qty,harga_beli,subtotal) values ('$kode_pembelian','$kode_produk','$qty','$harga_beli','$subtotal')";
 $result = mysql_query($sql);
 if (!$result) {
     die('Invalid query1: ' . mysql_error());

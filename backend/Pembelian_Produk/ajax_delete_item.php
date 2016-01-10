@@ -1,13 +1,8 @@
-
 <?php
 include ('../../inc/config.php');
 $kode_pembelian  = $_POST['kode_pembelian'];
 $id_detail		 = $_POST['id_detail'];
-$kode_produk	 = $_POST['kode_produk'];
-$qty			 = $_POST['qty'];
-$harga_beli      = $_POST['harga_beli']; 
-$subtotal		 = $_POST['subtotal']; 
-$sql = "update pembelian_detail set kode_produk='$kode_produk',qty='$qty',harga_beli='$harga_beli',subtotal='$subtotal'  where id_detail='$id_detail'";
+$sql = "delete from pembelian_detail  where id_detail='$id_detail'";
 $result = mysql_query($sql);
 if (!$result) {
     die('Invalid query1: ' . mysql_error());
@@ -42,8 +37,6 @@ if (!$result) {
 	"grand_total"=>$grand_total,
 	"kode_pembelian"=>$kode_pembelian,
 	);
-	//print_r($arr_pembelian1);
-	//echo json_encode($arr_pembelian1);
 	echo json_encode($arr_pembelian1);
    }
 
