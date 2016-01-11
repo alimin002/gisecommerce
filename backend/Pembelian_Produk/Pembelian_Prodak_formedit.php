@@ -231,7 +231,7 @@ $data_master=mysql_fetch_assoc($result);
           </form>
 		  </div>
 		 </div>
-		 <br/>
+			<br/>
         </div>
         <div class="modal-footer">
           <button type="button" id="btn-ok" class="btn btn-default" data-dismiss="modal">OK</button><button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
