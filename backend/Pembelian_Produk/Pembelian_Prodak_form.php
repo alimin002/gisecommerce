@@ -117,36 +117,9 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 						</span>
 					</div>
 				</div>
-			</div>
-			<div class="row" style="margin-top:0.5%; margin-bottom:0.5%;">
-				<div class="col-md-3">
-					<div class="input-group">
-						<button data-toggle="modal" data-target="#myModal" id="bootbox-regular" type="button" class="btn btn-success">
-						<i class="fa fa-plus" ></i>
-						</button>
-						
-						<script>
-						jQuery1113('#bootbox-regular').click(function(){
-						jQuery1113('#kode_produk').val("");
-						jQuery1113('#nama_produk').val("");
-						jQuery1113('#harga_beli').val("");
-						jQuery1113('#qty').val("");
-						jQuery1113('#subtotal').val("");
-						
-						});
-						</script>
-					</span>
-					</div>
-				</div>
-			</div>
-	    </div>
-	
-	
-		<div class="control-group">
-			<div class="controls">
-				
-			</div>
 		</div>
+			
+	   <!-- </div>-->
 		
 </form>
 
@@ -906,41 +879,4 @@ jQuery1113('#subtotaledit').val('');
 		});
 	}
 	
-	
-	/*
-	jQuery1113("#btn-simpanpembelian").click(function(){
-	
-        var kode_pembelian_master=jQuery1113("#kode_pembelian").val();
-		var id_supplier=jQuery1113("#supplier_id").val();
-		//alert(id_supplier);
-		var tanggal=jQuery1113("#id-date-picker-1").val();
-		var grand_total=jQuery1113("#grand_total").text();
-		<?php
-			$inserturl="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
-			$inserturl=substr($inserturl,0,strlen($inserturl)-9)."/Pembelian_Produk/ajax_insert_item.php"; 
-		?>
-			var inserturl="<?php echo $inserturl;?>";
-			
-		jQuery1113.ajax({
-			url: inserturl,
-			type: "POST",
-			data:{
-			insert_str: '{"data_pembelian_item":['+ insert_str + ']}',
-			kode_pembelian:kode_pembelian_master,
-			id_supplier   :id_supplier,
-			tanggal       :tanggal,
-			grand_total   :grand_total
-			     },
-			success: function(data){
-					alert('Data Sukses ditambahkan  \n'+data);
-					jQuery1113("#tbody-item").remove();
-					jQuery1113("#grand_total").text("");
-					location.reload();
-				},
-			error: function (jqXHR, textStatus, errorThrown) {
-							    //alert('ajax fail');
-			console.log("ERRORS : " + errorThrown);
-				}
-		});
-	});*/
 </script>
