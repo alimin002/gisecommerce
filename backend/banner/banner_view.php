@@ -81,7 +81,7 @@ while($rows=mysql_fetch_object($result)){
 
 		<tr>
 			<td colspan='3' ></td><td>
-			<button type="button" class="btn primary" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
+			<button type="button"  class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
 </td>
 		</tr>
 		<script>
