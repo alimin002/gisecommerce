@@ -90,7 +90,7 @@ while($rows=mysql_fetch_object($result)){
                 '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
-							'Kode Produk'+
+							'Banner ID'+
 						'</label>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -105,7 +105,7 @@ while($rows=mysql_fetch_object($result)){
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
-							'Nama Produk'+
+							'Keterangan'+
 						'</label>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -115,32 +115,12 @@ while($rows=mysql_fetch_object($result)){
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
-							'Harga Beli'+
+							'Foto'+
 						'</label>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
 							'<input disabled type="text" id="harga_beliedit" value="'+''+'" class="form-control">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'QTY'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="text" id="qtyedit" value="'+''+'" class="form-control">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Subtotal'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="subtotaledit" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
