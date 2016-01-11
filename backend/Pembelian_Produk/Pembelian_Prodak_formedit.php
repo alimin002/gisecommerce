@@ -559,6 +559,7 @@ var html_string='\n'+
 }
 
 function doeditmaster(kode_pembelian,supplier_id,tanggal){
+//var datamasterpembelian=[];
 //alert(kode_pembelian+'-----------------'+supplier_id+'----------------'+tanggal);
 	<?php
 	$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
@@ -574,7 +575,10 @@ function doeditmaster(kode_pembelian,supplier_id,tanggal){
 	tanggal			:tanggal
 	},
 	success:function(data){
-	alert(data);
+	//alert(data);
+	var datamasterpembelian = JSON.parse(data);
+	//alert(datamasterpembelian['tanggal']);
+	showmaster(datamasterpembelian);
 	},
 	error: function (jqXHR, textStatus, errorThrown) {
 	alert(errorThrown);
@@ -851,7 +855,7 @@ function doedititem(kode_pembelian,id_detail,kode_produk,harga_beli,qty,intsubto
 	
 	},
 	success:function(data){
-	alert(data);
+	//alert(data);
 	var datapembelian=JSON.parse(data);
 	showgrid(datapembelian);
 	},
@@ -900,6 +904,17 @@ var newgridhtml="";
 	jQuery1113("#tbody-item").empty();
 	jQuery1113("#tbody-item").append(newgridhtml);
 	jQuery1113("#grand_total").text(datagrid['grand_total']);
+}
+
+function showmaster(datamaster){
+//alert(datamaster['tanggal']);
+var tanggal=datamaster['tanggal'];
+var kode_pembelian=datamaster['kode_pembelian'];
+var nama_supplier=datamaster['nama_supplier'];
+jQuery1113("#kode_pembelian").val(kode_pembelian);
+jQuery1113("#nama_supplier_master").val(nama_supplier);
+jQuery1113("#tanggal_master").val(tanggal);
+//alert(tanggal++++++);
 }
 
 function deleteitem(id){

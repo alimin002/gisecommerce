@@ -10,7 +10,7 @@ $result = mysql_query($sql);
 if (!$result) {
     die('Invalid query1: ' . mysql_error());
 }else{
-    $sql1="select a.kode_pembelian,b.nm_suplier,DATE_FORMAT(a.tanggal, '%m%d%Y') AS tanggal from pembelian a left join supplier b on a.supplier_id=b.supplier_id where kode_pembelian ='$kode_pembelian'";
+    $sql1="select a.kode_pembelian,b.nm_suplier,DATE_FORMAT(a.tanggal, '%m/%d/%Y') AS tanggal from pembelian a left join supplier b on a.supplier_id=b.supplier_id where kode_pembelian ='$kode_pembelian'";
  $result1 = mysql_query($sql1);
   if (!$result1) {
   die ('Invalid query1: ' . mysql_error());
@@ -24,6 +24,5 @@ if (!$result) {
 	);
 	echo json_encode($arrmasterpembelian);
    }
-
 }
 ?>
