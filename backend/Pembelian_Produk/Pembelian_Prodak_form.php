@@ -307,6 +307,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 <button id="btn-tambah-item" onclick="additem()" class="btn btn-success" title="simpan data" ><i class="fa fa-plus"></i> </button>
 </div>
 <script>
+var jsonadditem="";
 function additem(){
 	var html_string='\n'+
                 '<div class="row" style="border-radius: 25px;">\n'+
@@ -410,6 +411,8 @@ jQuery1113('#subtotaledit').val(subtotal);
 }
 var rowid=0;
 function addtogrid(kode_produk,nama_produk,harga_beli,qty,subtotal){
+jsonadditem=jsonadditem +'{"kode_produk":"'+kode_produk+'","nama_produk":"'+nama_produk+'","harga_beli":"'+harga_beli+'","qty":"'+qty+'","subtotal":"'+subtotal+'"},';
+//alert(jsonadditem);
 var html_string='\n'+
 					'<tr id="row'+rowid+'">\n'+
 						'<td>\n'+
@@ -602,7 +605,7 @@ jQuery1113('#subtotaledit').val('');
 }
 </script>
 <div class="col-md-1">
-<button id="btn-simpanpembelian" class="btn btn-inverse" title="simpan data"><i class="fa fa-floppy-o"></i> </button>
+<button id="btn-simpanpembelian" onclick="doinsertmasterdetail();" class="btn btn-inverse" title="simpan data"><i class="fa fa-floppy-o"></i> </button>
 </div>
 <div class="col-md-1" style="margin-left:-3.5%;">
 <button id="btn-cetak" class="btn btn-primary" title="Simpan dan cetak"><i class="fa fa-print"></i> </button>
@@ -677,7 +680,19 @@ jQuery1113('#subtotaledit').val('');
 		
 		
     });
-
+	//membuang koma diakhir json
+	function removelastcoma(str){
+	var newstr="";
+	var lenstr=str.length;
+	newstr=str.substring(0,lenstr-1);
+	return newstr;
+	}
+	
+	function converttomultijson(){
+		insert_str=jsonitem.substring(0,lenstr-1);
+	}
+	
+	
     jQuery1113(window).bind("beforeunload",function(){
         return "Data item akan dikosongkan!, \n anda yakin akan mereload halaman ini?";
     });
@@ -853,6 +868,46 @@ jQuery1113('#subtotaledit').val('');
         });
     }
 	
+	
+	
+	function doinsertmasterdetail(){
+		var kode_pembelian_master=jQuery1113("#kode_pembelian").val();
+		alert(kode_pembelian_master);
+		var id_supplier=jQuery1113("#supplier_id").val();
+		//alert(id_supplier);
+		var tanggal=jQuery1113("#id-date-picker-1").val();
+		var grand_total=jQuery1113("#grand_total").text();
+		<?php
+			$inserturl="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+			$inserturl=substr($inserturl,0,strlen($inserturl)-9)."/Pembelian_Produk/ajax_insert_item.php"; 
+		?>
+			var inserturl="<?php echo $inserturl;?>";
+			
+		jQuery1113.ajax({
+			url: inserturl,
+			type: "POST",
+			data:{
+			insert_str: '{"data_pembelian_item":['+ removelastcoma(jsonadditem) + ']}',
+			kode_pembelian:kode_pembelian_master,
+			id_supplier   :id_supplier,
+			tanggal       :tanggal,
+			grand_total   :grand_total
+			     },
+			success: function(data){
+					//alert('Data Sukses ditambahkan  \n'+data);
+					jQuery1113("#tbody-item").remove();
+					jQuery1113("#grand_total").text("");
+					location.reload();
+				},
+			error: function (jqXHR, textStatus, errorThrown) {
+							    //alert('ajax fail');
+			console.log("ERRORS : " + errorThrown);
+				}
+		});
+	}
+	
+	
+	/*
 	jQuery1113("#btn-simpanpembelian").click(function(){
 	
         var kode_pembelian_master=jQuery1113("#kode_pembelian").val();
@@ -887,5 +942,5 @@ jQuery1113('#subtotaledit').val('');
 			console.log("ERRORS : " + errorThrown);
 				}
 		});
-	});
+	});*/
 </script>
