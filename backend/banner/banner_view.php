@@ -146,12 +146,39 @@ while($rows=mysql_fetch_object($result)){
 					var keterangan=jQuery1113('#keterangan').val();
 					var foto=jQuery1113('#foto').val();
 					message:alert(sukses);
-					doinsertitem(tittle,keterangan,foto);
+					doinsertitem(banner_id,keterangan,foto);
 					}
                 }
             }
 });
             }
+			
+			function doinsertitem(banner_id,keterangan,foto){
+<?php
+	$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+	$str=substr($str,0,strlen($str)-9)."/banner/ajax_insert_item2.php"; 
+	?>
+	var str="<?php echo $str;?>";
+	jQuery1113.ajax({
+	url: str,
+	type: "POST",
+	data:{
+	banner_id		 :banner_id,
+	keterangan		:keterangan,
+	foto			:foto,
+	
+	},
+	success:function(data){
+	//alert(data);
+	var datapembelian=JSON.parse(data);
+	showgrid(datapembelian);
+	},
+	error: function (jqXHR, textStatus, errorThrown) {
+	alert(errorThrown);
+	}
+	});	
+
+}
 		</script>
 		</tbody>
 	</table>

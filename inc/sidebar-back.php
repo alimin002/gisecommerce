@@ -237,7 +237,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="index.php?mod=pelanggan&pg=pelanggan_online">
+                    <a href="index.php?mod=pelanggan&pg=pelanggan_online_view">
                         <i class="icon-double-angle-right"></i> Pelanggan Online
                     </a>
                 </li>
@@ -290,7 +290,7 @@
 
 								<ul class="submenu">
 									<li class="">
-										<a href="top-menu.html">
+										  <a href="index.php?mod=nama_usaha&pg=nama_usaha_view">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Nama Usaha
 										</a>
@@ -298,7 +298,7 @@
 										<b class="arrow"></b>
 									</li>
 									<li class="">
-										<a href="top-menu.html">
+										<a href="index.php?mod=pajak&pg=pajak_view">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Informasi Pajak
 										</a>
@@ -306,7 +306,7 @@
 										<b class="arrow"></b>
 									</li>
 									<li class="">
-										<a href="top-menu.html">
+										<a href="index.php?mod=perkiraan&pg=perkiraan_view"
 											<i class="menu-icon fa fa-caret-right"></i>
 											Perkiraan
 										</a>

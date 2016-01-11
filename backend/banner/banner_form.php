@@ -23,13 +23,7 @@ cek_status_login($_SESSION['username']);
 <form  class="form-horizontal" method="POST" id="form1" action="berita/berita_action.php" enctype="multipart/form-data">
  <legend>  berita</legend>
 	<input type='hidden' name='id' value="<?php  if($aksi != 'tambah'){echo $id;}?>">
-  <div class="control-group">
-    <label class="control-label" for="judul">Judul</label>
-    <div class="controls">
-      <input type="text" name='judul' id="judul" class='input-xxlarge'
-      value='<?php if($aksi != 'tambah'){ echo $baris->judul;}?>' >
-    </div>
-   </div>
+
     
   <div class="control-group">
     <label class="control-label" for="gambar">Gambar</label>
