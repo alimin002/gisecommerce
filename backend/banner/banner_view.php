@@ -81,7 +81,7 @@ while($rows=mysql_fetch_object($result)){
 
 		<tr>
 			<td colspan='3' ></td><td>
-			<button type="button" onclick="additem();">add item</button>
+			<button type="button" class="btn primary" onclick="additem();">add item</button>
 </td>
 		</tr>
 		<script>
@@ -96,7 +96,7 @@ while($rows=mysql_fetch_object($result)){
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
 							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="kode_produkedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="banner_id" value="'+''+'" class="col-md-10">\n'+
 							'<button onclick="loaditem(jQuery1113('+"'"+'#kode_produkedit'+"'"+').val());" class="col-md-2 btn-primary" style=" position:absolute; height:103%;">\n'+	
 							'<i class="fa fa-search">\n'+
 							'</i>\n'+
@@ -110,7 +110,7 @@ while($rows=mysql_fetch_object($result)){
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="nama_produkedit" value="'+''+'" class="form-control">\n'+
+							'<input disabled type="text" id="keterangan" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -120,7 +120,7 @@ while($rows=mysql_fetch_object($result)){
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="harga_beliedit" value="'+''+'" class="form-control">\n'+
+							'<input disabled type="text" id="foto" value="'+''+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
