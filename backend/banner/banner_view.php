@@ -118,7 +118,7 @@ while($rows=mysql_fetch_object($result)){
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
 							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="foto" value="'+''+'" class="col-md-10">\n'+
+							'<input type="file" id="foto" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
@@ -142,15 +142,11 @@ while($rows=mysql_fetch_object($result)){
                     label: "Save",
                     className: "btn-success",
                     callback: function() {
-					var kode_pembelian=jQuery1113('#kode_pembelian').val();
-					var id_detail=jQuery1113('#id_detailedit').val();
-					var kode_produk=jQuery1113('#kode_produkedit').val();
-					var harga_beli=jQuery1113('#harga_beliedit').val();
-					var qty=jQuery1113('#qtyedit').val();
-					var subtotal=jQuery1113('#subtotaledit').val();
-					var intsubtotal=parseInt(subtotal);
-					//alert(intsubtotal);
-					doinsertitem(kode_pembelian,id_detail,kode_produk,harga_beli,qty,intsubtotal);
+					var tittle=jQuery1113('#tittle').val();
+					var keterangan=jQuery1113('#keterangan').val();
+					var foto=jQuery1113('#foto').val();
+					message:alert(sukses);
+					doinsertitem(tittle,keterangan,foto);
 					}
                 }
             }
