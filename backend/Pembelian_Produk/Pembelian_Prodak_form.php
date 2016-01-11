@@ -55,18 +55,9 @@ $idx=0;
 while ($rows = mysql_fetch_object($result))
 {
 $arrkode_pembelian[$idx]=$rows->kode_pembelian;
-//echo $rows->kode_pembelian."<br/>";
 }
-//echo substr($arrkode_pembelian[0],);
 $intkodepembelian=substr($arrkode_pembelian[0],2,5);
-//echo((int)$intkodepembelian+1);
-
 $strkodepembelian=(string)(int)$intkodepembelian + 1;
-//echo $strkodepembelian+1; 
-//die;
-//echo mysql_num_rows($result); die();
-
-
 ?>
 		<div class="row">
 				<div class="col-md-3">
@@ -115,11 +106,11 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 				<?php //} ?>
 		</div>
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-3" ">
 					<div class="row">
 						<label class="col-md-12">Tanggal</label>
 					</div>
-					<div class="row">
+					<div class="row" style="border:1px solid #dadada;">
 						<input class="col-md-10 date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
 						<span class="col-md-2" style="border:1px solid #0000; margin-top:2.5%;">
 							<i class="fa fa-calendar bigger-110"></i>
@@ -290,17 +281,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
       
     </div>
   </div>
-  <button id="x" style="visible:0">x</button>
-
-									<script>
-									jQuery1113("#x").hide();
-									//menghindari konflik antar jquery
-									jQuery1113("#x").click(function(){
-									alert(1);
-									});
-									</script>
-
-<div>
+<div class="row" style="margin-top:10%;">
 
  <table class="table table-striped table-condensed">
             <thead>
@@ -322,6 +303,189 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 <label class="col-md-3">Grand Total:</label> <label id="grand_total" class="col-md-2" style="margin-left:-15%;"></label>
 </div>
 <div class="row" style="padding:1%;">
+<div class="col-md-1">
+<button id="btn-tambah-item" onclick="additem()" class="btn btn-success" title="simpan data" ><i class="fa fa-plus"></i> </button>
+</div>
+<script>
+function additem(){
+	var html_string='\n'+
+                '<div class="row" style="border-radius: 25px;">\n'+
+                '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Kode Produk'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="kode_produkedit" value="'+''+'" class="col-md-10">\n'+
+							'<button onclick="loaditem(jQuery1113('+"'"+'#kode_produkedit'+"'"+').val());" class="col-md-2 btn-primary" style=" position:absolute; height:103%;">\n'+	
+							'<i class="fa fa-search">\n'+
+							'</i>\n'+
+							'</button>\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Nama Produk'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="nama_produkedit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Harga Beli'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="harga_beliedit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'QTY'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="text" id="qtyedit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Subtotal'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="subtotaledit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+				'</div>\n'+  
+				'</div>\n'+
+				'';
+        bootbox.dialog({
+            title: "Tambah Item Pembelian",
+            message:html_string,
+            buttons: {
+                dismiss: {
+                    label: "Cancel",
+                    className: "btn-default",
+                    callback: function() {
+
+                    }
+                },
+                success: {
+                    label: "Save",
+                    className: "btn-success",
+                    callback: function() {
+					var kode_pembelian=jQuery1113('#kode_pembelian').val();
+					var id_detail=jQuery1113('#id_detailedit').val();
+					var kode_produk=jQuery1113('#kode_produkedit').val();
+					var nama_produk=jQuery1113('#nama_produkedit').val();
+					var harga_beli=jQuery1113('#harga_beliedit').val();
+					var qty=jQuery1113('#qtyedit').val();
+					var subtotal=jQuery1113('#subtotaledit').val();
+					//var intsubtotal=parseInt(subtotal);
+					//alert(intsubtotal);
+					addtogrid(kode_produk,nama_produk,harga_beli,qty,subtotal);
+					
+					}
+                }
+            }
+});
+jQuery1113("#qtyedit").focusout(function(){
+//alert('1');
+var harga_beli=jQuery1113("#harga_beliedit").val();
+var qty=jQuery1113("#qtyedit").val();
+//alert(qty);
+var subtotal=parseInt(qty)*parseInt(harga_beli);
+jQuery1113('#subtotaledit').val(subtotal);
+});
+}
+var rowid=0;
+function addtogrid(kode_produk,nama_produk,harga_beli,qty,subtotal){
+var html_string='\n'+
+					'<tr id="'+rowid+'">\n'+
+						'<td>\n'+
+							
+						'</td>\n'+
+						'<td>\n'+
+							kode_produk+'\n'+
+						'</td>\n'+
+						'<td >\n'+
+							nama_produk+'\n'+
+						'</td>\n'+
+						'<td>\n'+
+							harga_beli+'\n'+
+						'</td>\n'+
+						'<td>\n'+
+							qty+'\n'+
+						'</td>\n'+
+						'<td>\n'+
+							subtotal+'\n'+
+						'</td>\n'+
+						'<td>\n'+
+							'<button id="'+rowid+'" onclick="edititem(this.id);"  class="btn btn-primary btn-minier">\n'+
+								'<i class="fa fa-pencil">\n'+
+								'</i>\n'+	
+							'</button>\n'+
+							'<button id="'+rowid+'" onclick="deleteitem2(this.id);"  class="btn btn-danger btn-minier">\n'+
+								'<i class="fa fa-trash-o">\n'+
+								'</i>\n'+	
+							'</button>\n'+
+						'</td>\n'+
+					'</tr>\n'+
+					'';
+					jQuery1113("#tbody-item").append(html_string);
+					rowid ++;
+}
+
+function edititem(id){
+alert(id);
+}
+function deleteitem2(id){
+alert(id);
+}
+function loaditem(id){
+//alert(id);
+<?php
+$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_nama_barang.php"; 
+?>				
+var str="<?php echo $str;?>";
+jqxhr = jQuery1113.ajax({
+url: str,
+global: false,
+async:false,
+type: "POST",
+data:{
+kode_produk:id
+},
+success: function(data) {
+},
+error: function (jqXHR, textStatus, errorThrown) {
+alert(errorThrown);
+								//console.log("ERRORS : " + errorThrown);
+}
+}).responseText;
+var data_item=JSON.parse(jqxhr);
+//alert(data_item['nama_produk']);
+var nama_produk=data_item['nama_produk'];
+var harga_beli=data_item['harga_beli'];
+jQuery1113('#nama_produkedit').val(nama_produk);
+jQuery1113('#harga_beliedit').val(harga_beli);
+jQuery1113('#qtyedit').val('');
+jQuery1113('#subtotaledit').val('');
+
+
+}
+</script>
 <div class="col-md-1">
 <button id="btn-simpanpembelian" class="btn btn-inverse" title="simpan data"><i class="fa fa-floppy-o"></i> </button>
 </div>
@@ -403,11 +567,6 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
         return "Data item akan dikosongkan!, \n anda yakin akan mereload halaman ini?";
     });
 	
-	function showmodal(){
-
-}
-
-
     function getitem(id) {
 	//alert(id);
 	var kode_produkedit=document.getElementById('row' + id).children[1].textContent;
@@ -472,11 +631,6 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 				'</div>\n'+  
 				'</div>\n'+
 				'';
-	
-	
-        //alert(id);
-        //var x=jQuery1113("#tbody-item").children[0].children[0].textContent;
-        //alert(document.getElementById('row' + rowid).children[2].textContent);
         bootbox.dialog({
             title: "Edit Item Pembelian",
             message:html_string,

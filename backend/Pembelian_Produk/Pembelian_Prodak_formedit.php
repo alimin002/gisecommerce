@@ -244,8 +244,7 @@ $data_master=mysql_fetch_assoc($result);
       
     </div>
   </div>
-<div>
-
+<div class="row">
  <table class="table table-striped table-condensed">
             <thead>
                 <th>
@@ -445,7 +444,7 @@ function doinsertitem(kode_pembelian,id_detail,kode_produk,harga_beli,qty,intsub
 	
 	},
 	success:function(data){
-	alert(data);
+	//alert(data);
 	var datapembelian=JSON.parse(data);
 	showgrid(datapembelian);
 	},
