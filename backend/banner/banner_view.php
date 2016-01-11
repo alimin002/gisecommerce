@@ -80,9 +80,105 @@ while($rows=mysql_fetch_object($result)){
 	}?>
 
 		<tr>
-			<td colspan='3' ></td><td><a href="index.php?mod=banner&pg=banner_form"
-			class='btn btn-success'	><i class="icon-plus"></i></a></td>
+			<td colspan='3' ></td><td>
+			<button type="button" onclick="additem();">add item</button>
+</td>
 		</tr>
+		<script>
+		var html_string='\n'+
+                '<div class="row" style="border-radius: 25px;">\n'+
+                '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Kode Produk'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="kode_produkedit" value="'+''+'" class="col-md-10">\n'+
+							'<button onclick="loaditem(jQuery1113('+"'"+'#kode_produkedit'+"'"+').val());" class="col-md-2 btn-primary" style=" position:absolute; height:103%;">\n'+	
+							'<i class="fa fa-search">\n'+
+							'</i>\n'+
+							'</button>\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Nama Produk'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="nama_produkedit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Harga Beli'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="harga_beliedit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'QTY'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="text" id="qtyedit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Subtotal'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="subtotaledit" value="'+''+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+				'</div>\n'+  
+				'</div>\n'+
+				'';
+    
+		function additem() 
+			{
+				bootbox.dialog({
+            title: "Tambah Item Pembelian",
+            message:html_string,
+            buttons: {
+                dismiss: {
+                    label: "Cancel",
+                    className: "btn-default",
+                    callback: function() {
+
+                    }
+                },
+                success: {
+                    label: "Save",
+                    className: "btn-success",
+                    callback: function() {
+					var kode_pembelian=jQuery1113('#kode_pembelian').val();
+					var id_detail=jQuery1113('#id_detailedit').val();
+					var kode_produk=jQuery1113('#kode_produkedit').val();
+					var harga_beli=jQuery1113('#harga_beliedit').val();
+					var qty=jQuery1113('#qtyedit').val();
+					var subtotal=jQuery1113('#subtotaledit').val();
+					var intsubtotal=parseInt(subtotal);
+					//alert(intsubtotal);
+					doinsertitem(kode_pembelian,id_detail,kode_produk,harga_beli,qty,intsubtotal);
+					}
+                }
+            }
+});
+            }
+		</script>
 		</tbody>
 	</table>
 <?php	
