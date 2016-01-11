@@ -411,7 +411,7 @@ jQuery1113('#subtotaledit').val(subtotal);
 var rowid=0;
 function addtogrid(kode_produk,nama_produk,harga_beli,qty,subtotal){
 var html_string='\n'+
-					'<tr id="'+rowid+'">\n'+
+					'<tr id="row'+rowid+'">\n'+
 						'<td>\n'+
 							
 						'</td>\n'+
@@ -447,8 +447,123 @@ var html_string='\n'+
 }
 
 function edititem(id){
-alert(id);
+var kode_produk=jQuery1113("#row"+id).children().eq(1).text();
+var nama_produk=jQuery1113("#row"+id).children().eq(2).text();
+var harga_beli=jQuery1113("#row"+id).children().eq(3).text();
+var qty=jQuery1113("#row"+id).children().eq(4).text();
+var subtotal=jQuery1113("#row"+id).children().eq(5).text();
+	var html_string='\n'+
+                '<div class="row" style="border-radius: 25px;">\n'+
+                '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Kode Produk'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="rowid" value="'+id+'" class="col-md-10">\n'+
+							'<input type="text" id="kode_produkedit" value="'+kode_produk+'" class="col-md-10">\n'+
+							'<button onclick="loaditem(jQuery1113('+"'"+'#kode_produkedit'+"'"+').val());" class="col-md-2 btn-primary" style=" position:absolute; height:103%;">\n'+	
+							'<i class="fa fa-search">\n'+
+							'</i>\n'+
+							'</button>\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Nama Produk'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="nama_produkedit" value="'+nama_produk+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Harga Beli'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="harga_beliedit" value="'+harga_beli+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'QTY'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="text" id="qtyedit" value="'+qty+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Subtotal'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input disabled type="text" id="subtotaledit" value="'+subtotal+'" class="form-control">\n'+
+						'</div>\n'+
+					'</div>\n'+
+				'</div>\n'+  
+				'</div>\n'+
+				'';
+        bootbox.dialog({
+            title: "Edit Item Pembelian",
+            message:html_string,
+            buttons: {
+                dismiss: {
+                    label: "Cancel",
+                    className: "btn-default",
+                    callback: function() {
+
+                    }
+                },
+                success: {
+                    label: "Save",
+                    className: "btn-success",
+                    callback: function(){
+					var rowid=jQuery1113("#rowid").val();
+					var kode_produk=jQuery1113("#kode_produkedit").val();
+					var nama_produk=jQuery1113("#nama_produkedit").val();
+					var harga_beli=jQuery1113("#harga_beliedit").val();
+					var qty=jQuery1113("#qtyedit").val();
+					var subtotal=jQuery1113("#subtotaledit").val();
+					doedititem(rowid,kode_produk,nama_produk,harga_beli,qty,subtotal);
+					}
+                }
+            }
+
+        });
+				
+jQuery1113( "#kode_produkedit" ).change(function() {
+jQuery1113('#nama_produkedit').val('');
+jQuery1113('#harga_beliedit').val('');
+jQuery1113('#qtyedit').val('');
+});	
+
+jQuery1113("#qtyedit").focusout(function(){
+//alert('1');
+var qty=jQuery1113("#qtyedit").val();
+var subtotal=parseInt(qty)*parseInt(harga_beli);
+jQuery1113('#subtotaledit').val(subtotal);
+});
 }
+
+function doedititem(rowid,kode_produk,nama_produk,harga_beli,qty,subtotal){
+alert(rowid+'----'+kode_produk+'----'+nama_produk+'----'+harga_beli+'----'+qty+'----'+subtotal);
+jQuery1113("#row"+rowid).children().eq(1).text(kode_produk);
+jQuery1113("#row"+rowid).children().eq(2).text(nama_produk);
+jQuery1113("#row"+rowid).children().eq(3).text(harga_beli);
+jQuery1113("#row"+rowid).children().eq(4).text(qty);
+jQuery1113("#row"+rowid).children().eq(5).text(subtotal);
+}
+
 function deleteitem2(id){
 alert(id);
 }
@@ -513,7 +628,7 @@ jQuery1113('#subtotaledit').val('');
 	
 	
 	
-    jQuery1113("#btn-ok").click(function() {
+    jQuery1113("#btn-ok").click(function(){
 	var kode_pembelian=jQuery1113("#kode_pembelian").val();
 	var kode_produk=jQuery1113("#kode_produk").val();
 	var nama_produk=jQuery1113("#nama_produk").val();
@@ -563,11 +678,11 @@ jQuery1113('#subtotaledit').val('');
 		
     });
 
-    jQuery1113(window).bind("beforeunload", function() {
+    jQuery1113(window).bind("beforeunload",function(){
         return "Data item akan dikosongkan!, \n anda yakin akan mereload halaman ini?";
     });
 	
-    function getitem(id) {
+    function getitem(id){
 	//alert(id);
 	var kode_produkedit=document.getElementById('row' + id).children[1].textContent;
 	var nama_produkedit=document.getElementById('row' + id).children[2].textContent;
