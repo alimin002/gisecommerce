@@ -90,17 +90,13 @@ while($rows=mysql_fetch_object($result)){
                 '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
-							'Banner ID'+
+							'Tittle'+
 						'</label>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
 							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
 							'<input type="text" id="banner_id" value="'+''+'" class="col-md-10">\n'+
-							'<button onclick="loaditem(jQuery1113('+"'"+'#kode_produkedit'+"'"+').val());" class="col-md-2 btn-primary" style=" position:absolute; height:103%;">\n'+	
-							'<i class="fa fa-search">\n'+
-							'</i>\n'+
-							'</button>\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -110,7 +106,8 @@ while($rows=mysql_fetch_object($result)){
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="keterangan" value="'+''+'" class="form-control">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="keterangan" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -120,7 +117,8 @@ while($rows=mysql_fetch_object($result)){
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input disabled type="text" id="foto" value="'+''+'" class="form-control">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="foto" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
