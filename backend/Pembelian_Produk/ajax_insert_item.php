@@ -7,10 +7,11 @@ $array = json_decode(json_encode($data_pembelian_item),true);
 //print_r($array);
 $record=0;
 $kode_pembelian=$_POST['kode_pembelian'];
+//echo 
 $tanggal=$_POST['tanggal'];
 $supplier_id=$_POST['id_supplier'];
 $grand_total=$_POST['grand_total'];
-$sql = "INSERT INTO pembelian(kode_pembelian,tanggal,supplier_id,grand_total)VALUES('$kode_pembelian',STR_TO_DATE('$tanggal','%Y/%m/%d'),'$supplier_id','$grand_total')";
+$sql = "INSERT INTO pembelian(kode_pembelian,tanggal,supplier_id,grand_total)VALUES('$kode_pembelian',STR_TO_DATE('$tanggal','%m/%d/%Y'),'$supplier_id','$grand_total')";
 //$result = mysql_query($sql) or die(mysql_error());
 $result = mysql_query($sql);
 if (!$result) {
