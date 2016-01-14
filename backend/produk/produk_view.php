@@ -104,120 +104,23 @@ while($rows=mysql_fetch_object($result)){
 				<td><?php echo $rows -> nama_produk; ?></td>
 				<td style="width:40%;"><?php echo $rows ->deskripsi; ?></td>
 				<td><?php echo $rows -> nama_kategori; ?></td>
-				<td>
-					<a href="index.php?mod=perkiraan&pg=perkiraan_form&id=" class='btn btn-xs btn-info'>
-						<i class="icon-pencil"></i>
-					</a>
-					<a href="index.php?mod=perkiraan&pg=perkiraan_view&act=del&id=" onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'>
-						<i class="icon-trash"></i>
-					</a>
-			</td>
+				<<td>
+                            <a href="index.php?mod=produk&pg=produk_form&id=<?php echo $rows -> supplier_id;?>" class='btn btn-xs btn-info'>
+                                <i class="icon-pencil"></i>
+                            </a>
+                            <a href="index.php?mod=produk&pg=produk_view&act=del&id=<?php echo $rows -> supplier_id;?>" onclick="return confirm('Yakin data akan dihapus?');"
+							class='btn btn-danger'> <i class="icon-trash"></i>
+                            </a>
+               </td>
 			</tr>
 			<?php $no++;
 				}
 			?>
 			<tr>
-			<td colspan='4' ></td><td>
-			<button type="button"  class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
-				</td>
-				</tr>
-			<script>
-		var html_string='\n'+
-                '<div class="row" style="border-radius: 25px;">\n'+
-                '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Nama'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="nama_kategori" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Deskripsi'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="deskripsi" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Kategori'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="kategori" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'</div>\n'+  
-					'</div>\n'+
-						'';
-    
-		function additem() 
-			{
-				bootbox.dialog({
-            title: "Tambah Item Pembelian",
-            message:html_string,
-            buttons: {
-                dismiss: {
-                    label: "Cancel",
-                    className: "btn-default",
-                    callback: function() {
-
-                    }
-                },
-                success: {
-                    label: "Save",
-                    className: "btn-success",
-                    callback: function() {
-					var tittle=jQuery1113('#tittle').val();
-					var keterangan=jQuery1113('#keterangan').val();
-					var foto=jQuery1113('#foto').val();
-					message:alert(sukses);
-					doinsertitem(banner_id,keterangan,foto);
-					}
-                }
-            }
-});
-            }
+               <td colspan='4'></td>
+               <td><a href="index.php?mod=produk&pg=produk_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
+           </tr>
 			
-			function doinsertitem(banner_id,keterangan,foto){
-<?php
-	$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
-	$str=substr($str,0,strlen($str)-9)."/banner/ajax_insert_item2.php"; 
-	?>
-	var str="<?php echo $str;?>";
-	jQuery1113.ajax({
-	url: str,
-	type: "POST",
-	data:{
-	banner_id		 :banner_id,
-	keterangan		:keterangan,
-	foto			:foto,
-	
-	},
-	success:function(data){
-	//alert(data);
-	var datapembelian=JSON.parse(data);
-	showgrid(datapembelian);
-	},
-	error: function (jqXHR, textStatus, errorThrown) {
-	alert(errorThrown);
-	}
-	});	
-
-}
-		</script>
-
 		</tbody>
 	</table>
 	<?php //=============CUT HERE for paging====================================
