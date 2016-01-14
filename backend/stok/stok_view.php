@@ -66,7 +66,11 @@
 	<!--<a href='index.php?mod=stok&pg=peta'><i class="icon-map-marker"></i>Map View</a>-->
 	<table  class="table table-striped table-condensed">
 		<thead>
-			<th><td><b>Nama produk </b></td><td><b>Harga Beli</b></td><td><b>Harga Jual</b></td><td><b>jumlah</b></td><td><b>Aksi</b></td></th>
+			<th><td><b>Nama produk </b></td>
+			<td><b>Harga Beli</b></td>
+			<td><b>Harga Jual</b></td>
+			<td><b>jumlah</b></td>
+			<td><b>Aksi</b></td></th>
 		</thead>
 		<tbody>
 <?php		
@@ -120,26 +124,51 @@ while($rows=mysql_fetch_object($result)){
 
 			?>
 			<tr>
-			<td><?php echo $posisi+$no
-				?>
+			<td>
+			<?php
+				echo $posisi+$no
+			?>
 			</td>
-			<td><?php		echo $rows -> nama_produk;?></td>
-			<td align='right'><?php		echo format_rupiah($rows ->harga_beli);?></td>
-			<td align='right'><?php		echo format_rupiah($rows ->harga_jual);?></td>
-			<td align='right'><?php		echo $rows ->jumlah;?></td>
-			<td>		
-				<a href="index.php?mod=stok&pg=stok_form&id=<?php echo	$rows -> idstok;?>"class='btn btn-xs btn-info'>
-				<i class="icon-pencil"></i>
-				</a>
-				<a href="index.php?mod=stok&pg=stok_view&act=del&id=<?php echo	$rows -> idstok;?>"onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i></a></td>
+			<td>
+			<?php		
+				echo $rows -> nama_produk;
+			?>
+			</td>
+			<td align='right'>
+			<?php		
+				echo format_rupiah($rows ->harga_beli);
+			?>
+			</td>
+			<td align='right'>
+			<?php		
+				echo format_rupiah($rows ->harga_jual);
+			?>
+			</td>
+			<td align='right'>
+			<?php		
+				echo $rows ->jumlah;
+			?></td>
+			<td>
+                            <a href="index.php?mod=stok&pg=stok_form&id=<?php echo $rows -> supplier_id;?>" class='btn btn-xs btn-info'>
+                                <i class="icon-pencil"></i>
+                            </a>
+                            <a href="index.php?mod=stok&pg=stok_view&act=del&id=<?php echo $rows -> supplier_id;?>" onclick="return confirm('Yakin data akan dihapus?');"
+							class='btn btn-danger'> <i class="icon-trash"></i>
+                            </a>
+               </td>
+			</td>
 			</tr>
-			<?php	$no++;
-	}?>
+			<?php	
+			$no++;
+			}
+			?>
 
 			<tr>
-				<td colspan='5' ></td><td><a href="index.php?mod=stok&pg=stok_form"
-				class='btn btn-xs btn-success'	><i class="icon-plus"></i></a></td>
-			</tr>
+				<td colspan='4' ></td><td>
+			<td><a href="index.php?mod=stok&pg=stok_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
+			</td>
+		</tr>
+		
 		</tbody>
 	</table>
 	<?php
