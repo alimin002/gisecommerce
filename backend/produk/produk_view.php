@@ -104,7 +104,7 @@ while($rows=mysql_fetch_object($result)){
 				<td><?php echo $rows -> nama_produk; ?></td>
 				<td style="width:40%;"><?php echo $rows ->deskripsi; ?></td>
 				<td><?php echo $rows -> nama_kategori; ?></td>
-				<<td>
+				<td>
                             <a href="index.php?mod=produk&pg=produk_form&id=<?php echo $rows -> supplier_id;?>" class='btn btn-xs btn-info'>
                                 <i class="icon-pencil"></i>
                             </a>

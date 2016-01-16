@@ -314,7 +314,7 @@
 										<b class="arrow"></b>
 									</li>
 									<li class="">
-										<a href="top-menu.html">
+										<a href="index.php?mod=periode&pg=periode_view">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Periode
 										</a>
@@ -334,7 +334,7 @@
 
 								<ul class="submenu">
 									<li class="">
-										<a href="top-menu.html">
+										<a href="index.php?mod=saldo_awal&pg=saldo_awal_view">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Saldo Awal
 										</a>
@@ -356,7 +356,7 @@
 
 								<ul class="submenu">
 									<li class="">
-										<a href="top-menu.html">
+										<a href="index.php?mod=jurnal_umum&pg=jurnal_umum_view">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Jurnal Umum
 										</a>
@@ -364,7 +364,7 @@
 										<b class="arrow"></b>
 									</li>
 									<li class="">
-										<a href="mobile-menu-1.html">
+										<a href="index.php?mod=jurnal_penyesuaian&pg=jurnal_penyesuaian_view">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Jurnal Penyesuaian
 										</a>
@@ -384,10 +384,50 @@
 								<b class="arrow"></b>
 
 								<ul class="submenu">
+									<li class="hsub">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Jurnal
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="index.php?mod=jurnal_umum&pg=jurnal_umum_view">
+											<i class="menu-icon fa fa-caret-right"></i>
+											J.Umum
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+										<a href="mobile-menu-1.html">
+											<i class="menu-icon fa fa-caret-right"></i>
+											J.Penyesuaian
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+								</ul>
+							</li>
+									<li class="hsub">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Buku Besar
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
 									<li class="">
 										<a href="top-menu.html">
 											<i class="menu-icon fa fa-caret-right"></i>
-											Jurnal
+											B.B Jurnal Umum
 										</a>
 
 										<b class="arrow"></b>
@@ -395,7 +435,28 @@
 									<li class="">
 										<a href="mobile-menu-1.html">
 											<i class="menu-icon fa fa-caret-right"></i>
-											Buku Besar
+										    B.B Jurnal Penyesuaian
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+								</ul>
+							</li>
+									<li class="hsub">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Neraca Saldo
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="top-menu.html">
+											<i class="menu-icon fa fa-caret-right"></i>
+											N.S Jurnal Umum
 										</a>
 
 										<b class="arrow"></b>
@@ -403,7 +464,17 @@
 									<li class="">
 										<a href="mobile-menu-1.html">
 											<i class="menu-icon fa fa-caret-right"></i>
-											Neraca Saldo
+										    N.S Jurnal Penyesuaian
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+								</ul>
+							</li>
+									<li class="">
+										<a href="mobile-menu-1.html">
+											<i class="menu-icon fa fa-caret-right"></i>
+										Laba Rugi
 										</a>
 
 										<b class="arrow"></b>
@@ -411,15 +482,7 @@
 									<li class="">
 										<a href="mobile-menu-1.html">
 											<i class="menu-icon fa fa-caret-right"></i>
-											Neraca Lajur 
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-									<li class="">
-										<a href="mobile-menu-1.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Neraca Laba Rugi
+										 Neraca
 										</a>
 
 										<b class="arrow"></b>
@@ -444,6 +507,14 @@
 										<a href="mobile-menu-1.html">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Kategori Produk
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+										<a href="mobile-menu-1.html">
+											<i class="menu-icon fa fa-caret-right"></i>
+											Neraca Lajur Produk
 										</a>
 
 										<b class="arrow"></b>
