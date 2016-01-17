@@ -5,7 +5,6 @@ if (empty($_SESSION['username']))
 	echo "<p style='color:red'>akses denied</p>";
 	exit();
 	}
-
 if (isset($_GET['act']))
 	{
 	$id = $_GET['id'];
@@ -26,8 +25,7 @@ if (isset($_GET['act']))
 	 <div class="col-md-1" style="margin-left:-5%;">
 	  <button class="form-control" type="submit">
 	 <i class="ace-icon fa fa-search"></i>
-	 </button>
-		
+	 </button>	
 	 </div>
 </form>	 
 </div>
@@ -38,7 +36,7 @@ if (isset($_GET['act']))
     </div>
     <div>
 
-        <!--<a href='index.php?mod=produk&pg=peta'><i class="icon-map-marker"></i>Map View</a>-->
+     <a href='index.php?mod=produk&pg=peta'><i class="icon-map-marker"></i>Map View</a>
         <table class="table table-striped table-condensed">
             <thead>
                 <th>
@@ -85,15 +83,16 @@ $no = 1;
 while ($rows = mysql_fetch_object($result))
 	{
 ?>
-                    <tr>
-                        <td>
-                            <?php
+ <tr>
+	<td>
+<?php
 	echo $posisi + $no
-?>
-                        </td>
-                        <td>
-                            <?php
-	echo $rows->no_transaksi; ?>
+		?>
+  </td>
+					<td>
+						<?php
+	echo $rows->no_transaksi; 
+						?>
                         </td>
                         <td style="width:40%;">
                             <?php
@@ -135,7 +134,9 @@ while ($rows = mysql_fetch_object($result))
         </table>
 		</div>
 		<div class="row">
-        <?php //=============CUT HERE for paging====================================
+        <?php 
+
+//=============CUT HERE for paging====================================
 $tampil2 = mysql_query("SELECT idproduk from produk");
 $jmldata = mysql_num_rows($tampil2);
 $jumlah_halaman = ceil($jmldata / $batas);
@@ -168,5 +169,4 @@ if (isset($_GET['status']))
 ?>
  </div>
 	</div>
-		</div>
-			</div>	
+		</div>	

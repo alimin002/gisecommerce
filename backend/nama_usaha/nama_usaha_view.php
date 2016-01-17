@@ -79,7 +79,7 @@ while($rows=mysql_fetch_object($result)){
 			echo $rows -> Email;
 			?>
 			</td>
-						<td>
+			<td>
 			<?php
 			echo $rows -> nama_pimpinan;
 			?>
@@ -103,6 +103,7 @@ while($rows=mysql_fetch_object($result)){
 		</tr>
 		<script>
 		function additem()
+			{
 			var html_string='\n'+
                 '<div class="row" style="border-radius: 25px;">\n'+
                 '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
@@ -178,21 +179,27 @@ while($rows=mysql_fetch_object($result)){
 				'';
     		
 			{
-				bootbox.dialog({
+				bootbox.dialog(
+{
             title: "Tambah Item Pembelian",
             message:html_string,
-            buttons: {
-                dismiss: {
+            buttons: 
+			{
+                dismiss: 
+				{
                     label: "Cancel",
                     className: "btn-default",
-                    callback: function() {
+                    callback: function()
+					{
 
                     }
                 },
-                success: {
+                success: 
+				{
                     label: "Save",
                     className: "btn-success",
-                    callback: function() {
+                    callback: function()
+					{
 					var nama_usaha=jQuery1113('#nama_usaha').val();
 					var alamat=jQuery1113('#alamat').val();
 					var kode_pos=jQuery1113('#kode_pos').val();
@@ -206,6 +213,7 @@ while($rows=mysql_fetch_object($result)){
             }
 });
             }
+		}
 		</script>
 		</tbody>
 	</table>
