@@ -277,7 +277,7 @@ $strkodepembelian=(string)(int)$intkodepembelian + 1;
 </div>
 <div class="row" style="padding:1%;">
 <div class="col-md-1">
-<button id="btn-tambah-item" onclick="additem()" class="btn btn-success" title="simpan data" ><i class="fa fa-plus"></i> </button>
+<button type="button" id="btn-tambah-item" onclick="additem()" class="btn btn-success" title="Tambah Data" ><i class="fa fa-plus"></i> </button>
 </div>
 <script>
 var jsonadditem="";
