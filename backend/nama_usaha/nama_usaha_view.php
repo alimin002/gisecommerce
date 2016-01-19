@@ -102,6 +102,7 @@ while($rows=mysql_fetch_object($result)){
 </td>
 		</tr>
 		<script>
+		var jsonadditem="";
 		function additem()
 			{
 			var html_string='\n'+
@@ -181,7 +182,7 @@ while($rows=mysql_fetch_object($result)){
 			{
 				bootbox.dialog(
 {
-            title: "Tambah Item Pembelian",
+            title: "Tambah ",
             message:html_string,
             buttons: 
 			{

@@ -135,7 +135,7 @@ while ($rows = mysql_fetch_object($result))
 		</div>
 		<div class="row">
         <?php //=============CUT HERE for paging====================================
-		echo "<h1>".$halaman."</h1>";
+		//echo "<h1>".$halaman."</h1>";
 $tampil2 = mysql_query("SELECT idpembelian from pembelian");
 $jmldata = mysql_num_rows($tampil2);
 $jumlah_halaman = ceil($jmldata / $batas);
