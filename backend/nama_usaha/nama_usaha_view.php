@@ -207,7 +207,7 @@ while($rows=mysql_fetch_object($result)){
 					var no_telepon=jQuery1113('#no_telepon').val();
 					var email=jQuery1113('#email').val();
 					var nama_pimpinan=jQuery1113('#nama_pimpinan').val();
-					message:alert('nama_usaha\n'+var1'alamat\n'+var2'kode_pos\n'+var3'no_telepon\n'+var4'email\n'+var5'nama_pimpinan\n'+var6);
+					message:alert('nama usaha \n'+nama_usaha+'alamat\n'+alamat+'kode_pos\n'+kode_pos+'no_telepon\n'+no_telepon+'email\n'+email+'nama_pimpinan\n'+nama_pimpinan);
 					doinsertitem(tittle,keterangan,foto);
 					}
                 }
