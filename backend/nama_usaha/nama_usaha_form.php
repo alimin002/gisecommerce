@@ -16,9 +16,13 @@ cek_status_login($_SESSION['username']);
 
 	} else {
 		$aksi = "tambah";
-	}?>
-	<script type="text/javascript" src="../assets/bootstrap/js/tinymce/tiny_mce.js"></script>
-<script type="text/javascript" src='../assets/bootstrap/js/editor.js'></script> 
+	}
+?>
+	<script type="text/javascript" src="../assets/bootstrap/js/tinymce/tiny_mce.js">
+	</script>
+	
+	<script type="text/javascript" src='../assets/bootstrap/js/editor.js'>
+	</script> 
 
 <form  class="form-horizontal" method="POST" id="form1" action="berita/berita_action.php" enctype="multipart/form-data">
  <legend> Usaha</legend>
