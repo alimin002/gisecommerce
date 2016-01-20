@@ -208,6 +208,11 @@ while($rows=mysql_fetch_object($result)){
 					var email=jQuery1113('#email').val();
 					var nama_pimpinan=jQuery1113('#nama_pimpinan').val();
 					message:alert(nama_usaha);
+					message:alert(alamat);
+					message:alert(kode_pos);
+					message:alert(no_telepon);
+					message:alert(email);
+					message:alert(nama_pimpinan);
 					doinsertitem(tittle,keterangan,foto);
 					}
                 }
