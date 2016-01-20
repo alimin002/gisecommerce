@@ -163,6 +163,7 @@ while($rows=mysql_fetch_object($result)){
 							'<input type="text" id="email" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
+					
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
 							'Nama Pimpinan'+
@@ -172,6 +173,31 @@ while($rows=mysql_fetch_object($result)){
 						'<div class="col-md-12">\n'+
 							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
 							'<input type="text" id="nama_pimpinan" value="'+''+'" class="col-md-10">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Nomer 1'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="number_1" value="'+''+'" class="col-md-10">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					
+				'</div>\n'+  
+				'</div>\n'+
+				'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Nomer 2'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="number_2" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					
@@ -207,7 +233,9 @@ while($rows=mysql_fetch_object($result)){
 					var no_telepon=jQuery1113('#no_telepon').val();
 					var email=jQuery1113('#email').val();
 					var nama_pimpinan=jQuery1113('#nama_pimpinan').val();
-					message:alert('nama_usaha'+'\n'+nama_usaha+'\n'+'alamat'+'\n'+alamat+'\n'+'kode_pos'+'\n'+kode_pos+'\n'+'no_telepon'+'\n'+no_telepon+'\n'+'email'+'\n'+email+'\n'+'nama_pimpinan'+'\n'+nama_pimpinan+'\n');
+					var number_1=jQuery1113('#number_1').val();
+					var number_2=jQuery1113('#number_2').val();
+					message:alert('nama_usaha'+'\n'+nama_usaha+'\n'+'alamat'+'\n'+alamat+'\n'+'kode_pos'+'\n'+kode_pos+'\n'+'no_telepon'+'\n'+no_telepon+'\n'+'email'+'\n'+email+'\n'+'nama_pimpinan'+'\n'+nama_pimpinan+'\n'+'Nomer 1'+'\n'+number_1+'\n'+'Nomer 2'+'\n'+number_2+'\n');
 					doinsertitem(tittle,keterangan,foto);
 					}
                 }
