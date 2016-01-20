@@ -207,7 +207,7 @@ while($rows=mysql_fetch_object($result)){
 					var no_telepon=jQuery1113('#no_telepon').val();
 					var email=jQuery1113('#email').val();
 					var nama_pimpinan=jQuery1113('#nama_pimpinan').val();
-					message:alert("sukses");
+					message:alert(nama_usaha);
 					doinsertitem(tittle,keterangan,foto);
 					}
                 }
