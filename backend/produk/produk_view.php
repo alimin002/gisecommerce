@@ -32,7 +32,7 @@ if (isset($_GET['act'])) {
 																		</form>	 
 																	</div> 
 												
-												<!--<div class="widget-main" style="float:right;">
+											<div class="widget-main" style="float:right;">
 												<form class="form-search">
 													<div class="row">
 													<div class="col-xs-9 col-sm-8">
@@ -56,7 +56,7 @@ if (isset($_GET['act'])) {
 													</div>
 												</form>	
 		
-											</div> ---->
+											</div> 
 		<h1>
 		Data
 		<small>
@@ -94,7 +94,8 @@ $query="SELECT produk.*, kategori.nama_kategori
 $result=mysql_query($query) or die(mysql_error());
 $no=1;
 //proses menampilkan data
-while($rows=mysql_fetch_object($result)){
+while($rows=mysql_fetch_object($result))
+			{
 
 			?>
 			<tr>
@@ -114,7 +115,7 @@ while($rows=mysql_fetch_object($result)){
                </td>
 			</tr>
 			<?php $no++;
-				}
+			}
 			?>
 			<tr>
                <td colspan='4'></td>
@@ -137,8 +138,8 @@ while($rows=mysql_fetch_object($result)){
                     <?php
 					pagination($halaman, $jumlah_halaman, "produk"); ?>
                 </ul>
-            </div>
-            <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
+         </div>
+           <div class='well'>
 <?php
 // KODE UNTUK MENAMPILKAN PESAN STATUS
 if (isset($_GET['status'])) {

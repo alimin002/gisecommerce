@@ -95,7 +95,7 @@
 
 								<ul class="submenu">
 									<li class="">
-										<a href="index.php?mod=Pembelian_Produk&pg=Pembelian_Prodak_view">
+										<a href="index.php?mod=Pembelian_Produk&pg=Pembelian_Produk_view">
 											<i class="menu-icon fa fa-leaf"></i>
 											Pembelian Produk
 										</a>
@@ -514,7 +514,7 @@
 									<li class="">
 										<a href="mobile-menu-1.html">
 											<i class="menu-icon fa fa-caret-right"></i>
-											Neraca Lajur Produk
+											Neraca Lajur 
 										</a>
 
 										<b class="arrow"></b>

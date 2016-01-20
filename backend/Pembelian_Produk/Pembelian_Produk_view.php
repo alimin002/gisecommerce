@@ -5,6 +5,7 @@ if (empty($_SESSION['username']))
 	echo "<p style='color:red'>akses denied</p>";
 	exit();
 	}
+
 if (isset($_GET['act']))
 	{
 	$id = $_GET['id'];
@@ -18,40 +19,44 @@ if (isset($_GET['act']))
 <div class="row">
 <div class="col-md-12">
 <div class="row">
-<form action="index.php?mod=jurnal_umum&pg=jurnal_umum_view" method="POST">
+<form action="index.php?mod=supplier&pg=supplier_view" method="POST">
 	 <div class="col-md-6">
 		<input type="text" class="form-control" name="textsearch">
 	 </div>
 	 <div class="col-md-1" style="margin-left:-5%;">
 	  <button class="form-control" type="submit">
 	 <i class="ace-icon fa fa-search"></i>
-	 </button>	
+	 </button>
+		
 	 </div>
 </form>	 
 </div>
     <div>
         <h1>
-		Jurnal Umum
-		</h1>
+		Data
+		<small>
+		<i class="ace-icon fa fa-angle-double-right"></i>
+		Data Pembelian
+		</small>
+	</h1>
     </div>
     <div>
 
-     <a href='index.php?mod=produk&pg=peta'><i class="icon-map-marker"></i>Map View</a>
+        <!--<a href='index.php?mod=produk&pg=peta'><i class="icon-map-marker"></i>Map View</a>-->
         <table class="table table-striped table-condensed">
             <thead>
                 <th>
-                    <td><b>No_transaksi </b></td>
-					<td><b>Periode</b></td>
-                    <td><b>Tanggal Transaksi</b></td>
-                    <td><b>Keterangan</b></td>
-					<td><b>Status</b></td>
+                    <td><b>Kode Pembelian </b></td>
+					<td><b>Nama Supplier</b></td>
+                    <td><b>Tanggal</b></td>
+                    <td><b>Grand Total</b></td>
                     <td style='min-width: 100px'><b>Aksi</b></td>
                 </th>
             </thead>
             <tbody>
                 <?php
 $batas = '5';
-$tabel = "produk";
+$tabel = "pembelian";
 
 if (empty($_GET['halaman']) == false)
 	{
@@ -83,39 +88,34 @@ $no = 1;
 while ($rows = mysql_fetch_object($result))
 	{
 ?>
- <tr>
-	<td>
-<?php
+                    <tr>
+                        <td>
+                            <?php
 	echo $posisi + $no
-		?>
-  </td>
-					<td>
-						<?php
-	echo $rows->no_transaksi; 
-						?>
+?>
+                        </td>
+                        <td>
+                            <?php
+	echo $rows->kode_pembelian; ?>
                         </td>
                         <td style="width:40%;">
                             <?php
-	echo $rows->periode; ?>
+	echo $rows->nama_supplier; ?>
                         </td>
                         <td>
                             <?php
-	echo $rows->tgl_transaksi; ?>
+	echo $rows->tanggal; ?>
                         </td>
 						<td>
 						  <?php
-	echo $rows->keterangan; ?>
-						</td>
-						<td>
-						  <?php
-	echo $rows->status; ?>
+	echo $rows->grand_total; ?>
 						</td>
                         <td>
-                            <a href="index.php?mod=jurnal_umum&&pg=jurnal_umum_formedit&id=<?php
+                            <a href="index.php?mod=Pembelian_Produk&pg=Pembelian_Prodak_formedit&id=<?php
 									echo $rows->kode_pembelian; ?>" class='btn btn-xs btn-info' title="edit pembelian">
                                 <i class="icon-pencil"></i>
                             </a>
-                            <a href="index.php?mod=jurnal_umum&pg=jurnal_umum_view&act=del&id=<?php
+                            <a href="index.php?mod=produk&pg=produk_view&act=del&id=<?php
 									echo $rows->supplier_id; ?>" onclick="return confirm('Yakin data akan dihapus?');" title="delete pembelian" class='btn btn-danger'> <i class="icon-trash"></i>
                             </a>
                         </td>
@@ -128,23 +128,24 @@ while ($rows = mysql_fetch_object($result))
 
                         <tr>
                             <td colspan='5'></td>
-                            <td><a href="index.php?mod=jurnal_umum&pg=jurnal_umum_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
+                            <td><a href="index.php?mod=Pembelian_Produk&pg=Pembelian_Prodak_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
                         </tr>
             </tbody>
         </table>
 		</div>
 		<div class="row">
-        <?php 
-
-//=============CUT HERE for paging====================================
-$tampil2 = mysql_query("SELECT idproduk from produk");
+        <?php //=============CUT HERE for paging====================================
+		//echo "<h1>".$halaman."</h1>";
+$tampil2 = mysql_query("SELECT idpembelian from pembelian");
 $jmldata = mysql_num_rows($tampil2);
 $jumlah_halaman = ceil($jmldata / $batas);
 ?>
              <div class='dataTables_paginate paging_bootstrap'>
                 <ul class="pagination">
                     <?php
-						pagination($halaman, $jumlah_halaman, "pembelian"); ?>
+					//remember
+					//pagination(page,pageamount,modulname)
+						pagination($halaman, $jumlah_halaman, "Pembelian_Produk"); ?>
                 </ul>
             </div>
             <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
@@ -169,4 +170,5 @@ if (isset($_GET['status']))
 ?>
  </div>
 	</div>
-		</div>	
+		</div>
+			</div>
