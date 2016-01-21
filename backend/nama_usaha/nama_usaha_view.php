@@ -235,8 +235,9 @@ while($rows=mysql_fetch_object($result)){
 					var nama_pimpinan=jQuery1113('#nama_pimpinan').val();
 					var number_1 = jQuery1113('#number_1').val();
 					var number_2 = jQuery1113('#number_2').val();
+					var result =parseInt(number_1)+parseInt(number_2);
 					message:alert('nama_usaha'+'\n'+nama_usaha+'\n'+'alamat'+'\n'+alamat+'\n'+'kode_pos'+'\n'+kode_pos+'\n'+'no_telepon'+'\n'+no_telepon+'\n'+'email'+'\n'+email+'\n'+'nama_pimpinan'+'\n'+nama_pimpinan+'\n'+'Nomer 1'+'\n'+number_1+'\n'+'Nomer 2'+'\n'+number_2+'\n');
-					alert('hasil'+'='+(number_1+number_2));
+					alert(result);
 					doinsertitem(tittle,keterangan,foto);
 					}
 					
