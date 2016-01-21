@@ -101,10 +101,12 @@ while($rows=mysql_fetch_object($result)){
 			<button type="button"  class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
 </td>
 		</tr>
+		
 		<script>
+		//<label id="test"> text ini akan diambil</label>
 		var jsonadditem="";
 		function additem()
-			{
+			{	
 			var html_string='\n'+
                 '<div class="row" style="border-radius: 25px;">\n'+
                 '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
@@ -112,6 +114,7 @@ while($rows=mysql_fetch_object($result)){
 						'<label class="col-md-8">\n'+
 							'Nama Usaha'+
 						'</label>\n'+
+						
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
@@ -119,6 +122,19 @@ while($rows=mysql_fetch_object($result)){
 							'<input type="text" id="nama_usaha" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'ID'+
+						'</label>\n'+
+						
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="test" value="'+' text ini akan diambil'+'" class="col-md-10">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
 							'Alamat'+
@@ -183,7 +199,7 @@ while($rows=mysql_fetch_object($result)){
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
 							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="numerik" id="number_1" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="number_1" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					
@@ -201,9 +217,11 @@ while($rows=mysql_fetch_object($result)){
 						'</div>\n'+
 					'</div>\n'+
 					
+					
 				'</div>\n'+  
 				'</div>\n'+
 				'';
+				
     		
 			{
 				bootbox.dialog(
@@ -237,8 +255,10 @@ while($rows=mysql_fetch_object($result)){
 					var number_2 = jQuery1113('#number_2').val();
 					var result =parseInt(number_1)+parseInt(number_2);
 					message:alert('nama_usaha'+'\n'+nama_usaha+'\n'+'alamat'+'\n'+alamat+'\n'+'kode_pos'+'\n'+kode_pos+'\n'+'no_telepon'+'\n'+no_telepon+'\n'+'email'+'\n'+email+'\n'+'nama_pimpinan'+'\n'+nama_pimpinan+'\n'+'Nomer 1'+'\n'+number_1+'\n'+'Nomer 2'+'\n'+number_2+'\n');
+					alert(jQuery1313("#test").text());
 					alert(result);
 					doinsertitem(tittle,keterangan,foto);
+					
 					}
 					
                 }

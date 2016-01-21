@@ -28,7 +28,7 @@ cek_status_login($_SESSION['username']);
  <legend> Usaha</legend>
 	<input type='hidden' name='id' value="<?php  if($aksi != 'tambah'){echo $id;}?>">
   <div class="control-group">
-    <label class="control-label" for="nama_usaha">nama usaha</label>
+    <label class="control-label" value="nama_usaha" for="nama_usaha">nama usaha</label>
     <div class="controls">
       <input type="text" name='nama_usaha' id="nama_usaha" class='input-xxlarge'
       value='<?php if($aksi != 'tambah'){ echo $baris->nama_usaha;}?>' >
@@ -44,7 +44,7 @@ cek_status_login($_SESSION['username']);
    <div class="control-group">
     <label class="control-label" for="kode_pos">Kode Pos</label>
     <div class="controls">
-      <input type="text" name='kode_pos' id='kode_pos' rows="10" class='input-xxlarge'><?php if($aksi != 'tambah'){$baris->kode_pos;}?> 
+      <input type="text" name='kode_pos' id='kode_pos' rows="10"  class='input-xxlarge'><?php if($aksi != 'tambah'){$baris->kode_pos;}?> 
      
     </div>
   </div>
