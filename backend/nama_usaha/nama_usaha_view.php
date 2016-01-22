@@ -253,7 +253,7 @@ while($rows=mysql_fetch_object($result)){
 					alert(jQueryjQuery1113("#test").text());
 					
 					//alert(result);
-					doinsertitem(tittle,keterangan,foto);
+					//doinsertitem(tittle,keterangan,foto);
 					
 					}
 					
