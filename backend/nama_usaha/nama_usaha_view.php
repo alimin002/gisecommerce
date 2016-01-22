@@ -123,15 +123,14 @@ while($rows=mysql_fetch_object($result)){
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
+						'<label class="col-md-8">\n'+'text ini akan diambil'
 							'ID'+
 						'</label>\n'+
 						
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="test" value="'+' text ini akan diambil'+'" class="col-md-10">\n'+
+							'<id="test" value="'+' '+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					
