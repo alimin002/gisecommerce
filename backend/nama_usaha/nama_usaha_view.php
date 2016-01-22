@@ -265,6 +265,19 @@ while($rows=mysql_fetch_object($result)){
 		</script>
 		</tbody>
 	</table>
+	<script>
+	'<div class="row">\n'+
+		'<label class="col-md-8">\n'+
+			'Contoh Set'+
+			'</label>\n'+
+			'</div>\n'+
+			'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="text" id="contoh_set" value="'+''+'" class="col-md-10">\n'+
+						'</div>\n'+
+					'</div>\n'+
+	
+	</script>
 <?php	
 //=============CUT HERE for paging====================================
 $tampil2=mysql_query("select from 'nama_usaha'");
