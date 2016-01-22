@@ -123,15 +123,10 @@ while($rows=mysql_fetch_object($result)){
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
-						'<label id="text" class="col-md-8">\n'+'text ini akan diambil'
+						'<label id="test" class="col-md-8">\n'+'text ini akan diambil'
 							'ID'+
 						'</label>\n'+
 						
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<id="text" value="'+' '+'" class="col-md-10">\n'+
-						'</div>\n'+
 					'</div>\n'+
 					
 					'<div class="row">\n'+
@@ -214,10 +209,10 @@ while($rows=mysql_fetch_object($result)){
 							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
 							'<input type="numerik" id="number_2" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
-					'</div>\n'+
+					'</div>\n'+  
 					
 					
-				'</div>\n'+  
+				'</div>\n'+ 
 				'</div>\n'+
 				'';
 				
@@ -252,10 +247,11 @@ while($rows=mysql_fetch_object($result)){
 					var nama_pimpinan=jQuery1113('#nama_pimpinan').val();
 					var number_1 = jQuery1113('#number_1').val();
 					var number_2 = jQuery1113('#number_2').val();
+					var test= jQuery1113('#test').val();
 					var result =parseInt(number_1)+parseInt(number_2);
-					message:alert('nama_usaha'+'\n'+nama_usaha+'\n'+'alamat'+'\n'+alamat+'\n'+'kode_pos'+'\n'+kode_pos+'\n'+'no_telepon'+'\n'+no_telepon+'\n'+'email'+'\n'+email+'\n'+'nama_pimpinan'+'\n'+nama_pimpinan+'\n'+'Nomer 1'+'\n'+number_1+'\n'+'Nomer 2'+'\n'+number_2+'\n');
+					//message:alert('nama_usaha'+'\n'+nama_usaha+'\n'+'alamat'+'\n'+alamat+'\n'+'kode_pos'+'\n'+kode_pos+'\n'+'no_telepon'+'\n'+no_telepon+'\n'+'email'+'\n'+email+'\n'+'nama_pimpinan'+'\n'+nama_pimpinan+'\n'+'Nomer 1'+'\n'+number_1+'\n'+'Nomer 2'+'\n'+number_2+'\n');
 					alert(jQuery1313("#test").text());
-					alert(result);
+					//alert(result);
 					doinsertitem(tittle,keterangan,foto);
 					
 					}
