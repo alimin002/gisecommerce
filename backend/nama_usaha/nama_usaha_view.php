@@ -254,7 +254,9 @@ while($rows=mysql_fetch_object($result)){
 					
 					//alert(result);
 					//doinsertitem(tittle,keterangan,foto);
-					jQuery1113('#nama_usaha').val(nama_usaha);
+					jQuery1113('#contoh_set').val(jQuery1113('#nama_usaha').val());
+
+					//jQuery1113('#nama_usaha').val(nama_usaha);
 					
 					}
 					
@@ -274,7 +276,7 @@ while($rows=mysql_fetch_object($result)){
 			</div>
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="nama_usaha" value="" class="col-md-10">
+							<input type="text" id="contoh_set" value="" class="col-md-10">
 						</div>
 					</div>
 	
