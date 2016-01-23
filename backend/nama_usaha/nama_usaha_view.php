@@ -103,7 +103,6 @@ while($rows=mysql_fetch_object($result)){
 		</tr>
 		
 		<script>
-		//<label id="test"> text ini akan diambil</label>
 		var jsonadditem="";
 		function additem()
 			{	
@@ -123,16 +122,10 @@ while($rows=mysql_fetch_object($result)){
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
-						'<label id="test" class="col-md-8">\n'+'text ini akan diambil'
-							'ID'+
-						'</label>\n'+
-						
-					'</div>\n'+
-					
-					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
 							'Alamat'+
 						'</label>\n'+
+						
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
@@ -144,28 +137,31 @@ while($rows=mysql_fetch_object($result)){
 						'<label class="col-md-8">\n'+
 							'Kode Pos'+
 						'</label>\n'+
+						
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
 							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="kode_pos" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="kodepos" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
 							'No Telepon'+
 						'</label>\n'+
+						
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
 							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="nomer_telephone" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="no_telepon" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
 							'Email'+
 						'</label>\n'+
+						
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
@@ -174,42 +170,6 @@ while($rows=mysql_fetch_object($result)){
 						'</div>\n'+
 					'</div>\n'+
 					
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Nama Pimpinan'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="nama_pimpinan" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Nomer 1'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="number_1" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					
-				'</div>\n'+  
-				'</div>\n'+
-				'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Nomer 2'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="numerik" id="number_2" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+  
 					
 					
 				'</div>\n'+ 
@@ -240,26 +200,15 @@ while($rows=mysql_fetch_object($result)){
                     callback: function()
 					{
 					var nama_usaha=jQuery1113('#nama_usaha').val();
-					var alamat=jQuery1113('#alamat').val();
-					var kode_pos=jQuery1113('#kode_pos').val();
-					var no_telepon=jQuery1113('#no_telepon').val();
-					var email=jQuery1113('#email').val();
-					var nama_pimpinan=jQuery1113('#nama_pimpinan').val();
-					//var number_1 = jQuery1113('#number_1').val();
-					//var number_2 = jQuery1113('#number_2').val();
-					//var test= jQuery1113('#test').val();
-					//var result =parseInt(number_1)+parseInt(number_2);
-					message:alert('nama_usaha'+'\n'+nama_usaha+'\n'+'alamat'+'\n'+alamat+'\n'+'kode_pos'+'\n'+kode_pos+'\n'+'no_telepon'+'\n'+no_telepon+'\n'+'email'+'\n'+email+'\n'+'nama_pimpinan'+'\n'+nama_pimpinan+'\n'+'Nomer 1'+'\n'+number_1+'\n'+'Nomer 2'+'\n'+number_2+'\n');
-					//alert(jQuery1113("#test").text());
-					//jQuery1113('#nama_usaha').val(nama_usaha);
-					//alert(result);
-					//doinsertitem(tittle,keterangan,foto);
-					jQuery1113('#nama_usha').val(jQuery1113('#nama_usaha').val());
-					jQuery1113('#almt').val(jQuery1113('#alamat').val());
-					jQuery1113('#kdepos').val(jQuery1113('#kode_pos').val());
-					jQuery1113('#notelp').val(jQuery1113('#no_telepon').val());
-					jQuery1113('#imail').val(jQuery1113('#email').val());
-					jQuery1113('#napim').val(jQuery1113('#nama_pimpinan').val());				
+					    alamat=jQuery1113('#alamat').val();
+						kodepos=jQuery1113('#kodepos').val();
+						no_telepon=jQuery1113('#no_telepon').val();
+						email=jQuery1113('#email').val();
+					jQuery1113('#contoh_set').val(jQuery1113('#nama_usaha').val());
+					jQuery1113('#contoh_set2').val(jQuery1113('#alamat').val());
+					jQuery1113('#contoh_set3').val(jQuery1113('#kodepos').val());
+					jQuery1113('#contoh_set4').val(jQuery1113('#no_telepon').val());
+					jQuery1113('#contoh_set5').val(jQuery1113('#email').val());
 					}
 					
                 }
@@ -278,59 +227,52 @@ while($rows=mysql_fetch_object($result)){
 			</div>
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="nama_usha" value="" class="col-md-10">
+							<input type="text" id="contoh_set" value="" class="col-md-10">
 						</div>
-					</div>
-					<div class="row">
+						</div>		
+		
 		<label class="col-md-8">
 			Alamat
 			</label>
-			</div>
+			
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="almt" value="" class="col-md-10">
+							<input type="text" id="contoh_set2" value="" class="col-md-10">
+						
 						</div>
-					</div>
-					<div class="row">
+			</div>
 		<label class="col-md-8">
 			Kode Pos
 			</label>
-			</div>
+			
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="kdepos" value="" class="col-md-10">
+							<input type="text" id="contoh_set3" value="" class="col-md-10">
+						
 						</div>
-					</div>
-					<div class="row">
+			</div>
 		<label class="col-md-8">
 			No Telepon
 			</label>
-			</div>
+			
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="notelp" value="" class="col-md-10">
+							<input type="text" id="contoh_set4" value="" class="col-md-10">
+						
 						</div>
-					</div>
-					<div class="row">
+			</div>
+			
 		<label class="col-md-8">
-			Email  
+			Email
 			</label>
-			</div>
+			
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="imail" value="" class="col-md-10">
+							<input type="text" id="contoh_set5" value="" class="col-md-10">
+						
 						</div>
-					</div>
-					<div class="row">
-		<label class="col-md-8">
-			Nama Pimpinan
-			</label>
 			</div>
-			<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="napim" value="" class="col-md-10">
-						</div>
-					</div>
+					
 	
 	
 <?php	
