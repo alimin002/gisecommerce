@@ -254,6 +254,7 @@ while($rows=mysql_fetch_object($result)){
 					
 					//alert(result);
 					//doinsertitem(tittle,keterangan,foto);
+					jQuery1113('#contoh_set').val("contoh me set data dengan method val ");
 					
 					}
 					
@@ -273,13 +274,9 @@ while($rows=mysql_fetch_object($result)){
 			</div>
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="contoh_set" value=" " class="col-md-10">
+							<input type="text" id="contoh_set" value="" class="col-md-10">
 						</div>
 					</div>
-					
-					<script>
-						jQuery1113('#contoh_set').val("contoh me set data dengan method val ");
-					</script>
 	
 	
 <?php	
