@@ -204,12 +204,13 @@ while($rows=mysql_fetch_object($result)){
 						kodepos=jQuery1113('#kodepos').val();
 						no_telepon=jQuery1113('#no_telepon').val();
 						email=jQuery1113('#email	').val();
+						test=jQuery1113('#test').val();
 					jQuery1113('#contoh_set').val(jQuery1113('#nama_usaha').val());
 					jQuery1113('#contoh_set2').val(jQuery1113('#alamat').val());
 					jQuery1113('#contoh_set3').val(jQuery1113('#kodepos').val());
 					jQuery1113('#contoh_set4').val(jQuery1113('#no_telepon').val());
 					jQuery1113('#contoh_set5').val(jQuery1113('#email').val());
-					alert ("test berhasil");
+					jQuery1113('#test').val(jQuery1113('#test1').val("test berhasil"));
 					}
 					
                 }
@@ -273,7 +274,7 @@ while($rows=mysql_fetch_object($result)){
 						
 						</div>
 			</div>
-			<label class="col-md-8" id="test">
+			<label class="col-md-8" id="test1" value="">
 			Test
 			</label>
 			
