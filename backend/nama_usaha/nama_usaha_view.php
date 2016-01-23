@@ -245,19 +245,21 @@ while($rows=mysql_fetch_object($result)){
 					var no_telepon=jQuery1113('#no_telepon').val();
 					var email=jQuery1113('#email').val();
 					var nama_pimpinan=jQuery1113('#nama_pimpinan').val();
-					var number_1 = jQuery1113('#number_1').val();
-					var number_2 = jQuery1113('#number_2').val();
-					var test= jQuery1113('#test').val();
-					var result =parseInt(number_1)+parseInt(number_2);
-					//message:alert('nama_usaha'+'\n'+nama_usaha+'\n'+'alamat'+'\n'+alamat+'\n'+'kode_pos'+'\n'+kode_pos+'\n'+'no_telepon'+'\n'+no_telepon+'\n'+'email'+'\n'+email+'\n'+'nama_pimpinan'+'\n'+nama_pimpinan+'\n'+'Nomer 1'+'\n'+number_1+'\n'+'Nomer 2'+'\n'+number_2+'\n');
+					//var number_1 = jQuery1113('#number_1').val();
+					//var number_2 = jQuery1113('#number_2').val();
+					//var test= jQuery1113('#test').val();
+					//var result =parseInt(number_1)+parseInt(number_2);
+					message:alert('nama_usaha'+'\n'+nama_usaha+'\n'+'alamat'+'\n'+alamat+'\n'+'kode_pos'+'\n'+kode_pos+'\n'+'no_telepon'+'\n'+no_telepon+'\n'+'email'+'\n'+email+'\n'+'nama_pimpinan'+'\n'+nama_pimpinan+'\n'+'Nomer 1'+'\n'+number_1+'\n'+'Nomer 2'+'\n'+number_2+'\n');
 					//alert(jQuery1113("#test").text());
-					
+					//jQuery1113('#nama_usaha').val(nama_usaha);
 					//alert(result);
 					//doinsertitem(tittle,keterangan,foto);
-					jQuery1113('#contoh_set').val(jQuery1113('#nama_usaha').val());
-
-					//jQuery1113('#nama_usaha').val(nama_usaha);
-					
+					jQuery1113('#nama_usha').val(jQuery1113('#nama_usaha').val());
+					jQuery1113('#almt').val(jQuery1113('#alamat').val());
+					jQuery1113('#kdepos').val(jQuery1113('#kode_pos').val());
+					jQuery1113('#notelp').val(jQuery1113('#no_telepon').val());
+					jQuery1113('#imail').val(jQuery1113('#email').val());
+					jQuery1113('#napim').val(jQuery1113('#nama_pimpinan').val());				
 					}
 					
                 }
@@ -276,7 +278,57 @@ while($rows=mysql_fetch_object($result)){
 			</div>
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="contoh_set" value="" class="col-md-10">
+							<input type="text" id="nama_usha" value="" class="col-md-10">
+						</div>
+					</div>
+					<div class="row">
+		<label class="col-md-8">
+			Alamat
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="almt" value="" class="col-md-10">
+						</div>
+					</div>
+					<div class="row">
+		<label class="col-md-8">
+			Kode Pos
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="kdepos" value="" class="col-md-10">
+						</div>
+					</div>
+					<div class="row">
+		<label class="col-md-8">
+			No Telepon
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="notelp" value="" class="col-md-10">
+						</div>
+					</div>
+					<div class="row">
+		<label class="col-md-8">
+			Email  
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="imail" value="" class="col-md-10">
+						</div>
+					</div>
+					<div class="row">
+		<label class="col-md-8">
+			Nama Pimpinan
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="napim" value="" class="col-md-10">
 						</div>
 					</div>
 	
