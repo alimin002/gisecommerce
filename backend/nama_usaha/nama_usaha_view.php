@@ -30,7 +30,7 @@ if(empty($_SESSION['username'])){
 		</thead>
 		<tbody>
 		<?php
-				//bata paging 
+				
 $batas='5';
 $tabel="berita";
 if(empty($_GET['halaman'])==false){
@@ -240,7 +240,47 @@ while($rows=mysql_fetch_object($result)){
 						<div class="col-md-12">
 							<input type="text" id="contoh_set" value="" class="col-md-10">
 						</div>
-						</div>		
+						</div>
+<div class="row">
+		<label class="col-md-8">
+			Alamat
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="contoh_set2" value="" class="col-md-10">
+						</div>
+						</div>	
+<div class="row">
+		<label class="col-md-8">
+			Kode Pos
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="contoh_set3" value="" class="col-md-10">
+						</div>
+						</div>	
+<div class="row">
+		<label class="col-md-8">
+			No Telepon
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="contoh_set4" value="" class="col-md-10">
+						</div>
+						</div>	
+<div class="row">
+		<label class="col-md-8">
+			Email
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="contoh_set5" value="" class="col-md-10">
+						</div>
+						</div>							
 		
 		
 			<label class="col-md-8" id="test1" value="">
