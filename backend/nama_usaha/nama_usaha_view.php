@@ -199,7 +199,7 @@ while($rows=mysql_fetch_object($result)){
                     className: "btn-success",
                     callback: function()
 					{
-					var nama_usaha=jQuery1113('#nama_usaha').val();'#contoh_set'
+					var nama_usaha=jQuery1113('#nama_usaha').val();
 					    alamat=jQuery1113('#alamat').val();
 						kodepos=jQuery1113('#kodepos').val();
 						no_telepon=jQuery1113('#no_telepon').val();
@@ -210,7 +210,11 @@ while($rows=mysql_fetch_object($result)){
 					jQuery1113('#contoh_set3').val(jQuery1113('#kodepos').val());
 					jQuery1113('#contoh_set4').val(jQuery1113('#no_telepon').val());
 					jQuery1113('#contoh_set5').val(jQuery1113('#email').val());
-					jQuery1113('#test1').text(jQuery1113('#contoh_set').text(jQuery1113('#nama_usaha').text()));
+					jQuery1113('#test1').text(jQuery1113('#nama_usaha').val());
+					jQuery1113('#test2').text(jQuery1113('#alamat').val());
+					jQuery1113('#test3').text(jQuery1113('#kodepos').val());
+					jQuery1113('#test4').text(jQuery1113('#no_telepon').val());
+					jQuery1113('#test5').text(jQuery1113('#email').val());
 					}
 					
                 }
@@ -275,7 +279,19 @@ while($rows=mysql_fetch_object($result)){
 						</div>
 			</div>
 			<label class="col-md-8" id="test1" value="">
-			Test
+			Test 1
+			</label>
+			<label class="col-md-8" id="test2" value="">
+			Test 2
+			</label>
+			<label class="col-md-8" id="test3" value="">
+			Test 3
+			</label>
+			<label class="col-md-8" id="test4" value="">
+			Test 4
+			</label>
+			<label class="col-md-8" id="test5" value="">
+			Test 5
 			</label>
 			
 			
