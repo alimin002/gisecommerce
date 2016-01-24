@@ -16,7 +16,8 @@ if(empty($_SESSION['username'])){
 					mysql_query($sql) or die(mysql_error());
 
 				}
-				//==========================================?>
+				//==========================================
+?>
 <div class='bs-docs-example'>
 	<h2 id="headings"> Nama Usaha</h2>
 	<table  class="table table-striped table-condensed">
@@ -26,82 +27,53 @@ if(empty($_SESSION['username'])){
 		<th><b>Kode Pos </b></th>
 		<th><b>No Telepon </b></th>
 		<th><b>Email </b></th>
-		<th><b>Nama Pimpinan</b></th>
 		</thead>
 		<tbody>
-		<?php
-				
-$batas='5';
-$tabel="berita";
-if(empty($_GET['halaman'])==false){
-$halaman=$_GET['halaman'];
-}else{
-$halaman=0;
-}
-$posisi=null;
-if(empty($halaman)){
-$posisi=0;
-$halaman=1;
-}else{
-$posisi=($halaman-1)* $batas;
-}
-		
-$query="SELECT * from nama_usaha order by nama_usaha asc limit $posisi,$batas ";
-$result=mysql_query($query) or die(mysql_error());
-$no=1;
-//proses menampilkan data
-while($rows=mysql_fetch_object($result)){
-
-		?>
-		<tr>
-			<td>
-			
-			</td>
-			<td>
-			
-			</td>
-			<td>
-			
-			</td>
-			<td>
-			
-			</td>
-			<td>
-			
-			</td>
-			<td>
-			
-			</td>
-			<td>
-			
-			</td>
-		</tr>
 		
 		<tr>
-		
 			<td>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="td1" value="" class="col-md-10">
+						</div>
+						</div>
 			</td>
 			<td>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="td2" value="" class="col-md-10">
+						</div>
+						</div>
 			</td>
 			<td>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="td3" value="" class="col-md-10">
+						</div>
+						</div>
 			</td>
 			<td>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="td4" value="" class="col-md-10">
+						</div>
+						</div>
 			</td>
 			<td>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="td4" value="" class="col-md-10">
+						</div>
+						</div>
 			</td>
 			<td>
+			
 			</td>
 			<td>
 			</td>
 		</tr>
 		
 		
-		
-		
-		<?php
-	$no++;
-	}?>
-
 		<tr>
 		
 			<td colspan='6' ></td><td>
@@ -226,6 +198,12 @@ while($rows=mysql_fetch_object($result)){
 					jQuery1113('#test3').text(jQuery1113('#kodepos').val());
 					jQuery1113('#test4').text(jQuery1113('#no_telepon').val());
 					jQuery1113('#test5').text(jQuery1113('#email').val());
+					
+					jQuery1113('#td1').val(jQuery1113('#nama_usaha').val());
+					jQuery1113('#td2').val(jQuery1113('#alamat').val());
+					jQuery1113('#td3').val(jQuery1113('#kodepos').val());
+					jQuery1113('#td4').val(jQuery1113('#no_telepon').val());
+					jQuery1113('#td5').val(jQuery1113('#email').val());
 
 					}
 					
@@ -311,20 +289,4 @@ while($rows=mysql_fetch_object($result)){
 			<label class="col-md-8"  value=""> Email </label>
 			Test 5
 			</label>
-					
-<?php	
-//=============CUT HERE for paging====================================
-
-// KODE UNTUK MENAMPILKAN PESAN STATUS
-if(isset($_GET['status'])) {
-	if($_GET['status'] == 0) {
-		echo " Operasi data berhasil";
-	} else {
-		echo "operasi gagal";
-	}
-}
-//close database
-//}
-?> 
-
 </div>
