@@ -92,11 +92,57 @@ while($rows=mysql_fetch_object($result)){
 			</a>
 			</td>
 		</tr>
+		
+		<tr>
+		
+			<td>
+			<?php
+			echo $rows -> nama_usaha;
+			?>
+			</td>
+			<td>
+			<?php
+			echo $rows -> alamat;
+			?>
+			</td>
+			<td>
+			<?php
+			echo $rows -> kode_pos;
+			?>
+			</td>
+			<td>
+			<?php
+			echo $rows -> no_telepon;
+			?>
+			</td>
+			<td>
+			<?php
+			echo $rows -> Email;
+			?>
+			</td>
+			<td>
+			<?php
+			echo $rows -> nama_pimpinan;
+			?>
+			</td>
+			<td>
+			<a href="index.php?mod=nama_usaha&pg=nama_usaha_form&id=" class='btn btn-xs btn-info'>
+			<i class="icon-pencil"></i>
+			</a>
+			<a href="index.php?mod=nama_usaha&pg=nama_usaha_view&act=del&id=" onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i>
+			</a>
+			</td>
+		</tr>
+		
+		
+		
+		
 		<?php
 	$no++;
 	}?>
 
 		<tr>
+		
 			<td colspan='6' ></td><td>
 			<button type="button"  class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
 </td>
