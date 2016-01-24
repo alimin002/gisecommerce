@@ -16,7 +16,8 @@ if(empty($_SESSION['username'])){
 					mysql_query($sql) or die(mysql_error());
 
 				}
-				//==========================================?>
+				//==========================================
+?>
 <div class='bs-docs-example'>
 	<h2 id="headings"> Nama Usaha</h2>
 	<table  class="table table-striped table-condensed">
@@ -29,30 +30,7 @@ if(empty($_SESSION['username'])){
 		<th><b>Nama Pimpinan</b></th>
 		</thead>
 		<tbody>
-		<?php
-				
-$batas='5';
-$tabel="berita";
-if(empty($_GET['halaman'])==false){
-$halaman=$_GET['halaman'];
-}else{
-$halaman=0;
-}
-$posisi=null;
-if(empty($halaman)){
-$posisi=0;
-$halaman=1;
-}else{
-$posisi=($halaman-1)* $batas;
-}
 		
-$query="SELECT * from nama_usaha order by nama_usaha asc limit $posisi,$batas ";
-$result=mysql_query($query) or die(mysql_error());
-$no=1;
-//proses menampilkan data
-while($rows=mysql_fetch_object($result)){
-
-		?>
 		<tr>
 			<td>
 			
@@ -94,14 +72,6 @@ while($rows=mysql_fetch_object($result)){
 			<td>
 			</td>
 		</tr>
-		
-		
-		
-		
-		<?php
-	$no++;
-	}?>
-
 		<tr>
 		
 			<td colspan='6' ></td><td>
@@ -311,20 +281,4 @@ while($rows=mysql_fetch_object($result)){
 			<label class="col-md-8"  value=""> Email </label>
 			Test 5
 			</label>
-					
-<?php	
-//=============CUT HERE for paging====================================
-
-// KODE UNTUK MENAMPILKAN PESAN STATUS
-if(isset($_GET['status'])) {
-	if($_GET['status'] == 0) {
-		echo " Operasi data berhasil";
-	} else {
-		echo "operasi gagal";
-	}
-}
-//close database
-//}
-?> 
-
 </div>
