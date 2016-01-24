@@ -204,7 +204,11 @@ while($rows=mysql_fetch_object($result)){
 						kodepos=jQuery1113('#kodepos').val();
 						no_telepon=jQuery1113('#no_telepon').val();
 						email=jQuery1113('#email').val();
-						test=jQuery1113('#test').val();
+						test1=jQuery1113('#test1').val();
+						test2=jQuery1113('#test2').val();
+						test3=jQuery1113('#test3').val();
+						test4=jQuery1113('#test4').val();
+						test5=jQuery1113('#test5').val();
 					jQuery1113('#contoh_set').val(jQuery1113('#nama_usaha').val());
 					jQuery1113('#contoh_set2').val(jQuery1113('#alamat').val());
 					jQuery1113('#contoh_set3').val(jQuery1113('#kodepos').val());
@@ -215,6 +219,7 @@ while($rows=mysql_fetch_object($result)){
 					jQuery1113('#test3').text(jQuery1113('#kodepos').val());
 					jQuery1113('#test4').text(jQuery1113('#no_telepon').val());
 					jQuery1113('#test5').text(jQuery1113('#email').val());
+
 					}
 					
                 }
@@ -237,47 +242,7 @@ while($rows=mysql_fetch_object($result)){
 						</div>
 						</div>		
 		
-		<label class="col-md-8">
-			Alamat
-			</label>
-			
-			<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="contoh_set2" value="" class="col-md-10">
-						
-						</div>
-			</div>
-		<label class="col-md-8">
-			Kode Pos
-			</label>
-			
-			<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="contoh_set3" value="" class="col-md-10">
-						
-						</div>
-			</div>
-		<label class="col-md-8">
-			No Telepon
-			</label>
-			
-			<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="contoh_set4" value="" class="col-md-10">
-						
-						</div>
-			</div>
-			
-		<label class="col-md-8">
-			Email
-			</label>
-			
-			<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="contoh_set5" value="" class="col-md-10">
-						
-						</div>
-			</div>
+		
 			<label class="col-md-8" id="test1" value="">
 			Test 1
 			</label>
@@ -293,16 +258,13 @@ while($rows=mysql_fetch_object($result)){
 			<label class="col-md-8" id="test5" value="">
 			Test 5
 			</label>
-			
-			
 					
-	
-	
 <?php	
 //=============CUT HERE for paging====================================
 $tampil2=mysql_query("select from 'nama_usaha'");
 $jmldata=mysql_num_rows($tampil2);
 $jumlah_halaman=ceil($jmldata/$batas);
+  
 ?>
             <div class='dataTables_paginate paging_bootstrap'>
                 <ul class="pagination">
@@ -322,6 +284,6 @@ if(isset($_GET['status'])) {
 }
 //close database
 //}
-?>
+?>  
 
 </div>
