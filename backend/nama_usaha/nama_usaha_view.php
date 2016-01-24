@@ -307,19 +307,7 @@ while($rows=mysql_fetch_object($result)){
 					
 <?php	
 //=============CUT HERE for paging====================================
-$tampil2=mysql_query("select from 'nama_usaha'");
-$jmldata=mysql_num_rows($tampil2);
-$jumlah_halaman=ceil($jmldata/$batas);
-  
-?>
-            <div class='dataTables_paginate paging_bootstrap'>
-                <ul class="pagination">
-                    <?php
-						pagination($halaman, $jumlah_halaman, "nama_usaha"); ?>
-                </ul>
-            </div>
-            <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
-	<?php
+
 // KODE UNTUK MENAMPILKAN PESAN STATUS
 if(isset($_GET['status'])) {
 	if($_GET['status'] == 0) {
@@ -330,6 +318,6 @@ if(isset($_GET['status'])) {
 }
 //close database
 //}
-?>  
+?> 
 
 </div>
