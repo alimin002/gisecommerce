@@ -232,6 +232,7 @@ while($rows=mysql_fetch_object($result)){
 	</table>
 	
 	<div class="row">
+	 
 		<label class="col-md-8">
 			Nama Usaha
 			</label>
@@ -282,20 +283,25 @@ while($rows=mysql_fetch_object($result)){
 						</div>
 						</div>							
 		
-		
+		   
 			<label class="col-md-8" id="test1" value="">
+			<label class="col-md-8"  value=""> Nama Usaha </label>
 			Test 1
 			</label>
 			<label class="col-md-8" id="test2" value="">
+			<label class="col-md-8"  value=""> Alamat </label>
 			Test 2
 			</label>
 			<label class="col-md-8" id="test3" value="">
+			<label class="col-md-8"  value=""> Kode Pos </label>
 			Test 3
 			</label>
 			<label class="col-md-8" id="test4" value="">
+			<label class="col-md-8"  value=""> No Telepon </label>
 			Test 4
 			</label>
 			<label class="col-md-8" id="test5" value="">
+			<label class="col-md-8"  value=""> Email </label>
 			Test 5
 			</label>
 					
