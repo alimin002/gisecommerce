@@ -210,7 +210,7 @@ while($rows=mysql_fetch_object($result)){
 					jQuery1113('#contoh_set3').val(jQuery1113('#kodepos').val());
 					jQuery1113('#contoh_set4').val(jQuery1113('#no_telepon').val());
 					jQuery1113('#contoh_set5').val(jQuery1113('#email').val());
-					jQuery1113('#test1').text(jQuery1113('#contoh_set').text(jQuery1113('#nama_usaha').text()));
+					jQuery1113('#test1').text(jQuery1113('#nama_usaha').val());
 					}
 					
                 }
