@@ -165,16 +165,16 @@ if(empty($_SESSION['username'])){
 				{
                     label: "Cancel",
                     className: "btn-default",
-                    callback: function()
-					{
-
-                    }
+                    callback: function();
                 },
                 success: 
 				{
                     label: "Save",
                     className: "btn-success",
                     callback: function()
+					{
+						
+					}
 					{
 					var nama_usaha=jQuery1113('#nama_usaha').val();
 					    alamat=jQuery1113('#alamat').val();
