@@ -62,7 +62,7 @@ if(empty($_SESSION['username'])){
 			<td>
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="td4" value="" class="col-md-10">
+							<input type="text" id="td5" value="" class="col-md-10">
 						</div>
 						</div>
 			</td>
@@ -72,8 +72,6 @@ if(empty($_SESSION['username'])){
 			<td>
 			</td>
 		</tr>
-		
-		
 		<tr>
 		
 			<td colspan='6' ></td><td>
