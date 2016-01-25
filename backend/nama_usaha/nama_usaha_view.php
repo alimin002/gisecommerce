@@ -154,29 +154,22 @@ if(empty($_SESSION['username'])){
 				'';
 				
     		
-			{
-				bootbox.dialog(
-{
-            title: "Tambah ",
+			bootbox.dialog({
+            title: "Edit Item Pembelian",
             message:html_string,
-            buttons: 
-			{
-                dismiss: 
-				{
+            buttons: {
+                dismiss: {
                     label: "Cancel",
                     className: "btn-default",
-                    callback: function()
-					{
+                    callback: function() {
 
                     }
                 },
-                success: 
-				{
+                success: {
                     label: "Save",
                     className: "btn-success",
-                    callback: function()
-					{
-					var nama_usaha=jQuery1113('#nama_usaha').val();
+                    callback: function() {
+						var nama_usaha=jQuery1113('#nama_usaha').val();
 					    alamat=jQuery1113('#alamat').val();
 						kodepos=jQuery1113('#kodepos').val();
 						no_telepon=jQuery1113('#no_telepon').val();
@@ -209,7 +202,7 @@ if(empty($_SESSION['username'])){
             }
 });
             }
-		}
+		
 		</script>
 		</tbody>
 	</table>
