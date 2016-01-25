@@ -31,78 +31,57 @@ if(empty($_SESSION['username'])){
 		<th><b>KLUSPT</b></th>
 		</thead>
 		<tbody>
-		<?php
-				//bata paging 
-$batas='5';
-$tabel="berita";
-if(empty($_GET['halaman'])==false){
-$halaman=$_GET['halaman'];
-}else{
-$halaman=0;
-}
-$posisi=null;
-if(empty($halaman)){
-$posisi=0;
-$halaman=1;
-}else{
-$posisi=($halaman-1)* $batas;
-}
 		
-$query="SELECT * from   pajak order by no_seri_pajak asc limit $posisi,$batas ";
-$result=mysql_query($query) or die(mysql_error());
-$no=1;
-//proses menampilkan data
-while($rows=mysql_fetch_object($result)){
-
-		?>
 		<tr>
 			<td>
-			<?php
-			echo $rows -> no_seri_pajak;
-			?>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="td1" value="" class="col-md-10">
+						</div>
+						</div>
 			</td>
 			<td>
-			<?php
-			echo $rows -> npwp;
-			?>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="td1" value="" class="col-md-10">
+						</div>
+						</div>
 			</td>
 			<td>
-			<?php
-			echo $rows -> no_pkp;
-			?>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="td1" value="" class="col-md-10">
+						</div>
+						</div>
 			</td>
 			<td>
-			<?php
-			echo $rows -> tgl_pkp;
-			?>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="td1" value="" class="col-md-10">
+						</div>
+						</div>
 			</td>
 			<td>
-			<?php
-			echo $rows -> kode_cabang;
-			?>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="td1" value="" class="col-md-10">
+						</div>
+						</div>
 			</td>
 			<td>
-			<?php
-			echo $rows -> jenis_usaha;
-			?>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="td1" value="" class="col-md-10">
+						</div>
+						</div>
 			</td>
 			<td>
-			<?php
-			echo $rows -> kluspt;
-			?>
+			
 			</td>
 			<td>
-			<a href="index.php?mod=pajak&pg=pajak_form&id=" class='btn btn-xs btn-info'>
-			<i class="icon-pencil"></i>
-			</a>
-			<a href="index.php?mod=pajak&pg=pajak_view&act=del&id=" onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i>
-			</a>
+			
 			</td>
 		</tr>
-		<?php
-	$no++;
-	}?>
-
 		<tr>
 			<td colspan='6' ></td><td>
 			<button type="button"  class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
@@ -211,14 +190,42 @@ while($rows=mysql_fetch_object($result)){
                     label: "Save",
                     className: "btn-success",
                     callback: function() {
-					var nama_usaha=jQuery1113('#nama_usaha').val();
-					var alamat=jQuery1113('#alamat').val();
-					var kode_pos=jQuery1113('#kode_pos').val();
-					var no_telepon=jQuery1113('#no_telepon').val();
-					var email=jQuery1113('#email').val();
-					var nama_pimpinan=jQuery1113('#nama_pimpinan').val();
-					message:alert("sukses");
-					doinsertitem(tittle,keterangan,foto);
+					var no_seri_pajak=jQuery1113('#no_seri_pajak').val();
+					var npwp=jQuery1113('#npwp').val();
+					var no_pkp=jQuery1113('#no_pkp').val();
+					var tgl_pkp=jQuery1113('#tgl_pkp').val();
+					var kode_cabang=jQuery1113('#kode_cabang').val();
+					var jenis_usaha=jQuery1113('#jenis_usaha').val();
+					var kluspt=jQuery1113('#kluspt').val();
+					test1=jQuery1113('#test1').val();
+					test2=jQuery1113('#test2').val();
+					test3=jQuery1113('#test3').val();
+					test4=jQuery1113('#test4').val();
+					test5=jQuery1113('#test5').val();
+					
+					jQuery1113('#contoh_set').val(jQuery1113('#no_seri_pajak').val());
+					jQuery1113('#contoh_set2').val(jQuery1113('#npwp').val());
+					jQuery1113('#contoh_set3').val(jQuery1113('#no_pkp').val());
+					jQuery1113('#contoh_set4').val(jQuery1113('#tgl_pkp').val());
+					jQuery1113('#contoh_set5').val(jQuery1113('#kode_cabang').val());
+					jQuery1113('#contoh_set').val(jQuery1113('#jenis_usaha').val());
+					jQuery1113('#contoh_set').val(jQuery1113('#kluspt').val());
+					jQuery1113('#test1').text(jQuery1113('#no_seri_pajak').val());
+					jQuery1113('#test2').text(jQuery1113('#npwp').val());
+					jQuery1113('#test3').text(jQuery1113('#no_pkp').val());
+					jQuery1113('#test4').text(jQuery1113('#tgl_pkp').val());
+					jQuery1113('#test5').text(jQuery1113('#kode_cabang').val());
+					jQuery1113('#test5').text(jQuery1113('#jenis_usaha').val());
+					jQuery1113('#test5').text(jQuery1113('#kluspt').val());
+					
+					jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val());
+					jQuery1113('#td2').val(jQuery1113('npwp').val());
+					jQuery1113('#td3').val(jQuery1113('#no_pkp').val());
+					jQuery1113('#td4').val(jQuery1113('#tgl_pkp').val());
+					jQuery1113('#td5').val(jQuery1113('#kode_cabang').val());
+					jQuery1113('#td5').val(jQuery1113('#jenis_usaha').val());
+					jQuery1113('#td5').val(jQuery1113('#kluspt').val());
+	
 					}
                 }
             }
@@ -227,30 +234,108 @@ while($rows=mysql_fetch_object($result)){
 		</script>
 		</tbody>
 	</table>
-<?php	
-//=============CUT HERE for paging====================================
-$tampil2=mysql_query("select from 'pajak'");
-$jmldata=mysql_num_rows($tampil2);
-$jumlah_halaman=ceil($jmldata/$batas);
-?>
-            <div class='dataTables_paginate paging_bootstrap'>
-                <ul class="pagination">
-                    <?php
-						pagination($halaman, $jumlah_halaman, "pajak"); ?>
-                </ul>
-            </div>
-            <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
-	<?php
-// KODE UNTUK MENAMPILKAN PESAN STATUS
-if(isset($_GET['status'])) {
-	if($_GET['status'] == 0) {
-		echo " Operasi data berhasil";
-	} else {
-		echo "operasi gagal";
-	}
-}
-//close database
-//}
-?>
+<div class="row">
+	 
+		<label class="col-md-8">
+			No Seri Pajak
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="contoh_set" value="" class="col-md-10">
+						</div>
+						</div>
+<div class="row">
+		<label class="col-md-8">
+			NPWP
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="contoh_set2" value="" class="col-md-10">
+						</div>
+						</div>	
+<div class="row">
+		<label class="col-md-8">
+			No PKP
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="contoh_set3" value="" class="col-md-10">
+						</div>
+						</div>	
+<div class="row">
+		<label class="col-md-8">
+			Tanggal PKP
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="contoh_set4" value="" class="col-md-10">
+						</div>
+						</div>	
+
+<div class="row">
+		<label class="col-md-8">
+			Kode Cabang
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="contoh_set5" value="" class="col-md-10">
+						</div>
+						</div>	
+<div class="row">
+		<label class="col-md-8">
+			Jenis Usaha
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="contoh_set5" value="" class="col-md-10">
+						</div>
+						</div>
+<div class="row">
+		<label class="col-md-8">
+			KLUSPT
+			</label>
+			</div>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="contoh_set5" value="" class="col-md-10">
+						</div>
+						</div>						
+		
+		   
+			<label class="col-md-8" id="test1" value="">
+			<label class="col-md-8"  value=""> No Seri Pajak </label>
+			Test 1
+			</label>
+			<label class="col-md-8" id="test2" value="">
+			<label class="col-md-8"  value=""> NPWP</label>
+			Test 2
+			</label>
+			<label class="col-md-8" id="test3" value="">
+			<label class="col-md-8"  value=""> No PKP </label>
+			Test 3
+			</label>
+			<label class="col-md-8" id="test4" value="">
+			<label class="col-md-8"  value=""> Tanggal PKP </label>
+			Test 4
+			</label>
+			<label class="col-md-8" id="test5" value="">
+			<label class="col-md-8"  value="">Kode Cabang </label>
+			Test 5
+			</label>
+			<label class="col-md-8" id="test5" value="">
+			<label class="col-md-8"  value="">Jenis Usaha</label>
+			Test 5
+			</label>
+			<label class="col-md-8" id="test5" value="">
+			<label class="col-md-8"  value="">KLUSPT</label>
+			Test 5
+			</label>
+
 
 </div>
