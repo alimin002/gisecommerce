@@ -43,35 +43,42 @@ if(empty($_SESSION['username'])){
 			<td>
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="td1" value="" class="col-md-10">
+							<input type="text" id="td2" value="" class="col-md-10">
 						</div>
 						</div>
 			</td>
 			<td>
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="td1" value="" class="col-md-10">
+							<input type="text" id="td3" value="" class="col-md-10">
 						</div>
 						</div>
 			</td>
 			<td>
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="td1" value="" class="col-md-10">
+							<input type="text" id="td4" value="" class="col-md-10">
 						</div>
 						</div>
 			</td>
 			<td>
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="td1" value="" class="col-md-10">
+							<input type="text" id="td5" value="" class="col-md-10">
 						</div>
 						</div>
 			</td>
 			<td>
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="td1" value="" class="col-md-10">
+							<input type="text" id="td6" value="" class="col-md-10">
+						</div>
+						</div>
+			</td>
+			<td>
+			<div class="row">
+						<div class="col-md-12">
+							<input type="text" id="td7" value="" class="col-md-10">
 						</div>
 						</div>
 			</td>
@@ -202,29 +209,31 @@ if(empty($_SESSION['username'])){
 					test3=jQuery1113('#test3').val();
 					test4=jQuery1113('#test4').val();
 					test5=jQuery1113('#test5').val();
+					test6=jQuery1113('#test6').val();
+					test7=jQuery1113('#test7').val();
 					
 					jQuery1113('#contoh_set').val(jQuery1113('#no_seri_pajak').val());
 					jQuery1113('#contoh_set2').val(jQuery1113('#npwp').val());
 					jQuery1113('#contoh_set3').val(jQuery1113('#no_pkp').val());
 					jQuery1113('#contoh_set4').val(jQuery1113('#tgl_pkp').val());
 					jQuery1113('#contoh_set5').val(jQuery1113('#kode_cabang').val());
-					jQuery1113('#contoh_set').val(jQuery1113('#jenis_usaha').val());
-					jQuery1113('#contoh_set').val(jQuery1113('#kluspt').val());
+					jQuery1113('#contoh_set6').val(jQuery1113('#jenis_usaha').val());
+					jQuery1113('#contoh_set7').val(jQuery1113('#kluspt').val());
 					jQuery1113('#test1').text(jQuery1113('#no_seri_pajak').val());
 					jQuery1113('#test2').text(jQuery1113('#npwp').val());
 					jQuery1113('#test3').text(jQuery1113('#no_pkp').val());
 					jQuery1113('#test4').text(jQuery1113('#tgl_pkp').val());
 					jQuery1113('#test5').text(jQuery1113('#kode_cabang').val());
-					jQuery1113('#test5').text(jQuery1113('#jenis_usaha').val());
-					jQuery1113('#test5').text(jQuery1113('#kluspt').val());
+					jQuery1113('#test6').text(jQuery1113('#jenis_usaha').val());
+					jQuery1113('#test7').text(jQuery1113('#kluspt').val());
 					
 					jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val());
-					jQuery1113('#td2').val(jQuery1113('npwp').val());
+					jQuery1113('#td2').val(jQuery1113('#npwp').val());
 					jQuery1113('#td3').val(jQuery1113('#no_pkp').val());
 					jQuery1113('#td4').val(jQuery1113('#tgl_pkp').val());
 					jQuery1113('#td5').val(jQuery1113('#kode_cabang').val());
-					jQuery1113('#td5').val(jQuery1113('#jenis_usaha').val());
-					jQuery1113('#td5').val(jQuery1113('#kluspt').val());
+					jQuery1113('#td6').val(jQuery1113('#jenis_usaha').val());
+					jQuery1113('#td7').val(jQuery1113('#kluspt').val());
 	
 					}
                 }
@@ -293,7 +302,7 @@ if(empty($_SESSION['username'])){
 			</div>
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="contoh_set5" value="" class="col-md-10">
+							<input type="text" id="contoh_set6" value="" class="col-md-10">
 						</div>
 						</div>
 <div class="row">
@@ -303,7 +312,7 @@ if(empty($_SESSION['username'])){
 			</div>
 			<div class="row">
 						<div class="col-md-12">
-							<input type="text" id="contoh_set5" value="" class="col-md-10">
+							<input type="text" id="contoh_set7" value="" class="col-md-10">
 						</div>
 						</div>						
 		
@@ -328,11 +337,11 @@ if(empty($_SESSION['username'])){
 			<label class="col-md-8"  value="">Kode Cabang </label>
 			Test 5
 			</label>
-			<label class="col-md-8" id="test5" value="">
+			<label class="col-md-8" id="test6" value="">
 			<label class="col-md-8"  value="">Jenis Usaha</label>
 			Test 5
 			</label>
-			<label class="col-md-8" id="test5" value="">
+			<label class="col-md-8" id="test7" value="">
 			<label class="col-md-8"  value="">KLUSPT</label>
 			Test 5
 			</label>
