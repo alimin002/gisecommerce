@@ -28,10 +28,11 @@ if(empty($_SESSION['username'])){
 		<th><b>No Telepon </b></th>
 		<th><b>Email </b></th>
 		</thead>
-		<tbody>
+		<tbody id="container">
 		
 		<tr>
 			<td>
+			<div id="contenbox">
 			<div class="row">
 						<div class="col-md-12">
 							<input type="text" id="td1" value="" class="col-md-10">
@@ -65,6 +66,7 @@ if(empty($_SESSION['username'])){
 							<input type="text" id="td5" value="" class="col-md-10">
 						</div>
 						</div>
+						</div>
 			</td>
 			<td>
 			
@@ -73,9 +75,9 @@ if(empty($_SESSION['username'])){
 			</td>
 		</tr>
 		<tr>
-		
-			<td colspan='6' ></td><td>
-			<button type="button"  class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
+		<td colspan='6' ></td><td>
+			<button type="button"  name="#add_btn"   class="btn btn-success" onclick="additem();">  <i class="fa fa-plus">  </i>  </button>
+			
 </td>
 		</tr>
 		
@@ -172,7 +174,8 @@ if(empty($_SESSION['username'])){
 						{
 					datagrid();
 						}
-						var nama_usaha=jQuery1113('#nama_usaha').val();
+						var
+						nama_usaha=jQuery1113('#nama_usaha').val();
 					    alamat=jQuery1113('#alamat').val();
 						kodepos=jQuery1113('#kodepos').val();
 						no_telepon=jQuery1113('#no_telepon').val();
@@ -198,7 +201,7 @@ if(empty($_SESSION['username'])){
 					jQuery1113('#td3').val(jQuery1113('#kodepos').val());
 					jQuery1113('#td4').val(jQuery1113('#no_telepon').val());
 					jQuery1113('#td5').val(jQuery1113('#email').val());
-
+					
 					}
 					
 					
@@ -206,18 +209,37 @@ if(empty($_SESSION['username'])){
             }
 });
             }
-		function datagrid ()
-					{
-					alert ("sukses");	
-						
-					}
+		function() {
+            var count = 0;
+ 
+            $("#add_btn").click(function(){
+                    count += 1;
+                $('#container').append(
+                             '<tr class="records">'
+                         + '<td ><div id="'+count+'">' + count + '</div></td>'
+                         + '<td><input id="nama_usaha_' + count + '" name="nama_usaha_' + count + '" type="text"></td>'
+                         + '<td><input id="alamat' + count + '" name="alamat' + count + '" type="text"></td>'
+                         + '<td><input id="kodepos' + count + '" name="kodepos' + count + '" type="text"></td>'
+                         + '<td><a class="remove_item" href="#" >Delete</a>'
+                         + '<input id="rows_' + count + '" name="rows[]" value="'+ count +'" type="hidden"></td></tr>'
+                    );
+                });
+ 
+                $(".remove_item").live('click', function (ev) {
+                if (ev.type == 'click') {
+                $(this).parents(".records").fadeOut();
+                        $(this).parents(".records").remove();
+            }
+            });
+        };
 		
 		</script>
+		<div id="content"> 
 		</tbody>
 	</table>
 	
 	<div class="row">
-	 
+	<div class="div">
 		<label class="col-md-8">
 			Nama Usaha
 			</label>
@@ -227,6 +249,7 @@ if(empty($_SESSION['username'])){
 							<input type="text" id="contoh_set" value="" class="col-md-10">
 						</div>
 						</div>
+						</div>	
 <div class="row">
 		<label class="col-md-8">
 			Alamat
@@ -289,4 +312,5 @@ if(empty($_SESSION['username'])){
 			<label class="col-md-8"  value=""> Email </label>
 			Test 5
 			</label>
+</div>
 </div>
