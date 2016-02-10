@@ -197,41 +197,6 @@ if(empty($_SESSION['username'])){
 					jQuery1113('#td5').val(jQuery1113('#email').val());
 
 					}
-				 function() {
-						var nama_usaha=jQuery1113('#nama_usaha').append();
-						$("label1").append();
-					    alamat=jQuery1113('#alamat')..append();
-						$("label2").append();
-						kodepos=jQuery1113('#kodepos')..append();
-						$("label3").append();
-						no_telepon=jQuery1113('#no_telepon')..append();
-						$("label4").append();
-						email=jQuery1113('#email').append();
-						$("label5").append();
-						test1=jQuery1113('#test1').val();
-						test2=jQuery1113('#test2').val();
-						test3=jQuery1113('#test3').val();
-						test4=jQuery1113('#test4').val();
-						test5=jQuery1113('#test5').val();
-					jQuery1113('#contoh_set').val(jQuery1113('#nama_usaha').val());
-					jQuery1113('#contoh_set2').val(jQuery1113('#alamat').val());
-					jQuery1113('#contoh_set3').val(jQuery1113('#kodepos').val());
-					jQuery1113('#contoh_set4').val(jQuery1113('#no_telepon').val());
-					jQuery1113('#contoh_set5').val(jQuery1113('#email').val());
-					jQuery1113('#test1').text(jQuery1113('#nama_usaha').val());
-					jQuery1113('#test2').text(jQuery1113('#alamat').val());
-					jQuery1113('#test3').text(jQuery1113('#kodepos').val());
-					jQuery1113('#test4').text(jQuery1113('#no_telepon').val());
-					jQuery1113('#test5').text(jQuery1113('#email').val());
-					
-					jQuery1113('#td1').val(jQuery1113('#nama_usaha').val());
-					jQuery1113('#td2').val(jQuery1113('#alamat').val());
-					jQuery1113('#td3').val(jQuery1113('#kodepos').val());
-					jQuery1113('#td4').val(jQuery1113('#no_telepon').val());
-					jQuery1113('#td5').val(jQuery1113('#email').val());
-
-					}
-						
 					
                 }
             }
