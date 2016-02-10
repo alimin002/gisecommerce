@@ -169,6 +169,9 @@ if(empty($_SESSION['username'])){
                     label: "Save",
                     className: "btn-success",
                     callback: function() {
+						{
+					datagrid();
+						}
 						var nama_usaha=jQuery1113('#nama_usaha').val();
 					    alamat=jQuery1113('#alamat').val();
 						kodepos=jQuery1113('#kodepos').val();
@@ -205,7 +208,7 @@ if(empty($_SESSION['username'])){
             }
 		function datagrid ()
 					{
-						
+					alert ("sukses");	
 						
 					}
 		
