@@ -33,7 +33,7 @@ if(empty($_SESSION['username'])){
 		<tbody>
 		
 		<tr>
-			<td>
+			<td id="td">
 			<div class="row">
 						<div class="col-md-12">
 							<input type="text" id="td1" value="" class="col-md-10">
@@ -91,7 +91,7 @@ if(empty($_SESSION['username'])){
 		</tr>
 		<tr>
 			<td colspan='6' ></td><td>
-			<button type="button"  class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
+			<button id="btn2" type="button"   class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
 </td>
 		</tr>
 		<script>
@@ -196,7 +196,10 @@ if(empty($_SESSION['username'])){
                 success: {
                     label: "Save",
                     className: "btn-success",
-                    callback: function() {
+                    callback:  function() {
+						{
+					dataku();
+						}
 					var no_seri_pajak=jQuery1113('#no_seri_pajak').val();
 					var npwp=jQuery1113('#npwp').val();
 					var no_pkp=jQuery1113('#no_pkp').val();
@@ -204,28 +207,8 @@ if(empty($_SESSION['username'])){
 					var kode_cabang=jQuery1113('#kode_cabang').val();
 					var jenis_usaha=jQuery1113('#jenis_usaha').val();
 					var kluspt=jQuery1113('#kluspt').val();
-					test1=jQuery1113('#test1').val();
-					test2=jQuery1113('#test2').val();
-					test3=jQuery1113('#test3').val();
-					test4=jQuery1113('#test4').val();
-					test5=jQuery1113('#test5').val();
-					test6=jQuery1113('#test6').val();
-					test7=jQuery1113('#test7').val();
-					
-					jQuery1113('#contoh_set').val(jQuery1113('#no_seri_pajak').val());
-					jQuery1113('#contoh_set2').val(jQuery1113('#npwp').val());
-					jQuery1113('#contoh_set3').val(jQuery1113('#no_pkp').val());
-					jQuery1113('#contoh_set4').val(jQuery1113('#tgl_pkp').val());
-					jQuery1113('#contoh_set5').val(jQuery1113('#kode_cabang').val());
-					jQuery1113('#contoh_set6').val(jQuery1113('#jenis_usaha').val());
-					jQuery1113('#contoh_set7').val(jQuery1113('#kluspt').val());
-					jQuery1113('#test1').text(jQuery1113('#no_seri_pajak').val());
-					jQuery1113('#test2').text(jQuery1113('#npwp').val());
-					jQuery1113('#test3').text(jQuery1113('#no_pkp').val());
-					jQuery1113('#test4').text(jQuery1113('#tgl_pkp').val());
-					jQuery1113('#test5').text(jQuery1113('#kode_cabang').val());
-					jQuery1113('#test6').text(jQuery1113('#jenis_usaha').val());
-					jQuery1113('#test7').text(jQuery1113('#kluspt').val());
+					var kotak1=jQuery1113('#no_seri_pajak').val();
+					var kotak2=npwp=jQuery1113('#npwp').val();
 					
 					jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val());
 					jQuery1113('#td2').val(jQuery1113('#npwp').val());
@@ -234,117 +217,19 @@ if(empty($_SESSION['username'])){
 					jQuery1113('#td5').val(jQuery1113('#kode_cabang').val());
 					jQuery1113('#td6').val(jQuery1113('#jenis_usaha').val());
 					jQuery1113('#td7').val(jQuery1113('#kluspt').val());
-	
+					
 					}
+					
                 }
             }
 });
             }
+			function dataku(){
+					var btn2=$('td1').append();
+						$("td").(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
+						};
+					
 		</script>
 		</tbody>
-	</table>
-<div class="row">
-	 
-		<label class="col-md-8">
-			No Seri Pajak
-			</label>
-			</div>
-			<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="contoh_set" value="" class="col-md-10">
-						</div>
-						</div>
-<div class="row">
-		<label class="col-md-8">
-			NPWP
-			</label>
-			</div>
-			<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="contoh_set2" value="" class="col-md-10">
-						</div>
-						</div>	
-<div class="row">
-		<label class="col-md-8">
-			No PKP
-			</label>
-			</div>
-			<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="contoh_set3" value="" class="col-md-10">
-						</div>
-						</div>	
-<div class="row">
-		<label class="col-md-8">
-			Tanggal PKP
-			</label>
-			</div>
-			<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="contoh_set4" value="" class="col-md-10">
-						</div>
-						</div>	
-
-<div class="row">
-		<label class="col-md-8">
-			Kode Cabang
-			</label>
-			</div>
-			<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="contoh_set5" value="" class="col-md-10">
-						</div>
-						</div>	
-<div class="row">
-		<label class="col-md-8">
-			Jenis Usaha
-			</label>
-			</div>
-			<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="contoh_set6" value="" class="col-md-10">
-						</div>
-						</div>
-<div class="row">
-		<label class="col-md-8">
-			KLUSPT
-			</label>
-			</div>
-			<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="contoh_set7" value="" class="col-md-10">
-						</div>
-						</div>						
-		
-		   
-			<label class="col-md-8" id="test1" value="">
-			<label class="col-md-8"  value=""> No Seri Pajak </label>
-			Test 1
-			</label>
-			<label class="col-md-8" id="test2" value="">
-			<label class="col-md-8"  value=""> NPWP</label>
-			Test 2
-			</label>
-			<label class="col-md-8" id="test3" value="">
-			<label class="col-md-8"  value=""> No PKP </label>
-			Test 3
-			</label>
-			<label class="col-md-8" id="test4" value="">
-			<label class="col-md-8"  value=""> Tanggal PKP </label>
-			Test 4
-			</label>
-			<label class="col-md-8" id="test5" value="">
-			<label class="col-md-8"  value="">Kode Cabang </label>
-			Test 5
-			</label>
-			<label class="col-md-8" id="test6" value="">
-			<label class="col-md-8"  value="">Jenis Usaha</label>
-			Test 5
-			</label>
-			<label class="col-md-8" id="test7" value="">
-			<label class="col-md-8"  value="">KLUSPT</label>
-			Test 5
-			</label>
-
-
+	</table>					
 </div>
