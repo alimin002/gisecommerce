@@ -40,7 +40,7 @@ if(empty($_SESSION['username'])){
 						</div>
 						</div>
 			</td>
-			<td>
+			<td id="tdk1">
 			<div class="row">
 						<div class="col-md-12">
 							<input type="text" id="td2" value="" class="col-md-10">
@@ -91,7 +91,7 @@ if(empty($_SESSION['username'])){
 		</tr>
 		<tr>
 			<td colspan='6' ></td><td>
-			<button id="btn2" type="button"   class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
+			<button  type="button"   class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
 </td>
 		</tr>
 		<script>
@@ -225,10 +225,13 @@ if(empty($_SESSION['username'])){
 });
             }
 			function dataku(){
-					var btn2=$('td1').append();
-						$("td").(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
+					var td1=$('#td1');
+						td2=$('#td2');
+						td3=$('#td3');
+						$("td").append(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
+						$("td").append(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
+						$("td").append(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
 						};
-					
 		</script>
 		</tbody>
 	</table>					

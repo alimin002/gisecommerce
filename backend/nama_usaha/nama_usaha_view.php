@@ -206,10 +206,15 @@ if(empty($_SESSION['username'])){
                 }
             }
 });
-            }
-		function() {
-           
-        };
+            };
+			function datagrid(){
+					var td1=$('#td1');
+						td2=$('#td2');
+						td3=$('#td3');
+						$("td").append(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
+						$("td").append(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
+						$("td").append(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
+						};
 		
 		</script>
 		</tbody>
