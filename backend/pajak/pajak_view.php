@@ -30,17 +30,17 @@ if(empty($_SESSION['username'])){
 		<th><b>Jenis Usaha</b></th>
 		<th><b>KLUSPT</b></th>
 		</thead>
-		<tbody>
+		<tbody id="tbody-item"> 
 		
-		<tr>
-			<td id="td">
+		<tr id="row">
+			<td>
 			<div class="row">
 						<div class="col-md-12">
 							<input type="text" id="td1" value="" class="col-md-10">
 						</div>
 						</div>
 			</td>
-			<td id="tdk1">
+			<td>
 			<div class="row">
 						<div class="col-md-12">
 							<input type="text" id="td2" value="" class="col-md-10">
@@ -225,13 +225,44 @@ if(empty($_SESSION['username'])){
 });
             }
 			function dataku(){
-					var td1=$('#td1');
-						td2=$('#td2');
-						td3=$('#td3');
-						$("td").append(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
-						$("td").append(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
-						$("td").append(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
+				rowid = rowid + 1;
+				var html_grid='\n'+
+                '<tr id="row'+rowid+'">\n'+
+					'<td> \n'+
+					        rowid+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					        jQuery1113("#no_seri_pajak").val()+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					        jQuery1113("#npwp").val()+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					         jQuery1113("#no_pkp").val()+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					         jQuery1113("#tgl_pkp").val()+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					         jQuery1113("#kode_cabang").val()+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					         jQuery1113("#jenis_usaha").val()+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					         jQuery1113("#kluspt").val()+'\n'+
+					'</td>\n'+
+					'<td> \n'+
+					         '<button id="'+rowid+'" type="button" class="btn btn-success" onclick="additem(this.id);">'+'\n'+
+							      '<i class="icon-pencil">'+'\n'+
+								  '</i>'+'\n'+
+							 '</button>'+'\n'+
+					'</td>\n'+
+				'</tr>\n'+
+					'';
+			$("tbody-item").append(html_grid);
 						};
+
 		</script>
 		</tbody>
 	</table>					

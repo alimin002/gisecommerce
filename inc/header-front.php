@@ -3,7 +3,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Geek Inovation studio Ecommerce</title>
+		<title>Klinik Ashifa </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
@@ -133,5 +133,5 @@
 					echo $_SESSION['nama'].", ";
 					}
 					?>
-				</strong>Selamat datang Geek Inovation studio Ecommerce
+				</strong>Selamat datang di klinik Ashifa
 			</section>

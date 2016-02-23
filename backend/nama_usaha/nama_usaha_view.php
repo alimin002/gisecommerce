@@ -30,7 +30,7 @@ if(empty($_SESSION['username'])){
 		</thead>
 		<tbody >
 		
-		<tr>
+		<tr id="rows">
 			<td>
 			<div class="row">
 						<div class="col-md-12">
@@ -72,13 +72,14 @@ if(empty($_SESSION['username'])){
 			</td>
 			<td>
 			</td>
-		</tr>
-		<tr>
+			<tr>
 		<td colspan='6' ></td><td>
 			<button type="button"  class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
 			
-</td>
+			</td>
 		</tr>
+		</tr>
+		
 		<script>
 		var jsonadditem="";
 		function additem()
@@ -208,12 +209,9 @@ if(empty($_SESSION['username'])){
 });
             };
 			function datagrid(){
-					var td1=$('#td1');
-						td2=$('#td2');
-						td3=$('#td3');
-						$("td").append(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
-						$("td").append(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
-						$("td").append(jQuery1113('#td1').val(jQuery1113('#no_seri_pajak').val()));
+					var text=$('#td1');
+						$("#td1").append("<li>Appended item</li>");
+						
 						};
 		
 		</script>
