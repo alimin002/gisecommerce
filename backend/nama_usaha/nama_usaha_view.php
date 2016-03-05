@@ -12,7 +12,7 @@ if(empty($_SESSION['username'])){
 			
 				if(isset($_GET['act'])) {
 					$id = $_GET['id'];
-					$sql = "delete from berita where idberita='$id' ";
+					$sql = "delete from berita where isdberita='$id' ";
 					mysql_query($sql) or die(mysql_error());
 
 				}
@@ -28,7 +28,7 @@ if(empty($_SESSION['username'])){
 		<th><b>No Telepon </b></th>
 		<th><b>Email </b></th>
 		</thead>
-		<tbody >
+		<tbody id="idtbody" >
 		
 		<tr id="rows">
 			<td>
@@ -209,10 +209,11 @@ if(empty($_SESSION['username'])){
 });
             };
 			function datagrid(){
-					var text=$('#td1');
-						$("#td1").append("<li>Appended item</li>");
-						
-						};
+					$("#idtbody").click(function(){
+					$(td1).append(nama_usaha);
+							});
+					alert("Hello! I am an alert box!");
+							  };
 		
 		</script>
 		</tbody>

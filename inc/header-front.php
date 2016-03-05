@@ -3,7 +3,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Klinik Ashifa </title>
+		<title>Klinik Estetika </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
@@ -71,7 +71,7 @@
 							</form>
 							</div>
 							</li>
-							<li><a href="index.php">Homepage</a></li>  
+							<lsi><a href="index.php">Homepage</a></li>  
 							<li><a href="index.php?mod=user&pg=register">Register/Login</a></li>
 							<li><a href="index.php?mod=page&pg=about">About Us</a></li>
 							<li><a href="index.php?mod=page&pg=contact">Contac Us</a></li>
