@@ -50,11 +50,7 @@ if(empty($_SESSION['username'])){
 $kode_pembelian=$_GET['id']; 
 $query = "select a.kode_pembelian,a.supplier_id,DATE_FORMAT(a.tanggal,'%m/%d/%Y') AS tanggal,a.grand_total,b.nm_suplier as nama_supplier from pembelian a left join supplier b on a.supplier_id=b.supplier_id where a.kode_pembelian='$kode_pembelian'";
 $result = mysql_query($query) or die(mysql_error());
-
 $data_master=mysql_fetch_assoc($result);
-//echo "vvvvvvvv".$data_master['kode_pembelian']."<br/>"; die();
-//echo $data_master['kode_pembelian'];
-
 ?>
 		<div class="row">
 				<div class="col-md-3">
@@ -248,22 +244,7 @@ $data_master=mysql_fetch_assoc($result);
       
     </div>
   </div>
-<<<<<<< HEAD
-  <button id="x" style="visible:0">x</button>
-
-									<script>
-									jQuery1113("#x").hide();
-									//menghindari konflik antar jquery
-									jQuery1113("#x").click(function(){
-									alert(1);
-									});
-									</script>
-
-<div>
-
-=======
 <div class="row">
->>>>>>> 7358a78901a673f2590ad3d59c4fa532edd9e16e
  <table class="table table-striped table-condensed">
             <thead>
                 <th>
@@ -483,45 +464,29 @@ function showmodaleditmaster(){
 var optnamasupplier='';
 var optidsupplier='';
  <?php
-				$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
-				$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_nama_supplier.php"; 
-				?>
-				
-				var str="<?php echo $str;?>";
-				//trik menyimpan data ajax dalam variabel global
-	jqxhr = jQuery1113.ajax({
-			url: str,
-			global: false,
-            async:false,
-			type: "POST",
-			data:{
-			x:'x'
-				},
-			success: function(data) {
-			/*
-			var data_supplier=JSON.parse(data);
-			
-			for(var i=0; i< data_supplier['supplier_id'].length; i++){
-				optnamasupplier=optnamasupplier+"<option>"+data_supplier['nm_suplier'][i]+"</option>\n"
-			}
-			return optidsupplier;
-			*/
-				},
-				error: function (jqXHR, textStatus, errorThrown) {
-							    alert(errorThrown);
+$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_nama_supplier.php"; 
+?>				
+var str="<?php echo $str;?>";
+jqxhr = jQuery1113.ajax({
+url: str,
+global: false,
+async:false,
+type: "POST",
+data:{
+x:'x'
+},
+success: function(data) {
+},
+error: function (jqXHR, textStatus, errorThrown) {
+alert(errorThrown);
 								//console.log("ERRORS : " + errorThrown);
-							}
-				}).responseText;
-
+}
+}).responseText;
 var data_supplier=JSON.parse(jqxhr);
-			
-			for(var i=0; i< data_supplier['supplier_id'].length; i++){
-				optnamasupplier=optnamasupplier+"<option>"+data_supplier['nm_suplier'][i]+"</option>\n"
-				
-			}
-
- //alert(optnamasupplier);
-
+for(var i=0; i< data_supplier['supplier_id'].length; i++){
+optnamasupplier=optnamasupplier+"<option value='"+data_supplier['supplier_id'][i]+"' >"+data_supplier['nm_suplier'][i]+"</option>\n"
+}
 var kode_pembelian=jQuery1113('#kode_pembelian').val();
 var nama_supplier=jQuery1113('#nama_supplier_master').val();
 var tanggal=jQuery1113('#tanggal_master').val();
@@ -535,7 +500,7 @@ var html_string='\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="kode_pembelian_modal" value="'+kode_pembelian+'" class="form-control">\n'+
+							'<input disabled type="text" id="kode_pembelian_modal" value="'+kode_pembelian+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -545,7 +510,7 @@ var html_string='\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<select class="form-control">\n'+
+							'<select class="form-control" id="supplier_id_modal">\n'+
 							'<option>'+nama_supplier+'</option>'+'\n'+
 							optnamasupplier+'\n'+
 							'</select>\n'+
@@ -558,7 +523,7 @@ var html_string='\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input class="form-control date-picker" value="'+tanggal+'" type="text" data-date-format="dd-mm-yyyy">\n'+
+							'<input id="tanggal_modal" class="form-control date-picker" value="'+tanggal+'" type="text" data-date-format="dd-mm-yyyy">\n'+
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
@@ -578,9 +543,6 @@ var html_string='\n'+
                 success: {
                     label: "Save",
                     className: "btn-success",
-<<<<<<< HEAD
-                    callback: function() {}
-=======
                     callback: function() {
 					var kode_pembelian=jQuery1113('#kode_pembelian_modal').val();
 					var supplier_id=jQuery1113("#supplier_id_modal").val();
@@ -588,17 +550,10 @@ var html_string='\n'+
 					doeditmaster(kode_pembelian,supplier_id,tanggal);
 					//location.reload();
 					}
->>>>>>> 7358a78901a673f2590ad3d59c4fa532edd9e16e
                 }
             }
 
         });
-<<<<<<< HEAD
-		 $(".date-picker").datepicker();
-		 //load data supplier	
-		      
-		 
-=======
 		 $(".date-picker").datepicker();	 
 }
 
@@ -628,52 +583,15 @@ function doeditmaster(kode_pembelian,supplier_id,tanggal){
 	alert(errorThrown);
 	}
 	});
->>>>>>> 7358a78901a673f2590ad3d59c4fa532edd9e16e
 }
 </script>
-</div>
-
-						
+</div>						
 <div class="col-md-1" style="margin-left:-3.5%;">
 <button id="btn-cetak" class="btn btn-primary" title="Simpan dan cetak"><i class="fa fa-print"></i> </button>
 </div>
 <script>
 jQuery1113( "#btn-cetak" ).click(function(){
-<<<<<<< HEAD
- <?php
-				$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
-				$str=substr($str,0,strlen($str)-9)."/Pembelian_Produk/ajax_nama_supplier.php"; 
-				?>
-				
-				var str="<?php echo $str;?>";
-			//	document.write(str);
-//alert(str);		
-		  jQuery1113.ajax({
-			url: str,
-			type: "POST",
-			data:{
-			x:'x'
-				},
-			success: function(data) {
-			//alert(data);
-			//document.write(data);
-			var data_supplier=JSON.parse(data);
-			//alert(data_supplier['supplier_id'].length);
-			//document.write(data_supplier['supplier_id'][0]);
-			for(var i=0; i< data_supplier['supplier_id'].length; i++){
-			    document.write(data_supplier['supplier_id'][i]); 
-				document.write('<br>');
-			}
-				},
-				error: function (jqXHR, textStatus, errorThrown) {
-							    alert(errorThrown);
-								//console.log("ERRORS : " + errorThrown);
-							}
-				});
-
-=======
 		
->>>>>>> 7358a78901a673f2590ad3d59c4fa532edd9e16e
 });
 
 </script>
@@ -688,17 +606,12 @@ jQuery1113( "#btn-cetak" ).click(function(){
 	var jsonitem="";
     var rowid = 0;
 	var insert_str="";
-    //rowid =rowid +1;
-    //menghindari konflik antar jquery
 	var kode_produk="";
 	var nama_produk="";
 	var harga_beli="";
 	var qty="";
 	var subtotal="";
-	
-	
-	
-    jQuery1113("#btn-ok").click(function() {
+	jQuery1113("#btn-ok").click(function(){
 	var kode_pembelian=jQuery1113("#kode_pembelian").val();
 	var kode_produk=jQuery1113("#kode_produk").val();
 	var nama_produk=jQuery1113("#nama_produk").val();
@@ -755,11 +668,6 @@ jQuery1113( "#btn-cetak" ).click(function(){
 	function showmodal(){
 
 	}
-<<<<<<< HEAD
-
-
-    function getitem(id){
-=======
 function loaditem(id){
 //alert(id);
 <?php
@@ -821,10 +729,9 @@ var nama_produk=data_detailpembelian['nama_produk'];
 var harga_beli=data_detailpembelian['harga_beli'];
 var qty=data_detailpembelian['qty'];
 var subtotal=data_detailpembelian['subtotal'];
->>>>>>> 7358a78901a673f2590ad3d59c4fa532edd9e16e
 	var html_string='\n'+
                 '<div class="row" style="border-radius: 25px;">\n'+
-                '<div class="col-md-12" style="padding:3%; background-color:#e5e5ff">\n'+
+                '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
 							'Kode Produk'+
@@ -832,16 +739,12 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-<<<<<<< HEAD
-							'<input type="text" id="kode_produkedit" value="'+''+'" class="form-control">\n'+
-=======
 							'<input type="hidden" id="id_detailedit" value="'+id_detail+'" class="col-md-10">\n'+
 							'<input type="text" id="kode_produkedit" value="'+kode_produk+'" class="col-md-10">\n'+
 							'<button onclick="loaditem(jQuery1113('+"'"+'#kode_produkedit'+"'"+').val());" class="col-md-2 btn-primary" style=" position:absolute; height:103%;">\n'+	
 							'<i class="fa fa-search">\n'+
 							'</i>\n'+
 							'</button>\n'+
->>>>>>> 7358a78901a673f2590ad3d59c4fa532edd9e16e
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -851,11 +754,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-<<<<<<< HEAD
-							'<input type="text" id="nama_produkedit" value="'+''+'" class="form-control">\n'+
-=======
 							'<input disabled type="text" id="nama_produkedit" value="'+nama_produk+'" class="form-control">\n'+
->>>>>>> 7358a78901a673f2590ad3d59c4fa532edd9e16e
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -865,11 +764,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-<<<<<<< HEAD
-							'<input type="text" id="harga_beliedit" value="'+''+'" class="form-control">\n'+
-=======
 							'<input disabled type="text" id="harga_beliedit" value="'+harga_beli+'" class="form-control">\n'+
->>>>>>> 7358a78901a673f2590ad3d59c4fa532edd9e16e
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -879,7 +774,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-							'<input type="text" id="qtyedit" value="'+''+'" class="form-control">\n'+
+							'<input type="text" id="qtyedit" value="'+qty+'" class="form-control">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -889,11 +784,7 @@ var subtotal=data_detailpembelian['subtotal'];
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
-<<<<<<< HEAD
-							'<input type="text" id="subtotaledit" value="'+''+'" class="form-control">\n'+
-=======
 							'<input disabled type="text" id="subtotaledit" value="'+subtotal+'" class="form-control">\n'+
->>>>>>> 7358a78901a673f2590ad3d59c4fa532edd9e16e
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
@@ -928,10 +819,6 @@ var subtotal=data_detailpembelian['subtotal'];
             }
 
         });
-<<<<<<< HEAD
-    }
-	function deleteitem(id) {
-=======
 				
 jQuery1113( "#kode_produkedit" ).change(function() {
 jQuery1113('#nama_produkedit').val('');
@@ -1056,7 +943,6 @@ var nama_produk=data_detailpembelian['nama_produk'];
 var harga_beli=data_detailpembelian['harga_beli'];
 var qty=data_detailpembelian['qty'];
 var subtotal=data_detailpembelian['subtotal'];
->>>>>>> 7358a78901a673f2590ad3d59c4fa532edd9e16e
 	var html_string='\n'+
                 '<div class="row">\n'+
                 '<div class="col-md-12" style="padding:3%; background-color:#e5e5ff">\n'+

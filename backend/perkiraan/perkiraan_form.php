@@ -10,7 +10,7 @@ cek_status_login($_SESSION['username']);
 		$aksi = "edit";
 		$id = $_GET['id'];
 		//baris dibawah ini disesuaikan dengan nama tabel dan idtabelnya
-		$sql = "select * from berita where idberita='$id' ";
+		$sql = "select * from perkiraan where no_perkiraan='$id' ";
 		$result = mysql_query($sql) or die(mysql_error());
 		$baris = mysql_fetch_object($result);
 
@@ -21,21 +21,35 @@ cek_status_login($_SESSION['username']);
 <script type="text/javascript" src='../assets/bootstrap/js/editor.js'></script> 
 
 <form  class="form-horizontal" method="POST" id="form1" action="berita/berita_action.php" enctype="multipart/form-data">
- <legend>  berita</legend>
+ <legend>  Perkiraan</legend>
 	<input type='hidden' name='id' value="<?php  if($aksi != 'tambah'){echo $id;}?>">
 
     
   <div class="control-group">
-    <label class="control-label" for="gambar">Gambar</label>
+    <label class="control-label" for="gambar">No Perkiraan</label>
     <div class="controls">
-      <input type="file" name='gambar' id="gambar"
+      <input type="text" name='no_perkiraan' id="no_perkiraan"
        >
     </div>
    </div>
    <div class="control-group">
-    <label class="control-label" for="isi">Isi</label>
+    <label class="control-label" for="isi">Nama Perkiraan</label>
     <div class="controls">
-      <textarea name='isi' id='isi' rows="10" class='input-xxlarge'><?php if($aksi != 'tambah'){$baris->isi;}?> </textarea>
+      <input type="text" name='nama_perkiraan' id='nama_perkiraan' rows="10" class='input-xxlarge'><?php if($aksi != 'tambah'){$baris->isi;}?> 
+     
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="isi">Kelompok</label>
+    <div class="controls">
+      <input type="text" name='kelompok' id='kelompok' rows="10" class='input-xxlarge'><?php if($aksi != 'tambah'){$baris->isi;}?> 
+     
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="isi">Keterangan</label>
+    <div class="controls">
+      <input type="text" name='keterangan' id='keterangan' rows="10" class='input-xxlarge'><?php if($aksi != 'tambah'){$baris->isi;}?> 
      
     </div>
   </div>

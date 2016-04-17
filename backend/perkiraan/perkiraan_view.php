@@ -18,13 +18,13 @@ if(empty($_SESSION['username'])){
 				}
 				//==========================================?>
 <div class='bs-docs-example'>
-	<h2 id="headings"> Banner</h2>
+	<h2 id="headings"> Perkiraan</h2>
 	<table  class="table table-striped table-condensed">
 		<thead>
-		<th><b>Banner ID</b></th>
+		<th><b>No Perkiraan</b></th>
+		<th><b>Nama Perkiraan </b></th>
+		<th><b>Kelompok </b></th>
 		<th><b>Keterangan </b></th>
-		<th><b>Foto </b></th>
-		<th><b>Aksi </b></th>
 		</thead>
 		<tbody>
 		<?php
@@ -54,7 +54,17 @@ while($rows=mysql_fetch_object($result)){
 		<tr>
 			<td>
 			<?php
-			echo $rows -> banner_id;
+			echo $rows -> no_perkiraan;
+			?>
+			</td>
+			<td>
+			<?php
+			echo $rows -> nama_perkiraan;
+			?>
+			</td>
+			<td>
+			<?php
+			echo $rows -> kelompok;
 			?>
 			</td>
 			<td>
@@ -63,15 +73,10 @@ while($rows=mysql_fetch_object($result)){
 			?>
 			</td>
 			<td>
-			<?php
-			echo $rows -> foto;
-			?>
-			</td>
-			<td>
-			<a href="index.php?mod=banner&pg=banner_form&id=" class='btn btn-xs btn-info'>
+			<a href="index.php?mod=perkiraan&pg=perkiraan_form&id=" class='btn btn-xs btn-info'>
 			<i class="icon-pencil"></i>
 			</a>
-			<a href="index.php?mod=banner&pg=banner_view&act=del&id=" onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i>
+			<a href="index.php?mod=perkiraan&pg=perkiraan_view&act=del&id=" onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i>
 			</a>
 			</td>
 		</tr>
@@ -80,7 +85,7 @@ while($rows=mysql_fetch_object($result)){
 	}?>
 
 		<tr>
-			<td colspan='3' ></td><td>
+			<td colspan='4' ></td><td>
 			<button type="button"  class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
 </td>
 		</tr>
@@ -90,13 +95,35 @@ while($rows=mysql_fetch_object($result)){
                 '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
-							'Tittle'+
+							'No Perkiraan'+
 						'</label>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
 							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="banner_id" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="no_perkiraan" value="'+''+'" class="col-md-10">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Nama Perkiraan'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="nama_perkiraan" value="'+''+'" class="col-md-10">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Kelompok'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="kelompok" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
@@ -108,17 +135,6 @@ while($rows=mysql_fetch_object($result)){
 						'<div class="col-md-12">\n'+
 							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
 							'<input type="text" id="keterangan" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Foto'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="file" id="foto" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
 				'</div>\n'+  
@@ -184,14 +200,14 @@ while($rows=mysql_fetch_object($result)){
 	</table>
 <?php	
 //=============CUT HERE for paging====================================
-$tampil2=mysql_query("select idberita from banner");
+$tampil2=mysql_query("select nama_perkiraan from perkiraan");
 $jmldata=mysql_num_rows($tampil2);
 $jumlah_halaman=ceil($jmldata/$batas);
 ?>
             <div class='dataTables_paginate paging_bootstrap'>
                 <ul class="pagination">
                     <?php
-						pagination($halaman, $jumlah_halaman, "banner"); ?>
+						pagination($halaman, $jumlah_halaman, "perkiraan"); ?>
                 </ul>
             </div>
             <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>

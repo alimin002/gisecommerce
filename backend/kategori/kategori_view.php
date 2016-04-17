@@ -32,11 +32,11 @@ if (isset($_GET['act'])) {
 </form>	 
 </div> 
 	<h1>
-							Data
-							<small>
-								<i class="ace-icon fa fa-angle-double-right"></i>
-								&amp; kategori
-							</small>
+	Data
+	<small>
+	<i class="ace-icon fa fa-angle-double-right"></i>
+	&amp; kategori
+		</small>
 	</h1>
 	<input type="hidden" id="tablename"/>
 	<table  class="table table-striped table-bordered table-hover">
@@ -69,12 +69,12 @@ while($rows=mysql_fetch_object($result)){
 			</td>
 			<td><?php echo $rows -> nama_kategori; ?></td>
 			<td style="padding:0.5%;">
-			<a href="index.php?mod=kategori&pg=kategori_form&id=<?php echo $rows -> idkategori; ?>"class='btn btn-xs btn-info'>
-			<i class="ace-icon fa fa-pencil bigger-120"></i>
-			</a>
-			<a class='btn btn-xs btn-danger' href="index.php?mod=kategori&pg=kategori_view&act=del&id=<?php echo $rows -> idkategori; ?>" onclick="return confirm('Yakin data akan dihapus?')" > 
-			<i class="ace-icon fa fa-trash-o bigger-120"></i>
-			</a>
+                            <a href="index.php?mod=kategori&pg=kategori_form&id=<?php echo $rows -> supplier_id;?>" class='btn btn-xs btn-info'>
+                                <i class="icon-pencil"></i>
+                            </a>
+                            <a href="index.php?mod=kategori&pg=kategori_view&act=del&id=<?php echo $rows -> supplier_id;?>" onclick="return confirm('Yakin data akan dihapus?');"
+							class='btn btn-danger'> <i class="icon-trash"></i>
+                            </a>
 			</td>
 		</tr>
 		<?php $no++;
@@ -82,13 +82,10 @@ while($rows=mysql_fetch_object($result)){
 	?>
 
 		<tr>
-			<td colspan='2'>
-			</td>
-			<td>
-				<a href="index.php?mod=kategori&pg=kategori_form"
-				class='btn btn-xs btn-success'	><i class="icon-plus"></i></a>
-			</td>
-		</tr>
+			<td colspan='1' ></td><td>
+			<td><a href="index.php?mod=kategori&pg=kategori_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
+				</td>
+				</tr>
 		</tbody>
 	</table>
 <?php //=============CUT HERE for paging====================================
@@ -96,15 +93,8 @@ while($rows=mysql_fetch_object($result)){
 		$jmldata = mysql_num_rows($tampil2);
 		$jumlah_halaman = ceil($jmldata / $batas);
 
-		//echo "<div class='pagination'> <ul>";
-		//for ($i = 1; $i <= $jumlah_halaman; $i++)
-
-			//echo "<li><a href='index.php?mod=kategori&pg=kategori_view&halaman=$i'>$i</a></li>";
-
-		//mysql_close();?>
-<!--</ul>
-</div>
-<br>Jumlah data :<?php echo $jmldata; ?> !-->
+?>
+		<?php echo $jmldata; ?> 
 <div class='dataTables_paginate paging_bootstrap'>
                 <ul class="pagination">
                     <?php

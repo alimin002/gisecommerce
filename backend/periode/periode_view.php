@@ -4,34 +4,34 @@
  * Candra adi putra <candraadiputra@gmail.com>
  * last edit: 15 okt 2013
  */
- 	if(empty($_SESSION['username'])){
+if(empty($_SESSION['username'])){
 			echo "<p style='color:red'>akses denied</p>";
 		exit();		
 	}
- 				//===========CODE DELETE RECORD ================
+		//===========CODE DELETE RECORD ================
+			
+				if(isset($_GET['act'])) {
+					$id = $_GET['id'];
+					$sql = "delete from berita where idberita='$id' ";
+					mysql_query($sql) or die(mysql_error());
 
-					if(isset($_GET['act'])) {
-						$id = $_GET['id'];
-						$sql = "delete from pelanggan where idpelanggan='$id' ";
-						mysql_query($sql) or die(mysql_error());
-
-					}
-					?>
-
-<div>
-	<h2 id="headings"> Data pelanggan</h2>
-	<!--<a href='index.php?mod=pelanggan&pg=peta'><i class="icon-map-marker"></i>Map View</a>-->
+				}
+				//==========================================?>
+<div class='bs-docs-example'>
+	<h2 id="headings"> Periode</h2>
 	<table  class="table table-striped table-condensed">
 		<thead>
-			<th><td><b>Nama </b></td>
-			<td><b>Email</b></td>
-			<td><b>No Telp</b></td>
-			<td><b>Aksi</b></td></th>
+		<th><b>Periode</b></th>
+		<th><b>Dari Tanggal </b></th>
+		<th><b>Sampai Tanggal </b></th>
+		<th><b>Keterangan </b></th>
+		<th><b>Aksi </b></th>
 		</thead>
 		<tbody>
-<?php
+		<?php
+				//bata paging 
 $batas='5';
-$tabel="pelanggan";
+$tabel="berita";
 if(empty($_GET['halaman'])==false){
 $halaman=$_GET['halaman'];
 }else{
@@ -44,175 +44,98 @@ $halaman=1;
 }else{
 $posisi=($halaman-1)* $batas;
 }
-$query="SELECT pelanggan.*
- from pelanggan
- limit $posisi,$batas ";
+		
+$query="SELECT * from banner order by banner_id asc limit $posisi,$batas ";
 $result=mysql_query($query) or die(mysql_error());
 $no=1;
 //proses menampilkan data
 while($rows=mysql_fetch_object($result)){
 
-			?>
-			<tr>
-			<td>
-			<?php 
-				echo $posisi+$no
-			?>
-			</td>
-			
+		?>
+		<tr>
 			<td>
 			<?php
-				echo $rows -> nama;
+			echo $rows -> periode;
 			?>
 			</td>
 			<td>
-			<?php		
-				echo $rows ->email;?>
+			<?php
+			echo $rows -> dari_tanggal;
+			?>
 			</td>
 			<td>
-			<?php		
-				echo $rows->telp;?>
+			<?php
+			echo $rows -> sampai_tanggal;
+			?>
 			</td>
-			<td>	
-					
-			<a href="index.php?mod=pelanggan&pg=pelanggan_form&id=" class='btn btn-xs btn-info'>
+			<td>
+			<?php
+			echo $rows -> keterangan;
+			?>
+			</td>
+			<td>
+			<a href="index.php?mod=periode&pg=periode_form&id=" class='btn btn-xs btn-info'>
 			<i class="icon-pencil"></i>
 			</a>
-			<a href="index.php?mod=pelanggan&pg=pelanggan_view&act=del&id=" onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i>
+			<a href="index.php?mod=periode&pg=periode_view&act=del&id=" onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i>
 			</a>
 			</td>
-			</tr>
-			<?php	$no++;
+		</tr>
+		<?php
+	$no++;
 	}?>
 
-			<tr>
-			<td colspan='3' ></td><td>
+		<tr>
+			<td colspan='4' ></td><td>
 			<button type="button"  class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
-			</td>
-			</tr>
-			<script>
+</td>
+		</tr>
+		<script>
 		var html_string='\n'+
                 '<div class="row" style="border-radius: 25px;">\n'+
                 '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
-							'ID Pelanggan'+
+							'Periode'+
 						'</label>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
 							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="banner_id" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="periode" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<label class="col-md-8">\n'+
-							'Nama Pelanggan'+
+							'Dari Tanggal'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="date" id="dari_tanggal" value="'+''+'" class="col-md-10">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Sampai Tanggal'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="date" id="sampai_tanggal" value="'+''+'" class="col-md-10">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Keterangan'+
 						'</label>\n'+
 					'</div>\n'+
 					'<div class="row">\n'+
 						'<div class="col-md-12">\n'+
 							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
 							'<input type="text" id="keterangan" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'jenis Kelamin'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="foto" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Email'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="foto" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Alamat'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="foto" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Kode Post'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="foto" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Kota'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="foto" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Telp'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="foto" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Tanggal Daftar'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="date" id="foto" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Password'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="password" id="foto" value="'+''+'" class="col-md-10">\n'+
-						'</div>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<label class="col-md-8">\n'+
-							'Status'+
-						'</label>\n'+
-					'</div>\n'+
-					'<div class="row">\n'+
-						'<div class="col-md-12">\n'+
-							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
-							'<input type="text" id="foto" value="'+''+'" class="col-md-10">\n'+
 						'</div>\n'+
 					'</div>\n'+
 					
@@ -277,7 +200,7 @@ while($rows=mysql_fetch_object($result)){
 		</script>
 		</tbody>
 	</table>
-	<?php
+<?php	
 //=============CUT HERE for paging====================================
 $tampil2=mysql_query("select idberita from banner");
 $jmldata=mysql_num_rows($tampil2);
@@ -299,7 +222,8 @@ if(isset($_GET['status'])) {
 		echo "operasi gagal";
 	}
 }
-
-//close database?>
+//close database
+//}
+?>
 
 </div>
