@@ -27,7 +27,7 @@ include('../inc/header-back.php');
 					<?php 
 						if (isset($_SESSION['username'])){ ?>
 					<li style="color:white;">
-					<img img src="../upload/pengguna/ekha.jpg" width=45px height=35px />
+					<img img src="../upload/pengguna/ekha.jpg" width=35px height=35px />
 					<?php echo $_SESSION['username']; ?>
 					</li>
 					<?php } ?>
