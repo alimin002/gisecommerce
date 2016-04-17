@@ -32,7 +32,7 @@ if (isset($_GET['act'])) {
 																		</form>	 
 																	</div> 
 												
-												<!--<div class="widget-main" style="float:right;">
+											<div class="widget-main" style="float:right;">
 												<form class="form-search">
 													<div class="row">
 													<div class="col-xs-9 col-sm-8">
@@ -56,7 +56,7 @@ if (isset($_GET['act'])) {
 													</div>
 												</form>	
 		
-											</div> ---->
+											</div> 
 		<h1>
 		Data
 		<small>
@@ -94,7 +94,8 @@ $query="SELECT produk.*, kategori.nama_kategori
 $result=mysql_query($query) or die(mysql_error());
 $no=1;
 //proses menampilkan data
-while($rows=mysql_fetch_object($result)){
+while($rows=mysql_fetch_object($result))
+			{
 
 			?>
 			<tr>
@@ -104,22 +105,23 @@ while($rows=mysql_fetch_object($result)){
 				<td><?php echo $rows -> nama_produk; ?></td>
 				<td style="width:40%;"><?php echo $rows ->deskripsi; ?></td>
 				<td><?php echo $rows -> nama_kategori; ?></td>
-				<td>		
-					<a href="index.php?mod=produk&pg=produk_form&id=<?php echo $rows -> idproduk; ?>"class='btn btn-xs btn-info'> 
-						<i class="icon-pencil"></i>
-					</a>
-					<a href="index.php?mod=produk&pg=produk_view&act=del&id=<?php echo $rows -> idproduk; ?>"onclick="return confirm('Yakin data akan dihapus?');"class='btn btn-danger'> <i class="icon-trash"></i>
-					</a>
-				</td>
+				<td>
+                            <a href="index.php?mod=produk&pg=produk_form&id=<?php echo $rows -> supplier_id;?>" class='btn btn-xs btn-info'>
+                                <i class="icon-pencil"></i>
+                            </a>
+                            <a href="index.php?mod=produk&pg=produk_view&act=del&id=<?php echo $rows -> supplier_id;?>" onclick="return confirm('Yakin data akan dihapus?');"
+							class='btn btn-danger'> <i class="icon-trash"></i>
+                            </a>
+               </td>
 			</tr>
 			<?php $no++;
-				}
+			}
 			?>
-
 			<tr>
-				<td colspan='6' ></td><td><a href="index.php?mod=produk&pg=produk_form"
-				class='btn btn-xs btn-success'	><i class="icon-plus"></i></a></td>
-			</tr>
+               <td colspan='4'></td>
+               <td><a href="index.php?mod=produk&pg=produk_form" class='btn btn-xs btn-success'><i class="icon-plus"></i></a></td>
+           </tr>
+			
 		</tbody>
 	</table>
 	<?php //=============CUT HERE for paging====================================
@@ -127,20 +129,17 @@ while($rows=mysql_fetch_object($result)){
 
 	$jmldata = mysql_num_rows($tampil2);
 	$jumlah_halaman = ceil($jmldata / $batas);
-?>
-<!--------<div class='pagination'>
-	<ul>
-<?php // pagination($halaman, $jumlah_halaman, "produk"); ?>
+	?>
 	</ul>
-</div>-------->
+</div>
 
-<div class='dataTables_paginate paging_bootstrap'>
+		<div class='dataTables_paginate paging_bootstrap'>
                 <ul class="pagination">
                     <?php
-pagination($halaman, $jumlah_halaman, "produk"); ?>
+					pagination($halaman, $jumlah_halaman, "produk"); ?>
                 </ul>
-            </div>
-            <div class='well'>Jumlah data :<strong><?php echo $jmldata; ?> </strong></div>
+         </div>
+           <div class='well'>
 <?php
 // KODE UNTUK MENAMPILKAN PESAN STATUS
 if (isset($_GET['status'])) {

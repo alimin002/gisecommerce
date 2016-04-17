@@ -80,9 +80,106 @@ while($rows=mysql_fetch_object($result)){
 	}?>
 
 		<tr>
-			<td colspan='3' ></td><td><a href="index.php?mod=banner&pg=banner_form"
-			class='btn btn-success'	><i class="icon-plus"></i></a></td>
+			<td colspan='3' ></td><td>
+			<button type="button"  class="btn btn-success" onclick="additem();">  <i class="fa fa-plus" >  </i>  </button>
+</td>
 		</tr>
+		<script>
+		var html_string='\n'+
+                '<div class="row" style="border-radius: 25px;">\n'+
+                '<div class="col-md-12" style="padding:3%; background-color:#EFF3F8">\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Tittle'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="banner_id" value="'+''+'" class="col-md-10">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Keterangan'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="text" id="keterangan" value="'+''+'" class="col-md-10">\n'+
+						'</div>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<label class="col-md-8">\n'+
+							'Foto'+
+						'</label>\n'+
+					'</div>\n'+
+					'<div class="row">\n'+
+						'<div class="col-md-12">\n'+
+							'<input type="hidden" id="id_detailedit" value="'+''+'" class="col-md-10">\n'+
+							'<input type="file" id="foto" value="'+''+'" class="col-md-10">\n'+
+						'</div>\n'+
+					'</div>\n'+
+				'</div>\n'+  
+				'</div>\n'+
+				'';
+    
+		function additem() 
+			{
+				bootbox.dialog({
+            title: "Tambah Item Pembelian",
+            message:html_string,
+            buttons: {
+                dismiss: {
+                    label: "Cancel",
+                    className: "btn-default",
+                    callback: function() {
+
+                    }
+                },
+                success: {
+                    label: "Save",
+                    className: "btn-success",
+                    callback: function() {
+					var tittle=jQuery1113('#tittle').val();
+					var keterangan=jQuery1113('#keterangan').val();
+					var foto=jQuery1113('#foto').val();
+					message:alert(sukses);
+					doinsertitem(banner_id,keterangan,foto);
+					}
+                }
+            }
+});
+            }
+			
+			function doinsertitem(banner_id,keterangan,foto){
+<?php
+	$str="http://".$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'];
+	$str=substr($str,0,strlen($str)-9)."/banner/ajax_insert_item2.php"; 
+	?>
+	var str="<?php echo $str;?>";
+	jQuery1113.ajax({
+	url: str,
+	type: "POST",
+	data:{
+	banner_id		 :banner_id,
+	keterangan		:keterangan,
+	foto			:foto,
+	
+	},
+	success:function(data){
+	//alert(data);
+	var datapembelian=JSON.parse(data);
+	showgrid(datapembelian);
+	},
+	error: function (jqXHR, textStatus, errorThrown) {
+	alert(errorThrown);
+	}
+	});	
+
+}
+		</script>
 		</tbody>
 	</table>
 <?php	
